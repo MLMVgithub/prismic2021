@@ -34,6 +34,10 @@ const ListItem = styled.li.attrs((props) => ({
         .title {
           align-items: flex-start;
           height: auto;
+          width: 100%;
+          i {
+            margin-left: auto;
+          }
         }
         time {
           color: ${({ theme }) => theme.colors.page[500]};
