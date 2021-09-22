@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="475px" height="425px" viewBox="0 0 475 425" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 5 Copy 7</title>
+    <defs>
+        <filter x="-3.3%" y="-2.9%" width="106.6%" height="105.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-20" transform="translate(-122.000000, -149.000000)">
+            <g id="Group-5-Copy-7" transform="translate(122.000000, 151.000000)">
+                <g id="Group-18" filter="url(#filter-1)" transform="translate(56.000000, 0.000000)">
+                    <polygon id="Fill-1" fill="#E07C51" points="0 0 109.257267 317 147 207.490585 75.4874529 0"></polygon>
+                    <polygon id="Fill-4" fill="#CEE007" points="285.690909 0 143 417 218.309091 417 361 0"></polygon>
+                </g>
+                <polygon id="Fill-2" fill="#51B5E0" points="400 248.215196 400 417 475 417 475 29"></polygon>
+                <polygon id="Fill-3" fill="#51B5E0" points="0 417 75 417 75 254.842582 0 35"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
