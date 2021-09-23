@@ -308,7 +308,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
         </Filter>
       )}
       <Section
-        contentSize={pageIntro.show_filters === true ? `lg marginTopInital` : `lg marginTopInital`}
+        contentSize={pageIntro.show_filters === true ? `lg marginTopInital` : `lg marginTopHeader`}
       >
         <ListWrapper>
           <SearchTitle
