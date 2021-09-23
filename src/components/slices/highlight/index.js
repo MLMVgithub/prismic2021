@@ -92,7 +92,7 @@ const Highlight = styled.section`
 
     .media {
       /* display: contents; */
-      display: contents;
+      display: flex;
 
       .imageWrapper {
         /* width: 100%; */
@@ -418,7 +418,7 @@ const ImageHighlight = ({ slice }) => {
 
   useEffect(() => {
     // console.log("animation activated = " + slice.primary.animate_scroll)
-    if (slice.primary.animate_scroll === true) return
+    if (slice.primary.animate_scroll !== true) return
 
     const aninItems = gsap.utils.toArray('.animActive')
     aninItems.forEach((item) => {
@@ -433,7 +433,7 @@ const ImageHighlight = ({ slice }) => {
       })
 
       tl.fromTo(
-        item.querySelector('.media'),
+        item.querySelector('.highlight div'),
         { x: item.classList.contains('media-right') ? 64 : -64 },
         { x: 0, ease: Power3.easeOut }
       )
@@ -453,19 +453,7 @@ const ImageHighlight = ({ slice }) => {
   return (
     <Highlight
       id={sectionID}
-      className={
-        'highlight section-layout ' +
-        sectionWidth +
-        ' ' +
-        'media-' +
-        positionMedia +
-        ' ' +
-        forGroundColor +
-        ' ' +
-        bgColor +
-        ' ' +
-        animItem
-      }
+      className={`highlight section-layout ${sectionWidth} media-${positionMedia} ${forGroundColor} ${bgColor} ${animItem}`}
       style={{
         paddingTop: vPaddingTop,
         paddingBottom: vPaddingBottom,
@@ -511,19 +499,19 @@ const ImageHighlight = ({ slice }) => {
         )}
 
         <div
-          className={'media media-' + positionMedia}
-          // style={{
-          //   width: mediaSize + '%',
-          // }}
+          className={`media media-${positionMedia}`}
+          style={{
+            width: mediaSize + '%',
+          }}
         >
           {mediaType === 'Image' && (
             <div className={`imageWrapper ${imagFormat}`}>
               <GatsbyImage
                 image={mediaContentObj}
                 alt={mediaContentObj.alt ? mediaContentObj.alt : 'Placeholder image'}
-                style={{
-                  width: mediaSize + '%',
-                }}
+                // style={{
+                //   width: mediaSize + '%',
+                // }}
               />
             </div>
           )}
@@ -574,9 +562,3 @@ const ImageHighlight = ({ slice }) => {
 }
 
 export default ImageHighlight
-// export default withPrismicPreview(ImageHighlight, [
-//   {
-//     repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
-//     // linkResolver,
-//   },
-// ])
