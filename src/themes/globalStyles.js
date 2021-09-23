@@ -84,6 +84,10 @@ export const GlobalStyles = createGlobalStyle`
     margin-top:0 !important;
   }
 
+  .marginTopHeader {
+    margin-top:0 ${({ theme }) => theme.header.height} !important;
+  }
+
   [data-rmiz-overlay='true'] {
     background-color: ${({ theme }) => theme.colors.header.default} !important;
   }
