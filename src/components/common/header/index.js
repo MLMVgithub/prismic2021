@@ -10,7 +10,7 @@ import IconMaterial from '/src/components/common/icons/material'
 
 // Layout
 import Brand from '../brand/'
-import LocaleSwitcher from './localeSwitcher/'
+// import LocaleSwitcher from './localeSwitcher/'
 
 // Styles
 import '/src/styles/hamburger.scss'
@@ -723,7 +723,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
             </button>
           </li>
         </ul>
-        <LocaleSwitcher currentLang={currentLang} currentPath={currentPath} />
+        {/* <LocaleSwitcher currentLang={currentLang} currentPath={currentPath} /> */}
       </nav>
     </HeaderWrapper>
   )

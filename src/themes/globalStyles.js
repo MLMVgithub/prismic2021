@@ -97,14 +97,14 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${({ theme }) => theme.fontSize['5xl']};
     font-family: ${({ theme }) => theme.font.slab};
     line-height: ${({ theme }) => theme.lineHeight.tight};
-    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
   h2 {
     font-size: ${({ theme }) => theme.fontSize['4xl']};
     font-family: ${({ theme }) => theme.font.slab};
     line-height: ${({ theme }) => theme.lineHeight.tight};
-    font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
   h3 {

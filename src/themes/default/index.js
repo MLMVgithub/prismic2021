@@ -207,7 +207,7 @@ export const defaultTheme = {
 
   font: {
     sans: 'Roboto, sans-serif',
-    slab: 'Rokkitt, serif',
+    slab: 'Rokkitt',
     mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
     serif: 'Merriweather, serif',
   },
