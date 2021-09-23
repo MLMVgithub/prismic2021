@@ -54,7 +54,8 @@ export const GlobalStyles = createGlobalStyle`
   a:hover,
   a:visited {
     color: ${({ theme }) => theme.colors.primary[1100]};
-    text-decoration: none;
+    /* text-decoration: none; */
+    text-decoration: underline;
   }
 
   a:hover {

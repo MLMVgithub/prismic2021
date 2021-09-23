@@ -169,6 +169,7 @@ const HeaderWrapper = styled.header`
           padding: ${({ theme }) => theme.padding['1/2']};
           position: relative;
           text-align: left;
+          text-decoration: none;
           display: inline-flex;
           align-items: center;
           cursor: pointer;

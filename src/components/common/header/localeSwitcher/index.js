@@ -74,6 +74,8 @@ const ListLocales = styled.ul`
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
       width: fit-content;
       margin-left: auto;
+      text-decoration: none;
+
       i {
         margin-right: ${({ theme }) => theme.margin['1/8']};
         color: ${({ theme }) => theme.colors.primary[800]};

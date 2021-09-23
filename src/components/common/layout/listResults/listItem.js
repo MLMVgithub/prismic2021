@@ -68,6 +68,7 @@ const ListItem = styled.li.attrs((props) => ({
           flex-direction: row;
           grid-gap: ${({ theme }) => theme.margin['1/4']};
           width: fit-content;
+          text-decoration: none;
           i {
             color: ${({ theme }) => theme.colors.secondary.default};
           }
