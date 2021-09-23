@@ -77,7 +77,7 @@ const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
                     <IconMaterial icon={'arrow_forward'} />
                   </div>
                 )}
-                {eventType === 'News item' && date && <time>{date}</time>}
+                {eventType === 'News item' && date !== 'Invalid date' && <time>{date}</time>}
                 {intro && <p>{intro}</p>}
               </div>
 

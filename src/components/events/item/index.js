@@ -245,7 +245,7 @@ const EventItem = ({ currentLang, itemData }) => {
               </span>
             )}
 
-            {eventType === 'News item' && date && (
+            {eventType === 'News item' && date !== 'Invalid date' && (
               <span className="dateLocation">
                 <time>{date}</time>
               </span>
