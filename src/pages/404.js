@@ -41,9 +41,10 @@ const NotFound = styled.section`
 const NotFoundPage = ({ data }) => {
   if (!data) return null
   const primaryNav = data.prismicMainNavigation.data.nav
+  const footerNav = data.prismicFooterNavigation.data.nav
   const currentLang = data.prismicMainNavigation.lang
   return (
-    <Layout currentLang={currentLang} primaryNav={primaryNav}>
+    <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
       <Bground404 />
       <NotFound className="section-layout">
         <span>
@@ -101,6 +102,36 @@ export const query = graphql`
                 lang
               }
               sub_nav_link_label {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ## Get the footer nav in local context
+    prismicFooterNavigation(lang: { eq: $locale }) {
+      type
+      lang
+      _previewable
+      data {
+        nav {
+          ... on PrismicFooterNavigationDataNavNavItem {
+            id
+            primary {
+              label {
+                text
+              }
+            }
+            items {
+              nav_link {
+                uid
+                type
+                lang
+                id
+              }
+              link_label {
                 text
               }
             }
