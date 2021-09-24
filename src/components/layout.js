@@ -54,7 +54,7 @@ const LayoutWrapper = styled.div`
     }
   }
 `
-const Layout = ({ children, currentLang, primaryNav }) => {
+const Layout = ({ children, currentLang, primaryNav, footerNav }) => {
   var pathName = ''
   if (typeof window !== 'undefined') {
     pathName = window.location.pathname
@@ -101,7 +101,7 @@ const Layout = ({ children, currentLang, primaryNav }) => {
           {children}
         </main>
       </div>
-      <Footer currentLang={currentLang} currentPrefix={currentPrefix} />
+      <Footer currentLang={currentLang} currentPrefix={currentPrefix} footerNav={footerNav} />
     </LayoutWrapper>
   )
 }

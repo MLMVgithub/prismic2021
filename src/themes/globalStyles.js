@@ -25,6 +25,7 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: initial;
     font-family: ${({ theme }) => theme.font.sans};
     font-size: ${({ theme }) => theme.fontSize.base};
+    letter-spacing: 0;
     color: ${({ theme }) => theme.colors.page.default};
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-smoothing: antialiased;

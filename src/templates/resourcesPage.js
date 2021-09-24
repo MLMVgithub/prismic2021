@@ -29,14 +29,13 @@ const ResourcesPage = ({ data, pageContext }) => {
   }
 
   const document = data.allPrismicResources.edges[0].node
-  // const primaryNav = data.prismicPrimaryNavigation.data.top_navigation
-  // const currentLang = data.prismicPrimaryNavigation.lang
 
   const primaryNav = data.prismicMainNavigation.data.nav
+  const footerNav = data.prismicFooterNavigation.data.nav
   const currentLang = data.prismicMainNavigation.lang
 
   return (
-    <Layout currentLang={currentLang} primaryNav={primaryNav}>
+    <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
       <SeoZone currentLang={currentLang} seoZone={document.data.body} />
       <SecondaryNav
         currentLang={currentLang}
@@ -92,6 +91,37 @@ export const query = graphql`
       }
     }
 
+    ## Get the footer nav in local context
+    prismicFooterNavigation(lang: { eq: $locale }) {
+      type
+      lang
+      _previewable
+      data {
+        nav {
+          ... on PrismicFooterNavigationDataNavNavItem {
+            id
+            primary {
+              label {
+                text
+              }
+            }
+            items {
+              nav_link {
+                uid
+                type
+                lang
+                id
+              }
+              link_label {
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ## Resources page
     allPrismicResources(filter: { lang: { eq: $locale }, uid: { eq: $uid } }) {
       edges {
         next {

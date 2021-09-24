@@ -110,7 +110,8 @@ const HeaderWrapper = styled.header`
 
     a.brand {
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        right: 64px;
+        /* right: 64px; */
+        right: ${({ theme }) => theme.padding['1/2']};
         left: auto;
       }
     }
@@ -303,13 +304,55 @@ const HeaderWrapper = styled.header`
         li {
           display: flex;
           align-items: center;
+          line-height: initial;
           /* height: ${({ theme }) => theme.header.height}; */
+
+          a,
+          button {
+            font-size: 95%;
+            text-align: center;
+            line-height: initial;
+            height: ${({ theme }) => theme.header.height};
+          }
+
+          a.activeNavItem,
+          button.activeNavItem {
+            border: none;
+            margin: 0;
+            font-weight: initial;
+          }
+
+          a:after,
+          button:after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            visibility: hidden;
+            /* background-color: ${({ theme }) => theme.colors.page.bground.default}; */
+            background-color: ${({ theme }) => theme.colors.card[200]};
+            height: ${({ theme }) => theme.margin['1/8']};
+            border-radius: 0;
+            transform: scaleX(0);
+            transition: all 150ms ease-in-out;
+          }
+
+          a:hover:after,
+          button:hover:after,
+          a.activeNavItem:after,
+          button.activeNavItem:after {
+            left: 2px;
+            right: 2px;
+            width: auto;
+            visibility: visible;
+            transform: scaleX(1);
+          }
 
           button.secondaryNavBtn {
             display: flex;
             align-items: center;
             font-weight: normal;
             position: relative;
+            border-left: none;
             z-index: 2000;
             i {
               margin-left: ${({ theme }) => theme.margin['1/4']};
@@ -345,9 +388,10 @@ const HeaderWrapper = styled.header`
 
             li {
               padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
+
               a {
                 white-space: nowrap;
-                padding: ${({ theme }) => theme.padding['1/8']}
+                padding: ${({ theme }) => theme.padding['1/4']}
                   ${({ theme }) => theme.padding['1/2']};
                 border-radius: ${({ theme }) => theme.borderRadius.sm};
                 display: flex;
@@ -379,62 +423,37 @@ const HeaderWrapper = styled.header`
             display: flex;
           }
 
-          a,
-          p,
-          span,
-          button {
-            font-size: 95%;
-            line-height: 190%;
-            font-weight: 400;
-            color: ${({ theme }) => theme.colors.header.text.default};
-            margin: 0;
-            padding-left: ${({ theme }) => theme.padding['1/2']};
-            padding-right: ${({ theme }) => theme.padding['1/2']};
-            position: relative;
-            text-align: center;
-            cursor: pointer;
-            z-index: 10000;
-          }
+          ul.secondaryNavList {
+            a,
+            p,
+            span,
+            button {
+              /* line-height: 190%; */
+              line-height: initial;
+              height: auto;
+              font-weight: 400;
+              color: ${({ theme }) => theme.colors.header.text.default};
+              margin: 0;
+              padding-left: ${({ theme }) => theme.padding['1/2']};
+              padding-right: ${({ theme }) => theme.padding['1/2']};
+              position: relative;
+              text-align: center;
+              cursor: pointer;
+              z-index: 10000;
+            }
 
-          a:hover,
-          button:hover {
-            color: ${({ theme }) => theme.colors.header.text.default};
-          }
+            a:hover,
+            button:hover {
+              color: ${({ theme }) => theme.colors.header.text.default};
+            }
 
-          a.activeNavItem,
-          button.activeNavItem {
-            border-left: none;
-            font-weight: normal;
-            margin: inherit;
-            color: ${({ theme }) => theme.colors.header.text.default};
-          }
-
-          a:after,
-          button:after {
-            content: '';
-            position: absolute;
-            bottom: 0px;
-            visibility: hidden;
-            /* background-color: ${({ theme }) => theme.colors.page.bground.default}; */
-            background-color: ${({ theme }) => theme.colors.card[200]};
-
-            height: ${({ theme }) => theme.margin['1/8']};
-            /* margin: 0 2px; */
-            border-radius: 0;
-
-            transform: scaleX(0);
-            transition: all 150ms ease-in-out;
-          }
-
-          a:hover:after,
-          button:hover:after,
-          a.activeNavItem:after,
-          button.activeNavItem:after {
-            left: 2px;
-            right: 2px;
-            width: auto;
-            visibility: visible;
-            transform: scaleX(1);
+            a.activeNavItem,
+            button.activeNavItem {
+              border-left: none;
+              font-weight: normal;
+              margin: inherit;
+              color: ${({ theme }) => theme.colors.header.text.default};
+            }
           }
         }
 

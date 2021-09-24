@@ -1,0 +1,48 @@
+{
+  "Main": {
+    "nav": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": null,
+        "choices": {
+          "nav_item": {
+            "type": "Slice",
+            "fieldset": "Footer Nav Item",
+            "description": "Nav Item with Sub Navigation",
+            "icon": "insert_link",
+            "display": "list",
+            "non-repeat": {
+              "label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Label",
+                  "placeholder": "Enter Category Label..."
+                }
+              }
+            },
+            "repeat": {
+              "link_label": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "Link Label",
+                  "placeholder": "Enter Link Label..."
+                }
+              },
+              "nav_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Nav Link",
+                  "placeholder": "Select Nav Link...",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

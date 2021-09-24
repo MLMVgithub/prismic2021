@@ -8,6 +8,7 @@ import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 const GeneralPageTemplate = ({ data, location }) => {
   //Validate data for Gastby Build Gatsby Build breaks here for Deleate / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174
   const primaryNavData = data.allPrismicMainNavigation.edges.slice(0, 1).pop()
+  const footerNavData = data.allPrismicFooterNavigation.edges.slice(0, 1).pop()
 
   if (!data || !primaryNavData) return null
   // if (!data) return null
@@ -17,10 +18,12 @@ const GeneralPageTemplate = ({ data, location }) => {
   // const currentLang = data.prismicPrimaryNavigation.lang
 
   const primaryNav = primaryNavData.node.data.nav
+  const footerNav = footerNavData.node.data.nav
+
   const currentLang = primaryNavData.node.lang
 
   return (
-    <Layout currentLang={currentLang} primaryNav={primaryNav}>
+    <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
       <SeoZone currentLang={currentLang} seoZone={document.data.body1} />
       <SliceZone currentLang={currentLang} sliceZone={document.data.body} />
     </Layout>
@@ -64,6 +67,40 @@ export const query = graphql`
                     lang
                   }
                   sub_nav_link_label {
+                    text
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ## Get the footer nav in local context
+    allPrismicFooterNavigation(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          type
+          lang
+          id
+          data {
+            nav {
+              ... on PrismicFooterNavigationDataNavNavItem {
+                id
+                primary {
+                  label {
+                    text
+                  }
+                }
+                items {
+                  nav_link {
+                    uid
+                    type
+                    lang
+                    id
+                  }
+                  link_label {
                     text
                   }
                 }

@@ -98,6 +98,7 @@ module.exports = {
           forms: require('./custom_types/forms.json'),
           shared_content: require('./custom_types/shared_content.json'),
           main_navigation: require('./custom_types/main_navigation.json'),
+          footer_navigation: require('./custom_types/footer_navigation.json'),
           seo_cards: require('./custom_types/seo_cards.json'),
         },
       },
