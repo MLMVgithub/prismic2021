@@ -45,6 +45,7 @@ const SecondaryNavWrapper = styled.section`
       color: ${({ theme }) => theme.colors.header.text.default};
       background-color: transparent;
       text-align: left;
+      text-decoration: none;
       cursor: pointer;
       user-select: none;
       line-height: ${({ theme }) => theme.lineHeight.tight};
