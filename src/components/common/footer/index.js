@@ -110,20 +110,22 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
   //   }
   // `)
 
+  // console.log(footerNav)
+
   return (
     <FooterWrapper>
       <div>
         <ScrollToTop />
         {footerNav.length > 0 ? (
-          <ul className="footerNavWrapper" aria-label="">
-            {footerNav.map((header, index) => {
+          <ul className="footerNavWrapper">
+            {footerNav.map((header) => {
               return (
-                <li>
+                <li key={header.id}>
                   {header.primary.label.text}
                   <ul className="footerNav" aria-label="Footer navigation">
-                    {header.items.map((navItem, index) => {
+                    {header.items.map((navItem) => {
                       return (
-                        <li key={`${navItem.id}`}>
+                        <li key={navItem.id}>
                           <Link to={linkResolver(navItem.nav_link)}>{navItem.link_label.text}</Link>
                         </li>
                       )
