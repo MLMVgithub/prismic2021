@@ -10,7 +10,6 @@ module.exports = {
     description: `Connecting the disables community to Peer Supporters - My Life My Voice`,
     siteUrl: `https://www.mylifemyvoice.org.nz`, // No trailing slash allowed!
     defaultImage: 'src/images/svg/brand-mlmv.inline.svg', // Path to your image you placed in the 'static' folder
-    // defaultImage: '/images/pkoenders.png', // Path to your image you placed in the 'static' folder
     author: 'Peter Koenders',
     year: '2021',
   },
