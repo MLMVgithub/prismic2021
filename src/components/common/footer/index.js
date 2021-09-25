@@ -26,7 +26,7 @@ const FooterWrapper = styled.footer`
     z-index: 1000 !important;
 
     .footerNavWrapper {
-      padding: ${({ theme }) => theme.margin.default} 0;
+      padding: ${({ theme }) => theme.margin.default} ${({ theme }) => theme.margin['1/2']};
       margin: -${({ theme }) => theme.margin.default} 0 ${({ theme }) => theme.margin['4xl']} 0;
       border-top: 1px solid ${({ theme }) => theme.colors.footer[900]};
       border-bottom: 1px solid ${({ theme }) => theme.colors.footer[900]};
@@ -37,6 +37,11 @@ const FooterWrapper = styled.footer`
       justify-content: center;
       align-items: flex-start;
       list-style: none;
+
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        justify-content: space-between;
+        justify-content: space-evenly;
+      }
       > li {
         width: auto;
         /* color: ${({ theme }) => theme.colors.footer[200]}; */
