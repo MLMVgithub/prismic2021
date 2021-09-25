@@ -39,7 +39,6 @@ const FooterWrapper = styled.footer`
       list-style: none;
 
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        justify-content: space-between;
         justify-content: space-evenly;
       }
       > li {
@@ -65,6 +64,9 @@ const FooterWrapper = styled.footer`
           a {
             margin: 0;
             text-decoration: none;
+            @media (max-width: ${({ theme }) => theme.screens.sm}) {
+              padding: ${({ theme }) => theme.margin['1/8']} 0;
+            }
           }
           a:hover {
             text-decoration: underline;
