@@ -24,6 +24,7 @@ const LayoutWrapper = styled.div`
       z-index: 1;
       flex-grow: 1;
       min-width: 320px;
+      position: relative;
 
       section.section-layout:first-child {
         margin-top: 60px;

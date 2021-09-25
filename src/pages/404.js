@@ -12,6 +12,14 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
+const BgroundImageWrapper = styled.div`
+  div:after {
+    bottom: 0px;
+    top: 60px;
+    height: auto;
+  }
+`
+
 const NotFound = styled.section`
   margin: 0;
   padding: 0;
@@ -45,7 +53,9 @@ const NotFoundPage = ({ data }) => {
   const currentLang = data.prismicMainNavigation.lang
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
-      <Bground404 />
+      <BgroundImageWrapper>
+        <Bground404 />
+      </BgroundImageWrapper>
       <NotFound className="section-layout">
         <span>
           <h1>Oh purr-leaze!</h1>

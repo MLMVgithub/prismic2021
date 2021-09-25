@@ -4,6 +4,8 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
 
+import styled from 'styled-components'
+
 const BackgroundSection = () => {
   const { placeholderImage } = useStaticQuery(
     graphql`
@@ -15,7 +17,7 @@ const BackgroundSection = () => {
               layout: FULL_WIDTH
               transformOptions: {
                 fit: COVER
-                cropFocus: ATTENTION
+                cropFocus: CENTER
                 #grayscale: true
                 duotone: { highlight: "#ebd956", shadow: "#031223", opacity: 33 }
               }
@@ -33,38 +35,27 @@ const BackgroundSection = () => {
 
   return (
     <BackgroundImage
-      Tag="section"
+      // Tag="section"
       // Spread bgImage into BackgroundImage:
       {...bgImage}
       preserveStackingContext
       style={{
-        position: 'absolute',
+        // position: 'absolute',
+        // marginTop: 60,
+        position: 'intial',
         overflow: 'hidden',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        // backgroundColor: '#000',
-        // opacity: '.3',
-
-        // zIndex: '-1',
+        display: 'flex',
+        // flexGrow: 1,
+        // top: 60,
+        // bottom: 0,
+        // height: '100vh',
+        // left: 0,
+        // right: 0,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          flexGrow: '1',
-          // height: '100vh',
-          width: '100%',
-          // zIndex: '-1',
-          position: 'absolute',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          top: 0,
-        }}
-      >
-        <GatsbyImage image={image} />
-      </div>
+      <GatsbyImage image={image} />
     </BackgroundImage>
   )
 }
