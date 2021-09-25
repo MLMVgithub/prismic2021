@@ -35,34 +35,34 @@ module.exports = {
             {
               family: `Material+Icons+Round`,
               text: `abcdefghijklmnopqrstuvwxyz_`,
-              // strategy: 'base64', // 'base64' || 'cdn'
+              strategy: 'base64', // 'base64' || 'cdn'
             },
 
             {
               family: 'Roboto',
               axes: 'wght@300;400;500;600',
               // fontDisplay: 'swap',
-              // strategy: 'base64', // 'base64' || 'cdn'
+              strategy: 'base64', // 'base64' || 'cdn'
             },
 
             {
               family: 'Rokkitt',
               axes: 'wght@300;500;700;900',
               // fontDisplay: 'swap',
-              // strategy: 'base64',
+              strategy: 'base64',
             },
 
             {
               family: 'Merriweather',
               axes: 'wght@400;700',
               // fontDisplay: 'swap',
-              // strategy: 'base64',
+              strategy: 'base64',
             },
           ],
         },
-        // useMinify: true,
-        // usePreload: true,
-        // usePreconnect: false,
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: true,
       },
     },
 
