@@ -40,35 +40,28 @@ module.exports = {
 
             {
               family: 'Roboto',
-              // variants: ['300', '400', '500', '600'],
               axes: 'wght@300;400;500;600',
-              // subsets: ['latin'],
-              // fontDisplay: 'swap',
+              fontDisplay: 'swap',
               strategy: 'base64', // 'base64' || 'cdn'
             },
 
             {
               family: 'Rokkitt',
-              // variants: ['300', '500', '700', '900'],
               axes: 'wght@300;500;700;900',
-              // subsets: ['latin'],
-              // fontDisplay: 'swap',
+              fontDisplay: 'swap',
               strategy: 'base64',
             },
 
             {
               family: 'Merriweather',
-              // variants: ['400', '700'],
               axes: 'wght@400;700',
-              // subsets: ['latin'],
-              // fontDisplay: 'swap',
-              // text: '“ ”',
+              fontDisplay: 'swap',
               strategy: 'base64',
             },
           ],
         },
         useMinify: true,
-        // usePreload: true,
+        usePreload: true,
         // usePreconnect: false,
       },
     },

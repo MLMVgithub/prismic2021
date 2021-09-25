@@ -45,7 +45,7 @@ const FooterWrapper = styled.footer`
         width: auto;
         /* color: ${({ theme }) => theme.colors.footer[200]}; */
         text-align: left;
-        font-weight: 600;
+        font-weight: 500;
       }
 
       .footerNav {
