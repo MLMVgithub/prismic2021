@@ -64,7 +64,7 @@ module.exports = {
             },
           ],
         },
-        useMinify: true,
+        // useMinify: true,
         usePreload: true,
         // usePreconnect: true,
       },
