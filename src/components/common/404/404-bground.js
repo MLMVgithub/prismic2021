@@ -4,8 +4,6 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
 
-import styled from 'styled-components'
-
 const BackgroundSection = () => {
   const { placeholderImage } = useStaticQuery(
     graphql`
