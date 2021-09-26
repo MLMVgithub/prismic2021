@@ -49,7 +49,7 @@ module.exports = {
 
             {
               family: 'Rokkitt',
-              axes: 'wght@300;500;700;900',
+              axes: 'wght@300;500',
               // fontDisplay: 'swap',
               // strategy: 'base64',
               strategy: 'cdn',
@@ -57,7 +57,7 @@ module.exports = {
 
             {
               family: 'Merriweather',
-              axes: 'wght@400;700',
+              axes: 'wght@400',
               // fontDisplay: 'swap',
               // strategy: 'base64',
               strategy: 'cdn',
