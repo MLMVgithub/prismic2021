@@ -7,7 +7,7 @@ const linkResolver = require('./src/utils/linkResolver')
 module.exports = {
   siteMetadata: {
     title: `My Life My Voice`,
-    description: `Connecting the disables community to Peer Supporters - My Life My Voice`,
+    description: `My Life My Voice offer meaningful support, information and connections that assist disabled people and their whānau - My Life My Voice`,
     siteUrl: `https://www.mylifemyvoice.org.nz`, // No trailing slash allowed!
     defaultImage: 'src/images/svg/brand-mlmv.inline.svg', // Path to your image you placed in the 'static' folder
     author: 'Peter Koenders',
@@ -162,7 +162,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `My Life My Voice`,
-        description: `Connecting the disables community to Peer Supporters | My Life My Voice`,
+        description: `My Life My Voice offer meaningful support, information and connections that assist disabled people and their whānau - My Life My Voice`,
         short_name: `MLMV`,
         start_url: `/`,
         background_color: `#091b38`,
