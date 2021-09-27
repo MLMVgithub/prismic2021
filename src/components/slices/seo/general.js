@@ -19,6 +19,10 @@ const SEOGeneral = ({ slice }) => (
             src="https://static.cdn.prismic.io/prismic.js?new=true&repo=mlmv"
           ></script> */}
           <title>{metaTitle}</title>
+          <meta
+            name="google-site-verification"
+            content="h4qDb__oGpbat-sV7ExdI7MEFHVC7lWXqrZ96EgRtPk"
+          />
 
           {/* Page description. No longer than 155 characters. */}
           {slice.primary.description.text ? (
