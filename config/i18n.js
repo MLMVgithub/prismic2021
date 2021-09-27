@@ -35,6 +35,9 @@ module.exports = {
     sortByDate: 'Date',
     sortByLocation: 'Location',
     sortByTitle: 'Title',
+    sortByName: 'Name',
+    sortByFirstName: 'First Name',
+    sortBySurname: 'Surname',
     sortByType: 'Type',
     // Location
     covers: 'Covers',
@@ -75,6 +78,9 @@ module.exports = {
     sortBy: 'Kōmakahia e',
     sortByDate: 'Te Ra',
     sortByLocation: 'Tauwāhi',
+    sortByName: 'Ingoa',
+    sortByFirstName: 'Ingoa Tuatahi',
+    sortBySurname: 'Ingoa tuarua',
     sortByTitle: 'Taitara',
     sortByType: 'Momo',
     // Location

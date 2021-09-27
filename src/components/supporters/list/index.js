@@ -28,7 +28,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
   // Set up some states
   // And set the intial sort by title
   var [sourceList, setSourceList] = useState(
-    _.sortBy(dataList.items, 'item.document.data.title.text')
+    _.sortBy(dataList.items, 'item.document.data.first_name.text')
   )
   var [allPosts, setAllPosts] = useState(dataList.items)
   var [queryValue, setQueryValue] = useState('')
@@ -266,8 +266,8 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                   // Pass the 'Sort by' properties. First being the default. Will display Asc order
                   items={[
                     {
-                      title: `${i18n[currentLang].sortByTitle}`,
-                      nodePath: 'item.document.data.title.text',
+                      title: `${i18n[currentLang].sortByName}`,
+                      nodePath: 'item.document.data.first_name.text',
                     },
                     {
                       title: `${i18n[currentLang].sortByLocation}`,
