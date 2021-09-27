@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
   title: 'My Life My Voice', // Navigation and Site Title
   titleAlt: 'My Life My Voice', // Title for JSONLD
-  description: 'My Life My Voice - Enabling the voices and perspectives of disabled people',
+  description: `My Life My Voice offer meaningful support, information and connections that assist disabled people and their whānau - My Life My Voice`,
   headline: 'My Life My Voice', // Headline for schema.org JSONLD
   // url: 'https://prismic-i18n.lekoarts.de', // Domain of your site. No trailing slash!
   // logo: '/logos/logo-1024.png', // Used for SEO
