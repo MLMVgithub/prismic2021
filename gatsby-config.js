@@ -165,8 +165,22 @@ module.exports = {
     },
 
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-robots-txt',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.mylifemyvoice.org.nz',
+        sitemap: 'https://www.mylifemyvoice.org.nz/sitemap/sitemap-index.xml',
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+          },
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }],
+          },
+        },
+      },
+    },
 
     {
       resolve: `gatsby-source-filesystem`,
