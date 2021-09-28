@@ -123,14 +123,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
 
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-    //     trackingId: 'G-S55JE9KKJR',
-    //   },
-    // },
-
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
@@ -139,7 +131,13 @@ module.exports = {
         enableWebVitalsTracking: true,
       },
     },
-
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+    //     trackingId: 'G-S55JE9KKJR',
+    //   },
+    // },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
