@@ -37,7 +37,7 @@ module.exports = {
               text: `abcdefghijklmnopqrstuvwxyz_`,
               // fontDisplay: 'swap',
               // strategy: 'base64',
-              strategy: 'cdn',
+              // strategy: 'cdn',
             },
 
             {
@@ -45,7 +45,7 @@ module.exports = {
               axes: 'wght@300;400;500;600',
               // fontDisplay: 'swap',
               // strategy: 'base64', // 'base64' || 'cdn'
-              strategy: 'cdn',
+              // strategy: 'cdn',
             },
 
             {
@@ -53,7 +53,7 @@ module.exports = {
               axes: 'wght@300;500',
               // fontDisplay: 'swap',
               // strategy: 'base64',
-              strategy: 'cdn',
+              // strategy: 'cdn',
             },
 
             {
@@ -61,7 +61,7 @@ module.exports = {
               axes: 'wght@400',
               // fontDisplay: 'swap',
               // strategy: 'base64',
-              strategy: 'cdn',
+              // strategy: 'cdn',
             },
           ],
         },
