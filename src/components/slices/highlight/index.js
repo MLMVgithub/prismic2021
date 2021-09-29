@@ -461,7 +461,7 @@ const ImageHighlight = ({ slice }) => {
     >
       <div>
         {(content || primaryButtonLabel || secondaryButtonLabel) && (
-          <div
+          <article
             className={'content txt-' + alignContent}
             style={{
               fontSize: fontSize,
@@ -495,7 +495,7 @@ const ImageHighlight = ({ slice }) => {
                 )}
               </span>
             )}
-          </div>
+          </article>
         )}
 
         <div

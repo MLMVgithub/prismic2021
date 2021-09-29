@@ -59,7 +59,6 @@
                 "type": "Select",
                 "config": {
                   "options": ["Landscape (default)", "Portrait", "Square", "Attention"],
-                  "default_value": "Landscape (default)",
                   "label": "Format",
                   "placeholder": "Landscape (default)"
                 }
@@ -94,6 +93,58 @@
                 "config": {
                   "label": "Media",
                   "placeholder": "https://www.youtube.com/embed..."
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "document": {
+            "type": "Slice",
+            "fieldset": "Internal document",
+            "description": "Internal document that can be shared across pages",
+            "icon": "description",
+            "display": "list",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Document name"
+                }
+              },
+              "document": {
+                "type": "Link",
+                "config": {
+                  "label": "Document",
+                  "placeholder": "Link to internal documents",
+                  "select": null
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "external_link": {
+            "type": "Slice",
+            "fieldset": "External link",
+            "description": "External document that can be shared between pages",
+            "icon": "cloud_download",
+            "display": "list",
+            "non-repeat": {
+              "name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1",
+                  "label": "Name",
+                  "placeholder": "Document name"
+                }
+              },
+              "documnt": {
+                "type": "Link",
+                "config": {
+                  "label": "Documnt",
+                  "placeholder": "Add an external document",
+                  "select": null
                 }
               }
             },
