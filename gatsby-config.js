@@ -35,14 +35,14 @@ module.exports = {
             {
               family: `Material+Icons+Round`,
               text: `abcdefghijklmnopqrstuvwxyz_`,
-              fontDisplay: 'swap',
+              // fontDisplay: 'swap',
               strategy: 'base64',
             },
 
             {
               family: 'Roboto',
               axes: 'wght@300;400;500;600',
-              fontDisplay: 'swap',
+              // fontDisplay: 'swap',
               strategy: 'base64', // 'base64' || 'cdn'
               // strategy: 'cdn',
             },
@@ -58,13 +58,13 @@ module.exports = {
             {
               family: 'Merriweather',
               axes: 'wght@400',
-              fontDisplay: 'swap',
+              // fontDisplay: 'swap',
               strategy: 'base64',
               // strategy: 'cdn',
             },
           ],
         },
-        // useMinify: true,
+        useMinify: true,
         usePreload: true,
         // usePreconnect: true,
       },
