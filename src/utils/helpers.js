@@ -232,6 +232,9 @@ export function getPostionAlign(align) {
     case 'Centre':
       return 'center'
 
+    case 'Center':
+      return 'center'
+
     case 'Right':
       return 'right'
 
@@ -511,7 +514,7 @@ export function getGradientDirection(direction) {
   }
 }
 
-// Return bGround postion
+// Return bGround postion // Deprecated
 export function getBGroundPosition(position) {
   switch (position) {
     case null:
