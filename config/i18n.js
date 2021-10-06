@@ -41,7 +41,7 @@ module.exports = {
     sortByType: 'Type',
     // Location
     covers: 'Covers',
-    contact: 'Contact My Lif My Voice to connect with',
+    contact: 'Contact My Life My Voice to connect with',
     // Moment times
     starts: ' Starts',
     ends: 'Ends',
@@ -85,7 +85,7 @@ module.exports = {
     sortByType: 'Momo',
     // Location
     covers: 'Nga uhi',
-    contact: 'Whakapaa atu ki taku Tango Taku Reo ki te hono atu',
+    contact: 'Whakapaa atu ki taku Ora Ko taku Reo hei hono atu',
     // Moment times
     starts: ' Ka tiimata',
     ends: 'Mutu',
