@@ -134,7 +134,9 @@ export const query = graphql`
                       title {
                         text
                       }
-                      intro
+                      intro {
+                        raw
+                      }
                       content {
                         raw
                       }
@@ -142,6 +144,7 @@ export const query = graphql`
                       # start_date_time(formatString: "LLLL")
                       start_date_time
                       end_date_time
+                      show_duration
                     }
                   }
                 }

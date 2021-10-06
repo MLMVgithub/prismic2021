@@ -158,13 +158,16 @@ export const query = graphql`
               text
             }
             type
-            intro
+            intro {
+              raw
+            }
             content {
               raw
             }
             location
             start_date_time
             end_date_time
+            show_duration
 
             ## Forms
             select_form {

@@ -4,6 +4,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import i18n from '/config/i18n'
+import { RichText } from 'prismic-reactjs'
+import linkResolver from '../../../utils/linkResolver'
+import { validateString } from '/src/utils/helpers'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
@@ -13,13 +16,14 @@ import ListItem from '../../common/layout/listResults/listItem'
 import CardContent from '/src/components/common/layout/listResults/cardContent'
 import Tags from '../../common/filter/tags'
 
-const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
+const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
   const item = thisItem.item.document
-  const content = thisItem.item.document.data
   const tagData = thisItem.item.document.tags.sort()
+  const content = thisItem.item.document.data
   const title = content.title.text
   const eventType = content.type
-  const intro = content.intro
+  // const intro = content.intro
+  const intro = validateString(content.intro.raw)
   const location = content.location
 
   var currentDate = new Date()
@@ -29,12 +33,13 @@ const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
   const today = moment(currentDate).format()
   const start_date = content.start_date_time
   const end_date = content.end_date_time
+  const showDuration = content.show_duration
 
   // console.log('end_date = ' + end_date)
 
   const date = moment(start_date).format('LL')
   const time = moment(start_date).format('LT')
-  const endTime = moment(end_date).format('MMMM DD, LT')
+  const endTime = moment(end_date).format('MMMM D, LT')
 
   if (end_date) {
     var diff = moment.duration(moment(end_date).diff(moment(start_date)))
@@ -78,7 +83,7 @@ const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
                   </div>
                 )}
                 {eventType === 'News item' && date !== 'Invalid date' && <time>{date}</time>}
-                {intro && <p>{intro}</p>}
+                {intro && <RichText render={intro} linkResolver={linkResolver} />}
               </div>
 
               {eventType === 'Event' && (
@@ -103,12 +108,12 @@ const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
                           {i18n[currentLang].ends}: {endTime}
                         </time>
                       )}
-                      {/* {duration && (
+                      {showDuration === true && duration && (
                         <time aria-label={`${i18n[currentLang].duration}`}>
                           <IconMaterial icon={'timelapse'} />
                           {i18n[currentLang].duration}: {duration}
                         </time>
-                      )} */}
+                      )}
                     </>
                   )}
 
@@ -144,4 +149,4 @@ const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
   )
 }
 
-export default PeerSupportersItem
+export default NewsEventsItem

@@ -98,7 +98,7 @@ const Body = styled.article`
       padding-right: 0;
       width: 100%;
     }
-    font-size: 110%;
+    /* font-size: 110%; */
   }
   & .contact {
     display: flex;
@@ -126,7 +126,7 @@ const Body = styled.article`
         align-items: center;
         white-space: nowrap;
         font-weight: 500;
-        grid-gap: ${({ theme }) => theme.margin['1/4']};
+        grid-gap: 0;
         i {
           color: ${({ theme }) => theme.colors.secondary.default};
         }
@@ -148,13 +148,15 @@ const EventItem = ({ currentLang, itemData }) => {
   currentDate.setDate(currentDate.getDate() - 2)
   const today = moment(currentDate).format()
   var start_date = eventItem.start_date_time
-  const end_date = eventItem.end_date_time
+  var end_date = eventItem.end_date_time
 
   var date = moment(start_date).format('LL')
   // date = moment.locale('es')
 
   const time = moment(start_date).format('LT')
-  const endTime = moment(end_date).format('MMMM DD, LT')
+  const endTime = moment(end_date).format('MMMM D, LT')
+
+  const showDuration = eventItem.show_duration
 
   if (end_date) {
     var diff = moment.duration(moment(end_date).diff(moment(start_date)))
@@ -215,12 +217,12 @@ const EventItem = ({ currentLang, itemData }) => {
                         {i18n[currentLang].ends}: {endTime}
                       </time>
                     )}
-                    {/* {duration && (
+                    {showDuration === true && duration && (
                       <time aria-label="Duration">
                         <IconMaterial icon={'timelapse'} />
                         {i18n[currentLang].duration}: {duration}
                       </time>
-                    )} */}
+                    )}
 
                     {location && (
                       <address aria-label="Location">
