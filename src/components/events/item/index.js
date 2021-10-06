@@ -215,12 +215,12 @@ const EventItem = ({ currentLang, itemData }) => {
                         {i18n[currentLang].ends}: {endTime}
                       </time>
                     )}
-                    {duration && (
+                    {/* {duration && (
                       <time aria-label="Duration">
                         <IconMaterial icon={'timelapse'} />
                         {i18n[currentLang].duration}: {duration}
                       </time>
-                    )}
+                    )} */}
 
                     {location && (
                       <address aria-label="Location">

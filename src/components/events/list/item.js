@@ -103,12 +103,12 @@ const PeerSupportersItem = ({ currentLang, thisItem, showTags }) => {
                           {i18n[currentLang].ends}: {endTime}
                         </time>
                       )}
-                      {duration && (
+                      {/* {duration && (
                         <time aria-label={`${i18n[currentLang].duration}`}>
                           <IconMaterial icon={'timelapse'} />
                           {i18n[currentLang].duration}: {duration}
                         </time>
-                      )}
+                      )} */}
                     </>
                   )}
 
