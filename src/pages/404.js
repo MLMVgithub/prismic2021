@@ -7,7 +7,7 @@ import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 import HomeTemplate from './index'
 import PageTemplate from '../templates/generalPage'
-// import SupportersTemplate from '../templates/supportersPage'
+import SupportersTemplate from '../templates/supportersPage'
 import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
@@ -80,8 +80,8 @@ export default withPrismicPreview(NotFoundPage, {
     prismicPage: PageTemplate,
     prismicHomepage: HomeTemplate,
 
-    // peer_supporters: SupportersTemplate,
-    // prismicPeerSupporters: SupportersTemplate,
+    peer_supporters: SupportersTemplate,
+    prismicPeerSupporters: SupportersTemplate,
   },
 })
 
