@@ -14,6 +14,7 @@ import { linkResolver } from '../utils/linkResolver'
 // Preview templates
 import HomeTemplate from './index'
 import GeneralPageTemplate from '../templates/generalPage'
+import SupportersList from '../templates/supportersList'
 import SupportersPage from '../templates/supportersPage'
 
 import Button from '/src/components/common/buttons/linkButton'
@@ -95,7 +96,7 @@ const NotFoundPage = ({ data }) => {
 
 export default withPrismicUnpublishedPreview(NotFoundPage, [
   {
-    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
     linkResolver,
     componentResolver: componentResolverFromMap({
       homepage: HomeTemplate,
@@ -103,6 +104,8 @@ export default withPrismicUnpublishedPreview(NotFoundPage, [
 
       general_page: GeneralPageTemplate,
       // prismicPage: GeneralPageTemplate,
+
+      peer_supporters_list: SupportersList,
 
       peer_supporters: SupportersPage,
     }),
