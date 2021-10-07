@@ -77,13 +77,13 @@ const NotFoundPage = ({ data }) => {
 export default withPrismicPreview(NotFoundPage, {
   templateMap: {
     homepage: HomeTemplate,
-    prismicHomepage: HomeTemplate,
+    // prismicHomepage: HomeTemplate,
 
     general_page: GeneralPageTemplate,
-    prismicPage: GeneralPageTemplate,
+    // prismicPage: GeneralPageTemplate,
 
     peer_supporters: SupportersPage,
-    prismicPeerSupporters: SupportersPage,
+    // prismicPeerSupporters: SupportersPage,
   },
 })
 
