@@ -4,6 +4,8 @@ import Layout from '../components/layout'
 import SeoZone from '/src/components/slices/seoZone'
 import SliceZone from '/src/components/slices/sliceZone'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { linkResolver } from '/src/utils/linkResolver'
+
 import PeerSupportersList from '/src/components/supporters/list/'
 
 const SupportersList = ({ data }) => {
@@ -29,6 +31,7 @@ const SupportersList = ({ data }) => {
 export default withPrismicPreview(SupportersList, [
   {
     repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
+    linkResolver,
   },
 ])
 
