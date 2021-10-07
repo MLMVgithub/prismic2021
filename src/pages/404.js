@@ -3,7 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '/src/components/layout'
 import Bground404 from '/src/components/common/404/404-bground'
 
-import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+// import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+
+import {
+  withPrismicUnpublishedPreview,
+  componentResolverFromMap,
+} from 'gatsby-plugin-prismic-previews'
+import { linkResolver } from '../utils/linkResolver'
 
 // Preview templates
 import HomeTemplate from './index'
@@ -74,18 +80,34 @@ const NotFoundPage = ({ data }) => {
   )
 }
 
-export default withPrismicPreview(NotFoundPage, {
-  templateMap: {
-    homepage: HomeTemplate,
-    // prismicHomepage: HomeTemplate,
+// export default withPrismicPreview(NotFoundPage, {
+//   templateMap: {
+//     homepage: HomeTemplate,
+//     // prismicHomepage: HomeTemplate,
 
-    general_page: GeneralPageTemplate,
-    // prismicPage: GeneralPageTemplate,
+//     general_page: GeneralPageTemplate,
+//     // prismicPage: GeneralPageTemplate,
 
-    peer_supporters: SupportersPage,
-    // prismicPeerSupporters: SupportersPage,
+//     peer_supporters: SupportersPage,
+//     // prismicPeerSupporters: SupportersPage,
+//   },
+// })
+
+export default withPrismicUnpublishedPreview(NotFoundPage, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+    linkResolver,
+    componentResolver: componentResolverFromMap({
+      homepage: HomeTemplate,
+      // prismicHomepage: HomeTemplate,
+
+      general_page: GeneralPageTemplate,
+      // prismicPage: GeneralPageTemplate,
+
+      peer_supporters: SupportersPage,
+    }),
   },
-})
+])
 
 export const query = graphql`
   query errorPage($locale: String) {
