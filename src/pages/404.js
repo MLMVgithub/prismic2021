@@ -25,7 +25,7 @@ import styled from 'styled-components'
 const BgroundImageWrapper = styled.div`
   div:after {
     bottom: 0px;
-    top: 60px;
+    top: ${({ theme }) => theme.header.height};
     height: auto;
   }
 `
