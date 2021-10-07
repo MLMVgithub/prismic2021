@@ -5,9 +5,11 @@ import Bground404 from '/src/components/common/404/404-bground'
 
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
+// Preview templates
 import HomeTemplate from './index'
-import PageTemplate from '../templates/generalPage'
-import SupportersTemplate from '../templates/supportersPage'
+import GeneralPageTemplate from '../templates/generalPage'
+import SupportersPage from '../templates/supportersPage'
+
 import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
@@ -74,14 +76,14 @@ const NotFoundPage = ({ data }) => {
 
 export default withPrismicPreview(NotFoundPage, {
   templateMap: {
-    page: PageTemplate,
     homepage: HomeTemplate,
-
-    prismicPage: PageTemplate,
     prismicHomepage: HomeTemplate,
 
-    peer_supporters: SupportersTemplate,
-    prismicPeerSupporters: SupportersTemplate,
+    general_page: GeneralPageTemplate,
+    prismicPage: GeneralPageTemplate,
+
+    peer_supporters: SupportersPage,
+    prismicPeerSupporters: SupportersPage,
   },
 })
 
