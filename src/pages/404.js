@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '/src/components/layout'
-import Bground404 from '/src/components/common/404/404-bground'
 
+// Helpers
 // import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
-
 import {
   withPrismicUnpublishedPreview,
   componentResolverFromMap,
@@ -17,6 +15,9 @@ import GeneralPageTemplate from '../templates/generalPage'
 import SupportersList from '../templates/supportersList'
 import SupportersPage from '../templates/supportersPage'
 
+// Components
+import Layout from '/src/components/layout'
+import Bground404 from '/src/components/common/404/404-bground'
 import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
