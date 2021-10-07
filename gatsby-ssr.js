@@ -6,6 +6,7 @@ import { GlobalStyles, theme } from '/src/themes/globalStyles'
 
 // Import our Prismic Preview Provider
 import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
+// import { PreviewStoreProvider } from 'gatsby-source-prismic'
 
 // Styling for the preview modals.
 import 'gatsby-plugin-prismic-previews/dist/styles.css'

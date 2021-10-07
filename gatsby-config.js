@@ -76,7 +76,7 @@ module.exports = {
       options: {
         repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
         accessToken: `${process.env.PRISMIC_API_KEY}`,
-        releaseID: `${process.env.PRISMIC_RELEASE_ID}`,
+        // releaseID: `${process.env.PRISMIC_RELEASE_ID}`,
         // prismicToolbar: true,
         linkResolver: () => (doc) => linkResolver(doc),
         // linkResolver: require('./src/utils/linkResolver'),

@@ -1,4 +1,3 @@
-// import '/src/styles/index.scss'
 import * as React from 'react'
 
 // Import our Theme and wrap in the Them Provider
@@ -6,8 +5,8 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles, theme } from '/src/themes/globalStyles'
 
 // Import our Prismic Preview Provider
-// import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
-import { PreviewStoreProvider } from 'gatsby-source-prismic'
+import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
+// import { PreviewStoreProvider } from 'gatsby-source-prismic'
 
 // Styling for the preview modals.
 import 'gatsby-plugin-prismic-previews/dist/styles.css'
@@ -17,7 +16,7 @@ import 'gatsby-plugin-prismic-previews/dist/styles.css'
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <PreviewStoreProvider>{element}</PreviewStoreProvider>
+    <PrismicPreviewProvider>{element}</PrismicPreviewProvider>
   </ThemeProvider>
 )
 
