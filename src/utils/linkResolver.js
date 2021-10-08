@@ -11,7 +11,7 @@ const linkResolver = (doc) => {
   const prefix = i18n[doc.lang].default ? `/` : `/${i18n[doc.lang].path}/`
 
   if (doc.isBroken) {
-    return '/not-found'
+    return '/404'
   }
 
   // URL for a peer_supporters_list type
