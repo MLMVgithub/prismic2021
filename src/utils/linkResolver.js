@@ -10,6 +10,10 @@ const linkResolver = (doc) => {
 
   const prefix = i18n[doc.lang].default ? `/` : `/${i18n[doc.lang].path}/`
 
+  if (doc.isBroken) {
+    return '/not-found'
+  }
+
   // URL for a peer_supporters_list type
   if (doc.type === 'peer_supporters_list') {
     return `${prefix}peer-supporters/our-peer-supporters`
