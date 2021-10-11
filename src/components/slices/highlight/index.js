@@ -129,7 +129,10 @@ const Highlight = styled.section`
     .imageWrapper.attention {
       > div {
         border-radius: 999rem;
-        position: sticky;
+        overflow: hidden !important;
+        position: relative;
+        /* position: sticky;
+        aspect-ratio: 1; */
         box-shadow: ${({ theme }) => theme.boxShadow.outlineRight};
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
           margin-bottom: ${({ theme }) => theme.margin['1/2']};
