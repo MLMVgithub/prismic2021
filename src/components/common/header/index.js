@@ -25,6 +25,7 @@ const HeaderWrapper = styled.header`
     right: 0px;
     display: flex;
     height: 60px;
+    color: #ffffff;
     background-color: ${({ theme }) => theme.colors.header[50]};
     z-index: 10000;
 
@@ -651,7 +652,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     >
       <div className="skipNav">
         <a className="skipLink" href="#main">
-          Skip navigation
+          {i18n[currentLang].skipPrimaryNav}
         </a>
       </div>
 
@@ -673,10 +674,10 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         <Link
           className="brand"
           to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
-          title="Link to homepage"
+          title={i18n[currentLang].linkToHomepage}
         >
-          <span>Link to homepage</span>
-          <Brand alt={'Logo - Link to homepage'} />
+          <span>{i18n[currentLang].linkToHomepage}</span>
+          <Brand currentLang={currentLang} />
         </Link>
 
         <ul aria-label="Secondary navigation">

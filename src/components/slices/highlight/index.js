@@ -363,8 +363,11 @@ const ImageHighlight = ({ slice }) => {
         mediaContentObj =
           mediaContent.data.body[0].primary.image.localFile.childImageSharp.gatsbyImageData
         mediaType = 'Image'
-        var imagFormat = getImgFormat(mediaContent.data.body[0].primary.format)
-        var imagAlt = mediaContent.data.body[0].primary.image.alt
+        var imgFormat = getImgFormat(mediaContent.data.body[0].primary.format)
+        var imgAlt = mediaContent.data.body[0].primary.image.alt
+
+        console.log('imgFormat = ' + imgFormat)
+        console.log('imgAlt = ' + imgAlt)
       }
 
       if (mediaType === 'embedded_cloud_media') {
@@ -511,14 +514,8 @@ const ImageHighlight = ({ slice }) => {
           }}
         >
           {mediaType === 'Image' && (
-            <div className={`imageWrapper ${imagFormat}`}>
-              <GatsbyImage
-                image={mediaContentObj}
-                alt={imagAlt ? imagAlt : 'Placeholder image'}
-                // style={{
-                //   width: mediaSize + '%',
-                // }}
-              />
+            <div className={`imageWrapper ${imgFormat}`}>
+              <GatsbyImage image={mediaContentObj} alt={imgAlt ? imgAlt : 'Placeholder image'} />
             </div>
           )}
 

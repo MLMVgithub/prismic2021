@@ -154,7 +154,7 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
           title={i18n[currentLang].linkToHomepage}
         >
           <span>{i18n[currentLang].linkToHomepage}</span>
-          <Brand />
+          <Brand currentLang={currentLang} />
         </Link>
       </div>
     </FooterWrapper>

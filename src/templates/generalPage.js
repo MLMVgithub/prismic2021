@@ -374,6 +374,7 @@ export const query = graphql`
                           primary {
                             format
                             image {
+                              alt
                               localFile {
                                 childImageSharp {
                                   gatsbyImageData(
