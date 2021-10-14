@@ -70,6 +70,7 @@ const HeaderWrapper = styled.header`
   will-change: transform;
   transition: all 0.75s;
   height: ${({ theme }) => theme.header.height};
+  background-color: transparent;
 
   nav.headerNav {
     z-index: 999;
@@ -483,6 +484,7 @@ const HeaderWrapper = styled.header`
   &.fillBground {
     transition: all 0.75s;
     /* background-color: ${({ theme }) => theme.colors.header.default}; */
+    /* background-color: transparent; */
   }
 
   &.fillBground::before,

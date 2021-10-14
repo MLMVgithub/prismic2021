@@ -51,7 +51,7 @@ const LayoutWrapper = styled.div`
       left: 0px;
       height: 60px;
       z-index: -1;
-      background-color: ${({ theme }) => theme.colors.header.default};
+      /* background-color: ${({ theme }) => theme.colors.header.default}; */
     }
   }
 `

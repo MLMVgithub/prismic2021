@@ -132,7 +132,7 @@ const Body = styled.article`
         display: inline-flex;
         align-items: center;
         white-space: nowrap;
-        grid-gap: ${({ theme }) => theme.margin['1/4']};
+        /* grid-gap: ${({ theme }) => theme.margin['1/4']}; */
         i {
           color: ${({ theme }) => theme.colors.secondary.default};
         }
