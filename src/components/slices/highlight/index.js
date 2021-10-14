@@ -364,6 +364,7 @@ const ImageHighlight = ({ slice }) => {
           mediaContent.data.body[0].primary.image.localFile.childImageSharp.gatsbyImageData
         mediaType = 'Image'
         var imagFormat = getImgFormat(mediaContent.data.body[0].primary.format)
+        var imagAlt = mediaContent.data.body[0].primary.image.alt
       }
 
       if (mediaType === 'embedded_cloud_media') {
@@ -513,7 +514,7 @@ const ImageHighlight = ({ slice }) => {
             <div className={`imageWrapper ${imagFormat}`}>
               <GatsbyImage
                 image={mediaContentObj}
-                alt={mediaContentObj.alt ? mediaContentObj.alt : 'Placeholder image'}
+                alt={imagAlt ? imagAlt : 'Placeholder image'}
                 // style={{
                 //   width: mediaSize + '%',
                 // }}
