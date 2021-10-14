@@ -166,7 +166,7 @@ const Quotes = ({ slice }) => {
         )}
 
         {slice.items.length > 0 && (
-          <div aria-label="Quotes">
+          <div role="Listing quotes" aria-label="Listing quotes">
             {slice.items.map(
               (node, index) =>
                 slice.items[index].active === true && (
