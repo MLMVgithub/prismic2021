@@ -482,7 +482,7 @@ const HeaderWrapper = styled.header`
 
   &.fillBground {
     transition: all 0.75s;
-    background-color: ${({ theme }) => theme.colors.header.default};
+    /* background-color: ${({ theme }) => theme.colors.header.default}; */
   }
 
   &.fillBground::before,
