@@ -13,6 +13,7 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
   justify-content: center;
   margin: 0;
   width: 100%;
+  min-width: 66%;
 
   [type='search']::-webkit-search-cancel-button,
   [type='search']::-webkit-search-decoration {
