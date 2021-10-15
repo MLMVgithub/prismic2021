@@ -19,7 +19,7 @@ const SortListWrapper = styled.div.attrs((props) => ({
   display: flex;
   flex-direction: row;
   grid-gap: ${({ theme }) => theme.margin['1/4']};
-  width: auto;
+  width: 100%;
   align-items: center;
   margin-left: 0;
   user-select: none;
