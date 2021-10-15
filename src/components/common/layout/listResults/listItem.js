@@ -30,6 +30,7 @@ const ListItem = styled.li.attrs((props) => ({
         flex-direction: column;
         align-items: flex-start;
         border-top: none;
+        width: 100%;
 
         .title {
           align-items: flex-start;
