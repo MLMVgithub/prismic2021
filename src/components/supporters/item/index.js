@@ -127,12 +127,14 @@ const Body = styled.article`
       grid-row-gap: ${({ theme }) => theme.padding['1/4']};
       grid-column-gap: ${({ theme }) => theme.padding['1/2']};
       text-indent: ${({ theme }) => theme.padding['1/4']};
+
       address {
+        text-indent: 0;
         font-weight: 500;
         display: inline-flex;
         align-items: center;
-        white-space: nowrap;
-        /* grid-gap: ${({ theme }) => theme.margin['1/4']}; */
+        line-height: initial;
+        grid-gap: ${({ theme }) => theme.margin['1/4']};
         i {
           color: ${({ theme }) => theme.colors.secondary.default};
         }

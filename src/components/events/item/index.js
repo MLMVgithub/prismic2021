@@ -105,6 +105,7 @@ const Body = styled.article`
     flex-direction: column;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
     width: 40%;
+
     @media (max-width: ${({ theme }) => theme.screens.md}) {
       width: 100%;
     }
@@ -121,12 +122,13 @@ const Body = styled.article`
       grid-row-gap: ${({ theme }) => theme.padding['1/4']};
       grid-column-gap: ${({ theme }) => theme.padding['1/2']};
       text-indent: ${({ theme }) => theme.padding['1/4']};
-      span {
+      address {
+        text-indent: 0;
+        font-weight: 500;
         display: inline-flex;
         align-items: center;
-        white-space: nowrap;
-        font-weight: 500;
-        grid-gap: 0;
+        line-height: initial;
+        grid-gap: ${({ theme }) => theme.margin['1/4']};
         i {
           color: ${({ theme }) => theme.colors.secondary.default};
         }
@@ -271,10 +273,10 @@ const EventItem = ({ currentLang, itemData }) => {
           {eventForm !== null && today < undefinedStartDate && eventType === 'Event' && (
             <aside className="contact">
               <div>
-                <span>
+                <address>
                   <IconMaterial icon={'event_available'} />
                   {i18n[currentLang].attendingEvent}
-                </span>
+                </address>
               </div>
 
               <Form formData={itemData.data} />
