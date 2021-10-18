@@ -148,6 +148,12 @@ const EventItem = ({ currentLang, itemData }) => {
   currentDate.setDate(currentDate.getDate() - 2)
   const today = moment(currentDate).format()
   var start_date = eventItem.start_date_time
+  var undefinedStartDate = moment(currentDate).add(365, 'days').format()
+  // console.log('start_date = ' + start_date)
+  if (start_date !== null) {
+    undefinedStartDate = start_date
+  }
+
   var end_date = eventItem.end_date_time
 
   var date = moment(start_date).format('LL')
@@ -262,7 +268,7 @@ const EventItem = ({ currentLang, itemData }) => {
             {mainContent && <RichText render={mainContent} linkResolver={linkResolver} />}
           </div>
           {/* {today < start_date && eventType === 'Event' && ( */}
-          {eventForm !== null && eventType === 'Event' && (
+          {eventForm !== null && today < undefinedStartDate && eventType === 'Event' && (
             <aside className="contact">
               <div>
                 <span>
