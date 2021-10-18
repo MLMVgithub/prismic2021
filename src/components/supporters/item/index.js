@@ -132,7 +132,8 @@ const Body = styled.article`
         text-indent: 0;
         font-weight: 500;
         display: inline-flex;
-        align-items: center;
+        /* align-items: center; */
+        align-items: flex-start;
         line-height: initial;
         grid-gap: ${({ theme }) => theme.margin['1/4']};
         i {
