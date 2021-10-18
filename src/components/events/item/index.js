@@ -158,6 +158,8 @@ const EventItem = ({ currentLang, itemData }) => {
 
   const showDuration = eventItem.show_duration
 
+  const eventForm = eventItem.select_form
+
   if (end_date) {
     var diff = moment.duration(moment(end_date).diff(moment(start_date)))
     var days = parseInt(diff.asDays()) //84
@@ -259,7 +261,8 @@ const EventItem = ({ currentLang, itemData }) => {
           <div className="content">
             {mainContent && <RichText render={mainContent} linkResolver={linkResolver} />}
           </div>
-          {today < start_date && eventType === 'Event' && (
+          {/* {today < start_date && eventType === 'Event' && ( */}
+          {eventForm !== null && eventType === 'Event' && (
             <aside className="contact">
               <div>
                 <span>
