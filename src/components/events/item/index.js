@@ -202,7 +202,7 @@ const EventItem = ({ currentLang, itemData }) => {
           <div className="intro">
             <span>{title && <h1>{title}</h1>}</span>
 
-            {eventType === 'Event' && (
+            {today < start_date && eventType === 'Event' && (
               <span className="dateLocation">
                 {today < start_date && (
                   <span>
