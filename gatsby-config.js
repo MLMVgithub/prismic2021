@@ -40,8 +40,16 @@ module.exports = {
               // strategy: 'cdn',
             },
 
+            // {
+            //   family: 'Roboto',
+            //   axes: 'wght@300;400;500;600',
+            //   // fontDisplay: 'swap',
+            //   // strategy: 'base64', // 'base64' || 'cdn'
+            //   // strategy: 'cdn',
+            // },
+
             {
-              family: 'Roboto',
+              family: 'Open+Sans',
               axes: 'wght@300;400;500;600',
               // fontDisplay: 'swap',
               // strategy: 'base64', // 'base64' || 'cdn'
