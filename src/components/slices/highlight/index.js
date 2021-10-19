@@ -99,6 +99,7 @@ const Highlight = styled.section`
         display: contents;
         > div {
           width: 100%;
+          z-index: 1;
         }
       }
     }
