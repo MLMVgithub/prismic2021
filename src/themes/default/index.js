@@ -198,6 +198,7 @@ export const defaultTheme = {
 
       bground: {
         default: '#ffffff',
+        // default: '#f7fafc',
       },
     },
 
