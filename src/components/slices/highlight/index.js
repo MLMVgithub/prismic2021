@@ -366,8 +366,8 @@ const ImageHighlight = ({ slice }) => {
         var imgFormat = getImgFormat(mediaContent.data.body[0].primary.format)
         var imgAlt = mediaContent.data.body[0].primary.image.alt
 
-        console.log('imgFormat = ' + imgFormat)
-        console.log('imgAlt = ' + imgAlt)
+        // console.log('imgFormat = ' + imgFormat)
+        // consxole.log('imgAlt = ' + imgAlt)
       }
 
       if (mediaType === 'embedded_cloud_media') {
