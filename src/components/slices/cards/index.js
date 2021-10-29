@@ -100,13 +100,10 @@ const CardsWrapper = styled.section`
       padding-top:  ${({ theme }) => theme.padding['1/2']} !important;
     }
 
-    a.noLink{
-      cursor: default;
-    }
     a {
       width: 100%;
       text-decoration: none;
-      article {
+      > div {
         background-color: #fff;
 
         div.portrait {
@@ -158,9 +155,7 @@ const CardsWrapper = styled.section`
           border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
           margin: 0 auto;
           box-shadow: ${({ theme }) => theme.boxShadow.lg};
-
         }
-
         .content {
            width: 100%;
           display: flex;
@@ -209,17 +204,15 @@ const CardsWrapper = styled.section`
 
     .cardItem {
       cursor: col-resize;
-      a.noLink{
-      cursor: default;
-    }
-    a {
+
+      a {
         width: 100%;
         text-decoration: none;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         grid-gap: ${({ theme }) => theme.padding['1/2']};
-        article {
+        > div {
           background-color: transparent;
           border: none;
           box-shadow: none;
@@ -277,7 +270,7 @@ const CardsWrapper = styled.section`
           /* box-shadow: none; */
         }
         .imageWrapper {
-          box-shadow: ${({ theme }) => theme.boxShadow.xl};
+          box-shadow: ${({ theme }) => theme.boxShadow.lg};
         }
         .content {
           .link {
@@ -297,7 +290,7 @@ const CardsWrapper = styled.section`
     .carousel {
       .nav {
         .item {
-          background-color:${({ theme }) => theme.colors.page[200]};
+          background-color:${({ theme }) => theme.colors.page[100]};
         }
 
         .item:hover,
@@ -319,7 +312,7 @@ const CardsWrapper = styled.section`
 
       .nav {
         .item {
-          background-color: ${({ theme }) => theme.colors.page[800]};
+          background-color: ${({ theme }) => theme.colors.page.default};
         }
 
         .item:hover,
@@ -346,9 +339,7 @@ const Cards = ({ slice }) => {
   // Set the bgColor class
   var bgColor = getBgColor(slice.primary.background_color)
   const bGroundTint = getColorTint(slice.primary.background_tint)
-  bgColor === 'page'
-    ? (bgColor = 'background-' + bgColor)
-    : (bgColor = 'background-' + bgColor + '-' + bGroundTint)
+  bgColor = 'background-' + bgColor + '-' + bGroundTint
   // Set the vertical padding - inline style
   const defaultPadding = getAutoSpacing(slice.primary.default_padding)
   var vPaddingTop = getManualSpacing(slice.primary.v_padding_top)
@@ -378,6 +369,7 @@ const Cards = ({ slice }) => {
 
   // Validate title text
   const title = slice.primary.card_title
+  const ariaLabel = slice.primary.aria_label
   const align = getPostionAlign(slice.primary.align)
 
   // How do we present this? Carousel or Gallery
@@ -439,12 +431,13 @@ const Cards = ({ slice }) => {
           </span>
         )}
 
+        {/* Masonary Cards - Gallery */}
         {presentationType === 'gallery' && (
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="masonry-grid"
             columnClassName="masonry-grid_column"
-            aria-label="Masondary layout of cards"
+            aria-label={ariaLabel}
           >
             {slice.items.map((cardItem, index) => {
               return (
@@ -452,19 +445,21 @@ const Cards = ({ slice }) => {
                   cardItem={cardItem}
                   key={slice.id + index}
                   presentationType={presentationType}
-                  aria-label="Card item"
+                  item={index}
+                  carouselLength={slice.items.length}
                 />
               )
             })}
           </Masonry>
         )}
 
+        {/* Masonary Cards - Profile */}
         {presentationType === 'profile' && (
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="masonry-grid"
             columnClassName="masonry-grid_column"
-            aria-label="Profile cards"
+            aria-label={ariaLabel}
           >
             {slice.items.map((cardItem, index) => {
               return (
@@ -472,27 +467,36 @@ const Cards = ({ slice }) => {
                   cardItem={cardItem}
                   key={slice.id + index}
                   presentationType={presentationType}
-                  aria-label="Card item"
+                  item={index}
+                  carouselLength={slice.items.length}
                 />
               )
             })}
           </Masonry>
         )}
 
+        {/* Carousel */}
         {presentationType === 'carousel' && (
-          <div className="carousel" aria-label="Carousel">
-            <div ref={sliderRef} className="keen-slider">
+          <div
+            className="carousel"
+            aria-roledescription="carousel"
+            aria-label={ariaLabel}
+            aria-live="polite"
+          >
+            <div ref={sliderRef} id="carousel-items" className="keen-slider">
               {slider && (
                 <>
                   <NavArrow
                     onClick={(e) => e.stopPropagation() || slider.prev()}
                     disabled={currentSlide === 0}
                     direction={'prev'}
+                    aria-controls="carousel-items"
                   />
                   <NavArrow
                     onClick={(e) => e.stopPropagation() || slider.next()}
                     disabled={currentSlide === slider.details().size - 1}
                     direction={'next'}
+                    aria-controls="carousel-items"
                   />
                 </>
               )}
@@ -503,7 +507,8 @@ const Cards = ({ slice }) => {
                     cardItem={cardItem}
                     key={slice.id + index}
                     presentationType={presentationType}
-                    aria-label="Card item"
+                    item={index}
+                    carouselLength={slice.items.length}
                   />
                 )
               })}

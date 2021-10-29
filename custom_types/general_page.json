@@ -404,6 +404,12 @@
                   "label": "Title"
                 }
               },
+              "aria_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Aria label"
+                }
+              },
               "align": {
                 "type": "Select",
                 "config": {
