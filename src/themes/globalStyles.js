@@ -19,13 +19,12 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     box-sizing: border-box; 
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     /* scroll-behavior: initial; */
     /* scroll-behavior: auto; */
-    /* scroll-behavior: initial; */
+    scroll-behavior: initial;
     font-family: ${({ theme }) => theme.font.sans};
     font-size: ${({ theme }) => theme.fontSize.base};
-    letter-spacing: 0;
     color: ${({ theme }) => theme.colors.page.default};
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-smoothing: antialiased;
@@ -56,7 +55,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     main {
-      margin: 11mm 0;      
+      margin: 11mm 0;   
+      overflow: hidden;   
     }
 
     div, li, a {

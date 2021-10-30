@@ -41,6 +41,11 @@ const FooterWrapper = styled.footer`
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
         justify-content: space-evenly;
       }
+
+      @media print {
+        display: none;
+      }
+
       > li {
         width: auto;
         /* color: ${({ theme }) => theme.colors.footer[200]}; */
@@ -56,6 +61,7 @@ const FooterWrapper = styled.footer`
         display: inherit;
         flex-direction: column;
         list-style: inherit;
+
         li {
           font-weight: initial;
           color: ${({ theme }) => theme.colors.footer[400]};

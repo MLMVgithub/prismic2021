@@ -46,7 +46,6 @@ const HeaderWrapper = styled.header`
     }
     .skipLink:focus {
     }
-
     @media print {
       display: none;
     }
@@ -105,9 +104,11 @@ const HeaderWrapper = styled.header`
         right: ${({ theme }) => theme.padding['1/2']};
         left: auto;
       }
+
       @media print {
         left: ${({ theme }) => theme.padding['1/2']};
-      
+        right: auto;
+      }
 
       span {
         display: none;
@@ -137,6 +138,10 @@ const HeaderWrapper = styled.header`
 
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
         display: flex;
+      }
+
+      @media print {
+        display: none;
       }
     }
 
@@ -390,8 +395,7 @@ const HeaderWrapper = styled.header`
             box-shadow: ${({ theme }) => theme.boxShadow.lg} !important;
 
             li {
-              padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) =>
-  theme.padding['1/2']};
+              padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
 
               a {
                 white-space: nowrap;
