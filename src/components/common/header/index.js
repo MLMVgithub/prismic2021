@@ -46,6 +46,10 @@ const HeaderWrapper = styled.header`
     }
     .skipLink:focus {
     }
+
+    @media print {
+      display: none;
+    }
   }
   .skipNav:focus-within {
     top: 0px;
@@ -98,7 +102,12 @@ const HeaderWrapper = styled.header`
 
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
         order: 1;
+        right: ${({ theme }) => theme.padding['1/2']};
+        left: auto;
       }
+      @media print {
+        left: ${({ theme }) => theme.padding['1/2']};
+      
 
       span {
         display: none;
@@ -107,14 +116,6 @@ const HeaderWrapper = styled.header`
       svg {
         height: 36px;
         width: auto;
-      }
-    }
-
-    a.brand {
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        /* right: 64px; */
-        right: ${({ theme }) => theme.padding['1/2']};
-        left: auto;
       }
     }
 
@@ -389,7 +390,8 @@ const HeaderWrapper = styled.header`
             box-shadow: ${({ theme }) => theme.boxShadow.lg} !important;
 
             li {
-              padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
+              padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) =>
+  theme.padding['1/2']};
 
               a {
                 white-space: nowrap;

@@ -50,6 +50,10 @@ const BtnWrapper = styled.span`
       line-height: 0;
       color: inherit;
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   .btn.right {
