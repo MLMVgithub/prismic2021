@@ -22,7 +22,7 @@ module.exports = {
     // Site title
     siteTitle: website.title,
     // Navigation
-    skipPrimaryNav: 'Skip primary navigation',
+    skipPrimaryNav: 'Skip to main content',
     linkToHomepage: 'Link to homepage',
     logo: 'Identity and logo',
     menu: 'Menu',
@@ -68,7 +68,7 @@ module.exports = {
     // Site title
     siteTitle: 'Taku Ao Taku Reo',
     // Navigation
-    skipPrimaryNav: 'Hūpeke whakatere tuatahi',
+    skipPrimaryNav: 'Tīpoka ki te ihirangi matua',
     linkToHomepage: 'Honoa ki te whaarangi',
     logo: 'Te tuakiri me te waitohu',
     menu: 'Tahua',
