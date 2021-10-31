@@ -77,7 +77,7 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
             <CardContent>
               <div className="content">
                 {title && (
-                  <div className="title">
+                  <div className="title" aria-label="title">
                     {title}
                     <IconMaterial icon={'arrow_forward'} />
                   </div>
