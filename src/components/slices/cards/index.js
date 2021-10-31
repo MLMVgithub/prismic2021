@@ -134,10 +134,10 @@ const CardsWrapper = styled.section`
     /* @media (max-width: ${({ theme }) => theme.screens.sm}) {
       padding-top:  ${({ theme }) => theme.padding['1/2']} !important;
     } */
-    a.noLink{
+    /* div.noLink{
       cursor: default;
-    }
-    a {
+    } */
+    div {
       width: 100%;
       text-decoration: none;
       
