@@ -77,10 +77,10 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
             <CardContent>
               <div className="content">
                 {title && (
-                  <div className="title" aria-label="title">
+                  <h2 className="title">
                     {title}
                     <IconMaterial icon={'arrow_forward'} />
-                  </div>
+                  </h2>
                 )}
                 {eventType === 'News item' && date !== 'Invalid date' && <time>{date}</time>}
                 {intro && <RichText render={intro} linkResolver={linkResolver} />}

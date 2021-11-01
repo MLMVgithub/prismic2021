@@ -105,6 +105,9 @@ export const query = graphql`
       id
       _previewable
       data {
+        title {
+          text
+        }
         show_filters
         show_input
         show_sorting

@@ -160,10 +160,10 @@ const PeerSupportersItem = ({ thisItem, animateScroll }) => {
 
               <div className="content" ref={innerTxt}>
                 {firstName && (
-                  <div className="title" aria-label="title">
+                  <h2 className="title">
                     {fullName}
                     <IconMaterial icon={'arrow_forward'} />
-                  </div>
+                  </h2>
                 )}
                 {intro && <p>{intro}</p>}
                 {location && (

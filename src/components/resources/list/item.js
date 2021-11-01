@@ -32,11 +32,7 @@ const RescourcesItem = ({ resourceItem, id, showTags }) => {
           <div className="card">
             <CardContent>
               <div className="content">
-                {title && (
-                  <div className="title" aria-label="title">
-                    {title}
-                  </div>
-                )}
+                {title && <h2 className="title">{title}</h2>}
                 {intro && <RichText render={intro} linkResolver={linkResolver} />}
               </div>
               <div className="details">

@@ -49,6 +49,7 @@ const CardContent = styled.article`
       position: relative;
       align-items: center;
       margin: 0;
+      font-family: ${({ theme }) => theme.font.sans};
       i {
         color: inherit;
         position: inherit;

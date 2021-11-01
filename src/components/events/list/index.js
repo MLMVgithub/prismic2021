@@ -35,6 +35,9 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
   // A little loDash for sorting assistance
   var _ = require('lodash')
 
+  // Page title
+  const pageTitle = pageIntro.title.text
+
   // Set up some states
   // And set the intial sort by date in reverse to show latest at top of list
   var [sourceList, setSourceList] = useState(
@@ -265,6 +268,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
     <>
+      {pageTitle !== null && <h1 className="hide">{pageTitle}</h1>}
       {pageIntro.show_filters === true && (
         <Filter>
           <SkipFilter />

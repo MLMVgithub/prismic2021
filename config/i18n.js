@@ -57,6 +57,8 @@ module.exports = {
     // Events
     previousEvent: 'Previous event',
     attendingEvent: 'Planning on attending this event? Let us know.',
+    // Peer Supporters
+    peerSupportsTitle: 'Peer Supporters list',
   },
 
   // Te Reo - Maori NZ
@@ -103,5 +105,7 @@ module.exports = {
     // Events
     previousEvent: 'Tuhinga o mua',
     attendingEvent: 'Te whakamahere mo te haere ki tenei huihuinga? Kia mohio taatau.',
+    // Peer Supporters
+    peerSupportsTitle: 'Rarangi Kaitautoko Hoa',
   },
 }
