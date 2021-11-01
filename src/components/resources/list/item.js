@@ -15,7 +15,7 @@ import ListItem from '/src/components/common/layout/listResults/listItem'
 import CardContent from '/src/components/common/layout/listResults/cardContent'
 import Tags from '/src/components/common/filter/tags'
 
-const RescourcesItem = ({ resourceItem, id, showTags }) => {
+const RescourcesItem = ({ currentLang, resourceItem, id, showTags }) => {
   const item = resourceItem.item.document
   const tagData = resourceItem.item.document.tags.sort()
   const content = resourceItem.item.document.data

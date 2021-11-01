@@ -19,7 +19,7 @@ const FooterWrapper = styled.footer`
   text-align: center;
   z-index: 1;
 
-  > div {
+  > nav {
     max-width: ${({ theme }) => theme.screens.lg};
     position: relative;
     margin: 0 auto;
@@ -68,6 +68,7 @@ const FooterWrapper = styled.footer`
           width: inherit;
           text-align: initial;
           a {
+            line-height: 2rem;
             margin: 0;
             text-decoration: none;
             @media (max-width: ${({ theme }) => theme.screens.sm}) {
@@ -127,15 +128,15 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
 
   return (
     <FooterWrapper>
-      <div>
+      <nav aria-label="Footer navigation">
         <ScrollToTop />
         {footerNav.length > 0 ? (
           <ul className="footerNavWrapper">
             {footerNav.map((header) => {
               return (
-                <li key={header.id}>
+                <li key={header.id} aria-label="Footer navigation category">
                   {header.primary.label.text}
-                  <ul className="footerNav" aria-label="Footer navigation">
+                  <ul className="footerNav">
                     {header.items.map((navItem) => {
                       return (
                         <li key={navItem.id}>
@@ -162,7 +163,7 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
           <span>{i18n[currentLang].linkToHomepage}</span>
           <Brand currentLang={currentLang} />
         </Link>
-      </div>
+      </nav>
     </FooterWrapper>
   )
 }

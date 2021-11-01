@@ -320,6 +320,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
             <List>
               {allPosts.map((node, index) => (
                 <GridItem
+                  currentLang={currentLang}
                   resourceItem={allPosts[index]}
                   showTags={pageIntro.show_tags}
                   key={allPosts[index].item.id}
