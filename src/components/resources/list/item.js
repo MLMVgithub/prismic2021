@@ -4,6 +4,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import linkResolver from '/src/utils/linkResolver'
+import i18n from '/config/i18n'
 import { validateString } from '/src/utils/helpers'
 
 // Icons
@@ -45,14 +46,19 @@ const RescourcesItem = ({ resourceItem, id, showTags }) => {
                 )}
 
                 {externalLink && (
-                  <a href={externalLink} target="_blank" rel="noreferrer">
+                  <a
+                    href={externalLink}
+                    target="_blank"
+                    aria-describedby={i18n[currentLang].openInNewWin}
+                    rel="noreferrer"
+                  >
                     <IconMaterial icon={'open_in_new'} />
                     {externalLink}
                   </a>
                 )}
 
                 {phone && (
-                  <a href={`tel:${phone}`}>
+                  <a href={`tel:${phone}`} aria-describedby={i18n[currentLang].openInPhoneApp}>
                     <IconMaterial icon={'call'} />
                     {phone}
                   </a>
