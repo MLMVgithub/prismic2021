@@ -42,7 +42,7 @@ const CardContent = styled.article`
 
     .title {
       font-family: ${({ theme }) => theme.font.sans};
-      font-size: 102%;
+      font-size: 103%;
       font-weight: 600;
       align-content: space-between;
       display: flex;
@@ -51,7 +51,8 @@ const CardContent = styled.article`
       align-items: center;
       margin: 0;
       i {
-        color: inherit;
+        /* color: inherit; */
+        color: ${({ theme }) => theme.colors.accent.default};
         position: inherit;
         transition: ${({ theme }) => theme.transition.easeIn.default};
         right: 0px;
@@ -60,15 +61,8 @@ const CardContent = styled.article`
     }
     p {
       margin-bottom: 0;
-    }
-
-    p:last-of-type {
-      display: flex;
-      flex-direction: row;
-      grid-column-gap: ${({ theme }) => theme.padding['1/4']};
-      align-items: center;
-      i {
-        color: ${({ theme }) => theme.colors.secondary.default};
+      a {
+        width: auto;
       }
     }
   }

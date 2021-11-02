@@ -98,7 +98,7 @@ const Layout = ({ children, currentLang, primaryNav, footerNav }) => {
       />
 
       <div className="layoutInner">
-        <main id="main" className={i18n.allPrefix.includes(pathName) ? 'index' : ''}>
+        <main id="main" tabindex="-1" className={i18n.allPrefix.includes(pathName) ? 'index' : ''}>
           {children}
         </main>
       </div>
