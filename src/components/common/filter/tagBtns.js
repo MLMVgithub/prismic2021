@@ -25,7 +25,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
       font-size: 20px;
       aspect-ratio: 1;
       padding: 2px;
-      cursor: pointer;
+      /* cursor: pointer; */
       user-select: none;
       background-color: #fff;
       border: 1px solid transparent;
@@ -66,7 +66,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
     font-size: 80%;
     text-transform: uppercase;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
-    cursor: pointer;
+    /* cursor: pointer; */
     padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
     white-space: nowrap;
     color: ${({ theme }) => theme.colors.page.default};

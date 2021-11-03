@@ -51,8 +51,8 @@ const CardContent = styled.article`
       align-items: center;
       margin: 0;
       i {
-        /* color: inherit; */
-        color: ${({ theme }) => theme.colors.accent.default};
+        color: inherit;
+        /* color: ${({ theme }) => theme.colors.accent.default}; */
         position: inherit;
         transition: ${({ theme }) => theme.transition.easeIn.default};
         right: 0px;
@@ -63,6 +63,17 @@ const CardContent = styled.article`
       margin-bottom: 0;
       a {
         width: auto;
+      }
+    }
+
+    p:last-of-type {
+      display: flex;
+      flex-direction: row;
+      grid-column-gap: ${({ theme }) => theme.padding['1/4']};
+      align-items: center;
+      margin: ${({ theme }) => theme.padding['1/4']} 0;
+      i {
+        color: ${({ theme }) => theme.colors.secondary.default};
       }
     }
   }
