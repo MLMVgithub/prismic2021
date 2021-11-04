@@ -115,6 +115,7 @@ export const GlobalStyles = createGlobalStyle`
     outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important; 
   }
 
+
   .marginTopInital {
     margin-top:0 !important;
   }

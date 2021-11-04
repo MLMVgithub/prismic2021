@@ -68,12 +68,11 @@ const FooterWrapper = styled.footer`
           width: inherit;
           text-align: initial;
           a {
-            line-height: 2rem;
             margin: 0;
             text-decoration: none;
-            @media (max-width: ${({ theme }) => theme.screens.sm}) {
-              padding: ${({ theme }) => theme.margin['1/8']} 0;
-            }
+            color: inherit;
+            padding: 12px 0;
+            display: flex;
           }
           a:hover {
             text-decoration: underline;
@@ -82,12 +81,13 @@ const FooterWrapper = styled.footer`
       }
     }
 
-    a {
+    a.brand {
       position: relative;
       color: unset;
       display: flex;
       margin: 0 auto;
       width: fit-content;
+      padding: 4px 12px;
 
       span {
         display: none;
@@ -159,8 +159,8 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
         <Link
           to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
           title={i18n[currentLang].linkToHomepage}
+          className="brand"
         >
-          <span>{i18n[currentLang].linkToHomepage}</span>
           <Brand currentLang={currentLang} />
         </Link>
       </nav>

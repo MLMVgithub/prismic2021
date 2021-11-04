@@ -10,7 +10,7 @@ const Input = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    position: relative;
+    /* position: relative; */
 
     @include respond-below(sm) {
       margin: 0 0;

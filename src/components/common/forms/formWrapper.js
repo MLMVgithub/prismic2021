@@ -42,28 +42,41 @@ const FormWraper = styled.div`
     font: inherit;
   }
 
+  /* input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.primary.default};
+  } */
+
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    border: 1px solid ${({ theme }) => theme.colors.primary.default} !important;
-    outline: none !important;
+    outline: 2px solid ${({ theme }) => theme.colors.focusVisible};
   }
 
-  [type='color'],
-  [type='date'],
-  [type='email'],
-  [type='datetime-local'],
-  [type='datetime'],
-  [type='email'],
-  [type='month'],
-  [type='number'],
-  [type='password'],
-  [type='search'],
-  [type='tel'],
-  [type='text'],
-  [type='time'],
-  [type='url'],
-  [type='week'],
+  input:focus:not(:focus-visible),
+  textarea:focus:not(:focus-visible),
+  select:focus:not(:focus-visible) {
+    outline: none;
+    border: 1px solid ${({ theme }) => theme.colors.primary.default};
+  }
+
+  input[type='color'],
+  input[type='date'],
+  input[type='email'],
+  input[type='datetime-local'],
+  input[type='datetime'],
+  input[type='email'],
+  input[type='month'],
+  input[type='number'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='time'],
+  input[type='url'],
+  input[type='week'],
   textarea,
   select {
     font-family: ${({ theme }) => theme.font.sans};
