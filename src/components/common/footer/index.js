@@ -70,8 +70,9 @@ const FooterWrapper = styled.footer`
           a {
             margin: 0;
             text-decoration: none;
+            line-height: 1.8rem;
             color: inherit;
-            padding: 12px 0;
+            padding: ${({ theme }) => theme.padding['1/4']} 0;
             display: flex;
           }
           a:hover {
@@ -87,7 +88,7 @@ const FooterWrapper = styled.footer`
       display: flex;
       margin: 0 auto;
       width: fit-content;
-      padding: 4px 12px;
+      padding: 2px 12px;
 
       span {
         display: none;
