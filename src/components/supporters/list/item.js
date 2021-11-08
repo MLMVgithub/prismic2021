@@ -146,7 +146,7 @@ const PeerSupportersItem = ({ thisItem, animateScroll }) => {
   return (
     <>
       {item.uid && (
-        <CardItem className={'item show'} ref={gridItem}>
+        <CardItem className="item show" ref={gridItem}>
           <Link to={linkResolver(item)} className="card">
             <CardContent>
               {content.image && (

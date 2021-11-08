@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 const Grid = styled.ul.attrs((props) => ({
   'aria-label': 'List results as cards',
+  'aria-live': 'polite',
+  'aria-atomic': 'false',
 }))`
   display: grid;
   position: relative;
