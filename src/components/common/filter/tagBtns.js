@@ -6,7 +6,7 @@ import IconMaterial from '/src/components/common/icons/material'
 import styled from 'styled-components'
 
 const ListTagBtnsWrapper = styled.div.attrs((props) => ({
-  'aria-label': 'Sort tags',
+  // 'aria-label': 'Sort tags',
 }))`
   .utils {
     position: absolute;
@@ -287,7 +287,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
           {tagList.map((node, index) => (
             <button
               className="tagButton"
-              type="button"
+              // type="button"
               id={_.camelCase(node)}
               key={`tagButton-` + index}
               onMouseDown={resetCards}
