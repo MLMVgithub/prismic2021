@@ -303,6 +303,7 @@ export const query = graphql`
                 uid
               }
               image {
+                alt
                 localFile {
                   childImageSharp {
                     gatsbyImageData(
