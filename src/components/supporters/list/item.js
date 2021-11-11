@@ -162,14 +162,14 @@ const PeerSupportersItem = ({ thisItem, animateScroll }) => {
                 {firstName && (
                   <h2 className="title">
                     {fullName}
-                    <IconMaterial icon={'arrow_forward'} />
+                    <IconMaterial icon="arrow_forward" />
                   </h2>
                 )}
                 {intro && <p>{intro}</p>}
                 {location && (
                   <p>
-                    <IconMaterial icon={'person_pin_circle'} />
-                    {location}
+                    <IconMaterial icon="person_pin_circle" />
+                    <span className="sr-only">Location</span> {location}
                   </p>
                 )}
                 {tagData.length > 0 && <Tags tagData={tagData} />}

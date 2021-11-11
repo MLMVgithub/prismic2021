@@ -91,25 +91,25 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
                   {today < start_date && (
                     <>
                       {date && (
-                        <time aria-label="Date">
+                        <time>
                           <IconMaterial icon={'event'} />
-                          {date}
+                          <span className="sr-only">Date</span> {date}
                         </time>
                       )}
                       {time && (
-                        <time aria-label={`${i18n[currentLang].starts}`}>
+                        <time>
                           <IconMaterial icon={'schedule'} />
                           {i18n[currentLang].starts}: {time}
                         </time>
                       )}
                       {end_date > start_date && (
-                        <time aria-label={`${i18n[currentLang].ends}`}>
+                        <time>
                           <IconMaterial icon={'access_time_filled'} />
                           {i18n[currentLang].ends}: {endTime}
                         </time>
                       )}
                       {showDuration === true && duration && (
-                        <time aria-label={`${i18n[currentLang].duration}`}>
+                        <time>
                           <IconMaterial icon={'timelapse'} />
                           {i18n[currentLang].duration}: {duration}
                         </time>
@@ -118,7 +118,7 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
                   )}
 
                   {today > start_date && (
-                    <time className="passed" aria-label={i18n[currentLang].previousEvent}>
+                    <time className="passed">
                       <IconMaterial icon={'event_busy'} />
                       <span className="srike">{date}</span>
                       {i18n[currentLang].previousEvent}
@@ -126,9 +126,9 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
                   )}
 
                   {location && (
-                    <address aria-label="Loaction">
+                    <address>
                       <IconMaterial icon={'place'} />
-                      {location}
+                      <span className="sr-only">Location</span> {location}
                     </address>
                   )}
 

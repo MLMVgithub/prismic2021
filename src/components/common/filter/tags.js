@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Tags = styled.div.attrs((props) => ({
-  'aria-label': 'Tags list',
+  // 'aria-label': 'Tags list',
 }))`
   ul {
     list-style: none;

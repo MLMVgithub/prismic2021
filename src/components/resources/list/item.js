@@ -49,25 +49,25 @@ const RescourcesItem = ({ currentLang, resourceItem, id, showTags }) => {
                   <a
                     href={externalLink}
                     target="_blank"
-                    aria-describedby={i18n[currentLang].openInNewWin}
+                    // aria-describedby={i18n[currentLang].openInNewWin}
                     rel="noreferrer"
                   >
                     <IconMaterial icon={'open_in_new'} />
-                    {externalLink}
+                    <span className="sr-only">Open in a new window</span> {externalLink}
                   </a>
                 )}
 
                 {phone && (
                   <a href={`tel:${phone}`} aria-describedby={i18n[currentLang].openInPhoneApp}>
                     <IconMaterial icon={'call'} />
-                    {phone}
+                    <span className="sr-only">Contact number</span> {phone}
                   </a>
                 )}
 
                 {location && (
                   <address>
                     <IconMaterial icon={'place'} />
-                    {location}
+                    <span className="sr-only">Location</span> {location}
                   </address>
                 )}
 
