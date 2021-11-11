@@ -129,7 +129,7 @@ const SortSelect = styled.button.attrs((props) => ({
 `
 const SortItem = styled.button.attrs((props) => ({
   type: props.type || 'button',
-  'aria-label': 'Select item',
+  // 'aria-label': 'Select item',
 }))``
 
 // Toggle sort list - ariaExpanded
