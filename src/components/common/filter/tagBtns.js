@@ -9,7 +9,6 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
   // 'aria-label': 'Sort tags',
 }))`
   .utils {
-    position: absolute;
     align-items: center;
     display: flex;
     flex-direction: row;
