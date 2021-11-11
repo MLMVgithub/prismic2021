@@ -25,7 +25,7 @@ const Tags = styled.div.attrs((props) => ({
       color: ${({ theme }) => theme.colors.page.default};
       white-space: nowrap;
       text-transform: uppercase;
-      border-radius: ${({ theme }) => theme.borderRadius.sm};
+      border-radius: ${({ theme }) => theme.borderRadius.default};
     }
     li.isActive {
       color: ${({ theme }) => theme.colors.page.default};

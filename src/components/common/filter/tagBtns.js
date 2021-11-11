@@ -34,6 +34,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
       top: -${({ theme }) => theme.margin['1/4']};
 
       right: 0px;
+      /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
 
       &:hover {
         border: 1px solid ${({ theme }) => theme.colors.primary[600]};
@@ -78,7 +79,8 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
     color: ${({ theme }) => theme.colors.page.default};
     background-color: #fff;
     border: 1px solid transparent;
-    border-radius: ${({ theme }) => theme.borderRadius.sm};
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+    box-shadow: ${({ theme }) => theme.boxShadow.default};
   }
 
   .tagButton:hover {
@@ -90,6 +92,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
     color: ${({ theme }) => theme.colors.page.default};
     background-color: ${({ theme }) => theme.colors.tertiary[700]};
     border: 1px solid transparent;
+    box-shadow: none;
   }
 `
 
