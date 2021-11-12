@@ -78,7 +78,7 @@ const MaterialIconButton = styled.button.attrs((props) => ({
   font-feature-settings: 'liga';
 `
 
-const Material = ({ icon, size, style, type, onClick, ariaLabel }) => {
+const Material = ({ icon, size, style, type, onClick, ariaLabel, ref }) => {
   // Today our default is 'Round'
   if (style === undefined) {
     style = '-round'
@@ -90,12 +90,19 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel }) => {
   }
 
   return (
+    // aria hidden, visible and as button
     <>
-      {type === undefined && (
+      {type === undefined && ariaLabel === undefined && (
+        <MaterialIcon className={`material-icons${style} md-${size}`} aria-hidden="true" ref={ref}>
+          {icon}
+        </MaterialIcon>
+      )}
+
+      {type === undefined && ariaLabel !== undefined && (
         <MaterialIcon
           className={`material-icons${style} md-${size}`}
-          aria-hidden="true"
           aria-label={ariaLabel}
+          ref={ref}
         >
           {icon}
         </MaterialIcon>
@@ -104,8 +111,8 @@ const Material = ({ icon, size, style, type, onClick, ariaLabel }) => {
       {type === 'button' && (
         <MaterialIconButton
           className={`material-icons${style} md-${size}`}
-          aria-label={ariaLabel}
           onClick={onClick}
+          ref={ref}
         >
           {icon}
         </MaterialIconButton>

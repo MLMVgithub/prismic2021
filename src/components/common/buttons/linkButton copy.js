@@ -11,7 +11,7 @@ import styled from 'styled-components'
 
 const BtnWrapper = styled.span`
   display: flex;
-  margin: ${({ theme }) => theme.margin['1/2']} auto 0 auto;
+  /* margin: ${({ theme }) => theme.margin['1/2']} auto 0 auto; */
 
   .btn:focus {
     outline: none;
@@ -27,8 +27,8 @@ const BtnWrapper = styled.span`
     user-select: none;
     width: fit-content;
     white-space: nowrap;
-    margin: 0 auto;
-    /* margin: ${({ theme }) => theme.margin['1/2']} auto 0 auto; */
+    /* margin: 0 auto; */
+    margin: ${({ theme }) => theme.margin['1/2']} auto 0 auto;
     padding: 16px ${({ theme }) => theme.padding.default};
     padding: 12px 24px;
     text-align: center;

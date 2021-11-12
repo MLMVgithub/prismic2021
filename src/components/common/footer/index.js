@@ -135,7 +135,7 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
           <ul className="footerNavWrapper">
             {footerNav.map((header) => {
               return (
-                <li key={header.id} aria-label="Footer navigation category">
+                <li key={header.id}>
                   {header.primary.label.text}
                   <ul className="footerNav">
                     {header.items.map((navItem) => {
