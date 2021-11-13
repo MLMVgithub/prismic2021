@@ -131,7 +131,7 @@ export const query = graphql`
         #Page data
         body {
           ##
-          ## Hero mage
+          ## Hero image
           ... on PrismicGeneralPageDataBodyHeroImage {
             slice_type
             primary {
@@ -176,6 +176,8 @@ export const query = graphql`
               overlay_to_opacity
               overlay_direction
               align_image
+              background_color
+              background_opacity
               image {
                 localFile {
                   childImageSharp {

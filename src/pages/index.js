@@ -179,6 +179,8 @@ export const query = graphql`
               overlay_to_opacity
               overlay_direction
               align_image
+              background_color
+              background_opacity
               image {
                 localFile {
                   childImageSharp {
