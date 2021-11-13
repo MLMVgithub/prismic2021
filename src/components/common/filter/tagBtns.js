@@ -40,6 +40,9 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
         border: 1px solid ${({ theme }) => theme.colors.primary[600]};
         color: ${({ theme }) => theme.colors.primary.default};
       }
+      i {
+        pointer-events: none;
+      }
     }
   }
 
@@ -276,7 +279,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
       <div className="utils">
         {tagBtnsReset === true && (
           <ResetTagsBtn onClick={hideTagReset}>
-            <IconMaterial icon={'loop'} ariaLabel={'Reset tags'} />
+            <IconMaterial icon={'loop'} />
           </ResetTagsBtn>
         )}
 
