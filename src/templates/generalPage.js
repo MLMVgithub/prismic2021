@@ -83,6 +83,7 @@ export const query = graphql`
     allPrismicFooterNavigation(filter: { lang: { eq: $locale } }) {
       edges {
         node {
+          _previewable
           type
           lang
           id
