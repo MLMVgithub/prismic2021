@@ -13,7 +13,7 @@ const GeneralPageTemplate = ({ data, location }) => {
 
   // if (!data || !primaryNavData) return null
   // if (!data) return null
-  const primaryNavData = data.prismicMainNavigation.data
+  const primaryNavData = data.prismicMainNavigation.slice(0, 1).pop()
   if (!data || !primaryNavData) return null
 
   const document = data.prismicGeneralPage
