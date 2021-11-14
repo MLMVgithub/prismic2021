@@ -13,10 +13,10 @@ const GeneralPageTemplate = ({ data, location }) => {
 
   // if (!data || !primaryNavData) return null
   // if (!data) return null
+  const primaryNavData = data.prismicMainNavigation.data.nav.slice(0, 1).pop()
+  if (!data || !primaryNavData) return null
 
   const document = data.prismicGeneralPage
-  // const primaryNav = data.prismicPrimaryNavigation.data.top_navigation
-  // const currentLang = data.prismicPrimaryNavigation.lang
 
   const primaryNav = data.prismicMainNavigation.data.nav
   const footerNav = data.prismicFooterNavigation.data.nav
