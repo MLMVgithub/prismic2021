@@ -12,7 +12,8 @@ const HomeTemplate = ({ data, location }) => {
   // const primaryNavData = data.allPrismicMainNavigation.edges.slice(0, 1).pop()
   // const footerNavData = data.allPrismicFooterNavigation.edges.slice(0, 1).pop()
 
-  // if (!data || !primaryNavData) return null
+  const primaryNavData = data.prismicMainNavigation.data.nav.slice(0, 1).pop()
+  if (!data || !primaryNavData) return null
 
   const document = data.prismicHomepage
 
