@@ -36,8 +36,16 @@ export const query = graphql`
   query RecourcesList($uid: String, $locale: String) {
     ## Get the primary nav in local context
     prismicMainNavigation(lang: { eq: $locale }) {
-      type
       lang
+      type
+      id
+
+      alternate_languages {
+        lang
+        type
+        id
+      }
+
       _previewable
       data {
         nav {
@@ -70,8 +78,16 @@ export const query = graphql`
 
     ## Get the footer nav in local context
     prismicFooterNavigation(lang: { eq: $locale }) {
-      type
       lang
+      type
+      id
+
+      alternate_languages {
+        lang
+        type
+        id
+      }
+
       _previewable
       data {
         nav {
