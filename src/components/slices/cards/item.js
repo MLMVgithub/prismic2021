@@ -34,7 +34,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
       aria-roledescription="Card"
       aria-label={`Item ${item + 1} of ${carouselLength}`}
     >
-      {link.uid !== undefined ? (
+      {link.uid !== (null || undefined) ? (
         <Link to={linkResolver(link)} className="link">
           <CardContent>
             {image && (

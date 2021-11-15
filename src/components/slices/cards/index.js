@@ -160,6 +160,17 @@ const CardsWrapper = styled.section`
           p {
             justify-content: inherit;
           }
+
+           p {
+             display: block;
+             /* text-align: center; */
+             margin: 0;
+
+        
+            a {
+              white-space: nowrap;
+            }
+          }
         }
       }
     }
