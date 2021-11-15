@@ -114,6 +114,7 @@ export const query = graphql`
       type
       uid
       id
+
       alternate_languages {
         lang
         uid

@@ -82,7 +82,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
                   {presentationType === 'gallery' && <IconMaterial icon={'arrow_forward'} />}
                 </div>
               )}
-              {content.text && <RichText render={content.raw} />}
+              {content.text && <RichText render={content.raw} linkResolver={linkResolver} />}
               {linkLabel && presentationType === 'carousel' && (
                 <span className="link">
                   {linkLabel}
