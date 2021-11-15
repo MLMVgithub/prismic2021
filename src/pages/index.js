@@ -50,6 +50,7 @@ export const query = graphql`
           type
           lang
           id
+          prismicId
 
           data {
             nav {
@@ -88,6 +89,8 @@ export const query = graphql`
       lang
       type
       id
+
+      prismicId
 
       data {
         nav {
