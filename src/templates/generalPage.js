@@ -6,7 +6,7 @@ import SliceZone from '/src/components/slices/sliceZone'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { linkResolver } from '/src/utils/linkResolver'
 
-const GeneralPageTemplate = ({ data, location }) => {
+const GeneralPageTemplate = ({ data }) => {
   if (!data) return null
   // Validate data for Gastby Build Gatsby Build breaks here for Deleate / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174
   // const primaryNavData = data.allPrismicMainNavigation.edges.slice(0, 1).pop()
@@ -17,11 +17,18 @@ const GeneralPageTemplate = ({ data, location }) => {
   // const primaryNavData = data.prismicMainNavigation.slice(0, 1).pop()
   // if (!data || !primaryNavData) return null
 
-  const document = data.prismicGeneralPage
+  //Validate data for Gastby Build Gatsby Build breaks here for Deleate / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174
 
-  const primaryNav = data.prismicMainNavigation.data.nav
+  const primaryNavData = data.allPrismicMainNavigation.edges.slice(0, 1).pop()
+  if (!data || !primaryNavData) return null
+  const document = data.prismicGeneralPage
+  const primaryNav = primaryNavData.node.data.nav
   const footerNav = data.prismicFooterNavigation.data.nav
   const currentLang = data.prismicMainNavigation.lang
+
+  // const primaryNav = data.prismicMainNavigation.data.nav
+  // const footerNav = data.prismicFooterNavigation.data.nav
+  // const currentLang = data.prismicMainNavigation.lang
 
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
@@ -42,33 +49,36 @@ export const query = graphql`
   query GeneralPageQuery($uid: String, $locale: String) {
     ##
     ## Get the Main nav in local context
-    prismicMainNavigation(lang: { eq: $locale }) {
-      lang
-      type
-      id
-      _previewable
-      data {
-        nav {
-          ... on PrismicMainNavigationDataNavNavItem {
-            id
-            primary {
-              label {
-                text
-              }
-              link {
-                uid
-                lang
-                type
-              }
-            }
-            items {
-              sub_nav_link {
-                uid
-                type
-                lang
-              }
-              sub_nav_link_label {
-                text
+    allPrismicMainNavigation(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          type
+          lang
+          id
+          data {
+            nav {
+              ... on PrismicMainNavigationDataNavNavItem {
+                id
+                primary {
+                  link {
+                    uid
+                    type
+                    lang
+                  }
+                  label {
+                    text
+                  }
+                }
+                items {
+                  sub_nav_link {
+                    uid
+                    type
+                    lang
+                  }
+                  sub_nav_link_label {
+                    text
+                  }
+                }
               }
             }
           }
