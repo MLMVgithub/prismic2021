@@ -7,9 +7,7 @@ import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { linkResolver } from '../utils/linkResolver'
 
 const HomeTemplate = ({ data, location }) => {
-  if (!data) {
-    return null
-  }
+  if (!data) return null
 
   //Validate data for Gastby Build Gatsby Build breaks here for Deleate / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174
 
