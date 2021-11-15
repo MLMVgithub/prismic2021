@@ -116,6 +116,13 @@ export const query = graphql`
       id
       _previewable
 
+      alternate_languages {
+        lang
+        uid
+        type
+        id
+      }
+
       data {
         #Page data
         body {
