@@ -55,7 +55,6 @@ export const query = graphql`
           type
           lang
           id
-          _previewable
 
           data {
             nav {
