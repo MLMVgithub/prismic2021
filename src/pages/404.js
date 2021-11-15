@@ -12,8 +12,15 @@ import { linkResolver } from '../utils/linkResolver'
 // Preview templates
 import HomeTemplate from './index'
 import GeneralPageTemplate from '../templates/generalPage'
+
 import SupportersList from '../templates/supportersList'
 import SupportersPage from '../templates/supportersPage'
+
+import EventsList from '../templates/eventsList'
+import EventsPage from '../templates/eventsPage'
+
+import ResourcesList from '../templates/resourcesList'
+import ResourcesPage from '../templates/resourcesPage'
 
 // Components
 import Layout from '/src/components/layout'
@@ -101,17 +108,16 @@ export default withPrismicUnpublishedPreview(NotFoundPage, [
     linkResolver,
     componentResolver: componentResolverFromMap({
       homepage: HomeTemplate,
-      // prismicHomepage: HomeTemplate,
-
       general_page: GeneralPageTemplate,
-      // prismicPage: GeneralPageTemplate,
 
       peer_supporters_list: SupportersList,
-
       peer_supporters: SupportersPage,
 
-      main_navigation: GeneralPageTemplate,
-      footer_navigation: GeneralPageTemplate,
+      events: EventsList,
+      events_list: EventsPage,
+
+      resources: ResourcesList,
+      resources_list: ResourcesPage,
     }),
   },
 ])
@@ -122,6 +128,8 @@ export const query = graphql`
     prismicMainNavigation(lang: { eq: $locale }) {
       type
       lang
+      _previewable
+
       data {
         nav {
           ... on PrismicMainNavigationDataNavNavItem {
