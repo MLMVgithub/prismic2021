@@ -92,7 +92,6 @@ export const query = graphql`
       lang
       type
       id
-      _previewable
 
       data {
         nav {
@@ -124,15 +123,8 @@ export const query = graphql`
       type
       uid
       id
-
-      alternate_languages {
-        lang
-        uid
-        type
-        id
-      }
-
       _previewable
+
       data {
         #Page data
         body {

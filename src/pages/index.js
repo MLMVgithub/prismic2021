@@ -119,6 +119,7 @@ export const query = graphql`
       uid
       id
       _previewable
+
       data {
         # Page data
         body {
