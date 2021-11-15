@@ -87,7 +87,7 @@ export const query = graphql`
       lang
       type
       id
-      _previewable
+
       data {
         nav {
           ... on PrismicFooterNavigationDataNavNavItem {
