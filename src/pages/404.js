@@ -109,6 +109,9 @@ export default withPrismicUnpublishedPreview(NotFoundPage, [
       peer_supporters_list: SupportersList,
 
       peer_supporters: SupportersPage,
+
+      main_navigation: GeneralPageTemplate,
+      footer_navigation: GeneralPageTemplate,
     }),
   },
 ])
