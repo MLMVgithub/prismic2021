@@ -25,6 +25,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
   const content = cardItem.description
   const linkLabel = validateString(cardItem.link_label.text)
 
+  // console.log('link.uid =')
   return (
     <div
       className={`cardItem ${presentationType} ${
@@ -34,7 +35,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
       aria-roledescription="Card"
       aria-label={`Item ${item + 1} of ${carouselLength}`}
     >
-      {link.uid !== (null || undefined) ? (
+      {link.uid && (
         <Link to={linkResolver(link)} className="link">
           <CardContent>
             {image && (
@@ -63,7 +64,9 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
             </div>
           </CardContent>
         </Link>
-      ) : (
+      )}
+
+      {!link.uid && (
         <div className="profile">
           <CardContent>
             {image && (
