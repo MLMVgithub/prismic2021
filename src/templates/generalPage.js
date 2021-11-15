@@ -7,7 +7,7 @@ import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { linkResolver } from '/src/utils/linkResolver'
 
 const GeneralPageTemplate = ({ data }) => {
-  // Validate data for Gastby Build Gatsby Build breaks here for Deleate / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174
+  // Validate data for Gastby Build Gatsby Build breaks here for Delete / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174
   const primaryNavData = data.allPrismicMainNavigation.edges.slice(0, 1).pop()
   if (!data || !primaryNavData) return null
 
