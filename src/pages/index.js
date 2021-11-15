@@ -92,7 +92,6 @@ export const query = graphql`
       id
 
       prismicId
-      _previewable
 
       data {
         nav {
