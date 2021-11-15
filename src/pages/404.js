@@ -113,11 +113,11 @@ export default withPrismicUnpublishedPreview(NotFoundPage, [
       peer_supporters_list: SupportersList,
       peer_supporters: SupportersPage,
 
-      events: EventsList,
-      events_list: EventsPage,
+      events_list: EventsList,
+      events: EventsPage,
 
-      resources: ResourcesList,
-      resources_list: ResourcesPage,
+      resources_list: ResourcesList,
+      resources: ResourcesPage,
     }),
   },
 ])
@@ -128,7 +128,6 @@ export const query = graphql`
     prismicMainNavigation(lang: { eq: $locale }) {
       type
       lang
-      _previewable
 
       data {
         nav {
@@ -163,7 +162,7 @@ export const query = graphql`
     prismicFooterNavigation(lang: { eq: $locale }) {
       type
       lang
-      _previewable
+
       data {
         nav {
           ... on PrismicFooterNavigationDataNavNavItem {
