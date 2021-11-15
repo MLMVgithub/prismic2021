@@ -16,8 +16,8 @@ const HomeTemplate = ({ data, location }) => {
   // const primaryNavData = data.allPrismicMainNavigation.edges.slice(0, 1).pop()
   // const footerNavData = data.allPrismicFooterNavigation.edges.slice(0, 1).pop()
 
-  const primaryNavData = data.prismicMainNavigation.slice(0, 1).pop()
-  if (!data || !primaryNavData) return null
+  // const primaryNavData = data.prismicMainNavigation.slice(0, 1).pop()
+  // if (!data || !primaryNavData) return null
 
   const document = data.prismicHomepage
 
@@ -50,16 +50,12 @@ export const query = graphql`
       }
     }
 
+    ##
+    ## Get the Main nav in local context
     prismicMainNavigation(lang: { eq: $locale }) {
       lang
       type
       id
-
-      alternate_languages {
-        lang
-        type
-        id
-      }
 
       _previewable
       data {
@@ -91,18 +87,12 @@ export const query = graphql`
       }
     }
 
-    ## Get the footer nav in local context
+    ##
+    ## Get the Footer nav in local context
     prismicFooterNavigation(lang: { eq: $locale }) {
       lang
       type
       id
-
-      alternate_languages {
-        lang
-        type
-        id
-      }
-
       _previewable
       data {
         nav {
@@ -135,14 +125,6 @@ export const query = graphql`
       uid
       id
       _previewable
-
-      alternate_languages {
-        lang
-        uid
-        type
-        id
-      }
-
       data {
         # Page data
         body {
