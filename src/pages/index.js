@@ -14,8 +14,8 @@ const HomeTemplate = ({ data, location }) => {
   const document = data.prismicHomepage
 
   const primaryNav = primaryNavData.node.data.nav
+  const currentLang = primaryNavData.node.lang
   const footerNav = data.prismicFooterNavigation.data.nav
-  const currentLang = data.prismicMainNavigation.lang
 
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>

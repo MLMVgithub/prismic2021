@@ -23,8 +23,8 @@ const GeneralPageTemplate = ({ data }) => {
   if (!data || !primaryNavData) return null
   const document = data.prismicGeneralPage
   const primaryNav = primaryNavData.node.data.nav
+  const currentLang = primaryNavData.node.lang
   const footerNav = data.prismicFooterNavigation.data.nav
-  const currentLang = data.prismicMainNavigation.lang
 
   // const primaryNav = data.prismicMainNavigation.data.nav
   // const footerNav = data.prismicFooterNavigation.data.nav
