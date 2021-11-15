@@ -50,6 +50,7 @@ export const query = graphql`
           type
           lang
           id
+
           prismicId
 
           data {
@@ -91,6 +92,7 @@ export const query = graphql`
       id
 
       prismicId
+      _previewable
 
       data {
         nav {
