@@ -23,6 +23,7 @@ const Grid = styled.ul.attrs((props) => ({
   justify-content: space-around;
   z-index: 1000;
   width: auto;
+  height: fit-content;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     grid-template-columns: repeat(3, 1fr);
