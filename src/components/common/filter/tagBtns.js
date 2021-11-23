@@ -23,7 +23,6 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-size: 26px;
       aspect-ratio: 1;
       padding: ${({ theme }) => theme.padding['1/4']};
       /* cursor: pointer; */
@@ -42,6 +41,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
         color: ${({ theme }) => theme.colors.primary.default};
       }
       i {
+        font-size: 20px;
         pointer-events: none;
       }
     }
