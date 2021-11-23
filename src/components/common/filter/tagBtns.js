@@ -18,6 +18,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
     button {
       pointer-events: all;
       display: flex;
+      width: fit-content;
       flex-direction: row;
       align-items: center;
       justify-content: center;
