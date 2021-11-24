@@ -40,8 +40,9 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
         border: 1px solid ${({ theme }) => theme.colors.primary[600]};
         color: ${({ theme }) => theme.colors.primary.default};
       }
+      font-size: 20px;
       i {
-        font-size: 20px;
+        font-size: inherit;
         pointer-events: none;
       }
     }
