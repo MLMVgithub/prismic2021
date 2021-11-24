@@ -56,7 +56,7 @@ const PeerSupportersItem = ({ thisItem, animateScroll }) => {
   // Use 'Resize all grid items' for grid filtering
   useEffect(() => {
     resizeAllGridItems(gridItems)
-    'pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
+    'mouseup, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         // Helpers - resizeAllGridItems
         resizeAllGridItems(gridItems)
