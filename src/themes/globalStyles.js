@@ -376,15 +376,20 @@ export const GlobalStyles = createGlobalStyle`
   // Bground color options
   // Default
   // Grey 
+
   [class^="background-page"],
   [class*=" background-page"]{
     background-color: ${({ theme }) => theme.colors.page.bground.default}; 
   }
+
    //
+
+
   // Page
   .background-page-default {
     background-color: ${({ theme }) => theme.colors.page.bground.default}; 
   }
+
   .background-page-100 {
     background-color: ${({ theme }) => theme.colors.page[100]}; 
   }
