@@ -365,7 +365,7 @@ const HeaderWrapper = styled.header`
             i {
               margin-left: ${({ theme }) => theme.margin['1/4']};
               margin-right: -${({ theme }) => theme.margin['1/4']};
-              color: ${({ theme }) => theme.colors.primary.default};
+              color: ${({ theme }) => theme.colors.primary[600]};
             }
           }
 
@@ -388,6 +388,7 @@ const HeaderWrapper = styled.header`
             margin: 0;
             padding: ${({ theme }) => theme.padding['1/2']} 0;
             top: ${({ theme }) => theme.header.height};
+
             background-color: ${({ theme }) => theme.colors.header[800]};
             /* background-color: ${({ theme }) => theme.colors.primary[1100]}; */
             border-radius: 0 0 ${({ theme }) => theme.borderRadius.default}
@@ -398,12 +399,14 @@ const HeaderWrapper = styled.header`
               padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
 
               a {
+                /* color: ${({ theme }) => theme.colors.header.default}; */
                 white-space: nowrap;
                 padding: ${({ theme }) => theme.padding['1/4']}
                   ${({ theme }) => theme.padding['1/2']};
                 border-radius: ${({ theme }) => theme.borderRadius.sm};
                 display: flex;
                 align-items: center;
+                border: 1px solid transparent;
 
                 i {
                   visibility: hidden;
@@ -415,7 +418,8 @@ const HeaderWrapper = styled.header`
               a.activeNavItem {
                 background-color: ${({ theme }) => theme.colors.primary.default};
                 /* background-color: ${({ theme }) => theme.colors.header.default}; */
-                border: none;
+                /* border: none; */
+                border: 1px solid ${({ theme }) => theme.colors.primary[900]};
                 i {
                   display: none;
                 }
@@ -538,7 +542,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     menuItem.classList.toggle('isActive')
     menuItem.nextSibling.classList.toggle('isActive')
 
-    menuItem.setAttribute('aria-label', 'Secondary navigation is open')
+    menuItem.setAttribute('aria-labelby', 'Secondary navigation is open')
     menuItem.setAttribute('aria-expanded', 'true')
     menuItem.setAttribute('aria-pressed', 'true')
 
@@ -552,12 +556,12 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
   }
 
   function handleOpenSecondaryNavAria(menuItem) {
-    menuItem.setAttribute('aria-label', 'Secondary navigation is open')
+    menuItem.setAttribute('aria-labelby', 'Secondary navigation is open')
     menuItem.setAttribute('aria-expanded', 'true')
     menuItem.setAttribute('aria-pressed', 'true')
   }
   function handleCloseSecondaryNavAria(menuItem) {
-    menuItem.setAttribute('aria-label', 'Secondary navigation is closed')
+    menuItem.setAttribute('aria-labelby', 'Secondary navigation is closed')
     menuItem.setAttribute('aria-expanded', 'false')
     menuItem.setAttribute('aria-pressed', 'false')
   }
@@ -735,8 +739,8 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                       }`
                     }
                     onClick={handleToggleSecondaryNav}
-                    aria-label="Open and close secondary navigation"
-                    aria-controls="secondaryNavList"
+                    aria-labelby="Open and close secondary navigation"
+                    aria-controls="secondaryNav"
                     aria-expanded="false"
                     aria-pressed="false"
                     // onKeyDown={handleToggleSecondaryNav}
@@ -748,7 +752,11 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
 
                 {navItem.items.length > 0 ? (
                   <>
-                    <ul className="secondaryNavList" aria-label="Secondary navigation">
+                    <ul
+                      id="secondaryNav"
+                      className="secondaryNavList"
+                      aria-label="Secondary navigation"
+                    >
                       {navItem.items.map((subNavItem, index) => {
                         return (
                           <li key={`sub-nav-${index}`}>

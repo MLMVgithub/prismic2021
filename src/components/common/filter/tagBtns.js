@@ -33,14 +33,13 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
       position: absolute;
       top: -${({ theme }) => theme.margin['1/4']};
 
-      right: 0px;
-      /* box-shadow: ${({ theme }) => theme.boxShadow.default}; */
+      left: 0px;
+      font-size: 20px;
 
       &:hover {
         border: 1px solid ${({ theme }) => theme.colors.primary[600]};
         color: ${({ theme }) => theme.colors.primary.default};
       }
-      font-size: 20px;
       i {
         font-size: inherit;
         pointer-events: none;
@@ -48,43 +47,44 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
     }
   }
 
-  span.wrapper {
-    height: 30px;
-    padding: 2px 0;
-    max-height: 100%;
-    transition: all 3.5s ease-in;
+  .wrapper {
+    height: 34px;
     display: flex;
     overflow: hidden;
     min-width: 100%;
 
-    span.inner {
+    .inner {
       display: flex;
       flex-wrap: wrap;
       grid-gap: ${({ theme }) => theme.padding['1/4']};
       justify-content: center;
       margin: 0 ${({ theme }) => theme.padding['2xl']};
+      height: fit-content;
     }
   }
 
-  span.wrapper.showMore {
+  .wrapper.showMore {
     height: auto;
     max-height: 100%;
-    transition: all 3.5s ease-in;
+    padding-bottom: 2px;
+    /* transition: all 3.5s ease-in; */
   }
 
   .tagButton {
     font-size: 80%;
-    pointer-events: all;
-
+    display: flex;
     text-transform: uppercase;
     letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
+    height: fit-content;
     /* cursor: pointer; */
+    cursor: default;
     padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
     white-space: nowrap;
     color: ${({ theme }) => theme.colors.page.default};
     background-color: #fff;
+    /* border: 1px solid ${({ theme }) => theme.colors.tertiary[400]}; */
     border: 1px solid transparent;
-    border-radius: ${({ theme }) => theme.borderRadius.default};
+    border-radius: ${({ theme }) => theme.borderRadius.sm};
     box-shadow: ${({ theme }) => theme.boxShadow.default};
   }
 
@@ -95,7 +95,7 @@ const ListTagBtnsWrapper = styled.div.attrs((props) => ({
 
   .tagButton.isActive {
     color: ${({ theme }) => theme.colors.page.default};
-    background-color: ${({ theme }) => theme.colors.tertiary[700]};
+    background-color: ${({ theme }) => theme.colors.tertiary[600]};
     border: 1px solid transparent;
     box-shadow: none;
   }
@@ -105,11 +105,12 @@ const ResetTagsBtn = styled.button.attrs((props) => ({
   type: props.type || 'button',
   'aria-label': 'Reset tags',
 }))`
-  position: relative;
-  left: 0px;
-  right: auto;
+  /* position: absolute; */
+  right: 0px;
+  left: auto !important;
   width: fit-content;
   i {
+    pointer-events: none;
     @keyframes rotation {
       from {
         transform: rotate(0deg);
@@ -149,15 +150,12 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
   // Filter list items
   const handleFilterItem = (e) => {
     const tagBtn = e.target
-    const tagBtnText = e.target.innerText
+    // const tagBtnText = e.target.innerText
 
     // Select filter btn
     tagBtn.classList.toggle('isActive')
-
-    // Set the aria label for tags
-    tagBtn.getAttribute('aria-label') === `${tagBtnText} - tag selected`
-      ? tagBtn.setAttribute('aria-label', `${tagBtnText} - tag unselected`)
-      : tagBtn.setAttribute('aria-label', `${tagBtnText} - tag selected`)
+      ? tagBtn.setAttribute('aria-checked', `true`)
+      : tagBtn.setAttribute('aria-checked', `false`)
 
     //  var activeFilterBtns = document.getElementsByClassName('tagButton isActive')
     var allCards = document.getElementsByClassName('item')
@@ -228,7 +226,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
       resetFilterBtns()
 
       e.target.classList.add('rotate')
-      var delay = 245 // CSS rottate set to .250 - Shave a few millesonds off to protect any visual bumps?
+      var delay = 245 // CSS rotate set to .250 - Shave a few millesonds off to protect any visual bumps?
       setTimeout(function () {
         e.target.classList.remove('rotate')
         setTagBtnsReset(false)
@@ -240,7 +238,7 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
   // Toggle full view of btn list on browser size
   useEffect(() => {
     checkBtnsListHeight()
-    'resize, keydown, orientationchange'.split(', ').forEach(function (e) {
+    'resize, keydown, mousedown, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         checkBtnsListHeight()
       })
@@ -253,7 +251,8 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
       const tagBtnHeight = document.querySelector('.tagButton').offsetHeight
       var innerHeight = document.querySelector('.inner').offsetHeight
       innerHeight > tagBtnHeight && setMoreBtns(true)
-      if (innerHeight === tagBtnHeight) {
+
+      if (innerHeight <= tagBtnHeight) {
         setMoreBtns(false)
         document.querySelector('.wrapper').classList.remove('showMore')
       }
@@ -262,7 +261,13 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
 
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
-    document.querySelector('.wrapper').classList.toggle('showMore')
+    const tagWrapper = document.querySelector('.wrapper')
+    tagWrapper.classList.toggle('showMore')
+    if (tagWrapper.classList.contains('showMore')) {
+      tagWrapper.setAttribute('aria-expanded', 'true')
+    } else {
+      tagWrapper.setAttribute('aria-expanded', 'false')
+    }
 
     e.target.innerHTML === 'unfold_more'
       ? (e.target.innerHTML = 'unfold_less')
@@ -271,21 +276,11 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
     e.target.getAttribute('aria-label') === 'View more tags'
       ? e.target.setAttribute('aria-label', 'View less tags')
       : e.target.setAttribute('aria-label', 'View more tags')
-
-    e.target.getAttribute('aria-expanded') === 'true'
-      ? e.target.setAttribute('aria-expanded', 'false')
-      : e.target.setAttribute('aria-expanded', 'true')
   }
 
   return (
     <ListTagBtnsWrapper>
       <div className="utils">
-        {tagBtnsReset === true && (
-          <ResetTagsBtn onClick={hideTagReset}>
-            <IconMaterial icon={'loop'} />
-          </ResetTagsBtn>
-        )}
-
         {moreBtns === true && (
           <IconMaterial
             icon={'unfold_more'}
@@ -296,23 +291,33 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
           />
         )}
       </div>
-
-      <span className="wrapper">
-        <span className="inner" aria-live="polite">
+      <div className="wrapper">
+        <div className="inner" aria-live="polite">
           {tagList.map((node, index) => (
-            <button
+            <span
               className="tagButton"
-              type="button"
+              role="checkbox"
+              aria-checked="false"
               id={_.camelCase(node)}
               key={`tagButton-` + index}
-              onMouseDown={resetCards}
+              tabindex="0"
+              // onMouseDown={resetCards}
               onClick={handleFilterItem}
+              onKeyPress={handleFilterItem}
             >
               {node}
-            </button>
+            </span>
           ))}
-        </span>
-      </span>
+        </div>
+      </div>
+
+      <div className="utils">
+        {tagBtnsReset === true && (
+          <ResetTagsBtn onClick={hideTagReset}>
+            <IconMaterial icon={'loop'} ariaLabel={'Reset tags'} />
+          </ResetTagsBtn>
+        )}
+      </div>
     </ListTagBtnsWrapper>
   )
 }

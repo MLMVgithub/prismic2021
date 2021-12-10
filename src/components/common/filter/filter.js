@@ -1,12 +1,9 @@
 import styled from 'styled-components'
 
-const FilterWrapper = styled.section.attrs((props) => ({
-  'aria-label': 'Filter results list',
-}))`
+const FilterWrapper = styled.div`
   margin-top: ${({ theme }) => theme.header.height};
   padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
   background-color: ${({ theme }) => theme.colors.card[200]};
-  /* border-bottom: 1px solid ${({ theme }) => theme.colors.card[300]}; */
   position: relative;
 
   > div {

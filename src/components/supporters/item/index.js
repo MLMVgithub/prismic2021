@@ -177,12 +177,14 @@ const supportersItem = ({ currentLang, itemData }) => {
                 {location && (
                   <address aria-label="Location">
                     <IconMaterial icon={'person_pin_circle'} />
+                    <span class="sr-only">Location</span>
                     {location}
                   </address>
                 )}
                 {gender && (
                   <address aria-label="Gender">
                     <IconMaterial icon={'face'} />
+                    <span className="sr-only">Gender</span>
                     {gender}
                   </address>
                 )}

@@ -41,7 +41,7 @@ const SkipFilterWrapper = styled.span.attrs((props) => ({
     }
   }
 `
-const SkipFilter = () => {
+const SkipFilter = ({ showTags }) => {
   function KeepLocation() {
     setTimeout(function () {
       window.scrollTo(0, 0)
@@ -56,9 +56,12 @@ const SkipFilter = () => {
       <a className="skipLink" href="#listResults" onClick={KeepLocation}>
         Skip filter
       </a>
-      <a className="skipLink" href="#searchInput" onClick={KeepLocation}>
-        Skip filter tags
-      </a>
+
+      {showTags === true && (
+        <a className="skipLink" href="#searchInput" onClick={KeepLocation}>
+          Skip filter tags
+        </a>
+      )}
     </SkipFilterWrapper>
   )
 }

@@ -115,7 +115,7 @@ export const defaultTheme = {
 
     header: {
       text: {
-        default: '#eeeeee',
+        default: '#ffffff',
       },
       default: '#091b38',
       50: '#091b38BF',
@@ -134,19 +134,19 @@ export const defaultTheme = {
     },
 
     primary: {
-      default: '#48A2C9',
-      100: 'ECF5F9',
-      200: '#EDF7FB',
-      300: '#DCF0F8',
-      400: '#CAE8F5',
-      500: '#B9E1F2',
-      600: '#A8DAEF',
-      700: '#96D2EC',
-      800: '#85CBE9',
-      900: '#73C3E6',
-      1100: '#4091B4',
-      1200: '#3981A0',
-      1300: '#32718C',
+      default: '#2A708D',
+      100: '#e9f0f3',
+      200: '#d4e2e8',
+      300: '#bfd4dc',
+      400: '#a9c5d1',
+      500: '#94b7c6',
+      600: '#7fa9ba',
+      700: '#699aaf',
+      800: '#548ca3',
+      900: '#3f7e98',
+      1100: '#2a6f8d',
+      1200: '#25637d',
+      1300: '#20566d',
     },
 
     secondary: {

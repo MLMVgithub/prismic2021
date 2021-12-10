@@ -56,7 +56,7 @@ const PeerSupportersItem = ({ thisItem, animateScroll }) => {
   // Use 'Resize all grid items' for grid filtering
   useEffect(() => {
     resizeAllGridItems(gridItems)
-    'mouseup, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
+    'onclick, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         // Helpers - resizeAllGridItems
         resizeAllGridItems(gridItems)
@@ -169,7 +169,7 @@ const PeerSupportersItem = ({ thisItem, animateScroll }) => {
                 {location && (
                   <p>
                     <IconMaterial icon="person_pin_circle" />
-                    <span className="sr-only">Location</span> {location}
+                    <span className="sr-only">Loction</span> {location}
                   </p>
                 )}
                 {tagData.length > 0 && <Tags tagData={tagData} />}

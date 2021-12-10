@@ -134,6 +134,7 @@ const EventItem = ({ currentLang, itemData }) => {
                     <i className="material-icons-round" aria-hidden="true">
                       event
                     </i>
+                    <span className="sr-only">Date</span>
                     {date}
                   </P>
                 )}
@@ -142,6 +143,7 @@ const EventItem = ({ currentLang, itemData }) => {
                     <i className="material-icons-round" aria-hidden="true">
                       schedule
                     </i>
+                    <span className="sr-only">Time</span>
                     {time}
                   </P>
                 )}
@@ -150,6 +152,7 @@ const EventItem = ({ currentLang, itemData }) => {
                     <i className="material-icons-round" aria-hidden="true">
                       place
                     </i>
+                    <span className="sr-only">Location</span>
                     {location}
                   </P>
                 )}

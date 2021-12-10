@@ -212,12 +212,14 @@ const EventItem = ({ currentLang, itemData }) => {
                     {date && (
                       <time aria-label="Date">
                         <IconMaterial icon={'event'} />
+                        <span className="sr-only">Date</span>
                         {date}
                       </time>
                     )}
                     {time && (
                       <time aria-label="Start time">
                         <IconMaterial icon={'schedule'} />
+                        <span className="sr-only">Start time</span>
                         {i18n[currentLang].starts}: {time}
                       </time>
                     )}
@@ -225,12 +227,14 @@ const EventItem = ({ currentLang, itemData }) => {
                     {end_date > start_date && (
                       <time aria-label="End time">
                         <IconMaterial icon={'access_time_filled'} />
+                        <span className="sr-only">End time</span>
                         {i18n[currentLang].ends}: {endTime}
                       </time>
                     )}
                     {showDuration === true && duration && (
                       <time aria-label="Duration">
                         <IconMaterial icon={'timelapse'} />
+                        <span className="sr-only">Duration</span>
                         {i18n[currentLang].duration}: {duration}
                       </time>
                     )}
@@ -238,6 +242,7 @@ const EventItem = ({ currentLang, itemData }) => {
                     {location && (
                       <address aria-label="Location">
                         <IconMaterial icon={'place'} />
+                        <span className="sr-only">Location</span>
                         {location}
                       </address>
                     )}
@@ -251,6 +256,7 @@ const EventItem = ({ currentLang, itemData }) => {
                     </time>
                     <address aria-label="Location">
                       <IconMaterial icon={'place'} />
+                      <span className="sr-only">Location</span>
                       {location}
                     </address>
                   </span>

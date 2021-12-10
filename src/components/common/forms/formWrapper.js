@@ -27,7 +27,9 @@ const FormWraper = styled.div`
   input::placeholder,
   textarea::placeholder {
     color: inherit;
-    opacity: 0.54;
+    /* opacity: 0.54;  */
+    opacity: 0;
+    text-indent: -1000em;
   }
 
   input:-internal-autofill-selected,
@@ -152,7 +154,7 @@ const FormWraper = styled.div`
       align-items: center;
       flex-wrap: wrap;
       width: 100%;
-      grid-gap: ${({ theme }) => theme.padding['1/8']};
+      grid-row-gap: ${({ theme }) => theme.padding['1/8']};
 
       span:last-of-type {
         display: flex;
@@ -173,16 +175,17 @@ const FormWraper = styled.div`
       .required,
       .requiredCheck,
       .error {
-        font-size: 80%;
-        letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
+        /* font-size: 95%; */
+        /* letter-spacing: ${({ theme }) => theme.letterSpacing.wide}; */
         font-weight: normal;
         line-height: inherit;
-        margin-top: 2px;
+        /* margin-top: 2px; */
         width: fit-content !important;
         color: ${({ theme }) => theme.colors.page[600]};
         display: inline-flex;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
       }
+
       .error {
         color: ${({ theme }) => theme.colors.alert.tomato};
       }
@@ -261,7 +264,7 @@ const FormWraper = styled.div`
       span:last-of-type {
         input {
           //border-color: tomato;
-          border-left: 1px solid ${({ theme }) => theme.colors.alert.tomato};
+          border-left: 3px solid ${({ theme }) => theme.colors.alert.tomato};
         }
       }
     }

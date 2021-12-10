@@ -19,7 +19,8 @@ const SortListWrapper = styled.div.attrs((props) => ({
   display: flex;
   flex-direction: row;
   grid-gap: ${({ theme }) => theme.margin['1/4']};
-  width: 100%;
+  width: auto;
+
   align-items: center;
   margin-left: 0;
   user-select: none;
@@ -40,7 +41,6 @@ const SortListWrapper = styled.div.attrs((props) => ({
     min-width: 160px;
     position: relative;
     /* cursor: pointer; */
-
     background-color: ${({ theme }) => theme.colors.page.bground.default};
     border: 1px solid transparent;
     border-radius: ${({ theme }) => theme.borderRadius.sm};
@@ -133,15 +133,31 @@ const SortItem = styled.button.attrs((props) => ({
 }))``
 
 // Toggle sort list - ariaExpanded
-function toggleAria(e) {
-  e.target.getAttribute('aria-expanded') === 'true'
-    ? e.target.setAttribute('aria-expanded', 'false')
-    : e.target.setAttribute('aria-expanded', 'true')
+function toggleAria() {
+  const sortWrapper = document.querySelector('.sortWrapper')
+  if (sortWrapper.classList.contains('isActive')) {
+    sortWrapper.setAttribute('aria-expanded', 'true')
+  } else {
+    sortWrapper.setAttribute('aria-expanded', 'false')
+  }
 }
 
-const Sort = ({ currentLang, items, toggleSortListClick, sortItemClick, sortAscDescClick }) => {
+const Sort = ({
+  currentLang,
+  items,
+  setWidth,
+  toggleSortListClick,
+  sortItemClick,
+  sortAscDescClick,
+}) => {
+  console.log('setWidth = ' + setWidth)
   return (
-    <SortListWrapper className="sort">
+    <SortListWrapper
+      className="sort"
+      style={{
+        width: setWidth === true ? 'auto' : '100%',
+      }}
+    >
       <span>{i18n[currentLang].sortBy}</span>
 
       <div>
@@ -156,11 +172,12 @@ const Sort = ({ currentLang, items, toggleSortListClick, sortItemClick, sortAscD
           <IconMaterial icon={'expand_more'} />
         </SortSelect>
 
-        <div>
+        <div className="sortWrapper" aria-expanded="false">
           {items.map((node, i) => (
             <SortItem
               type="button"
               onClick={sortItemClick}
+              aria-label={`Sort by ${items[i].title}`}
               data-nodepath={items[i].nodePath}
               key={'list-item'[i]}
             >

@@ -69,7 +69,9 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
     // Set the buttons state, if matched sort label? then hide
     let btns = selectList.childNodes
     for (let i = 0; i < btns.length; i++) {
+      btns[i].setAttribute('aria-hidden', 'false')
       btns[i].innerText === selectListLabel && btns[i].classList.add('hide')
+      btns[i].innerText === selectListLabel && btns[i].setAttribute('aria-hidden', 'true')
     }
   }, [])
 
@@ -256,7 +258,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
 
       {pageIntro.show_filters === true && (
         <Filter aria-label="Filter tools">
-          <SkipFilter />
+          <SkipFilter showTags={pageIntro.show_tags} />
           <div>
             {pageIntro.show_tags === true && tagList.length > 0 && (
               <ListTagBtns
@@ -282,6 +284,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                   currentLang={currentLang}
                   toggleSortListClick={toggleSortListClick}
                   sortItemClick={sortItemClick}
+                  setWidth={pageIntro.show_input}
                   // Pass the 'Sort by' properties. First being the default. Will display Asc order
                   items={[
                     {
