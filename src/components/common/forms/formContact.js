@@ -32,6 +32,7 @@ import IconMaterial from '/src/components/common/icons/material'
 
 // Layout
 import Button from '/src/components/common/buttons/linkButton'
+import { parseZone } from 'moment'
 
 const encode = (data) => {
   return Object.keys(data)
@@ -167,6 +168,7 @@ const ContactNew = ({ formData, slice }) => {
       removeError()
       if (e.target.checked === false) {
         addError()
+        setRequiredFieldSet(true)
       }
 
       const allCheckbox = [
@@ -175,9 +177,10 @@ const ContactNew = ({ formData, slice }) => {
       for (const checkBox of allCheckbox) {
         if (checkBox.checked === true) {
           removeError()
+          setRequiredFieldSet(false)
         }
       }
-      setRequiredFieldSet(false)
+      // setRequiredFieldSet(false)
     }
 
     function removeError() {
@@ -314,6 +317,7 @@ const ContactNew = ({ formData, slice }) => {
                         })}
                       </fieldset>
                     )}
+
                     {/* Add radio button */}
                     {formDataFields[index].slice_type === 'radio_button' && (
                       <fieldset
