@@ -210,14 +210,14 @@ const EventItem = ({ currentLang, itemData }) => {
                 {today < start_date && (
                   <span>
                     {date && (
-                      <time aria-label="Date">
+                      <time>
                         <IconMaterial icon={'event'} />
                         <span className="sr-only">Date</span>
                         {date}
                       </time>
                     )}
                     {time && (
-                      <time aria-label="Start time">
+                      <time>
                         <IconMaterial icon={'schedule'} />
                         <span className="sr-only">Start time</span>
                         {i18n[currentLang].starts}: {time}
@@ -225,14 +225,14 @@ const EventItem = ({ currentLang, itemData }) => {
                     )}
 
                     {end_date > start_date && (
-                      <time aria-label="End time">
+                      <time>
                         <IconMaterial icon={'access_time_filled'} />
                         <span className="sr-only">End time</span>
                         {i18n[currentLang].ends}: {endTime}
                       </time>
                     )}
                     {showDuration === true && duration && (
-                      <time aria-label="Duration">
+                      <time>
                         <IconMaterial icon={'timelapse'} />
                         <span className="sr-only">Duration</span>
                         {i18n[currentLang].duration}: {duration}
@@ -240,7 +240,7 @@ const EventItem = ({ currentLang, itemData }) => {
                     )}
 
                     {location && (
-                      <address aria-label="Location">
+                      <address>
                         <IconMaterial icon={'place'} />
                         <span className="sr-only">Location</span>
                         {location}
@@ -250,11 +250,12 @@ const EventItem = ({ currentLang, itemData }) => {
                 )}
                 {today > start_date && (
                   <span className="passed">
-                    <time aria-label="Previous event">
+                    <time>
                       <IconMaterial icon={'event_busy'} />
+                      <span className="sr-only">Previous event</span>
                       <span className="prev">{date}</span> {i18n[currentLang].previousEvent}
                     </time>
-                    <address aria-label="Location">
+                    <address>
                       <IconMaterial icon={'place'} />
                       <span className="sr-only">Location</span>
                       {location}

@@ -542,7 +542,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     menuItem.classList.toggle('isActive')
     menuItem.nextSibling.classList.toggle('isActive')
 
-    menuItem.setAttribute('aria-labelby', 'Secondary navigation is open')
+    menuItem.setAttribute('aria-labelledby', 'Secondary navigation is open')
     menuItem.setAttribute('aria-expanded', 'true')
     menuItem.setAttribute('aria-pressed', 'true')
 
@@ -556,12 +556,12 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
   }
 
   function handleOpenSecondaryNavAria(menuItem) {
-    menuItem.setAttribute('aria-labelby', 'Secondary navigation is open')
+    menuItem.setAttribute('aria-labelledby', 'Secondary navigation is open')
     menuItem.setAttribute('aria-expanded', 'true')
     menuItem.setAttribute('aria-pressed', 'true')
   }
   function handleCloseSecondaryNavAria(menuItem) {
-    menuItem.setAttribute('aria-labelby', 'Secondary navigation is closed')
+    menuItem.setAttribute('aria-labelledby', 'Secondary navigation is closed')
     menuItem.setAttribute('aria-expanded', 'false')
     menuItem.setAttribute('aria-pressed', 'false')
   }
@@ -739,7 +739,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                       }`
                     }
                     onClick={handleToggleSecondaryNav}
-                    aria-labelby="Open and close secondary navigation"
+                    aria-labelledby="Open and close secondary navigation"
                     aria-controls="secondaryNav"
                     aria-expanded="false"
                     aria-pressed="false"

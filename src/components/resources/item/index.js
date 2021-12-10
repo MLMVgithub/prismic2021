@@ -130,13 +130,13 @@ const EventItem = ({ currentLang, itemData }) => {
             {eventType === 'Event' && (
               <span className="ifEvent">
                 {date && (
-                  <P>
+                  <time>
                     <i className="material-icons-round" aria-hidden="true">
                       event
                     </i>
                     <span className="sr-only">Date</span>
                     {date}
-                  </P>
+                  </time>
                 )}
                 {time && (
                   <P>
