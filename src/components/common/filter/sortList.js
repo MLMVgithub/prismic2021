@@ -150,7 +150,7 @@ const Sort = ({
   sortItemClick,
   sortAscDescClick,
 }) => {
-  console.log('setWidth = ' + setWidth)
+  // console.log('setWidth = ' + setWidth)
   return (
     <SortListWrapper
       className="sort"
