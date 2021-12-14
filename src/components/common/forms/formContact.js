@@ -32,7 +32,7 @@ import IconMaterial from '/src/components/common/icons/material'
 
 // Layout
 import Button from '/src/components/common/buttons/linkButton'
-import { parseZone } from 'moment'
+// import { parseZone } from 'moment'
 
 const encode = (data) => {
   return Object.keys(data)

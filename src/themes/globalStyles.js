@@ -135,13 +135,27 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
-  a:focus {
+  /* a:focus,
+  button {
     outline: none;
+  } */
+
+  *:focus,
+  *:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important;  
   }
 
-  a:focus-visible,
-  button:focus-visible{
-    outline: 2px solid ${({ theme }) => theme.colors.focusVisible} !important; 
+  .dark,
+  header, 
+  footer {
+    *:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
+  }
+
+   *:focus:not(:focus-visible) {
+    outline: none !important;
   }
 
 
