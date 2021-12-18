@@ -8,7 +8,8 @@ const linkResolver = (doc) => {
   // console.log('doc.type = ' + doc.type)
   // console.log('doc.lang = ' + doc.lang)
 
-  const prefix = i18n[doc.lang].default ? `/` : `/${i18n[doc.lang].path}/`
+  var prefix = `/`
+  prefix = i18n[doc.lang].default ? `/` : `/${i18n[doc.lang].path}/`
 
   if (doc.isBroken) {
     return '/404'
@@ -48,6 +49,6 @@ const linkResolver = (doc) => {
   }
 
   // Backup for all other types
-  return `${prefix}`
+  return prefix
 }
 module.exports = linkResolver

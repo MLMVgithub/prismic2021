@@ -36,7 +36,8 @@
                 "config": {
                   "label": "Nav Link",
                   "placeholder": "Select Nav Link...",
-                  "select": null
+                  "select": null,
+                  "allowTargetBlank": true
                 }
               }
             }

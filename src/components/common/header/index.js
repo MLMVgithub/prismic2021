@@ -759,19 +759,22 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     const skipLink = document.querySelector('.skipLink')
     const headerNavWrapper = document.querySelector('.headerNavWrapper')
     const secondaryNav = document.querySelector('.secondaryNav')
+
     const headerNav = document.querySelector('.headerNav')
+    const headerNavExpaned = document.querySelector('.secondaryNavList')
     const toggleHamburger = document.querySelector('.hamburger')
     const closeHamburger = document.querySelector('.closeMenu')
     const clickBrand = document.querySelector('.brand')
 
     // Set nav on resize
-    'load, resize, orientationchange'.split(', ').forEach(function (e) {
+    'resize, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         var viewportWidth = Math.max(
           document.documentElement.clientWidth || 0,
           window.innerWidth || 0
         )
         viewportWidth >= 768 && closeHamburgerNav()
+        // closeHamburgerNav()
       })
     })
 
@@ -808,7 +811,9 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       var secondaryNavList = document.querySelectorAll('.secondaryNavList')
       for (var i = 0; i < secondaryNavBtn.length; ++i) {
         secondaryNavBtn[i].classList.remove('isActive')
+        secondaryNavBtn[i].setAttribute('aria-expanded', 'false')
         secondaryNavList[i].classList.remove('isActive')
+
         // handleCloseSecondaryNavAria(secondaryNavBtn[i])
       }
 
@@ -818,6 +823,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       toggleHamburger.setAttribute('aria-expanded', 'false')
       toggleHamburger.setAttribute('aria-pressed', 'false')
       closeHamburger.classList.add('hide')
+      headerNavExpaned.setAttribute('style', 'display: none;')
     }
 
     //
@@ -907,14 +913,25 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
             return (
               <li key={`main-nav-${index}`}>
                 {navItem.primary.link.uid ? (
-                  <Link
-                    to={linkResolver(navItem.primary.link)}
-                    className="l1"
-                    activeClassName="activeNavItem"
-                    getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
-                  >
-                    {navItem.primary.label.text}
-                  </Link>
+                  navItem.primary.link.uid !== null ? (
+                    <Link
+                      to={linkResolver(navItem.primary.link)}
+                      className="l1"
+                      activeClassName="activeNavItem"
+                      getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
+                    >
+                      {navItem.primary.label.text}
+                    </Link>
+                  ) : (
+                    <a
+                      href={navItem.primary.link.raw.url}
+                      className="l1"
+                      activeClassName="activeNavItem"
+                      getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
+                    >
+                      {navItem.primary.label.text}
+                    </a>
+                  )
                 ) : (
                   <button
                     className={
@@ -945,16 +962,23 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                       {navItem.items.map((subNavItem, index) => {
                         return (
                           <li key={`sub-nav-${index}`}>
-                            <Link
-                              to={linkResolver(subNavItem.sub_nav_link)}
-                              activeClassName="activeNavItem"
-                              // role="menuitem"
-                              // tabIndex="-1"
-                              // getProps={isPartiallyActive}
-                            >
-                              {subNavItem.sub_nav_link_label.text}
-                              <IconMaterial icon={'chevron_right'} />
-                            </Link>
+                            {subNavItem.sub_nav_link.uid !== null ? (
+                              <Link
+                                to={linkResolver(subNavItem.sub_nav_link)}
+                                activeClassName="activeNavItem"
+                              >
+                                {subNavItem.sub_nav_link_label.text}
+                                <IconMaterial icon={'chevron_right'} />
+                              </Link>
+                            ) : (
+                              <a
+                                href={subNavItem.sub_nav_link.raw.url}
+                                activeClassName="activeNavItem"
+                              >
+                                {subNavItem.sub_nav_link_label.text}
+                                <IconMaterial icon={'chevron_right'} />
+                              </a>
+                            )}
                           </li>
                         )
                       })}

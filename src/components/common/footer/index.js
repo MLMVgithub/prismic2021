@@ -143,7 +143,13 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
                     {footer.items.map((navItem, index) => {
                       return (
                         <li key={`footer-${index}`}>
-                          <Link to={linkResolver(navItem.nav_link)}>{navItem.link_label.text}</Link>
+                          {navItem.nav_link.uid !== null ? (
+                            <Link to={linkResolver(navItem.nav_link)}>
+                              {navItem.link_label.text}
+                            </Link>
+                          ) : (
+                            <a href={navItem.nav_link.raw.url}>{navItem.link_label.text}</a>
+                          )}
                         </li>
                       )
                     })}
