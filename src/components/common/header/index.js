@@ -926,7 +926,11 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                     </Link>
                   ) : (
                     <a
-                      href={navItem.primary.link.raw.url ? navItem.primary.link.raw.url : ''}
+                      href={
+                        navItem.primary.link.raw.url !== undefined
+                          ? navItem.primary.link.raw.url
+                          : ''
+                      }
                       className="l1"
                       activeClassName="activeNavItem"
                       getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
@@ -975,7 +979,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                             ) : (
                               <a
                                 href={
-                                  subNavItem.sub_nav_link.raw.url
+                                  subNavItem.sub_nav_link.raw.url !== undefined
                                     ? subNavItem.sub_nav_link.raw.url
                                     : ''
                                 }

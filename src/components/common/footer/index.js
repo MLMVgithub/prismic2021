@@ -148,7 +148,13 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
                               {navItem.link_label.text}
                             </Link>
                           ) : (
-                            <a href={navItem.nav_link.raw.url ? navItem.nav_link.raw.url : ''}>
+                            <a
+                              href={
+                                navItem.nav_link.raw.url !== undefined
+                                  ? navItem.nav_link.raw.url
+                                  : ''
+                              }
+                            >
                               {navItem.link_label.text}
                             </a>
                           )}
