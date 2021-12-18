@@ -769,7 +769,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     const clickBrand = document.querySelector('.brand')
 
     // Set nav on resize
-    'resize, orientationchange'.split(', ').forEach(function (e) {
+    'load, resize, orientationchange'.split(', ').forEach(function (e) {
       window.addEventListener(e, () => {
         var viewportWidth = Math.max(
           document.documentElement.clientWidth || 0,
