@@ -125,12 +125,11 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
   }
   function handleCloseSortList() {
     const selectList = document.querySelector('.sort div')
-    const selectListBtn = document.querySelector('.sort div button')
+    // const selectListBtn = document.querySelector('.sort div button')
     const sortList = document.querySelector('.sort div div')
 
     if (selectList) {
       selectList.classList.remove('isActive')
-      selectListBtn.setAttribute('aria-expanded', 'false')
       sortList.classList.remove('isActive')
 
       // Reset the buttons

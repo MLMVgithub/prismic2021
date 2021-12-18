@@ -36,7 +36,7 @@ module.exports = {
               family: `Material+Icons+Round`,
               text: `abcdefghijklmnopqrstuvwxyz_`,
               // fontDisplay: 'swap',
-              // strategy: 'base64',
+              strategy: 'base64',
               // strategy: 'cdn',
             },
 
@@ -53,6 +53,7 @@ module.exports = {
               axes: 'wght@300;400;500;600',
               // fontDisplay: 'swap',
               // strategy: 'base64', // 'base64' || 'cdn'
+              strategy: 'base64',
               // strategy: 'cdn',
             },
 
@@ -60,7 +61,7 @@ module.exports = {
               family: 'Rokkitt',
               axes: 'wght@300;500',
               // fontDisplay: 'swap',
-              // strategy: 'base64',
+              strategy: 'base64',
               // strategy: 'cdn',
             },
 
@@ -68,7 +69,7 @@ module.exports = {
               family: 'Merriweather',
               axes: 'wght@400',
               // fontDisplay: 'swap',
-              // strategy: 'base64',
+              strategy: 'base64',
               // strategy: 'cdn',
             },
           ],

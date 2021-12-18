@@ -51,6 +51,7 @@ const FooterWrapper = styled.footer`
         /* color: ${({ theme }) => theme.colors.footer[200]}; */
         text-align: left;
         font-weight: 500;
+        text-indent: ${({ theme }) => theme.padding['1/4']};
       }
 
       .footerNav {
@@ -67,12 +68,13 @@ const FooterWrapper = styled.footer`
           color: ${({ theme }) => theme.colors.footer[400]};
           width: inherit;
           text-align: initial;
+          text-indent: 0;
           a {
             margin: 0;
             text-decoration: none;
             line-height: 1.8rem;
             color: inherit;
-            padding: ${({ theme }) => theme.padding['1/4']} 0;
+            padding: ${({ theme }) => theme.padding['1/4']};
             display: flex;
           }
           a:hover {
@@ -133,14 +135,14 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
         <ScrollToTop />
         {footerNav.length > 0 ? (
           <ul className="footerNavWrapper">
-            {footerNav.map((header) => {
+            {footerNav.map((footer) => {
               return (
-                <li key={header.id}>
-                  {header.primary.label.text}
+                <li key={footer.id}>
+                  {footer.primary.label.text}
                   <ul className="footerNav">
-                    {header.items.map((navItem) => {
+                    {footer.items.map((navItem, index) => {
                       return (
-                        <li key={navItem.id}>
+                        <li key={`footer-${index}`}>
                           <Link to={linkResolver(navItem.nav_link)}>{navItem.link_label.text}</Link>
                         </li>
                       )

@@ -160,12 +160,16 @@ const Sort = ({
     >
       <span>{i18n[currentLang].sortBy}</span>
 
-      <div>
+      <div role="listbox">
         <SortSelect
           onClick={(e) => {
             toggleSortListClick(e)
             toggleAria(e)
           }}
+          // onKeyDown={(e) => {
+          //   toggleSortListClick(e)
+          //   toggleAria(e)
+          // }}
           aria-label={`Sort by ${items[0].title}`}
         >
           <span>{items[0].title}</span>

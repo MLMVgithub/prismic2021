@@ -97,8 +97,14 @@ const Layout = ({ children, currentLang, primaryNav, footerNav }) => {
         primaryNav={primaryNav}
       />
 
-      <div className="layoutInner">
-        <main id="main" tabindex="-1" className={i18n.allPrefix.includes(pathName) ? 'index' : ''}>
+      <div
+        className="layoutInner"
+        id="mlmv-page-content"
+        tabIndex="-1"
+        role="region"
+        aria-label="My Life My Voice page content"
+      >
+        <main id="main" className={i18n.allPrefix.includes(pathName) ? 'index' : ''}>
           {children}
         </main>
       </div>
