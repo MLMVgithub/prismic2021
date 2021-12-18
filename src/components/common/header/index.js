@@ -315,11 +315,13 @@ const HeaderWrapper = styled.header`
         align-items: stretch;
         padding: 0;
         margin: 0 auto 0 ${({ theme }) => theme.padding['1/4']};
+        /* margin: 0 auto; */
+
         top: 0px;
         position: relative;
         width: auto;
         overflow-x: visible;
-        max-width: ${({ theme }) => theme.screens.lg};
+        max-width: ${({ theme }) => theme.screens.md};
         li.brand a:after {
           display: none;
         }
@@ -972,7 +974,11 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                               </Link>
                             ) : (
                               <a
-                                href={subNavItem.sub_nav_link.raw.url}
+                                href={
+                                  subNavItem.sub_nav_link.raw.url
+                                    ? subNavItem.sub_nav_link.raw.url
+                                    : ''
+                                }
                                 activeClassName="activeNavItem"
                               >
                                 {subNavItem.sub_nav_link_label.text}
