@@ -70,6 +70,14 @@
                   "placeholder": "Add some content"
                 }
               },
+              "override_text_style": {
+                "type": "Select",
+                "config": {
+                  "options": ["Style like H1", "Style like H2", "Style like H3", "Style like H4"],
+                  "label": "Override text style",
+                  "placeholder": "Please select"
+                }
+              },
               "button_link": {
                 "type": "Link",
                 "config": {
