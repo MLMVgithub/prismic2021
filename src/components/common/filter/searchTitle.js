@@ -8,7 +8,7 @@ const SearchTitleWrapper = styled.p`
   font-weight: 600;
   text-align: center;
   width: fit-content;
-  padding: 0 0 ${({ theme }) => theme.padding['1/2']} 0;
+  padding: 0;
   margin: 0 auto;
 `
 

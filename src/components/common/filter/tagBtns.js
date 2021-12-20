@@ -257,6 +257,10 @@ const ListTagBtns = ({ resetFilterBtns, tagList, resetCards, resetSearchQuery })
         document.querySelector('.wrapper').classList.remove('showMore')
       }
     }
+    return () => {
+      // cancel the subscription
+      setMoreBtns(true)
+    }
   }, [])
 
   // Toggle full view of btn list

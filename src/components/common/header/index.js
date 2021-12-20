@@ -933,7 +933,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                           : ''
                       }
                       className="l1"
-                      activeClassName="activeNavItem"
                       getProps={navItem.primary.link.uid !== 'index' ? isPartiallyActive : isActive}
                     >
                       {navItem.primary.label.text}
@@ -984,7 +983,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                                     ? subNavItem.sub_nav_link.raw.url
                                     : ''
                                 }
-                                activeClassName="activeNavItem"
                               >
                                 {subNavItem.sub_nav_link_label.text}
                                 <IconMaterial icon={'chevron_right'} />

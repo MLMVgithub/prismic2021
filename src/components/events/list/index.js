@@ -57,57 +57,18 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
   })
 
   // Toggle sort order - Asc / Desc
-  const sortAscDescClick = useCallback(
-    (e) => {
-      // Toggle class button
-      e.target.classList.toggle('desc')
-
-      // Toggle Aria labels for button
-      e.target.getAttribute('aria-label') === 'Sort by descending'
-        ? e.target.setAttribute('aria-label', 'Sort by ascending')
-        : e.target.setAttribute('aria-label', 'Sort by descending')
-
-      setAscDescSort(!ascDesc)
-      setAllPosts(allPosts.sort().reverse())
-    },
-    [allPosts, ascDesc]
-  )
-
-  // Toggle sort list
-  const toggleSortListClick = useCallback((e) => {
-    e.stopPropagation()
-
-    const selectListBtn = e.target
-    const selectListLabel = selectListBtn.querySelector('span').innerText
-    const selectList = selectListBtn.nextSibling
-
-    selectListBtn.parentNode.classList.toggle('isActive')
-    selectList.classList.toggle('isActive')
-
-    // Set the buttons state, if matched sort label? then hide
-    let btns = selectList.childNodes
-    for (let i = 0; i < btns.length; i++) {
-      btns[i].setAttribute('aria-hidden', 'false')
-      btns[i].innerText === selectListLabel && btns[i].classList.add('hide')
-      btns[i].innerText === selectListLabel && btns[i].setAttribute('aria-hidden', 'true')
-    }
-  }, [])
+  const sortAscDescClick = useCallback(() => {
+    setAscDescSort(!ascDesc)
+    setAllPosts(allPosts.sort().reverse())
+  }, [allPosts, ascDesc])
 
   // Select sort item
   const sortItemClick = useCallback(
     (e) => {
-      // Update the label title to the selected title
-      const sortLabelBtn = e.target.parentNode.previousSibling
-      const sortLabel = e.target.parentNode.previousSibling.querySelector('span')
-
-      sortLabelBtn.setAttribute('aria-label', `Sort by ${e.target.innerText} active`)
-      sortLabel.innerText = e.target.innerText
+      // console.log('event')
 
       // Add the node to be sorted to the node path
-      const filterNode = e.target.getAttribute('data-nodepath')
-
-      // If filter by date, we srt a flag to reverse order to show latested at top of list
-      const filterDate = filterNode.includes('date')
+      const filterNode = e.getAttribute('data-nodepath')
 
       // https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value?page=1&tab=votes#tab-top
       // Sort the node with lodash
@@ -118,11 +79,10 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
       // Has the user entered search txt?
       if (queryLength > 0) {
         // If there is search txt, we get the 'filteredData' array
-        sortPosts = _.cloneDeep(filteredData) // Use deep to ensure state updates?
+        sortPosts = _.cloneDeep([...filteredData]) // Use deep to ensure state updates?
         sortPosts = _.sortBy(filteredData, filterNode)
-        ascDesc === false && sortPosts.reverse()
-        filterDate === true && sortPosts.reverse()
-
+        // Check AscDesc state
+        ascDesc === true && sortPosts.reverse()
         // Update the states of 'allposts' and 'filteredData'
         setAllPosts(sortPosts)
         setState({ filteredData: sortPosts })
@@ -130,8 +90,8 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
         // Else sort the 'sourceList'
         sortPosts = _.cloneDeep([...dataList.items])
         sortPosts = _.sortBy(dataList.items, filterNode)
-        ascDesc === false && sortPosts.reverse()
-        filterDate === true && sortPosts.reverse()
+        // Check AscDesc state
+        ascDesc === true && sortPosts.reverse()
         setSourceList(sortPosts)
         setAllPosts(sortPosts)
       }
@@ -140,29 +100,6 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [allPosts, ascDesc]
   )
-  // Close the sort list from window click
-  if (typeof window !== 'undefined') {
-    window.addEventListener('click', function () {
-      handleCloseSortList()
-    })
-  }
-
-  function handleCloseSortList() {
-    const selectList = document.querySelector('.sort div')
-    // const selectListBtn = document.querySelector('.sort div button')
-    const sortList = document.querySelector('.sort div div')
-
-    if (selectList) {
-      selectList.classList.remove('isActive')
-      sortList.classList.remove('isActive')
-
-      // Reset the buttons
-      let btns = sortList.childNodes
-      for (let i = 0; i < btns.length; i++) {
-        btns[i].classList.remove('hide')
-      }
-    }
-  }
 
   // Get tag data
   const allItems = dataList.items
@@ -296,7 +233,6 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
               {pageIntro.show_sorting === true && (
                 <SortList
                   currentLang={currentLang}
-                  toggleSortListClick={toggleSortListClick}
                   sortItemClick={sortItemClick}
                   setWidth={pageIntro.show_input}
                   // Pass the 'Sort by' properties. First being the default. Will display Asc order
@@ -322,7 +258,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
                 />
               )}
               {(pageIntro.show_sorting === false && pageIntro.show_input === true) === true && (
-                <AscDesc onClick={sortAscDescClick} />
+                <AscDesc sortAscDescClick={sortAscDescClick} />
               )}
             </SearchBox>
           </div>
