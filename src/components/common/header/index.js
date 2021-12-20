@@ -112,7 +112,7 @@ const HeaderWrapper = styled.header`
 
     .brand {
       z-index: 10001 !important;
-      /* order: 1; */
+
       display: flex;
       align-self: center;
       align-items: center;
@@ -122,6 +122,7 @@ const HeaderWrapper = styled.header`
       /* height: ${({ theme }) => theme.header.height}; */
       /* top: inherit; */
       a {
+        /* order: 3; */
         line-height: initial;
         padding: 0 ${({ theme }) => theme.padding['1/4']};
         height: ${({ theme }) => theme.header.height};
@@ -130,6 +131,7 @@ const HeaderWrapper = styled.header`
       }
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
         display: none;
+        visibility: hidden;
       }
 
       @media print {
@@ -149,8 +151,10 @@ const HeaderWrapper = styled.header`
 
     .brand.mobile {
       display: none;
+      visibility: hidden;
       @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        /* order: 3; */
+        display: flex;
+        visibility: visible;
         position: absolute;
         top: 0;
         right: 0;
@@ -767,19 +771,39 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     const headerNavExpaned = document.querySelector('.secondaryNavList')
     const toggleHamburger = document.querySelector('.hamburger')
     const closeHamburger = document.querySelector('.closeMenu')
-    const clickBrand = document.querySelector('.brand')
 
-    // Set nav on resize
-    'load, resize, orientationchange'.split(', ').forEach(function (e) {
-      window.addEventListener(e, () => {
-        var viewportWidth = Math.max(
-          document.documentElement.clientWidth || 0,
-          window.innerWidth || 0
-        )
-        viewportWidth >= 768 && closeHamburgerNav()
-        // closeHamburgerNav()
-      })
+    const brandDesktop = document.querySelector('.brand')
+    // const brandMobile = document.querySelector('.mobile')
+
+    // window.addEventListener('load', function () {
+    //   eventList()
+    // })
+    window.addEventListener('resize', function () {
+      eventList()
     })
+    window.addEventListener('orientationchange', function () {
+      eventList()
+    })
+    eventList()
+
+    function eventList() {
+      var viewportWidth = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
+      // console.log(viewportWidth)
+
+      if (viewportWidth >= 768) {
+        closeHamburgerNav()
+
+        // brandDesktop.setAttribute('aria-hidden', 'false')
+        // brandMobile.setAttribute('aria-hidden', 'true')
+      } else {
+        console.log('mobile')
+        // brandDesktop.setAttribute('aria-hidden', 'true')
+        // brandMobile.setAttribute('aria-hidden', 'false')
+      }
+    }
 
     var prevScrollpos = window.pageYOffset
     //
@@ -796,7 +820,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       closeHamburgerNav()
     })
 
-    clickBrand.addEventListener('click', function () {
+    brandDesktop.addEventListener('click', function () {
       closeHamburgerNav()
     })
 
@@ -888,7 +912,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           </span>
         </button>
 
-        <li className="brand mobile">
+        <span className="brand mobile">
           <Link
             to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
             title={i18n[currentLang].linkToHomepage}
@@ -897,7 +921,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
             <span>{i18n[currentLang].linkToHomepage}</span>
             <Brand currentLang={currentLang} />
           </Link>
-        </li>
+        </span>
 
         <ul id="mainNavigation" className="disclosure-nav">
           <li className="brand">
