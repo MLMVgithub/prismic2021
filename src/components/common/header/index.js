@@ -799,7 +799,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         // brandDesktop.setAttribute('aria-hidden', 'false')
         // brandMobile.setAttribute('aria-hidden', 'true')
       } else {
-        console.log('mobile')
+        // console.log('mobile')
         // brandDesktop.setAttribute('aria-hidden', 'true')
         // brandMobile.setAttribute('aria-hidden', 'false')
       }
