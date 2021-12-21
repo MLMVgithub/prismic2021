@@ -143,8 +143,12 @@ const AlertWrapper = styled.div.attrs((props) => ({
     /* padding-right: ${({ theme }) => theme.padding['4xl']}; */
     padding: 0px;
    
-    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+    @media (max-width: ${({ theme }) => theme.screens.md}) {
        padding-right: 96px;
+
+       p {
+         text-align:left !important;
+       }
 
     }
 
