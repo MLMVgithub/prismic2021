@@ -212,25 +212,25 @@ const Alert = ({
     }
   }
 
-  const alertDesc = validateAlertDesc(alertLevel)
-  function validateAlertDesc(color) {
-    switch (color) {
-      case undefined:
-      case null:
-      case '1 - Green':
-        return 'level 1'
-      case '2 - Khaki':
-        return 'level 2'
-      case '3 - Yellow':
-        return 'level 3'
-      case '4 - Orange':
-        return 'level 4'
-      case '5 - Red':
-        return 'level 5'
-      default:
-        return 'level 1'
-    }
-  }
+  // const alertDesc = validateAlertDesc(alertLevel)
+  // function validateAlertDesc(color) {
+  //   switch (color) {
+  //     case undefined:
+  //     case null:
+  //     case '1 - Green':
+  //       return 'level 1'
+  //     case '2 - Khaki':
+  //       return 'level 2'
+  //     case '3 - Yellow':
+  //       return 'level 3'
+  //     case '4 - Orange':
+  //       return 'level 4'
+  //     case '5 - Red':
+  //       return 'level 5'
+  //     default:
+  //       return 'level 1'
+  //   }
+  // }
 
   // validate btns
   const btnLabel = validateString(alertBtnLabel)
