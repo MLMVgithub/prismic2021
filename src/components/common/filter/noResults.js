@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const NoResultsWrapper = styled.div`
   margin: ${({ theme }) => theme.margin.default} auto;
-  display: flex;
+  display: block;
   flex-direction: column;
   text-align: center;
 
