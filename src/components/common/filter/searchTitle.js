@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const SearchTitleWrapper = styled.p`
-  display: flex;
+  display: block;
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
