@@ -430,6 +430,10 @@ const ImageHighlight = ({ slice }) => {
     // console.log("animation activated = " + slice.primary.animate_scroll)
     if (slice.primary.animate_scroll !== true) return
 
+    gsap.config({
+      nullTargetWarn: false,
+    })
+
     const aninItems = gsap.utils.toArray('.animActive')
     aninItems.forEach((item) => {
       const tl = gsap.timeline({
