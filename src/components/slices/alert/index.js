@@ -266,7 +266,7 @@ const Alert = ({
         <AlertWrapper
           id={alertID}
           className={`alert section-layout ${width} ${align} ${alertLev}`}
-          aria-label={`Alert ${alertDesc}`}
+          // aria-label={`Alert ${alertDesc}`}
         >
           {close === true && <Close onClick={closeAlert} label={'Close'} />}
 
