@@ -26,7 +26,7 @@ const FooterWrapper = styled.footer`
     z-index: 1000 !important;
 
     .footerNavWrapper {
-      padding: ${({ theme }) => theme.margin.default} ${({ theme }) => theme.margin['1/2']};
+      padding: ${({ theme }) => theme.margin.default} 0;
       margin: -${({ theme }) => theme.margin.default} 0 ${({ theme }) => theme.margin['4xl']} 0;
       border-top: 1px solid ${({ theme }) => theme.colors.footer[900]};
       border-bottom: 1px solid ${({ theme }) => theme.colors.footer[900]};
