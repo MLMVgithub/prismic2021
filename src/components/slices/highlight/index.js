@@ -92,7 +92,7 @@ const Highlight = styled.section`
 
     .media {
       /* display: contents; */
-      display: flex;
+      display: block;
 
       .imageWrapper {
         /* width: 100%; */

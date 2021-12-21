@@ -30,6 +30,10 @@ const AlertWrapper = styled.div.attrs((props) => ({
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     p {
       margin: 0;
+      a {
+        color: inherit;
+        font-weight:600;
+      }
     }
 
     .cta {
@@ -63,43 +67,54 @@ const AlertWrapper = styled.div.attrs((props) => ({
 
   &.alertLevel-1 {
     background-color: ${({ theme }) => theme.colors.alert.l1.default};
-    button {
+    color:#ffffff;
+   } button {
+     color: inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l1.default};
+        /* color: inherit !important; */
+        color: ${({ theme }) => theme.colors.alert.l1.default} !important;
       }
     }
   }
   &.alertLevel-2 {
     background-color: ${({ theme }) => theme.colors.alert.l2.default};
+    color:#ffffff;
     button {
+      color: inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l2.default};
+        color: ${({ theme }) => theme.colors.alert.l2.default} !important;
       }
     }
   }
   &.alertLevel-3 {
-    color: ${({ theme }) => theme.colors.grey.default};
+     color: ${({ theme }) => theme.colors.page.default}
     background-color: ${({ theme }) => theme.colors.alert.l3.default};
     button {
+      color: inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l3.default};
-        background-color: ${({ theme }) => theme.colors.page.default};
+         color: inherit !important;
+       /* color: ${({ theme }) => theme.colors.alert.l3.default} !important; */
+       
       }
     }
   }
   &.alertLevel-4 {
     background-color: ${({ theme }) => theme.colors.alert.l4.default};
+
     button {
       i {
-        color: ${({ theme }) => theme.colors.alert.l4.default};
+        color: ${({ theme }) => theme.colors.alert.l4.default}!important;
       }
     }
   }
   &.alertLevel-5 {
+    color:#ffffff;
     background-color: ${({ theme }) => theme.colors.alert.l5.default};
+
     button {
+      color:inherit;
       i {
-        color: ${({ theme }) => theme.colors.alert.l5.default};
+        color: ${({ theme }) => theme.colors.alert.l5.default} !important;
       }
     }
   }
@@ -113,6 +128,7 @@ const AlertWrapper = styled.div.attrs((props) => ({
     right: ${({ theme }) => theme.padding['1/2']};
     text-transform: uppercase;
     font-size: 80%;
+    color: inherit;
 
     i {
       color: ${({ theme }) => theme.colors.alert.l1.default};
@@ -126,7 +142,12 @@ const AlertWrapper = styled.div.attrs((props) => ({
   & .canClose {
     /* padding-right: ${({ theme }) => theme.padding['4xl']}; */
     padding: 0px;
-    padding-right: 96px;
+   
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+       padding-right: 96px;
+
+    }
+
   }
 `
 const Alert = ({
@@ -149,6 +170,8 @@ const Alert = ({
 }) => {
   // Validate
   const content = alertContent
+  const contentAlign = getPostionAlign(alertAlign)
+  // console.log(contentAlign)
   const width = getContentWidth(alertWidth)
   const align = getPostionAlign(alertAlign)
 
@@ -238,14 +261,20 @@ const Alert = ({
       <>
         <AlertWrapper
           id={alertID}
-          className={'alert section-layout ' + width + ' ' + align + ' ' + alertLev}
+          className={`alert section-layout ${width} ${align} ${alertLev}`}
           aria-label={`Alert ${alertDesc}`}
         >
           {close === true && <Close onClick={closeAlert} label={'Close'} />}
 
           {(content.text || btnLabel) && (
-            <div className={close === true ? 'canClose' : ''}>
-              {content.text && <RichText render={content.raw} linkResolver={linkResolver} />}
+            <div className={`${close === true ? 'canClose' : ''} ${contentAlign}`}>
+              {content.text && (
+                <RichText
+                  render={content.raw}
+                  linkResolver={linkResolver}
+                  // className={contentAlign}
+                />
+              )}
 
               {(btnLabel || btnSecondaryLabel) && (
                 <span className={'cta ' + align}>
