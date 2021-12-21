@@ -25,6 +25,7 @@ const AlertWrapper = styled.div.attrs((props) => ({
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 94%;
 
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     p {
