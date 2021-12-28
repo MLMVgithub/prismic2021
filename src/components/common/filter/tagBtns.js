@@ -266,7 +266,7 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
         setTagBtnsReset(false)
       }, delay)
     }
-  }, [])
+  }, [resetFilters, updateAllCards])
 
   // Toggle full view of btn list on browser size
   useEffect(() => {
@@ -303,7 +303,7 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
       // cancel the subscription
       setMoreBtns(true)
     }
-  }, [])
+  }, [updateAllCards])
 
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
