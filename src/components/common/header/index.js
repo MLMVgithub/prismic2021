@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
@@ -116,22 +116,24 @@ const HeaderWrapper = styled.header`
       display: flex;
       align-self: center;
       align-items: center;
-
       margin: auto ${({ theme }) => theme.margin['1/2']} auto 0;
       z-index: 1003;
-      /* height: ${({ theme }) => theme.header.height}; */
-      /* top: inherit; */
+
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        display: flex;
+        visibility: visible;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        margin-right: ${({ theme }) => theme.margin['1/4']};
+      }
       a {
-        /* order: 3; */
         line-height: initial;
         padding: 0 ${({ theme }) => theme.padding['1/4']};
         height: ${({ theme }) => theme.header.height};
         display: flex;
         align-items: center;
-      }
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        display: none;
-        visibility: hidden;
       }
 
       @media print {
@@ -146,20 +148,6 @@ const HeaderWrapper = styled.header`
       svg {
         height: 36px;
         width: auto;
-      }
-    }
-
-    .brand.mobile {
-      display: none;
-      visibility: hidden;
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        display: flex;
-        visibility: visible;
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: flex;
-        margin-right: ${({ theme }) => theme.margin['1/4']};
       }
     }
 
@@ -537,6 +525,10 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     pathName = window.location.pathname
   }
 
+  const myLocationRef = useRef({
+    location: null,
+  })
+
   // console.log(primaryNav)
   // console.log('pathName = ' + pathName)
 
@@ -768,40 +760,73 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     const secondaryNav = document.querySelector('.secondaryNav')
 
     const headerNav = document.querySelector('.headerNav')
+    // const disclosureNav = document.querySelector('.disclosure-nav')
     const headerNavExpaned = document.querySelector('.secondaryNavList')
     const toggleHamburger = document.querySelector('.hamburger')
     const closeHamburger = document.querySelector('.closeMenu')
-
-    const brandDesktop = document.querySelector('.brand')
+    const brandLink = document.querySelector('.brand')
     // const brandMobile = document.querySelector('.mobile')
 
-    // window.addEventListener('load', function () {
-    //   eventList()
-    // })
-    window.addEventListener('resize', function () {
-      eventList()
+    'load, resize, orientationchange'.split(', ').forEach(function (e) {
+      window.addEventListener(e, () => {
+        eventList()
+      })
     })
-    window.addEventListener('orientationchange', function () {
+
+    // fire route hange
+    if (myLocationRef.current.location !== currentPath) {
+      // console.log('routeChange')
+      myLocationRef.current.location = currentPath
       eventList()
-    })
-    eventList()
+    }
 
     function eventList() {
-      var viewportWidth = Math.max(
-        document.documentElement.clientWidth || 0,
-        window.innerWidth || 0
-      )
-      // console.log(viewportWidth)
+      // var viewportWidth = Math.max(
+      //   document.documentElement.clientWidth || 0,
+      //   window.innerWidth || 0
+      // )
+
+      var viewportWidth = window.innerWidth
+
+      console.log(viewportWidth)
+
+      // let brand = document.querySelector('.brand')
+
+      // var brand = ''
+      var brand = null
 
       if (viewportWidth >= 768) {
         closeHamburgerNav()
 
-        // brandDesktop.setAttribute('aria-hidden', 'false')
-        // brandMobile.setAttribute('aria-hidden', 'true')
-      } else {
-        // console.log('mobile')
-        // brandDesktop.setAttribute('aria-hidden', 'true')
-        // brandMobile.setAttribute('aria-hidden', 'false')
+        // Move the brand span and change to a li
+        brand = document.querySelector('span.brand')
+        const disclosureNav = document.querySelector('.disclosure-nav')
+
+        if (brand) {
+          // const desktopNav = document.querySelector('.disclosure-nav')
+
+          // console.log('desktop')
+          disclosureNav.insertBefore(brand, disclosureNav.firstChild)
+          let newEl = document.createElement('li')
+          newEl.classList.add('brand')
+          newEl.innerHTML = brand.innerHTML
+          brand.parentNode.replaceChild(newEl, brand)
+        }
+      }
+
+      if (viewportWidth < 768) {
+        // Move the brand li and change to a span
+        brand = document.querySelector('li.brand')
+        const moveToDMobile = document.querySelector('.headerNav')
+
+        if (brand) {
+          // console.log('mobile')
+          moveToDMobile.insertBefore(brand, moveToDMobile.firstChild)
+          let newEl = document.createElement('span')
+          newEl.classList.add('brand')
+          newEl.innerHTML = brand.innerHTML
+          brand.parentNode.replaceChild(newEl, brand)
+        }
       }
     }
 
@@ -820,7 +845,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       closeHamburgerNav()
     })
 
-    brandDesktop.addEventListener('click', function () {
+    brandLink.addEventListener('click', function () {
       closeHamburgerNav()
     })
 
@@ -882,7 +907,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       }
       prevScrollpos = currentScrollPos
     })
-  }, [])
+  }, [currentPath, myLocationRef])
 
   return (
     <HeaderWrapper
@@ -911,17 +936,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
             <span className="hamburger-inner"></span>
           </span>
         </button>
-
-        <span className="brand mobile">
-          <Link
-            to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
-            title={i18n[currentLang].linkToHomepage}
-            className="l1"
-          >
-            <span>{i18n[currentLang].linkToHomepage}</span>
-            <Brand currentLang={currentLang} />
-          </Link>
-        </span>
 
         <ul id="mainNavigation" className="disclosure-nav">
           <li className="brand">
