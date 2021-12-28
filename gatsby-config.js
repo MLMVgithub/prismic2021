@@ -201,12 +201,20 @@ module.exports = {
         lang: `en-nz`,
         display: `standalone`,
         icon: `static/manifest.svg`, // This path is relative to the root of the site.
+        cache_busting_mode: 'none',
         icon_options: {
           purpose: `any maskable`,
         },
       },
     },
 
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/static/manifest.svg'],
+        },
+      },
+    },
   ],
 }
