@@ -25,12 +25,25 @@ const ItemContent = styled.article`
   .imageWrapper {
     position: relative;
     border-bottom: 1px solid ${({ theme }) => theme.colors.card[300]};
+    aspect-ratio: auto;
     img {
       transition: ${({ theme }) => theme.transition.easeIn.default};
       /* aspect-ratio: 16/9; */
-      aspect-ratio: 5/4;
+      /* aspect-ratio: 5/4; */
+      /* aspect-ratio: auto; */
+      object-fit: cover;
       transform: scale(1.033);
-      object-position: center top !important;
+      object-position: center top;
+    }
+  }
+  .imageWrapper.portrait {
+    aspect-ratio: 3/4;
+    object-position: center center;
+  }
+  .imageWrapper.landscape {
+    aspect-ratio: 5/4;
+    img {
+      object-position: center center;
     }
   }
 
@@ -40,6 +53,11 @@ const ItemContent = styled.article`
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     color: ${({ theme }) => theme.colors.page.default};
     padding: ${({ theme }) => theme.padding['1/2']};
+    /* width: 100%; */
+
+    a {
+      text-decoration: underline;
+    }
 
     .title {
       font-family: ${({ theme }) => theme.font.sans};
@@ -125,7 +143,101 @@ const ItemContent = styled.article`
     }
   }
 
-  // If a 'list' class was passsed in, then display as a list style
+  // Layout variations 'profile', profileList', 'carousel', 'gallery', 'galleryList' 'list'
+  //
+  // profile
+  &.profile,
+  &.profileList,
+  &.galleryList {
+    display: flex;
+  }
+
+  &.profile,
+  &.profileList {
+    .imageWrapper {
+      aspect-ratio: 1;
+      min-width: 128px;
+      height: 128px;
+      z-index: 1;
+      border-radius: 999rem;
+      border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+      box-shadow: ${({ theme }) => theme.boxShadow.lg};
+    }
+  }
+
+  &.profile {
+    flex-direction: column;
+    align-items: center;
+    .imageWrapper {
+      margin: ${({ theme }) => theme.margin.default} auto 0;
+    }
+    .content {
+      .title {
+        justify-content: center;
+      }
+    }
+  }
+
+  // profileList
+  &.profileList,
+  &.galleryList {
+    flex-direction: row;
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      flex-direction: column;
+    }
+    .imageWrapper {
+      margin: ${({ theme }) => theme.margin.default};
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        min-width: 75px;
+        max-width: 75px;
+        height: 75px;
+        margin: ${({ theme }) => theme.margin['1/2']} ${({ theme }) => theme.margin['1/2']} 0;
+      }
+    }
+    .content {
+      justify-content: center;
+    }
+  }
+
+  &.galleryList {
+    flex-direction: row;
+    align-items: flex-start;
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      flex-direction: column;
+    }
+
+    .imageWrapper {
+      margin: 0;
+      /* aspect-ratio: auto; */
+      min-width: 33%;
+      max-width: 33%;
+      height: 100%;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      background-color: #fff;
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        margin: ${({ theme }) => theme.margin['1/2']} ${({ theme }) => theme.margin['1/2']} 0;
+      }
+    }
+
+    .content {
+      justify-content: center;
+    }
+  }
+
+  // carousel
+  &.carousel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    .imageWrapper {
+      aspect-ratio: auto;
+    }
+  }
+
+  // list
   &.list {
     flex-direction: row;
     min-width: 100%;
@@ -234,7 +346,7 @@ const ItemContent = styled.article`
       img {
         transform: scale(1);
         transition: ${({ theme }) => theme.transition.easeOut.default};
-        object-position: center top;
+        /* object-position: center top; */
       }
     }
 

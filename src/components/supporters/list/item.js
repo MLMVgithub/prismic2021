@@ -14,7 +14,7 @@ import ItemContent from '/src/components/common/layout/listResults/itemContent'
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-const PeerSupportersItem = ({ listStyle, thisItem }) => {
+const PeerSupportersItem = ({ listStyle, thisItem, index, listLength }) => {
   // const _ = require('lodash')
 
   // Reference grid items
@@ -61,7 +61,11 @@ const PeerSupportersItem = ({ listStyle, thisItem }) => {
   return (
     <>
       {item.uid && (
-        <ItemWrapper className="item show" ref={gridItem}>
+        <ItemWrapper
+          className="item show"
+          ref={gridItem}
+          role={`Item ${index + 1} of ${listLength}`}
+        >
           <Link to={linkResolver(item)} className="card">
             <ItemContent className={listStyle}>
               {content.image && (

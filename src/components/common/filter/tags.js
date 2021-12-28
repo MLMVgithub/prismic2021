@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Tags = styled.div.attrs((props) => ({
+const Tags = styled.div.attrs({
   // 'aria-label': 'Tags list',
-}))`
+})`
   ul {
     list-style: none;
     display: flex;

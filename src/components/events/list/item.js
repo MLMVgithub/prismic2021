@@ -17,7 +17,7 @@ import ItemWrapper from '/src/components/common/layout/listResults/itemWrapper'
 import ItemContent from '/src/components/common/layout/listResults/itemContent'
 import Tags from '../../common/filter/tags'
 
-const NewsEventsItem = ({ listStyle, currentLang, thisItem, showTags }) => {
+const NewsEventsItem = ({ listStyle, currentLang, thisItem, showTags, index, listLength }) => {
   const item = thisItem.item.document
   const tagData = thisItem.item.document.tags.sort()
   const content = thisItem.item.document.data
@@ -97,7 +97,11 @@ const NewsEventsItem = ({ listStyle, currentLang, thisItem, showTags }) => {
   return (
     <>
       {item.uid && (
-        <ItemWrapper className="item show" ref={gridItem}>
+        <ItemWrapper
+          className="item show"
+          ref={gridItem}
+          role={`Item ${index + 1} of ${listLength}`}
+        >
           <Link to={`${item.uid}`} className="card">
             <ItemContent className={listStyle}>
               <div className="content">

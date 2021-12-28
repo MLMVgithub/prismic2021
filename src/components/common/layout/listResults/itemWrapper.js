@@ -2,8 +2,12 @@ import styled from 'styled-components'
 
 const ItemWrapper = styled.li`
   display: none;
-  a {
-    text-decoration: none;
+
+  a,
+  a:link,
+  a:hover,
+  a:visited {
+    text-decoration: none !important;
     width: 100%;
   }
 

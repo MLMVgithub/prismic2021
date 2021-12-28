@@ -16,7 +16,7 @@ import ItemWrapper from '/src/components/common/layout/listResults/itemWrapper'
 import ItemContent from '/src/components/common/layout/listResults/itemContent'
 import Tags from '/src/components/common/filter/tags'
 
-const RescourcesItem = ({ listStyle, thisItem, id, showTags }) => {
+const RescourcesItem = ({ listStyle, thisItem, id, showTags, index, listLength }) => {
   const item = thisItem.item.document
   const tagData = thisItem.item.document.tags.sort()
   const content = thisItem.item.document.data
@@ -51,7 +51,11 @@ const RescourcesItem = ({ listStyle, thisItem, id, showTags }) => {
   return (
     <>
       {item.uid && (
-        <ItemWrapper className="item show" ref={gridItem}>
+        <ItemWrapper
+          className="item show"
+          ref={gridItem}
+          role={`Item ${index + 1} of ${listLength}`}
+        >
           <div className="card">
             <ItemContent className={listStyle}>
               <div className="content">

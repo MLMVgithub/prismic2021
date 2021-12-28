@@ -336,6 +336,8 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                   showTags={pageIntro.show_tags}
                   key={allPosts[index].item.id}
                   id={allPosts[index].item.id}
+                  index={index}
+                  listLength={allPosts.length}
                 />
               ))}
             </ListGrid>

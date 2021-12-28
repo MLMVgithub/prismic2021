@@ -4,6 +4,7 @@ const Grid = styled.ul.attrs({
   // 'aria-label': 'List results as cards',
   // 'aria-live': 'polite',
   // 'aria-atomic': 'false',
+  role: 'group',
 })`
   display: grid;
 

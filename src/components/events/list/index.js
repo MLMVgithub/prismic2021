@@ -338,6 +338,8 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
                   key={allPosts[index].item.id}
                   id={allPosts[index].item.id}
                   currentLang={currentLang}
+                  index={index}
+                  listLength={allPosts.length}
                 />
               ))}
             </ListGrid>

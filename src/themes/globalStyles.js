@@ -119,9 +119,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary[1100]};
     /* text-decoration: none; */
     text-decoration: underline;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
   a:hover {
