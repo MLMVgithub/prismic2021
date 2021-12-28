@@ -55,9 +55,7 @@ const ItemContent = styled.article`
     padding: ${({ theme }) => theme.padding['1/2']};
     /* width: 100%; */
 
-    a {
-      text-decoration: underline;
-    }
+    
 
     .title {
       font-family: ${({ theme }) => theme.font.sans};
@@ -148,8 +146,15 @@ const ItemContent = styled.article`
   // profile
   &.profile,
   &.profileList,
-  &.galleryList {
+  &.gallery,
+  &.galleryList,
+  &.carousel { {
     display: flex;
+    .content {
+       a {
+        text-decoration: underline !important;
+      }
+    }
   }
 
   &.profile,
