@@ -303,7 +303,7 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
       // cancel the subscription
       setMoreBtns(true)
     }
-  }, [updateAllCards])
+  }, [updateAllCards, hideTagReset])
 
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
