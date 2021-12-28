@@ -781,30 +781,21 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     }
 
     function eventList() {
-      // var viewportWidth = Math.max(
-      //   document.documentElement.clientWidth || 0,
-      //   window.innerWidth || 0
-      // )
+      var viewportWidth = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
 
-      var viewportWidth = window.innerWidth
-
-      console.log(viewportWidth)
-
-      // let brand = document.querySelector('.brand')
-
-      // var brand = ''
-      var brand = null
+      // var viewportWidth = window.innerWidth
+      // console.log(viewportWidth)
 
       if (viewportWidth >= 768) {
         closeHamburgerNav()
 
         // Move the brand span and change to a li
-        brand = document.querySelector('span.brand')
+        let brand = document.querySelector('span.brand')
         const disclosureNav = document.querySelector('.disclosure-nav')
-
         if (brand) {
-          // const desktopNav = document.querySelector('.disclosure-nav')
-
           // console.log('desktop')
           disclosureNav.insertBefore(brand, disclosureNav.firstChild)
           let newEl = document.createElement('li')
@@ -816,7 +807,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
 
       if (viewportWidth < 768) {
         // Move the brand li and change to a span
-        brand = document.querySelector('li.brand')
+        let brand = document.querySelector('li.brand')
         const moveToDMobile = document.querySelector('.headerNav')
 
         if (brand) {
@@ -907,7 +898,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       }
       prevScrollpos = currentScrollPos
     })
-  }, [currentPath, myLocationRef])
+  }, [myLocationRef, currentPath])
 
   return (
     <HeaderWrapper
