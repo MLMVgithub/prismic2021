@@ -66,17 +66,6 @@ const ItemContent = styled.article`
         width: auto;
       }
     }
-
-    p:last-of-type {
-      display: flex;
-      flex-direction: row;
-      grid-column-gap: ${({ theme }) => theme.padding['1/4']};
-      align-items: center;
-      margin: ${({ theme }) => theme.padding['1/4']} 0;
-      i {
-        color: ${({ theme }) => theme.colors.secondary.default};
-      }
-    }
   }
 
   .details {
@@ -105,6 +94,7 @@ const ItemContent = styled.article`
       grid-gap: ${({ theme }) => theme.margin['1/4']};
       text-decoration: none;
       width: fit-content;
+      margin-top: -${({ theme }) => theme.margin['1/16']};
 
       i {
         margin-top: ${({ theme }) => theme.margin['1/16']};
