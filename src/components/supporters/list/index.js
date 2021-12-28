@@ -42,7 +42,12 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
   ascDescRef.current = ascDesc
 
   // If user has set the layout style, it is saved to sessionStorage
-  var currentLayoutStyle = sessionStorage.getItem('Layout style')
+  // When you're rendering on the server, you do not have a browser and thus we do not have access to all the APIs that the browser provides, including localStorage. We need to check if the window is defined.
+  if (typeof window !== 'undefined') {
+    var currentLayoutStyle = sessionStorage.getItem('Layout style')
+  } else {
+    currentLayoutStyle = 'list'
+  }
   // Initiate layout style - 'list || grid' - default is 'list'
   const [layoutStyle, updateLayoutStlye] = useState('list')
   useEffect(() => {
