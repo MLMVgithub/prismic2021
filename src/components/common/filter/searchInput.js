@@ -29,8 +29,7 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
     input {
       font-size: inherit;
       width: 100%;
-      padding: ${({ theme }) => theme.padding['1/4']} 0 ${({ theme }) => theme.padding['1/4']}
-        ${({ theme }) => theme.padding['2xl']};
+      padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['2xl']};
       border: 1px solid transparent;
 
       border-radius: 999rem;
@@ -50,15 +49,16 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
 `
 
 const Reset = styled.button.attrs((props) => ({
-  type: props.type || 'button',
   'aria-label': 'Reset search input',
 }))`
   position: absolute;
   align-self: center;
   /* cursor: pointer; */
   user-select: none;
-  right: ${({ theme }) => theme.margin['1/2']};
+  /* right: ${({ theme }) => theme.margin['1/2']}; */
+  right: 2px;
   opacity: 0.5;
+  padding: 10px;
 
   i {
     pointer-events: none;
@@ -79,11 +79,10 @@ const Search = ({ currentLang, handleSearchChange, queryLength, resetFilters }) 
   }
   return (
     <Input>
-      <label className={'search'} htmlFor="search">
+      <label className={'search'} htmlFor="search" aria-label="Search">
         <input
           type="search"
           name="search"
-          aria-label="Search"
           placeholder={`${i18n[currentLang].searchPlacholder}`}
           onChange={handleSearchChange}
         />

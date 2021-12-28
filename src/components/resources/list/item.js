@@ -1,37 +1,59 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import linkResolver from '/src/utils/linkResolver'
-import i18n from '/config/i18n'
+// import i18n from '/config/i18n'
 import { validateString } from '/src/utils/helpers'
+import { resizeAllGridItems } from '/src/utils/helpers'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-// Layout
-import ListItem from '/src/components/common/layout/listResults/listItem'
-import CardContent from '/src/components/common/layout/listResults/cardContent'
+//
+import ItemWrapper from '/src/components/common/layout/listResults/itemWrapper'
+import ItemContent from '/src/components/common/layout/listResults/itemContent'
 import Tags from '/src/components/common/filter/tags'
 
-const RescourcesItem = ({ currentLang, resourceItem, id, showTags }) => {
-  const item = resourceItem.item.document
-  const tagData = resourceItem.item.document.tags.sort()
-  const content = resourceItem.item.document.data
+const RescourcesItem = ({ listStyle, thisItem, id, showTags }) => {
+  const item = thisItem.item.document
+  const tagData = thisItem.item.document.tags.sort()
+  const content = thisItem.item.document.data
   const title = validateString(content.title.text)
-  const intro = validateString(content.content.raw)
+  const intro = validateString(content.content.richText)
   const internalLink = validateString(content.web_address.uid)
   const externalLink = validateString(content.web_address.url)
   const phone = validateString(content.phone)
   const location = validateString(content.location)
 
+  // Reference grid items
+  const gridItems = useRef([])
+  gridItems.current = []
+
+  const gridItem = (item) => {
+    if (item && !gridItems.current.includes(item)) {
+      gridItems.current.push(item)
+    }
+  }
+
+  // Use 'Resize all grid items' for grid filtering
+  useEffect(() => {
+    resizeAllGridItems(gridItems)
+    'onclick, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
+      window.addEventListener(e, () => {
+        // Helpers - resizeAllGridItems
+        resizeAllGridItems(gridItems)
+      })
+    })
+  }, [])
+
   return (
     <>
       {item.uid && (
-        <ListItem id={id} className={'item show'}>
+        <ItemWrapper className="item show" ref={gridItem}>
           <div className="card">
-            <CardContent>
+            <ItemContent className={listStyle}>
               <div className="content">
                 {title && <h2 className="title">{title}</h2>}
                 {intro && <RichText render={intro} linkResolver={linkResolver} />}
@@ -58,7 +80,7 @@ const RescourcesItem = ({ currentLang, resourceItem, id, showTags }) => {
                 )}
 
                 {phone && (
-                  <a href={`tel:${phone}`} aria-describedby={i18n[currentLang].openInPhoneApp}>
+                  <a href={`tel:${phone}`}>
                     <IconMaterial icon={'call'} />
                     <span className="sr-only">Contact number</span> {phone}
                   </a>
@@ -73,9 +95,9 @@ const RescourcesItem = ({ currentLang, resourceItem, id, showTags }) => {
 
                 {showTags === true && tagData.length > 0 && <Tags tagData={tagData} />}
               </div>
-            </CardContent>
+            </ItemContent>
           </div>
-        </ListItem>
+        </ItemWrapper>
       )}
     </>
   )

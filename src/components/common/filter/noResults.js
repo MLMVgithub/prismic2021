@@ -13,7 +13,8 @@ const NoResultsWrapper = styled.div`
 
   span:first-of-type {
     margin: 0;
-    font-size: 133px;
+    font-size: 128px;
+    line-height: normal;
     font-weight: ${({ theme }) => theme.fontWeight.meduim};
     color: ${({ theme }) => theme.colors.card[600]};
   }
@@ -23,7 +24,7 @@ const NoResultsWrapper = styled.div`
     cursor: default !important;
   }
 `
-const NoResults = ({ resetFilters, query }) => {
+const NoResults = ({ resetFilters }) => {
   return (
     <NoResultsWrapper>
       <span>(·_·)</span>

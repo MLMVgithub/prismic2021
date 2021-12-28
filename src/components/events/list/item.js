@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
@@ -7,24 +7,49 @@ import i18n from '/config/i18n'
 import { RichText } from 'prismic-reactjs'
 import linkResolver from '../../../utils/linkResolver'
 import { validateString } from '/src/utils/helpers'
+import { resizeAllGridItems } from '/src/utils/helpers'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
 // Layout
-import ListItem from '../../common/layout/listResults/listItem'
-import CardContent from '/src/components/common/layout/listResults/cardContent'
+import ItemWrapper from '/src/components/common/layout/listResults/itemWrapper'
+import ItemContent from '/src/components/common/layout/listResults/itemContent'
 import Tags from '../../common/filter/tags'
 
-const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
+const NewsEventsItem = ({ listStyle, currentLang, thisItem, showTags }) => {
   const item = thisItem.item.document
   const tagData = thisItem.item.document.tags.sort()
   const content = thisItem.item.document.data
   const title = content.title.text
   const eventType = content.type
   // const intro = content.intro
-  const intro = validateString(content.intro.raw)
+  const intro = validateString(content.intro.richText)
   const location = content.location
+
+  // Reference grid items
+  const gridItems = useRef([])
+  gridItems.current = []
+
+  const revealTxt = useRef([])
+  revealTxt.current = []
+
+  const gridItem = (item) => {
+    if (item && !gridItems.current.includes(item)) {
+      gridItems.current.push(item)
+    }
+  }
+
+  // Use 'Resize all grid items' for grid filtering
+  useEffect(() => {
+    resizeAllGridItems(gridItems)
+    'onclick, pointerover, resize, keydown, orientationchange'.split(', ').forEach(function (e) {
+      window.addEventListener(e, () => {
+        // Helpers - resizeAllGridItems
+        resizeAllGridItems(gridItems)
+      })
+    })
+  }, [])
 
   var currentDate = new Date()
   moment.locale(currentLang.slice(0, -3))
@@ -72,9 +97,9 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
   return (
     <>
       {item.uid && (
-        <ListItem className={'item show'}>
+        <ItemWrapper className="item show" ref={gridItem}>
           <Link to={`${item.uid}`} className="card">
-            <CardContent>
+            <ItemContent className={listStyle}>
               <div className="content">
                 {title && (
                   <h2 className="title">
@@ -141,9 +166,9 @@ const NewsEventsItem = ({ currentLang, thisItem, showTags }) => {
                   <Tags tagData={tagData} />
                 </span>
               )}
-            </CardContent>
+            </ItemContent>
           </Link>
-        </ListItem>
+        </ItemWrapper>
       )}
     </>
   )

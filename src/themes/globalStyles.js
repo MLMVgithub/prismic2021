@@ -119,6 +119,9 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.primary[1100]};
     /* text-decoration: none; */
     text-decoration: underline;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      hyphens: auto;
   }
 
   a:hover {
@@ -162,6 +165,9 @@ export const GlobalStyles = createGlobalStyle`
   .marginTopInital {
     margin-top:0 !important;
   }
+  .paddingTopInital {
+    padding-top:0 !important;
+  }
 
   .marginTopHeader {
     margin-top:0 ${({ theme }) => theme.header.height} !important;
@@ -171,47 +177,81 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.header.default} !important;
   }
 
-  h1 {
+  h1,
+  .styledh1 {
     font-size: ${({ theme }) => theme.fontSize['5xl']};
     font-family: ${({ theme }) => theme.font.slab};
     line-height: ${({ theme }) => theme.lineHeight.tight};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
-  h2 {
+  h2,
+  .styledh2 {
     font-size: ${({ theme }) => theme.fontSize['4xl']};
     font-family: ${({ theme }) => theme.font.slab};
     line-height: ${({ theme }) => theme.lineHeight.tight};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
-  h3 {
+  h3,
+  .styledh3 {
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.font.sans};
     line-height: ${({ theme }) => theme.lineHeight.snug};
   }
 
-  h4 {
+  h4,
+  .styledh4 {
     font-size: ${({ theme }) => theme.fontSize.xl};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.relaxed};
-  }  
+    line-height: ${({ theme }) => theme.lineHeight.snug};
+  }
+  
+  h5,
+  .styledh5 {
+    font-size: ${({ theme }) => theme.fontSize.lg};
+    font-family: ${({ theme }) => theme.font.sans};
+    line-height: ${({ theme }) => theme.lineHeight.snug};
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  }
+
+  h6,
+  .styledh6 {
+    font-size: ${({ theme }) => theme.fontSize.base};
+    font-family: ${({ theme }) => theme.font.sans};
+    line-height: ${({ theme }) => theme.lineHeight.snug};
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+  }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    h1 {
+    h1.
+    .styledh1 {
       font-size: ${({ theme }) => theme.fontSize['4xl']};
     }
 
-    h2 {
+    h2,
+    .styledh2 {
       font-size: ${({ theme }) => theme.fontSize['3xl']};
     }
 
-    h3 {
+    h3,
+    .styledh3 {
       font-size: ${({ theme }) => theme.fontSize['2xl']};
     }
 
-    h4 {
+    h4,
+    .styledh4 {
       font-size: ${({ theme }) => theme.fontSize.xl};
+    }
+
+    h5,
+    .styledh4 {
+      font-size: ${({ theme }) => theme.fontSize.lg};
+    }
+
+    h6,
+    .styledh4 {
+      font-size: ${({ theme }) => theme.fontSize.base};
     }
 
   }

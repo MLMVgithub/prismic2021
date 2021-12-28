@@ -13,11 +13,11 @@
         "label": "Slug"
       }
     },
-    "show_filters": {
+    "show_tags": {
       "type": "Boolean",
       "config": {
         "default_value": true,
-        "label": "Show search filters"
+        "label": "Show tags"
       }
     },
     "show_input": {
@@ -34,11 +34,11 @@
         "label": "Show sorting"
       }
     },
-    "show_tags": {
+    "show_grid_layout": {
       "type": "Boolean",
       "config": {
         "default_value": true,
-        "label": "Show tags"
+        "label": "Show grid layout"
       }
     },
     "body": {

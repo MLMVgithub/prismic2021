@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
 import i18n from '../../../../config/i18n'
 import linkResolver from '../../../utils/linkResolver'
@@ -117,12 +117,19 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
   // console.log(next.uid)
   // console.log(previous.uid)
 
+  useEffect(() => {
+    const backBtn = document.querySelector('.backBtn')
+    'click'.split(', ').forEach(function (e) {
+      backBtn.addEventListener(e, () => {
+        window.history.back()
+      })
+    })
+  }, [])
+
   return (
     <SecondaryNavWrapper className="secondaryNav">
       <nav aria-label="Navigate to previous page or next page" role="navigation">
-        {/* <Link aria-label="Back" to="../"> */}
-
-        <button onClick={() => window.history.back()}>
+        <button className="backBtn">
           <IconMaterial icon={'arrow_back'} />
           {i18n[currentLang].back}
         </button>

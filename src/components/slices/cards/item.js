@@ -9,7 +9,7 @@ import { getImgFormat } from '/src/utils/helpers'
 import { validateString } from '/src/utils/helpers'
 
 // Layout
-import CardContent from '/src/components/common/layout/listResults/cardContent'
+import ItemContent from '/src/components/common/layout/listResults/itemContent'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
@@ -37,11 +37,11 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
     >
       {link.uid && (
         <Link to={linkResolver(link)} className="link">
-          <CardContent>
+          <ItemContent>
             {image && (
               <GatsbyImage
                 className={'imageWrapper landscape ' + imgFormat}
-                image={image.localFile.childImageSharp.gatsbyImageData}
+                image={image.gatsbyImageData}
                 alt={
                   image.alt ? image.alt : 'Sorry, no image description is available at this time'
                 }
@@ -54,7 +54,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
                   {presentationType === 'gallery' && <IconMaterial icon={'arrow_forward'} />}
                 </div>
               )}
-              {content.text && <RichText render={content.raw} />}
+              {content.text && <RichText render={content.richText} />}
               {linkLabel && presentationType === 'carousel' && (
                 <span className="link">
                   {linkLabel}
@@ -62,17 +62,17 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
                 </span>
               )}
             </div>
-          </CardContent>
+          </ItemContent>
         </Link>
       )}
 
       {!link.uid && (
         <div className="profile">
-          <CardContent>
+          <ItemContent>
             {image && (
               <GatsbyImage
                 className={'imageWrapper landscape ' + imgFormat}
-                image={image.localFile.childImageSharp.gatsbyImageData}
+                image={image.gatsbyImageData}
                 alt={
                   image.alt ? image.alt : 'Sorry, no image description is available at this time'
                 }
@@ -85,7 +85,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
                   {presentationType === 'gallery' && <IconMaterial icon={'arrow_forward'} />}
                 </div>
               )}
-              {content.text && <RichText render={content.raw} linkResolver={linkResolver} />}
+              {content.text && <RichText render={content.richText} linkResolver={linkResolver} />}
               {linkLabel && presentationType === 'carousel' && (
                 <span className="link">
                   {linkLabel}
@@ -93,7 +93,7 @@ const Card = ({ cardItem, presentationType, item, carouselLength }) => {
                 </span>
               )}
             </div>
-          </CardContent>
+          </ItemContent>
         </div>
       )}
     </div>

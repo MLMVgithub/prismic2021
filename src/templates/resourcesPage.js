@@ -164,7 +164,7 @@ export const query = graphql`
               text
             }
             content {
-              raw
+              richText
             }
             web_address {
               url

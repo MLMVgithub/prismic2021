@@ -165,10 +165,10 @@ export const query = graphql`
             }
             type
             intro {
-              raw
+              richText
             }
             content {
-              raw
+              richText
             }
             location
             start_date_time
@@ -184,7 +184,7 @@ export const query = graphql`
                       text
                     }
                     from_content {
-                      raw
+                      richText
                     }
                     body {
                       ## Button
@@ -235,7 +235,7 @@ export const query = graphql`
                           align_with_input
                           text {
                             text
-                            raw
+                            richText
                           }
                         }
                       }

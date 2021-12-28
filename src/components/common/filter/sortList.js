@@ -7,7 +7,7 @@ import i18n from '/config/i18n'
 import IconMaterial from '/src/components/common/icons/material'
 
 // Filter componetent styles
-import AscDesc from './ascDesc'
+import BtnListAscDesc from '/src/components/common/filter/btnListAscDesc'
 
 import styled from 'styled-components'
 
@@ -22,7 +22,7 @@ const SortListWrapper = styled.div`
   margin-left: 0;
   user-select: none;
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    min-width: 100%;
+    width: 100%;
   }
 
   > span {
@@ -39,7 +39,7 @@ const SortListWrapper = styled.div`
     min-width: 160px;
     position: relative;
     background-color: ${({ theme }) => theme.colors.page.bground.default};
-    border: 1px solid transparent;
+    border: 1px solid ${({ theme }) => theme.colors.card[200]};
     border-radius: ${({ theme }) => theme.borderRadius.sm};
 
     button {
@@ -49,7 +49,8 @@ const SortListWrapper = styled.div`
       align-items: center;
       justify-content: space-between;
       z-index: 100;
-      background-color: #fff;
+      /* background-color: #fff; */
+      background-color: ${({ theme }) => theme.colors.card[200]};
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['1/2']};
       i {
         margin-right: -${({ theme }) => theme.padding['1/8']};
@@ -131,7 +132,7 @@ const SortListWrapper = styled.div`
 const Sort = ({
   currentLang,
   items,
-  setWidth,
+  // setWidth,
   sortItemClick,
   // toggleSortListClick,
   sortAscDescClick,
@@ -889,9 +890,9 @@ const Sort = ({
   return (
     <SortListWrapper
       className="sort"
-      style={{
-        width: setWidth === true ? 'auto' : '100%',
-      }}
+      // style={{
+      //   width: setWidth === true ? 'auto' : '100%',
+      // }}
     >
       <span>{i18n[currentLang].sortBy}</span>
 
@@ -927,7 +928,7 @@ const Sort = ({
           ))}
         </ul>
       </div>
-      <AscDesc sortAscDescClick={sortAscDescClick} />
+      <BtnListAscDesc sortAscDescClick={sortAscDescClick} />
     </SortListWrapper>
   )
 }

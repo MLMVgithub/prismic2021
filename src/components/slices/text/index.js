@@ -9,6 +9,7 @@ import {
   getLineHeight,
   getPostionAlign,
   getColumnCount,
+  getContentOverrideStyle,
   validateString,
   getStyle,
   getAutoSpacing,
@@ -155,8 +156,14 @@ const Text = ({ slice }) => {
   // Line height
   var lineHeight = getLineHeight(slice.primary.font_sizing)
 
-  // Validate text
+  // Content
   const content = slice.primary.content
+
+  // Validate content style
+  const contentOverrideStyle = getContentOverrideStyle(slice.primary.override_content_style)
+
+  // For screen reader only?
+  const screenReaderOnly = slice.primary.screen_reader_only
 
   // Validate primary button
   const primaryButtonLabel = validateString(slice.primary.button_label)
@@ -187,14 +194,30 @@ const Text = ({ slice }) => {
       <div>
         {content.text && (
           <article
-            className={columnCount}
+            // className={columnCount}
+            className={`${screenReaderOnly === true ? '.sr-only ' : ''}${columnCount}`}
             style={{
               fontSize: fontSize,
               lineHeight: lineHeight,
               textAlign: txtAlign,
             }}
           >
-            {content.text && <RichText render={content.raw} linkResolver={linkResolver} />}
+            {contentOverrideStyle === null ? (
+              content.text && (
+                <RichText
+                  // className={`${screenReaderOnly === true ? '.sr-only' : ''}`}
+                  render={content.richText}
+                  linkResolver={linkResolver}
+                />
+              )
+            ) : (
+              <p
+                // className={`${screenReaderOnly === true ? '.sr-only' : ''} ${contentOverrideStyle}`}
+                className={contentOverrideStyle}
+              >
+                {content.text}
+              </p>
+            )}
           </article>
         )}
 

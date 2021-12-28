@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
-const Grid = styled.ul.attrs((props) => ({
-  'aria-label': 'List results as cards',
-  'aria-live': 'polite',
-  'aria-atomic': 'false',
-}))`
+const Grid = styled.ul.attrs({
+  // 'aria-label': 'List results as cards',
+  // 'aria-live': 'polite',
+  // 'aria-atomic': 'false',
+})`
   display: grid;
+
   position: relative;
   align-items: flex-start;
   grid-template-columns: repeat(${(props) => props.defaultColCount}, 1fr);
@@ -25,6 +26,15 @@ const Grid = styled.ul.attrs((props) => ({
   width: auto;
   height: fit-content;
   min-height: 100%;
+
+  &.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    grid-gap: ${({ theme }) => theme.margin.default};
+  }
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     grid-template-columns: repeat(3, 1fr);
@@ -48,10 +58,11 @@ const Grid = styled.ul.attrs((props) => ({
     grid-template-columns: repeat(1, 1fr);
   }
 
-  li {
+  > li {
     transition: ${({ theme }) => theme.transition.easeOut.quick};
     z-index: 5;
     margin: 0;
+    width: 100%;
   }
 `
 

@@ -152,7 +152,7 @@ const supportersItem = ({ currentLang, itemData }) => {
   const lastName = validateString(supportersItem.last_name.text)
   const fullName = firstName + ' ' + lastName
   const introText = validateString(supportersItem.intro.text)
-  const mainContent = validateString(supportersItem.content.raw)
+  const mainContent = validateString(supportersItem.content.richText)
   const gender = validateString(supportersItem.gender)
   const location = validateString(supportersItem.location)
 
@@ -165,7 +165,7 @@ const supportersItem = ({ currentLang, itemData }) => {
             <span>
               {supportersItem.image && (
                 <GatsbyImage
-                  image={supportersItem.image.localFile.childImageSharp.gatsbyImageData}
+                  image={supportersItem.image.gatsbyImageData}
                   alt={supportersItem.image.alt ? supportersItem.image.alt : fullName}
                 />
               )}

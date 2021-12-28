@@ -186,23 +186,27 @@ export const query = graphql`
               text
             }
             content {
-              raw
+              richText
             }
             gender
+
             image {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    quality: 100
-                    width: 150
-                    layout: CONSTRAINED
-                    formats: [AUTO, WEBP, AVIF]
-                    placeholder: BLURRED
-                    transformOptions: { fit: COVER, cropFocus: ATTENTION }
-                    # aspectRatio: 1.77
-                  )
+              alt
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                imgixParams: {
+                  q: 100
+                  fit: "facearea"
+                  faces: 2
+                  facepad: 5
+                  fm: "avif, webp"
+                  nr: 0
+                  nrs: 50
+                  dpr: 2
+                  auto: "compress,enhance,format"
                 }
-              }
+              )
             }
 
             ## Forms
@@ -214,7 +218,7 @@ export const query = graphql`
                       text
                     }
                     from_content {
-                      raw
+                      richText
                     }
                     body {
                       ## Button
@@ -265,7 +269,7 @@ export const query = graphql`
                           align_with_input
                           text {
                             text
-                            raw
+                            richText
                           }
                         }
                       }

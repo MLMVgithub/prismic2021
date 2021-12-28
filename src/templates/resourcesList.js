@@ -114,7 +114,7 @@ export const query = graphql`
         title {
           text
         }
-        show_filters
+        show_grid_layout
         show_input
         show_sorting
         show_tags
@@ -142,7 +142,7 @@ export const query = graphql`
                         text
                       }
                       content {
-                        raw
+                        richText
                         text
                       }
                       web_address {

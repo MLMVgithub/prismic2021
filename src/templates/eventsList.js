@@ -116,13 +116,13 @@ export const query = graphql`
         title {
           text
         }
-        show_filters
+        show_grid_layout
         show_input
         show_sorting
         show_tags
 
         body {
-          ... on PrismicEventsListDataBodyEventItem {
+          ... on PrismicEventsListDataBodyAddResource {
             id
             items {
               name {
@@ -144,10 +144,10 @@ export const query = graphql`
                         text
                       }
                       intro {
-                        raw
+                        richText
                       }
                       content {
-                        raw
+                        richText
                       }
                       location
                       # start_date_time(formatString: "LLLL")

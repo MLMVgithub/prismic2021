@@ -1,15 +1,17 @@
 import * as React from 'react'
-import styled from 'styled-components'
 
 import Header from './common/header/'
 import Footer from './common/footer'
 import i18n from '../../config/i18n'
+
+import styled from 'styled-components'
 
 const LayoutWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
   min-height: 100vh;
+
   background-color: ${({ theme }) => theme.colors.page.bground.default};
 
   & .layoutInner {

@@ -116,8 +116,7 @@ export const query = graphql`
         title {
           text
         }
-
-        show_filters
+        show_grid_layout
         show_input
         show_sorting
         show_tags
@@ -152,20 +151,22 @@ export const query = graphql`
                       }
                       location
                       image {
-                        localFile {
-                          childImageSharp {
-                            gatsbyImageData(
-                              quality: 90
-                              width: 992
-                              layout: CONSTRAINED
-                              formats: [AUTO, WEBP, AVIF]
-                              placeholder: BLURRED
-                              transformOptions: { fit: COVER, cropFocus: ATTENTION }
-                              # aspectRatio: 1.77
-                            )
-                          }
-                        }
                         alt
+                        gatsbyImageData(
+                          width: 576
+                          #breakpoints: [576, 768, 992]
+                          layout: CONSTRAINED
+                          placeholder: BLURRED
+                          imgixParams: {
+                            q: 100
+                            fit: "crop"
+                            fm: "avif, webp"
+                            nr: 0
+                            nrs: 50
+                            dpr: 2
+                            auto: "compress,enhance,format"
+                          }
+                        )
                       }
                     }
                   }

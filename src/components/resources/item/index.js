@@ -113,7 +113,7 @@ const EventItem = ({ currentLang, itemData }) => {
   const eventItem = itemData.data
   const title = validateString(eventItem.title.text)
   const eventType = validateString(eventItem.type)
-  const mainContent = validateString(eventItem.content.raw)
+  const mainContent = validateString(eventItem.content.richText)
   const location = validateString(eventItem.location)
   const start_date = eventItem.start_date_time
   const date = moment(start_date).format('LL')

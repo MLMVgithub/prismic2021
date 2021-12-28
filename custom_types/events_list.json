@@ -13,11 +13,11 @@
         "label": "Slug"
       }
     },
-    "show_filters": {
+    "show_tags": {
       "type": "Boolean",
       "config": {
         "default_value": true,
-        "label": "Show search filters"
+        "label": "Show tags"
       }
     },
     "show_input": {
@@ -34,11 +34,11 @@
         "label": "Show sorting"
       }
     },
-    "show_tags": {
+    "show_grid_layout": {
       "type": "Boolean",
       "config": {
-        "default_value": true,
-        "label": "Show tags"
+        "default_value": false,
+        "label": "Show grid layout"
       }
     },
     "body": {
@@ -47,11 +47,11 @@
       "config": {
         "labels": null,
         "choices": {
-          "event_item": {
+          "add_resource": {
             "type": "Slice",
-            "fieldset": "Event item",
-            "description": "Add an Event item",
-            "icon": "event",
+            "fieldset": "Add event",
+            "description": "Add event",
+            "icon": "developer_board",
             "display": "list",
             "non-repeat": {},
             "repeat": {

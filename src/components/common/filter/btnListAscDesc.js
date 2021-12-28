@@ -1,42 +1,10 @@
 import React from 'react'
 
+import BtnListToggle from '/src/components/common/filter/btnListToggle'
+
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
 
-import styled from 'styled-components'
-
-const AscDescBtnWrapper = styled.button.attrs((props) => ({
-  type: props.type || 'button',
-  'aria-label': 'Sort by ascending or descending',
-}))`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* cursor: pointer; */
-  padding: ${({ theme }) => theme.padding['1/4']};
-  user-select: none;
-  background-color: #ffffff;
-  border: 1px solid transparent;
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-
-  i {
-    pointer-events: none;
-  }
-
-  &.desc {
-    i {
-      transform: rotate(180deg);
-    }
-  }
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary.default};
-    border-color: ${({ theme }) => theme.colors.primary[600]};
-    i {
-      color: ${({ theme }) => theme.colors.primary.default};
-    }
-  }
-`
 const AscDesc = ({ sortAscDescClick }) => {
   // Toggle sort order - Asc / Desc
 
@@ -78,14 +46,14 @@ const AscDesc = ({ sortAscDescClick }) => {
   }
 
   return (
-    <AscDescBtnWrapper
+    <BtnListToggle
       onClick={handleSort}
       onKeyDown={handleSort}
       className="toggleOrder"
-      aria-live="polite"
+      aria-label="Sort by ascending or descending"
     >
       <IconMaterial icon={'filter_list'} />
-    </AscDescBtnWrapper>
+    </BtnListToggle>
   )
 }
 

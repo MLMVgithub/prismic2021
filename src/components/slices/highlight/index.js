@@ -99,7 +99,6 @@ const Highlight = styled.section`
         display: contents;
         > div {
           width: 100%;
-          z-index: 1;
         }
       }
     }
@@ -128,13 +127,8 @@ const Highlight = styled.section`
     }
 
     .imageWrapper.attention {
-      overflow: hidden !important;
-      position: relative;
-      /* position: sticky;
-        aspect-ratio: 1; */
       > div {
         border-radius: 999rem;
-
         box-shadow: ${({ theme }) => theme.boxShadow.outlineRight};
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
           margin-bottom: ${({ theme }) => theme.margin['1/2']};
@@ -317,7 +311,7 @@ const ImageHighlight = ({ slice }) => {
   }, [])
 
   // Validate content
-  const content = validateString(slice.primary.content.raw)
+  const content = validateString(slice.primary.content.richText)
 
   // Validate primary button
   const primaryButtonLabel = validateString(slice.primary.button_label)
@@ -361,14 +355,9 @@ const ImageHighlight = ({ slice }) => {
       i++
 
       if (mediaType === 'image') {
-        mediaContentObj =
-          mediaContent.data.body[0].primary.image.localFile.childImageSharp.gatsbyImageData
+        mediaContentObj = mediaContent.data.body[0].primary.image.gatsbyImageData
         mediaType = 'Image'
-        var imgFormat = getImgFormat(mediaContent.data.body[0].primary.format)
-        var imgAlt = mediaContent.data.body[0].primary.image.alt
-
-        // console.log('imgFormat = ' + imgFormat)
-        // consxole.log('imgAlt = ' + imgAlt)
+        var imagFormat = getImgFormat(mediaContent.data.body[0].primary.format)
       }
 
       if (mediaType === 'embedded_cloud_media') {
@@ -377,13 +366,13 @@ const ImageHighlight = ({ slice }) => {
       }
 
       if (mediaType === 'text') {
-        mediaContentObj = mediaContent.data.body[0].primary.text.raw
+        mediaContentObj = mediaContent.data.body[0].primary.text.richText
         mediaType = 'Text'
       }
 
       if (mediaType === 'geopoint') {
         mediaType = 'Geopoint'
-        var mediaDescription = mediaContent.data.body[0].primary.description.raw
+        var mediaDescription = mediaContent.data.body[0].primary.description.richText
         var mediaGeoPoint = mediaContent.data.body[0].primary.geopoint
         // Zoom level (For Google maps)
         var mediaZoomLevel = getZoomLevel(mediaContent.data.body[0].primary.zoom_level)
@@ -519,8 +508,14 @@ const ImageHighlight = ({ slice }) => {
           }}
         >
           {mediaType === 'Image' && (
-            <div className={`imageWrapper ${imgFormat}`}>
-              <GatsbyImage image={mediaContentObj} alt={imgAlt ? imgAlt : 'Placeholder image'} />
+            <div className={`imageWrapper ${imagFormat}`}>
+              <GatsbyImage
+                image={mediaContentObj}
+                alt={mediaContentObj.alt ? mediaContentObj.alt : 'Placeholder image'}
+                // style={{
+                //   width: mediaSize + '%',
+                // }}
+              />
             </div>
           )}
 

@@ -63,6 +63,7 @@ const WrapperHeroImage = styled.section`
       max-width: ${({ theme }) => theme.screens.md};
       margin: 0 auto;
       z-index: 100;
+
       top: 0;
       left: 0;
       right: 0;
@@ -93,21 +94,18 @@ const WrapperHeroImage = styled.section`
         text-align: center;
         justify-content: center;
       }
-      .content.left,
       .content.left * {
         margin: 0 auto 0 0;
         text-align: left;
         justify-self: flex-start;
       }
 
-      .content.centre,
       .content.centre * {
         margin: 0 auto;
         text-align: center;
         justify-content: center;
       }
 
-      .content.right,
       .content.right * {
         margin: 0 0 0 auto;
         text-align: right;
@@ -117,9 +115,10 @@ const WrapperHeroImage = styled.section`
       .content {
         /* width: 100%; */
         width: fit-content;
-        /* margin: 0 auto; */
+        margin: 0 auto;
         display: grid;
-        padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['1/2']};
+        padding: 0;
+        padding: ${({ theme }) => theme.padding.default} ${({ theme }) => theme.padding['2xl']};
         color: #ffffff;
         background-color: ${({ theme }) => theme.colors.header.default};
         border-radius: ${({ theme }) => theme.borderRadius.default};
@@ -225,10 +224,10 @@ const FullWidthImage = ({ slice }) => {
   }
 
   // Validate title
-  const title = validateString(slice.primary.title.raw)
+  const title = validateString(slice.primary.title.richText)
 
   // Validate description
-  const description = validateString(slice.primary.description.raw)
+  const description = validateString(slice.primary.description.richText)
 
   // Validate primary button
   const primaryButtonLabel = validateString(slice.primary.button_label)
@@ -246,7 +245,7 @@ const FullWidthImage = ({ slice }) => {
 
   // console.log(secondaryButtonLink.raw.link_type)
 
-  const image = getImage(slice.primary.image.localFile.childImageSharp.gatsbyImageData)
+  const image = getImage(slice.primary.image.gatsbyImageData)
   const bgImage = convertToBgImage(image)
 
   // Add some inline styles
@@ -263,6 +262,7 @@ const FullWidthImage = ({ slice }) => {
   const bgroundStyle = {
     height: sectionHeight,
     // height: '450px',
+    with: '100%',
     backgroundPosition: `center ${alignBGround}`,
     backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
   }
@@ -278,7 +278,7 @@ const FullWidthImage = ({ slice }) => {
       style={imageMargin}
     >
       <div>
-        {slice.primary.image.localFile.childImageSharp.gatsbyImageData && (
+        {slice.primary.image.gatsbyImageData && (
           <BackgroundImage
             // Tag="section"
             Tag="div"

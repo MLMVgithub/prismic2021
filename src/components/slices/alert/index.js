@@ -25,7 +25,7 @@ const AlertWrapper = styled.div.attrs((props) => ({
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 94%;
+    font-size: 95%;
 
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     p {
@@ -68,6 +68,10 @@ const AlertWrapper = styled.div.attrs((props) => ({
   &.alertLevel-1 {
     background-color: ${({ theme }) => theme.colors.alert.l1.default};
     color:#ffffff;
+    *:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
    } button {
      color: inherit;
       i {
@@ -79,6 +83,10 @@ const AlertWrapper = styled.div.attrs((props) => ({
   &.alertLevel-2 {
     background-color: ${({ theme }) => theme.colors.alert.l2.default};
     color:#ffffff;
+    *:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
     button {
       color: inherit;
       i {
@@ -110,7 +118,10 @@ const AlertWrapper = styled.div.attrs((props) => ({
   &.alertLevel-5 {
     color:#ffffff;
     background-color: ${({ theme }) => theme.colors.alert.l5.default};
-
+*:focus,
+    *:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
+    }
     button {
       color:inherit;
       i {
@@ -274,7 +285,7 @@ const Alert = ({
             <div className={`${close === true ? 'canClose' : ''} ${contentAlign}`}>
               {content.text && (
                 <RichText
-                  render={content.raw}
+                  render={content.richText}
                   linkResolver={linkResolver}
                   // className={contentAlign}
                 />

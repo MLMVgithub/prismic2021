@@ -36,7 +36,7 @@ const SkipFilterWrapper = styled.span.attrs((props) => ({
     }
   }
   &&:focus-within {
-    top: ${({ theme }) => theme.padding['1/4']};
+    top: ${({ theme }) => theme.padding['1/8']};
     .skipLink:focus {
     }
   }

@@ -4,12 +4,30 @@ import styled from 'styled-components'
 
 const SearchTitleWrapper = styled.p`
   display: block;
-  font-size: 1.2rem;
+
+  /* font-weight: 600; */
+  text-align: left;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  padding: 0 ${({ theme }) => theme.padding['1/2']} 0 0;
+  margin: ${({ theme }) => theme.margin['1/8']} 0 !important;
+  width: auto;
   font-weight: 600;
-  text-align: center;
-  width: fit-content;
-  padding: 0;
-  margin: 0 auto;
+
+  @media (max-width: ${({ theme }) => theme.screens.sm}) {
+    margin: ${({ theme }) => theme.margin['1/8']} 0 ${({ theme }) => theme.margin['1/2']}!important;
+  }
+
+  strong {
+    width: auto;
+    overflow-wrap: inherit;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-weight: 400;
+    /* font-size: 1.2rem; */
+  }
 `
 
 const SearchTitle = ({ filteredData, queryValue, queryLength }) => {
