@@ -119,9 +119,22 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
 
   useEffect(() => {
     const backBtn = document.querySelector('.backBtn')
-    'click'.split(', ').forEach(function (e) {
+    'click, keydown'.split(', ').forEach(function (e) {
       backBtn.addEventListener(e, () => {
-        window.history.back()
+        if (!e.key) {
+          window.history.back()
+        } else {
+          switch (e.key) {
+            case 'Enter':
+            case 'Spacebar':
+              e.preventDefault()
+              window.history.back()
+              break
+
+            default:
+              break
+          }
+        }
       })
     })
   }, [])
