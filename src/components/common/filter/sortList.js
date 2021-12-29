@@ -746,8 +746,11 @@ const Sort = ({
     }
 
     aria.ListboxButton.prototype.onFocusChange = function (focusedItem) {
-      var focusedItemVal = focusedItem.innerText.substring(0, focusedItem.innerText.length - 4)
-      this.button.querySelector('span').innerText = focusedItemVal
+      // var focusedItemVal = focusedItem.innerText.substring(0, focusedItem.innerText.length - 4)
+      // this.button.querySelector('span').innerText = focusedItemVal
+      // var focusedItemVal = focusedItem.childNodes[0].textContent
+      this.button.childNodes[0].textContent = focusedItem.childNodes[0].textContent
+
       updateSortOrder(focusedItem)
     }
 
@@ -903,7 +906,8 @@ const Sort = ({
           aria-haspopup="listbox"
           id="list_button"
         >
-          <span>{items[0].title}</span>
+          {items[0].title}
+          {/* <span>{items[0].title}</span> */}
           <IconMaterial icon={'expand_more'} />
         </button>
 
