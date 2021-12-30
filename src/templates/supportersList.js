@@ -164,7 +164,7 @@ export const query = graphql`
                             fm: "avif, webp"
                             nr: 20
                             nrs: 50
-                            dpr: 2
+                            dpr: 3
                             auto: "compress,enhance,format"
                           }
                         )
