@@ -39,7 +39,7 @@ const FooterWrapper = styled.footer`
       grid-gap: ${({ theme }) => theme.margin['5xl']};
       flex-direction: row;
       justify-content: center;
-      /* align-items: flex-start; */
+      align-items: flex-start;
       list-style: none;
 
       @media print {
