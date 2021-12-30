@@ -38,6 +38,7 @@ const Header = styled.header`
       padding-right: 0;
       width: 100%;
     }
+
     span {
       display: flex;
       align-items: center;

@@ -37,6 +37,10 @@ const Header = styled.div`
       padding-right: 0;
       width: 100%;
     }
+
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      padding-bottom: 0;
+    }
     span {
       display: flex;
       align-items: center;

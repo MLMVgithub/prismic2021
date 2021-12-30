@@ -38,8 +38,11 @@ const Header = styled.header`
     padding-bottom: ${({ theme }) => theme.padding['1/2']};
     @media (max-width: ${({ theme }) => theme.screens.md}) {
       padding-right: 0;
-      padding-bottom: 0;
       width: 100%;
+    }
+
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      padding-bottom: 0;
     }
     span {
       display: flex;
