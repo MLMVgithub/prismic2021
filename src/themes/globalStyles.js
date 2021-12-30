@@ -121,7 +121,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: underline;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    hyphens: auto;
+    /* hyphens: auto; */
   }
 
   a:hover {

@@ -159,12 +159,12 @@ export const query = graphql`
                           placeholder: BLURRED
                           imgixParams: {
                             q: 100
-                            fit: "fill"
+                            fit: "clip"
                             w: 576
                             fm: "avif, webp"
                             nr: 20
                             nrs: 50
-                            dpr: 3
+                            dpr: 2
                             auto: "compress,enhance,format"
                           }
                         )
