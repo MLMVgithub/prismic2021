@@ -24,23 +24,23 @@ const FooterWrapper = styled.footer`
     position: relative;
     margin: 0 auto;
     z-index: 1000 !important;
+    display: flex;
+    flex-direction: column;
+    /* grid-gap: ${({ theme }) => theme.margin['5xl']}; */
 
     .footerNavWrapper {
-      padding: ${({ theme }) => theme.margin.default} 0;
-      margin: -${({ theme }) => theme.margin.default} 0 ${({ theme }) => theme.margin['4xl']} 0;
+      padding: ${({ theme }) => theme.margin['2xl']} 0;
+      margin: -${({ theme }) => theme.margin.default} ${({ theme }) => theme.margin['1/2']} ${({ theme }) => theme.margin['4xl']};
       border-top: 1px solid ${({ theme }) => theme.colors.footer[900]};
       border-bottom: 1px solid ${({ theme }) => theme.colors.footer[900]};
       /* background-color: ${({ theme }) => theme.colors.footer[1200]}; */
       display: flex;
-      grid-gap: ${({ theme }) => theme.margin['4xl']};
+      flex-wrap: wrap;
+      grid-gap: ${({ theme }) => theme.margin['5xl']};
       flex-direction: row;
       justify-content: center;
-      align-items: flex-start;
+      /* align-items: flex-start; */
       list-style: none;
-
-      @media (max-width: ${({ theme }) => theme.screens.sm}) {
-        justify-content: space-evenly;
-      }
 
       @media print {
         display: none;
@@ -48,34 +48,40 @@ const FooterWrapper = styled.footer`
 
       > li {
         width: auto;
+        display: flex;
+        flex-direction: column;
         /* color: ${({ theme }) => theme.colors.footer[200]}; */
         text-align: left;
         font-weight: 500;
-        text-indent: ${({ theme }) => theme.padding['1/4']};
+        /* text-indent: ${({ theme }) => theme.padding['1/4']}; */
+        grid-gap: ${({ theme }) => theme.padding['1/2']};
+
+        @media (max-width: ${({ theme }) => theme.screens.xs}) {
+          width: 100%;
+        }
       }
 
       .footerNav {
         padding: inherit;
         margin: inherit;
-        margin-top: ${({ theme }) => theme.margin['1/4']};
-
-        display: inherit;
+        display: flex;
         flex-direction: column;
+
         list-style: inherit;
+        grid-gap: ${({ theme }) => theme.padding['1/2']};
 
         li {
           font-weight: initial;
           color: ${({ theme }) => theme.colors.footer[400]};
-          width: inherit;
+
           text-align: initial;
-          text-indent: 0;
           a {
-            margin: 0;
             text-decoration: none;
             line-height: 1.8rem;
             color: inherit;
-            padding: ${({ theme }) => theme.padding['1/4']};
+            /* text-indent: ${({ theme }) => theme.padding['1/4']}; */
             display: flex;
+            width: fit-content;
           }
           a:hover {
             text-decoration: underline;

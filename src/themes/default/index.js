@@ -304,6 +304,7 @@ export const defaultTheme = {
     '2xl': '48px',
     '3xl': '56px',
     '4xl': '64px',
+    '5xl': '72px',
   },
 
   padding: {
@@ -316,6 +317,7 @@ export const defaultTheme = {
     '2xl': '48px',
     '3xl': '56px',
     '4xl': '64px',
+    '5xl': '72px',
   },
 
   screens: {

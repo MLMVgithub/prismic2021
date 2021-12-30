@@ -15,6 +15,7 @@ const Button = styled.button.attrs((props) => ({
   border: none;
   color: ${({ theme }) => theme.colors.footer.default};
   display: flex;
+  z-index: 100;
 
   @media print {
     display: none;
