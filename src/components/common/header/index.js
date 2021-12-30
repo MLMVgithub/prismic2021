@@ -397,9 +397,9 @@ const HeaderWrapper = styled.header`
             margin: 0 -1px;
             padding: ${({ theme }) => theme.padding['1/2']} 0;
             top: ${({ theme }) => theme.header.height};
-
+            grid-gap: ${({ theme }) => theme.padding['1/4']};
+            padding: ${({ theme }) => theme.padding['1/2']};
             background-color: ${({ theme }) => theme.colors.header[800]};
-            /* background-color: ${({ theme }) => theme.colors.primary[1100]}; */
             border: 1px solid ${({ theme }) => theme.colors.header.default};
             border-top: none;
             border-radius: 0 0 ${({ theme }) => theme.borderRadius.default}
@@ -407,8 +407,6 @@ const HeaderWrapper = styled.header`
             box-shadow: ${({ theme }) => theme.boxShadow.lg} !important;
 
             li {
-              padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/2']};
-
               a {
                 /* color: ${({ theme }) => theme.colors.header.default}; */
                 white-space: nowrap;
@@ -439,12 +437,6 @@ const HeaderWrapper = styled.header`
               a:after {
                 height: 0px;
               }
-            }
-            li:first-of-type {
-              padding-top: 0;
-            }
-            li:last-of-type {
-              padding-bottom: 0;
             }
           }
 
@@ -603,7 +595,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
 
     DisclosureNav.prototype.toggleMenu = function (domNode, show) {
       if (domNode) {
-        domNode.style.display = show ? 'block' : 'none'
+        domNode.style.display = show ? 'flex' : 'none'
       }
     }
 

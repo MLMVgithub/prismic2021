@@ -344,7 +344,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                   ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
                   itemID="grid"
                   ariaLabel={'View by grid'}
-                  buttonIcon={'grid_on'}
+                  buttonIcon={'grid_view'}
                   updateLayoutStlye={updateLayoutStlye}
                 />
               </>
