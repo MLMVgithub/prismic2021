@@ -259,6 +259,7 @@ const ItemContent = styled.article`
       border: 2px solid ${({ theme }) => theme.colors.secondary[400]};
       margin: ${({ theme }) => theme.margin.default};
       overflow: hidden;
+      box-shadow: ${({ theme }) => theme.boxShadow.lg};
       @media (max-width: ${({ theme }) => theme.screens.md}) {
         min-width: 75px;
         max-width: 75px;

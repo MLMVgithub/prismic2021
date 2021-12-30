@@ -28,8 +28,9 @@ const ListTagBtnsWrapper = styled.div`
     /* cursor: pointer; */
     user-select: none;
     background-color: #fff;
-    border: 1px solid transparent;
+    border: 1px solid ${({ theme }) => theme.colors.card[300]};
     border-radius: 999rem;
+
     position: absolute;
     top: -${({ theme }) => theme.margin['1/8']};
 
@@ -39,6 +40,7 @@ const ListTagBtnsWrapper = styled.div`
     &:hover {
       border: 1px solid ${({ theme }) => theme.colors.primary[600]};
       color: ${({ theme }) => theme.colors.primary.default};
+      box-shadow: ${({ theme }) => theme.boxShadow.default};
     }
     i {
       font-size: inherit;
@@ -114,7 +116,8 @@ const ListTagBtnsWrapper = styled.div`
 
   .tagButton:hover {
     color: ${({ theme }) => theme.colors.page.default};
-    background-color: ${({ theme }) => theme.colors.card[400]};
+    /* background-color: ${({ theme }) => theme.colors.card[400]}; */
+    border: 1px solid ${({ theme }) => theme.colors.primary[600]};
   }
 
   .tagButton[aria-checked='true'] {

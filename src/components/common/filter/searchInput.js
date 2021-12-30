@@ -30,13 +30,15 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
       font-size: inherit;
       width: 100%;
       padding: ${({ theme }) => theme.padding['1/4']} ${({ theme }) => theme.padding['2xl']};
-      border: 1px solid transparent;
+      /* border: 1px solid transparent; */
+      border: 1px solid ${({ theme }) => theme.colors.card[300]};
 
       border-radius: 999rem;
     }
     input:hover,
     input:focus {
       border: 1px solid ${({ theme }) => theme.colors.primary[600]};
+      box-shadow: ${({ theme }) => theme.boxShadow.default};
     }
 
     > i {

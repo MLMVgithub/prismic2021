@@ -169,6 +169,14 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
     query: emptyQuery,
   })
 
+  // function isInList(tags, query) {
+  //   var i = tags.length
+  //   while (i--) {
+  //     if (tags[i] === query) return i
+  //   }
+  //   return -1
+  // }
+
   const handleSearchChange = (e) => {
     // Get the search value
     var searchVal = e
@@ -192,7 +200,30 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
       // And filter by tags
       const { tags } = data.item.document
 
+      // console.log(tags)
+
+      //             var allTags = document.getElementsByTagName('li.tagName');
+
+      // for (var i = 0; i < allTags.length; i++) {
+      //   if (allTags[i].innerText.toLowerCase().matches(query.toLowerCase())) {
+      //     console.log('The ' + birds[i].textContent + ' is endangered!');
+      //   }
+      // }
+
+      // var thisTagList = []
+      // allItems.map((node, index) => thisTagList.push(allItems[index].item.tags))
+
+      // const { tags } = thisTagList
+
+      // Tags: Create a tag list of all items
+      // var tagList = []
+      // allItems.map((node, index) => tagList.push(allItems[index].item.tags))
+
       const fullName = first_name.text + ' ' + last_name.text
+
+      // _.includes(tags.sort().join(', ').toLowerCase(), query.toLowerCase())
+      // console.log(tags)
+      // console.log(mytags)
 
       return (
         fullName.toLowerCase().includes(query.toLowerCase()) ||
@@ -200,7 +231,14 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
         // last_name.text.toLowerCase().includes(query.toLowerCase()) ||
         intro.text.toLowerCase().includes(query.toLowerCase()) ||
         location.toLowerCase().includes(query.toLowerCase()) ||
-        (tags && tags.join(' ').toLowerCase().includes(query.toLowerCase()))
+        // (tags && tags.join(' ').toLowerCase().includes(query.toLowerCase()))
+
+        // tags && tags.join(' ').toLowerCase()
+
+        _.includes(tags.sort() && tags.sort().join(' ').toLowerCase(), query.toLowerCase())
+        // isInList(tags.sort() && tags.join(', ').toLowerCase(), query.toLowerCase())
+        // (tags.sort && tags.sort.join(', ').toLowerCase()
+        //   var i
       )
     })
 
@@ -298,7 +336,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                   ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
                   itemID="list"
                   ariaLabel={'View by list'}
-                  buttonIcon={'view_list'}
+                  buttonIcon={'list'}
                   updateLayoutStlye={updateLayoutStlye}
                 />
 
@@ -306,7 +344,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                   ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
                   itemID="grid"
                   ariaLabel={'View by grid'}
-                  buttonIcon={'auto_awesome_mosaic'}
+                  buttonIcon={'grid_on'}
                   updateLayoutStlye={updateLayoutStlye}
                 />
               </>

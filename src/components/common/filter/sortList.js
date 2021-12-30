@@ -39,7 +39,7 @@ const SortListWrapper = styled.div`
     min-width: 160px;
     position: relative;
     background-color: ${({ theme }) => theme.colors.page.bground.default};
-    border: 1px solid ${({ theme }) => theme.colors.card[200]};
+    border: 1px solid ${({ theme }) => theme.colors.card[300]};
     border-radius: ${({ theme }) => theme.borderRadius.sm};
 
     button {
@@ -126,6 +126,7 @@ const SortListWrapper = styled.div`
   div:hover,
   div.isActive {
     border-color: ${({ theme }) => theme.colors.primary[600]};
+    box-shadow: ${({ theme }) => theme.boxShadow.default};
   }
 `
 

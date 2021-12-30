@@ -299,7 +299,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
                   ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
                   itemID="list"
                   ariaLabel={'View by list'}
-                  buttonIcon={'view_list'}
+                  buttonIcon={'list'}
                   updateLayoutStlye={updateLayoutStlye}
                 />
 
@@ -307,7 +307,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
                   ariaPressed={`${layoutStyle}` === 'grid' ? 'true' : 'false'}
                   itemID="grid"
                   ariaLabel={'View by grid'}
-                  buttonIcon={'auto_awesome_mosaic'}
+                  buttonIcon={'grid_on'}
                   updateLayoutStlye={updateLayoutStlye}
                 />
               </>

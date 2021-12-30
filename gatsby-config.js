@@ -34,7 +34,7 @@ module.exports = {
           google2: [
             {
               family: `Material+Icons+Round`,
-              text: `abcdefghijklmnopqrstuvwxyz_`,
+              text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
               // fontDisplay: 'swap',
               strategy: 'base64',
               // strategy: 'cdn',

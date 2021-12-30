@@ -9,7 +9,7 @@ const ListBtnToggle = styled.button`
   user-select: none;
   /* background-color: #ffffff; */
   background-color: ${({ theme }) => theme.colors.card[200]};
-  border: 1px solid transparent;
+  border: 1px solid ${({ theme }) => theme.colors.card[300]};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
 
   i {
@@ -26,8 +26,19 @@ const ListBtnToggle = styled.button`
   &[aria-pressed='true'] {
     color: ${({ theme }) => theme.colors.primary.default};
     border-color: ${({ theme }) => theme.colors.primary[600]};
+    box-shadow: ${({ theme }) => theme.boxShadow.default};
+
     i {
       color: ${({ theme }) => theme.colors.primary.default};
+    }
+  }
+
+  &[aria-pressed='true'] {
+    background-color: ${({ theme }) => theme.colors.card[400]};
+    border-color: transparent;
+    box-shadow: none;
+    i {
+      color: ${({ theme }) => theme.colors.page.default};
     }
   }
 `
