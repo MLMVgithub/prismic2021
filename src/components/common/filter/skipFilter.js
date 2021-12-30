@@ -2,9 +2,9 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-const SkipFilterWrapper = styled.span.attrs((props) => ({
+const SkipFilterWrapper = styled.span.attrs({
   'aria-label': 'Skip filter',
-}))`
+})`
   
     position: absolute;
     top: -100%;
