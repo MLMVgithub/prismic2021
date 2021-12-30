@@ -41,11 +41,15 @@ const Header = styled.header`
     span {
       display: flex;
       align-items: center;
-      img {
+
+      .gatsby-image-wrapper {
+        box-shadow: ${({ theme }) => theme.boxShadow.md};
         width: 75px !important;
         height: 75px !important;
-        border-radius: 50%;
-        border: 2px solid ${({ theme }) => theme.colors.secondary[400]};
+        border-radius: 999rem;
+        overflow: hidden;
+        /* border: 2px solid ${({ theme }) => theme.colors.secondary[400]}; */
+        /* border: 1px solid ${({ theme }) => theme.colors.card[400]}; */
         margin-right: ${({ theme }) => theme.margin['1/2']};
       }
     }

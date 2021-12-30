@@ -163,7 +163,9 @@ const ItemContent = styled.article`
       height: 128px;
       z-index: 1;
       border-radius: 999rem;
-      border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+      /* border: 1px solid ${({ theme }) => theme.colors.secondary[400]}; */
+      border: 1px solid ${({ theme }) => theme.colors.card[400]};
+
       box-shadow: ${({ theme }) => theme.boxShadow.lg};
     }
   }
@@ -256,7 +258,8 @@ const ItemContent = styled.article`
 
       aspect-ratio: 1;
       border-radius: 100%;
-      border: 2px solid ${({ theme }) => theme.colors.secondary[400]};
+      /* border: 2px solid ${({ theme }) => theme.colors.secondary[400]}; */
+      border: 1px solid ${({ theme }) => theme.colors.card[400]};
       margin: ${({ theme }) => theme.margin.default};
       overflow: hidden;
       box-shadow: ${({ theme }) => theme.boxShadow.lg};
