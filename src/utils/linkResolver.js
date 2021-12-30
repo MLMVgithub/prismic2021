@@ -19,6 +19,7 @@ const linkResolver = (doc) => {
   if (doc.type === 'peer_supporters_list') {
     return `${prefix}peer-supporters/our-peer-supporters`
   }
+
   // URL for a peer_supporters type
   if (doc.type === 'peer_supporters') {
     return `${prefix}peer-supporters/${doc.uid}`

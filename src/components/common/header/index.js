@@ -394,12 +394,14 @@ const HeaderWrapper = styled.header`
             display: none;
             flex-direction: column;
             position: absolute;
-            margin: 0;
+            margin: 0 -1px;
             padding: ${({ theme }) => theme.padding['1/2']} 0;
             top: ${({ theme }) => theme.header.height};
 
             background-color: ${({ theme }) => theme.colors.header[800]};
             /* background-color: ${({ theme }) => theme.colors.primary[1100]}; */
+            border: 1px solid ${({ theme }) => theme.colors.header.default};
+            border-top: none;
             border-radius: 0 0 ${({ theme }) => theme.borderRadius.default}
               ${({ theme }) => theme.borderRadius.default};
             box-shadow: ${({ theme }) => theme.boxShadow.lg} !important;
