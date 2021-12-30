@@ -120,7 +120,7 @@ const Body = styled.article`
       padding-right: 0;
       width: 100%;
     }
-    font-size: 110%;
+    font-size: 100%;
   }
   & .contact {
     display: flex;
