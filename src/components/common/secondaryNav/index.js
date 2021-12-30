@@ -145,11 +145,11 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
 
   return (
     <SecondaryNavWrapper className="secondaryNav">
-      <nav role="navigation">
-        <a href="#" className="backBtn">
+      <nav aria-label="Secondary navigation">
+        <button className="backBtn" type="button">
           <IconMaterial icon={'arrow_back'} />
           {i18n[currentLang].back}
-        </a>
+        </button>
 
         <span className="alignRight">
           {previous && previous.lang === currentLang && (

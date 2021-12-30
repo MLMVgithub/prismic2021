@@ -141,10 +141,6 @@ const HeaderWrapper = styled.header`
         right: auto;
       }
 
-      span {
-        display: none;
-      }
-
       svg {
         height: 36px;
         width: auto;
@@ -201,7 +197,9 @@ const HeaderWrapper = styled.header`
         }
 
         a:hover,
-        button:hover {
+        a:focus,
+        button:hover,
+        button:focus {
           text-decoration: none !important;
           color: ${({ theme }) => theme.colors.header.text.default};
         }
@@ -227,12 +225,14 @@ const HeaderWrapper = styled.header`
           transition: width 150ms ease-in-out;
         }
 
-        a:hover:after {
+        a:hover:after,
+        a:focus:after {
           width: 100%;
         }
 
         ul {
           display: none;
+          flex-direction: column;
           margin-left: 0;
           li {
             a {
@@ -356,6 +356,8 @@ const HeaderWrapper = styled.header`
 
           a:hover:after,
           button:hover:after,
+          a:focus:after,
+          button:focus:after,
           a.activeNavItem:after,
           button.activeNavItem:after {
             left: 2px;
@@ -425,6 +427,7 @@ const HeaderWrapper = styled.header`
               }
 
               a:hover,
+              a:focus,
               a.activeNavItem {
                 background-color: ${({ theme }) => theme.colors.primary.default};
                 /* border: 1px solid ${({ theme }) => theme.colors.primary[1300]}; */
@@ -932,10 +935,9 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           <li className="brand">
             <Link
               to={currentPrefix === '/' ? currentPrefix : `${currentPrefix}/`}
-              title={i18n[currentLang].linkToHomepage}
+              aria-label={i18n[currentLang].linkToHomepage}
               className="l1"
             >
-              <span>{i18n[currentLang].linkToHomepage}</span>
               <Brand currentLang={currentLang} />
             </Link>
           </li>
@@ -979,6 +981,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                     aria-controls={`id_${navItem.primary.label.text
                       .replace(/\s/g, '_')
                       .toLowerCase()}`}
+                    aria-haspopup="true"
                     aria-expanded="true"
                     type="button"
                   >
@@ -992,8 +995,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                     <ul
                       id={`id_${navItem.primary.label.text.replace(/\s/g, '_').toLowerCase()}`}
                       className="secondaryNavList"
-                      // role="menu"
-                      // aria-label={navItem.primary.label.text}
+                      aria-label={navItem.primary.label.text}
                     >
                       {navItem.items.map((subNavItem, index) => {
                         return (
