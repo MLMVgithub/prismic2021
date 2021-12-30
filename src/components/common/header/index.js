@@ -429,7 +429,8 @@ const HeaderWrapper = styled.header`
               a:hover,
               a.activeNavItem {
                 background-color: ${({ theme }) => theme.colors.primary.default};
-                border: 1px solid ${({ theme }) => theme.colors.primary[1200]};
+                /* border: 1px solid ${({ theme }) => theme.colors.primary[1300]}; */
+                box-shadow: ${({ theme }) => theme.boxShadow.default};
                 i {
                   display: none;
                 }
