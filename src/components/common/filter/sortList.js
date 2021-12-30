@@ -903,6 +903,7 @@ const Sort = ({
       <div className="sortWrapper">
         <button
           // onClick={sortItemClick}
+          type="button"
           aria-labelledby="list_elem list_button"
           aria-haspopup="listbox"
           id="list_button"

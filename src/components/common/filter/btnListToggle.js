@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-const ListBtnToggle = styled.button`
+const ListBtnToggle = styled.button.attrs({
+  type: 'button',
+})`
   display: flex;
   width: fit-content;
   align-items: flex-end;

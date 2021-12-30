@@ -50,9 +50,10 @@ const Input = styled.div.attrs({ id: 'searchInput' })`
   }
 `
 
-const Reset = styled.button.attrs((props) => ({
+const Reset = styled.button.attrs({
+  type: 'button',
   'aria-label': 'Reset search input',
-}))`
+})`
   position: absolute;
   align-self: center;
   /* cursor: pointer; */

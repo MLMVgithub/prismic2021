@@ -25,10 +25,10 @@ const Switcher = styled.div`
     }
   }
 `
-const SwitcherBtn = styled.button.attrs((props) => ({
-  type: props.type || 'button',
+const SwitcherBtn = styled.button.attrs({
+  type: 'button',
   'aria-label': 'Select a language',
-}))`
+})`
   color: ${({ theme }) => theme.colors.header.text.default};
   padding: ${({ theme }) => theme.padding['1/8']};
   cursor: pointer;

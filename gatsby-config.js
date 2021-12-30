@@ -33,7 +33,31 @@ module.exports = {
         fonts: {
           google2: [
             {
+              family: `Material+Icons`,
+              text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
+              // fontDisplay: 'swap',
+              strategy: 'base64',
+              // strategy: 'cdn',
+            },
+
+            {
+              family: `Material+Icons+Outlined`,
+              text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
+              // fontDisplay: 'swap',
+              strategy: 'base64',
+              // strategy: 'cdn',
+            },
+
+            {
               family: `Material+Icons+Round`,
+              text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
+              // fontDisplay: 'swap',
+              strategy: 'base64',
+              // strategy: 'cdn',
+            },
+
+            {
+              family: `Material+Icons+Sharp`,
               text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
               // fontDisplay: 'swap',
               strategy: 'base64',

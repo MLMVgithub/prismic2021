@@ -326,6 +326,7 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
     <ListTagBtnsWrapper>
       {moreBtns === true && (
         <button
+          type="button"
           aria-label="Toggle to view all tags"
           aria-expanded="false"
           aria-controls="tagWrapper"
@@ -359,7 +360,7 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
 
       <div className="utils">
         {tagBtnsReset === true && (
-          <button className="tagReset" aria-label="Reset tags" onClick={hideTagReset}>
+          <button type="button" className="tagReset" aria-label="Reset tags" onClick={hideTagReset}>
             <IconMaterial icon={'loop'} />
           </button>
         )}

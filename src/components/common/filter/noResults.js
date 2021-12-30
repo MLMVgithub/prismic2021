@@ -32,7 +32,7 @@ const NoResults = ({ resetFilters }) => {
         onClick={resetFilters}
         buttonLabel={'Clear your filters and try again'}
         buttonStyle={'primary'}
-        buttonType={'button'}
+        buttonType={'reset'}
       />
     </NoResultsWrapper>
   )

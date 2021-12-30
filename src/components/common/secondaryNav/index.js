@@ -76,8 +76,11 @@ const SecondaryNavWrapper = styled.section`
       }
     }
 
-    button {
+    .backBtn {
       padding-right: ${({ theme }) => theme.padding.default};
+      i {
+        padding-right: ${({ theme }) => theme.padding['1/8']};
+      }
     }
 
     .alignRight {
@@ -126,6 +129,7 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
         } else {
           switch (e.key) {
             case 'Enter':
+            case 'Return':
             case 'Spacebar':
               e.preventDefault()
               window.history.back()
@@ -141,11 +145,11 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
 
   return (
     <SecondaryNavWrapper className="secondaryNav">
-      <nav aria-label="Navigate to previous page or next page" role="navigation">
-        <button className="backBtn">
+      <nav role="navigation">
+        <a href="#" className="backBtn">
           <IconMaterial icon={'arrow_back'} />
           {i18n[currentLang].back}
-        </button>
+        </a>
 
         <span className="alignRight">
           {previous && previous.lang === currentLang && (

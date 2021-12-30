@@ -980,6 +980,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
                       .replace(/\s/g, '_')
                       .toLowerCase()}`}
                     aria-expanded="true"
+                    type="button"
                   >
                     {navItem.primary.label.text}
                     <IconMaterial icon={'expand_more'} />
@@ -1030,7 +1031,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           })}
 
           <li className="closeMenu hide">
-            <button className="l1">
+            <button className="l1" type="button">
               {i18n[currentLang].close}
               <IconMaterial icon={'clear'} />
             </button>
