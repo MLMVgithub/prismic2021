@@ -44,13 +44,19 @@ const Header = styled.header`
 
       .gatsby-image-wrapper {
         box-shadow: ${({ theme }) => theme.boxShadow.md};
-        width: 75px !important;
-        height: 75px !important;
+        min-width: 75px;
+        width: 75px;
+        height: 75px;
         border-radius: 999rem;
         overflow: hidden;
         /* border: 2px solid ${({ theme }) => theme.colors.secondary[400]}; */
         /* border: 1px solid ${({ theme }) => theme.colors.card[400]}; */
         margin-right: ${({ theme }) => theme.margin['1/2']};
+      }
+
+      h1 {
+        font-size: ${({ theme }) => theme.fontSize['4xl']};
+        line-height: initial;
       }
     }
 
