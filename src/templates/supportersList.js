@@ -153,13 +153,14 @@ export const query = graphql`
                       image {
                         alt
                         gatsbyImageData(
-                          width: 576
-                          #breakpoints: [576, 768, 992]
-                          layout: CONSTRAINED
+                          # width: 576
+                          # breakpoints: [576, 768, 992]
+                          #layout: CONSTRAINED
                           placeholder: BLURRED
                           imgixParams: {
                             q: 100
-                            fit: "crop"
+                            fit: "fill"
+                            w: 576
                             fm: "avif, webp"
                             nr: 20
                             nrs: 50

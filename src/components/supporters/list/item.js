@@ -64,7 +64,7 @@ const PeerSupportersItem = ({ listStyle, thisItem, index, listLength }) => {
         <ItemWrapper
           className="item show"
           ref={gridItem}
-          role={`Item ${index + 1} of ${listLength}`}
+          // role={`Item ${index + 1} of ${listLength}`}
         >
           <Link to={linkResolver(item)} className="card">
             <ItemContent className={listStyle}>
