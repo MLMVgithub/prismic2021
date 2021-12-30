@@ -190,7 +190,7 @@ export const query = graphql`
                   layout: FULL_WIDTH
                   placeholder: BLURRED
                   imgixParams: {
-                    q: 66
+                    q: 75
                     fill: "blur"
                     fit: "crop"
                     fm: "avif, webp"
