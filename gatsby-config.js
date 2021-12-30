@@ -232,14 +232,7 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/static*'],
-        },
-      },
-    },
+    `gatsby-plugin-offline`,
 
     // {
     //   resolve: `gatsby-plugin-offline`,
