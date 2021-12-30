@@ -439,6 +439,9 @@ const HeaderWrapper = styled.header`
                 height: 0px;
               }
             }
+            li:last-of-type {
+              padding-bottom: 0;
+            }
           }
 
           ul.secondaryNavList.isActive {
