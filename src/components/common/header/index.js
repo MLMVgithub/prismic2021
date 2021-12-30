@@ -190,7 +190,7 @@ const HeaderWrapper = styled.header`
 
           i {
             pointer-events: none;
-            color: ${({ theme }) => theme.colors.primary[600]};
+            color: ${({ theme }) => theme.colors.primary[400]};
             margin-left: ${({ theme }) => theme.padding['1/4']};
           }
         }
@@ -416,6 +416,7 @@ const HeaderWrapper = styled.header`
                 display: flex;
                 align-items: center;
                 border: 1px solid transparent;
+                color: #fff;
 
                 i {
                   visibility: hidden;
@@ -426,9 +427,7 @@ const HeaderWrapper = styled.header`
               a:hover,
               a.activeNavItem {
                 background-color: ${({ theme }) => theme.colors.primary.default};
-                /* background-color: ${({ theme }) => theme.colors.header.default}; */
-                /* border: none; */
-                border: 1px solid ${({ theme }) => theme.colors.primary[900]};
+                border: 1px solid ${({ theme }) => theme.colors.primary[1200]};
                 i {
                   display: none;
                 }

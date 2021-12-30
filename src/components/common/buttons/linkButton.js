@@ -65,7 +65,7 @@ const BtnWrapper = styled.span`
   }
   .btn.primary {
     background-color: ${({ theme }) => theme.colors.primary.default};
-    border: 1px solid ${({ theme }) => theme.colors.primary[1100]};
+    border: 1px solid ${({ theme }) => theme.colors.primary[1200]};
     i {
       color: inherit;
     }

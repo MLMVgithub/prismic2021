@@ -272,11 +272,7 @@ const FullWidthImage = ({ slice }) => {
   }
 
   return (
-    <WrapperHeroImage
-      aria-label="Hero image"
-      className={'section-layout heroImage ' + sectionWidth}
-      style={imageMargin}
-    >
+    <WrapperHeroImage className={'section-layout heroImage ' + sectionWidth} style={imageMargin}>
       <div>
         {slice.primary.image.gatsbyImageData && (
           <BackgroundImage

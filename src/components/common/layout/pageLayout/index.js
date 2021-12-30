@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Section = styled.section`
+const Section = styled.div`
   // Section - For other templates that are not Homepage and General page
   display: block;
   margin-top: ${({ theme }) => theme.header.height};
@@ -40,7 +40,8 @@ const Section = styled.section`
 const PageLayout = ({ children, contentSize }) => {
   return (
     <Section className={contentSize}>
-      <div>{children}</div>
+      {/* <div>{children}</div> */}
+      {children}
     </Section>
   )
 }
