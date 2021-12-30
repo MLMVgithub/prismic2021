@@ -384,6 +384,7 @@ const ContactNew = ({ formData, slice }) => {
                               {formDataFields[index].items.map((listItem) => {
                                 return (
                                   <Field
+                                    key={formDataFields[index].id + primary.title.text}
                                     name={formDataFields[index].primary.title.text}
                                     label={listItem.item.text}
                                     component={SelectList}
