@@ -161,6 +161,7 @@ export const query = graphql`
                             q: 100
                             fit: "clip"
                             w: 576
+                            h: 1.0
                             fm: "avif, webp"
                             nr: 20
                             nrs: 50
