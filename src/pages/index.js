@@ -178,9 +178,9 @@ export const query = graphql`
                     fill: "blur"
                     fit: "crop"
                     fm: "avif, webp"
-                    nr: 0
+                    nr: 20
                     nrs: 50
-                    dpr: 2
+                    dpr: 3
                     auto: "compress,format"
                   }
                 )
@@ -309,9 +309,9 @@ export const query = graphql`
                     faces: 2
                     facepad: 10
                     fm: "avif, webp"
-                    nr: 0
+                    nr: 20
                     nrs: 50
-                    dpr: 2
+                    dpr: 3
                     auto: "compress,enhance,format"
                   }
                 )
@@ -384,9 +384,9 @@ export const query = graphql`
                                 imgixParams: {
                                   q: 80
                                   fm: "avif, webp"
-                                  nr: 0
+                                  nr: 20
                                   nrs: 50
-                                  dpr: 2
+                                  dpr: 3
                                   auto: "compress,enhance,format"
                                 }
                               )
@@ -685,9 +685,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
             }
             slice_type
@@ -701,9 +699,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               price
               title {
@@ -720,9 +716,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               card_type
               twitter_handle

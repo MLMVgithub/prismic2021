@@ -175,9 +175,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
             }
             slice_type
@@ -191,9 +189,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               price
               title {
@@ -210,9 +206,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               card_type
               twitter_handle

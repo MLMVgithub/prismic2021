@@ -161,9 +161,9 @@ export const query = graphql`
                             q: 100
                             fit: "crop"
                             fm: "avif, webp"
-                            nr: 0
+                            nr: 20
                             nrs: 50
-                            dpr: 2
+                            dpr: 3
                             auto: "compress,enhance,format"
                           }
                         )
@@ -189,9 +189,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
             }
             slice_type
@@ -205,9 +203,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               price
               title {
@@ -224,9 +220,7 @@ export const query = graphql`
                 text
               }
               image {
-                localFile {
-                  publicURL
-                }
+                url
               }
               card_type
               twitter_handle

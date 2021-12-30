@@ -31,6 +31,8 @@ const SEOGeneral = ({ slice }) => (
           ) : (
             <meta name="description" content={data.site.siteMetadata.description} />
           )}
+
+          {slice.primary.image.url && <meta name="image" content={slice.primary.image.url} />}
         </Helmet>
       )
     }}
