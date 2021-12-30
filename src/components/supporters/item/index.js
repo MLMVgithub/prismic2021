@@ -21,6 +21,8 @@ const Header = styled.header`
   display: flex;
 
   grid-gap: ${({ theme }) => theme.padding.default};
+  /* grid-column-gap: ${({ theme }) => theme.padding['1/2']}; */
+
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
@@ -28,14 +30,15 @@ const Header = styled.header`
   margin: ${({ theme }) => theme.padding['4xl']} auto ${({ theme }) => theme.padding.default} auto;
   border-bottom: 4px solid ${({ theme }) => theme.colors.secondary[300]};
 
-  & .intro {
+  .intro {
     width: 60%;
     display: flex;
     flex-direction: column;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
-    padding-bottom: ${({ theme }) => theme.padding['1/4']};
+    padding-bottom: ${({ theme }) => theme.padding['1/2']};
     @media (max-width: ${({ theme }) => theme.screens.md}) {
       padding-right: 0;
+      padding-bottom: 0;
       width: 100%;
     }
     span {
@@ -90,9 +93,9 @@ const Header = styled.header`
       }
     }
   }
-  & .tags {
+  .tags {
     width: 40%;
-    margin-bottom: ${({ theme }) => theme.margin['1/2']};
+    padding-bottom: ${({ theme }) => theme.padding['1/2']};
     @media (max-width: ${({ theme }) => theme.screens.sm}) {
       width: 100%;
     }

@@ -19,6 +19,7 @@ const Header = styled.div`
   display: flex;
 
   grid-gap: ${({ theme }) => theme.padding.default};
+
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
@@ -26,13 +27,12 @@ const Header = styled.div`
   margin: ${({ theme }) => theme.padding['4xl']} auto ${({ theme }) => theme.padding.default} auto;
   border-bottom: 4px solid ${({ theme }) => theme.colors.page[300]};
 
-  & .intro {
-    width: 100%;
+  .intro {
+    width: 60%;
     display: flex;
     flex-direction: column;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
-    padding-bottom: ${({ theme }) => theme.padding['1/4']};
-
+    padding-bottom: ${({ theme }) => theme.padding['1/2']};
     @media (max-width: ${({ theme }) => theme.screens.md}) {
       padding-right: 0;
       width: 100%;
