@@ -90,7 +90,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.page[100]};
     
     a {
-       color: ${({ theme }) => theme.colors.primary[500]};
+       color: ${({ theme }) => theme.colors.primary[400]};
     }
     form {
       input:focus-visible,
