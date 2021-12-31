@@ -86,10 +86,6 @@ const CardsWrapper = styled.section`
     @media (max-width: ${({ theme }) => theme.screens.xs}) {
       grid-gap: ${({ theme }) => theme.padding.default};
     }
-    /* .cardItem {
-      flex: 0 1 48%;
-      width: 100%;
-    } */
   }
 
   // Carousel layout = keen_slider
