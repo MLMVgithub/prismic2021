@@ -48,6 +48,35 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
   } else {
     currentLayoutStyle = 'list'
   }
+
+  // SLR Lightbox settings
+  const options = {
+    settings: {
+      autoplaySpeed: 0,
+      boxShadow: 'none',
+      disableKeyboardControls: false,
+      disablePanzoom: false,
+      disableWheelControls: false,
+      hideControlsAfter: 3000,
+      lightboxTransitionSpeed: 0.3,
+      lightboxTransitionTimingFunction: 'linear',
+      //
+      // Header bground color
+      //overlayColor: 'rgba(35, 48, 68, 0.96)',
+      //
+      // Footer bground color
+      overlayColor: 'rgba(3, 18, 35, 0.96)',
+      slideAnimationType: 'slide',
+      slideSpringValues: [300, 50],
+      slideTransitionSpeed: 0.6,
+      slideTransitionTimingFunction: 'linear',
+      usingPreact: false,
+    },
+    caption: {
+      showCaption: false,
+    },
+  }
+
   // Initiate layout style - 'list || grid' - default is 'list'
   const [layoutStyle, updateLayoutStlye] = useState('list')
   useEffect(() => {
@@ -168,14 +197,6 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
     filteredData: [''],
     query: emptyQuery,
   })
-
-  // function isInList(tags, query) {
-  //   var i = tags.length
-  //   while (i--) {
-  //     if (tags[i] === query) return i
-  //   }
-  //   return -1
-  // }
 
   const handleSearchChange = (e) => {
     // Get the search value

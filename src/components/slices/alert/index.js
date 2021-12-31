@@ -10,9 +10,9 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const AlertWrapper = styled.div.attrs((props) => ({
+const AlertWrapper = styled.div.attrs({
   role: 'alert',
-}))`
+})`
   aspect-ratio: unset !important;
   position: relative;
   padding: ${({ theme }) => theme.padding['1/2']};
@@ -223,26 +223,6 @@ const Alert = ({
     }
   }
 
-  // const alertDesc = validateAlertDesc(alertLevel)
-  // function validateAlertDesc(color) {
-  //   switch (color) {
-  //     case undefined:
-  //     case null:
-  //     case '1 - Green':
-  //       return 'level 1'
-  //     case '2 - Khaki':
-  //       return 'level 2'
-  //     case '3 - Yellow':
-  //       return 'level 3'
-  //     case '4 - Orange':
-  //       return 'level 4'
-  //     case '5 - Red':
-  //       return 'level 5'
-  //     default:
-  //       return 'level 1'
-  //   }
-  // }
-
   // validate btns
   const btnLabel = validateString(alertBtnLabel)
   const btnLink = alertBtnLink
@@ -254,9 +234,6 @@ const Alert = ({
   const btnSecondaryStyle = getStyle(alertBtnSecondaryStyle)
   const btnSecondaryIcon = alertBtnSecondaryIcon
   const btnSecondaryIconAlign = getPostionAlign(alertBtnSecondaryIconAlign)
-
-  // console.log('btnSecondaryIcon = ' + btnSecondaryIcon)
-  // console.log('btnSecondaryIconAlign = ' + btnSecondaryIconAlign)
 
   function closeAlert(e) {
     e.target.closest('.alert').remove()

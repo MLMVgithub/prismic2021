@@ -123,15 +123,15 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
   useEffect(() => {
     const backBtn = document.querySelector('.backBtn')
     'click, keydown'.split(', ').forEach(function (e) {
-      backBtn.addEventListener(e, () => {
-        if (!e.key) {
+      backBtn.addEventListener(e, (evt) => {
+        if (!evt.key) {
           window.history.back()
         } else {
-          switch (e.key) {
+          switch (evt.key) {
             case 'Enter':
             case 'Return':
             case 'Spacebar':
-              e.preventDefault()
+              evt.preventDefault()
               window.history.back()
               break
 
@@ -153,7 +153,7 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
 
         <span className="alignRight">
           {previous && previous.lang === currentLang && (
-            <Link aria-label={previousTitle} to={linkResolver(previous)}>
+            <Link to={linkResolver(previous)}>
               <IconMaterial icon={'chevron_left'} />
               <span className="label">{previousTitle}</span>
               <span className="shortLabel">Previous</span>
@@ -161,7 +161,7 @@ const SecondaryNav = ({ currentLang, next, nextTitle, previous, previousTitle })
           )}
 
           {next && next.lang === currentLang && (
-            <Link aria-label={nextTitle} to={linkResolver(next)}>
+            <Link to={linkResolver(next)}>
               <span className="label">{nextTitle}</span>
               <span className="shortLabel">Next</span>
               <IconMaterial icon={'chevron_right'} />

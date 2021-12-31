@@ -15,8 +15,6 @@ import ItemContent from '/src/components/common/layout/listResults/itemContent'
 import IconMaterial from '/src/components/common/icons/material'
 
 const PeerSupportersItem = ({ listStyle, thisItem, index, listLength }) => {
-  // const _ = require('lodash')
-
   // Reference grid items
   const gridItems = useRef([])
   gridItems.current = []
