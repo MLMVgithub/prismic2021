@@ -22,6 +22,24 @@ const CardsWrapper = styled.div`
   a:visited {
     text-decoration: none !important;
   }
+
+  a {
+    .carousel {
+      .imageWrapper {
+        border-radius: ${({ theme }) => theme.borderRadius.default};
+      }
+      .content {
+        background-color: transparent;
+      }
+      &:hover {
+        box-shadow: none;
+        .imageWrapper,
+        .link {
+          box-shadow: ${({ theme }) => theme.boxShadow.lg};
+        }
+      }
+    }
+  }
 `
 
 const Card = ({ cardItem, presentationType, item, carouselLength }) => {

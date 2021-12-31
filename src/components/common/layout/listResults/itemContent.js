@@ -237,8 +237,15 @@ const ItemContent = styled.article`
     flex-direction: column;
     width: 100%;
     height: auto;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: hidden;
+    border-radius: ${({ theme }) => theme.borderRadius.default};
+
     .imageWrapper {
       aspect-ratio: auto;
+      border-bottom: none;
     }
     .imageWrapper.landscape {
       aspect-ratio: 16/9;
@@ -246,14 +253,37 @@ const ItemContent = styled.article`
     .imageWrapper.portrait {
       aspect-ratio: 3/4;
     }
-    .content 
+
+    .content {
+      background-color: #fff;
+      .title,
       .link {
+        width: fit-content;
+        margin: 0 auto;
+      }
+      .link {
+        text-transform: uppercase;
+        position: relative;
         display: flex;
-        flex-direction: row;
+        grid-gap: ${({ theme }) => theme.padding['1/4']};
+        margin: 0 auto;
+        align-items: center;
+        white-space: nowrap;
+        width: fit-content;
+        padding: 8px 18px;
+        color: ${({ theme }) => theme.colors.page.default};
+        background-color: #ffffffa8;
+        border-radius: ${({ theme }) => theme.borderRadius.default};
+        box-shadow: ${({ theme }) => theme.boxShadow.default};
         i {
-          justify-content: flex-end;
+          position: inherit;
+          transition: ${({ theme }) => theme.transition.easeIn.default};
+          right: 0px;
         }
       }
+    }
+    &:hover {
+      box-shadow: ${({ theme }) => theme.boxShadow.lg};
     }
   }
 
