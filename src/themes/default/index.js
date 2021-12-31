@@ -216,18 +216,61 @@ export const defaultTheme = {
     serif: 'Merriweather, serif',
   },
 
+  // Major second - 1.125
+  // fontSize: {
+  //   xs: '0.79rem', // x-small
+  //   sm: '0.889rem', // small
+  //   base: '1rem', // p
+  //   lg: '1.125rem', // h6
+  //   xl: '1.125rem', // h5
+  //   '2xl': '1.266rem', // h4
+  //   '3xl': '1.424rem', // h3
+  //   '4xl': '1.602rem', // h2
+  //   '5xl': '1.802rem', // h1
+  //   '6xl': '2.027rem', // Other
+  // },
+
+  // Minor third - 1.200
+  // fontSize: {
+  //   xs: '0.694rem', // x-small
+  //   sm: '0.833rem', // small
+  //   base: '1rem', // p
+  //   lg: '1.2rem', // h6
+  //   xl: '1.2rem', // h5
+  //   '2xl': '1.44rem', // h4
+  //   '3xl': '1.728rem', // h3
+  //   '4xl': '2.074rem', // h2
+  //   '5xl': '2.488rem', // h1
+  //   '6xl': '2.986rem', // Other
+  // },
+
+  // Major third - 1.250
   fontSize: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    base: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    '2xl': '1.5rem',
-    '3xl': '1.875rem',
-    '4xl': '2.25rem',
-    '5xl': '3rem',
-    '6xl': '4rem',
+    xs: '0.64rem', // x-small
+    sm: '0.833rem', // small
+    base: '1rem', // p
+    lg: '1.25rem', // h6
+    xl: '1.25rem', // h5
+    '2xl': '1.563rem', // h4
+    '3xl': '1.953rem', // h3
+    '4xl': '2.441rem', // h2
+    '5xl': '3.052rem', // h1
+    '6xl': '3.815rem', // Other
   },
+
+  // Perfect fourth - 1.333
+  // fontSize: {
+  //   xs: '0.563rem', // x-small
+  //   sm: '0.75rem', // small
+  //   base: '1rem', // p
+  //   lg: '1.333rem', // h6
+  //   xl: '1.333rem', // h5
+  //   '2xl': '1.777rem', // h4
+  //   '3xl': '2.369rem', // h3
+  //   '4xl': '3.157rem', // h2
+  //   '5xl': '4.209rem', // h1
+  //   '6xl': '5.61rem', // Other
+  // },
 
   fontWeight: {
     hairline: '100',

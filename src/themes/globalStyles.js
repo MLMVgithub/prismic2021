@@ -24,7 +24,8 @@ export const GlobalStyles = createGlobalStyle`
     /* scroll-behavior: auto; */
     scroll-behavior: initial;
     font-family: ${({ theme }) => theme.font.sans};
-    font-size: ${({ theme }) => theme.fontSize.base};
+    /* font-size: ${({ theme }) => theme.fontSize.base}; */
+    font-size: 100%; /*16px*/
     color: ${({ theme }) => theme.colors.page.default};
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-smoothing: antialiased;
@@ -35,7 +36,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-     line-height: ${({ theme }) => theme.lineHeight.relaxed};
+     /* line-height: ${({ theme }) => theme.lineHeight.relaxed}; */
+     line-height: 1.75;
      letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
   }  
 
@@ -177,11 +179,16 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.header.default} !important;
   }
 
+  
+  h1, .styledh1, h2, .styledh2, h3, .styledh3, h4, .styledh4, h5, .styledh5, h6, .styledh6 {
+    line-height: 1.3;
+  } 
+  
   h1,
   .styledh1 {
     font-size: ${({ theme }) => theme.fontSize['5xl']};
     font-family: ${({ theme }) => theme.font.slab};
-    line-height: ${({ theme }) => theme.lineHeight.tight};
+    /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     font-weight: ${({ theme }) => theme.fontWeight.medium};
   }
 
@@ -189,69 +196,75 @@ export const GlobalStyles = createGlobalStyle`
   .styledh2 {
     font-size: ${({ theme }) => theme.fontSize['4xl']};
     font-family: ${({ theme }) => theme.font.slab};
-    line-height: ${({ theme }) => theme.lineHeight.tight};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
+    font-weight: ${({ theme }) => theme.fontWeight.normal};
   }
 
   h3,
   .styledh3 {
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.snug};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
   }
 
   h4,
   .styledh4 {
     font-size: ${({ theme }) => theme.fontSize.xl};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.snug};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
   }
   
   h5,
   .styledh5 {
     font-size: ${({ theme }) => theme.fontSize.lg};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.snug};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
   h6,
   .styledh6 {
-    font-size: ${({ theme }) => theme.fontSize.base};
+     font-size: ${({ theme }) => theme.fontSize.lg};
     font-family: ${({ theme }) => theme.font.sans};
-    line-height: ${({ theme }) => theme.lineHeight.snug};
+    /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
-    h1.
+    h1,
     .styledh1 {
       font-size: ${({ theme }) => theme.fontSize['4xl']};
+        /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     }
 
     h2,
     .styledh2 {
       font-size: ${({ theme }) => theme.fontSize['3xl']};
+       /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
     }
 
     h3,
     .styledh3 {
       font-size: ${({ theme }) => theme.fontSize['2xl']};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
     h4,
     .styledh4 {
       font-size: ${({ theme }) => theme.fontSize.xl};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
     h5,
-    .styledh4 {
+    .styledh5 {
       font-size: ${({ theme }) => theme.fontSize.lg};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
     h6,
-    .styledh4 {
-      font-size: ${({ theme }) => theme.fontSize.base};
+    .styledh6 {
+       font-size: ${({ theme }) => theme.fontSize.lg};
+      /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
   }
@@ -259,7 +272,7 @@ export const GlobalStyles = createGlobalStyle`
   p {
     /* font-size: ${({ theme }) => theme.fontSize.base}; */
     font-family: ${({ theme }) => theme.font.sans};
-    margin-bottom: ${({ theme }) => theme.spacing['3']};
+    margin-bottom: ${({ theme }) => theme.spacing['4']};
    
     em {
       font-style: italic;

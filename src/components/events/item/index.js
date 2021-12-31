@@ -45,6 +45,9 @@ const Header = styled.header`
       h1 {
         font-size: ${({ theme }) => theme.fontSize['4xl']};
         line-height: initial;
+        @media (max-width: ${({ theme }) => theme.screens.sm}) {
+          font-size: ${({ theme }) => theme.fontSize['3xl']};
+        }
       }
     }
 
