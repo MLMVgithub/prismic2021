@@ -240,6 +240,21 @@ const ItemContent = styled.article`
     .imageWrapper {
       aspect-ratio: auto;
     }
+    .imageWrapper.landscape {
+      aspect-ratio: 16/9;
+    }
+    .imageWrapper.portrait {
+      aspect-ratio: 3/4;
+    }
+    .content 
+      .link {
+        display: flex;
+        flex-direction: row;
+        i {
+          justify-content: flex-end;
+        }
+      }
+    }
   }
 
   // list
