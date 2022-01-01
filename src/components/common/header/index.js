@@ -786,15 +786,10 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     }
 
     function eventList() {
-      var viewportWidth = Math.max(
-        document.documentElement.clientWidth || 0,
-        window.innerWidth || 0
-      )
-
-      // var viewportWidth = window.innerWidth
+      var viewportWidth = window.innerWidth
       // console.log(viewportWidth)
 
-      if (viewportWidth >= 768) {
+      if (viewportWidth > 768) {
         closeHamburgerNav()
 
         // Move the brand span and change to a li
@@ -810,7 +805,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         }
       }
 
-      if (viewportWidth < 768) {
+      if (viewportWidth <= 768) {
         // Move the brand li and change to a span
         let brand = document.querySelector('li.brand')
         const moveToDMobile = document.querySelector('.headerNav')
