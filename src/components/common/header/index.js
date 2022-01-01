@@ -315,8 +315,10 @@ const HeaderWrapper = styled.header`
         width: auto;
         overflow-x: visible;
         max-width: ${({ theme }) => theme.screens.md};
-        li.brand a:after {
-          display: none;
+        li.brand {
+          a:after {
+            display: none;
+          }
         }
 
         li {

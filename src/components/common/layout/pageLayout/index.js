@@ -7,6 +7,10 @@ const Section = styled.div`
   margin-top: ${({ theme }) => theme.header.height};
   padding: ${({ theme }) => theme.padding.default} 0 ${({ theme }) => theme.padding['2xl']};
 
+  @media (max-width: ${({ theme }) => theme.screens.sm}) {
+    /* padding: ${({ theme }) => theme.padding['1/8']} !important; */
+  }
+
   > div {
     max-width: ${({ theme }) => theme.screens.xl};
     margin: 0px auto;

@@ -269,6 +269,7 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
         setTagBtnsReset(false)
       }, delay)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetFilters, updateAllCards])
 
   // Toggle full view of btn list on browser size
@@ -304,9 +305,10 @@ const ListTagBtns = ({ resetFilters, resetFilterBtns, tagList }) => {
     }
     return () => {
       // cancel the subscription
-      setMoreBtns(true)
+      setMoreBtns()
     }
-  }, [updateAllCards, hideTagReset])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hideTagReset])
 
   // Toggle full view of btn list
   function toggleMoreTagBtns(e) {
