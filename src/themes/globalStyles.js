@@ -98,7 +98,7 @@ export const GlobalStyles = createGlobalStyle`
       input:focus-visible,
       textarea:focus-visible,
       select:focus-visible {
-        outline: 2px solid ${({ theme }) => theme.colors.primary[400]};
+        outline: 3px dotted ${({ theme }) => theme.colors.focusVisibleOnDark} !important;
       }
       label,
       legend,

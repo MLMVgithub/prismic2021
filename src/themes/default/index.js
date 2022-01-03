@@ -189,7 +189,7 @@ export const defaultTheme = {
     white: '#fff',
     // focusVisible: '#9ecaed',
     focusVisible: '#005FCC',
-    focusVisibleOnDark: '#80BBFF',
+    focusVisibleOnDark: '#a9c5d1',
 
     grey: {
       default: '#323335',
