@@ -6,7 +6,6 @@
 // Return (Card) presentation mode - Gallery or Carousel
 // Return column count
 // Return content width
-// Return content overide style
 // Return hero image height
 // Return font size
 // Return Line height
@@ -240,7 +239,7 @@ export function getLineHeight(size) {
       return '' // 1.5
 
     case '110%':
-      return 1.6
+      return 1.7
 
     case '120%':
       return 1.7
@@ -267,9 +266,6 @@ export function getPostionAlign(align) {
       return 'left'
 
     case 'Centre':
-      return 'center'
-
-    case 'Center':
       return 'center'
 
     case 'Right':
@@ -399,20 +395,6 @@ export function getColor(color) {
   }
 }
 
-// RGB to Hex
-var hexDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
-
-//Function to convert rgb color to hex format
-export function rgb2hex(rgb) {
-  rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-  return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3])
-}
-
-function hex(x) {
-  return isNaN(x) ? '00' : hexDigits[(x - (x % 16)) / 16] + hexDigits[x % 16]
-}
-//
-
 // Get contrast
 export function getContrast(hexcolor) {
   // If a leading # is provided, remove it
@@ -507,18 +489,29 @@ export function getListStyle(style) {
 export function getOpacity(value) {
   switch (value) {
     case null:
-      return parseFloat(0.33)
-
-    case 100:
-      return '1'
+    case undefined:
+      return 0
 
     case value:
-      return parseFloat(`0.${value}`)
+      if (value >= 100) {
+        return 1
+      } else {
+        return parseFloat(`0.${value}`)
+      }
 
     default:
-      return parseFloat(0.33)
+      return 0
   }
 }
+
+// RGB to Hex
+export const getRgb2Hex = (rgb) =>
+  `#${rgb
+    .match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    .slice(1)
+    .map((n) => parseInt(n, 10).toString(16).padStart(2, '0'))
+    .join('')}`
+//
 
 // Return hexToRGB value
 export function getHexToRGB(color, opacity) {
@@ -551,7 +544,7 @@ export function getGradientDirection(direction) {
   }
 }
 
-// Return bGround postion // Deprecated
+// Return bGround postion
 export function getBGroundPosition(position) {
   switch (position) {
     case null:

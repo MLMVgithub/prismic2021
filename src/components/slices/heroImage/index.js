@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 // Helpers
 import { getImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
@@ -13,6 +14,7 @@ import {
   getManualSpacing,
   getOpacity,
   getColor,
+  getRgb2Hex,
   getHexToRGB,
   getStyle,
   getPostionAlign,
@@ -24,7 +26,9 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const WrapperHeroImage = styled.section`
+const WrapperHeroImage = styled.section.attrs({
+  className: 'heroBanner',
+})`
   padding-top: 0px;
   padding-bottom: 0px;
   position: relative;
@@ -34,30 +38,31 @@ const WrapperHeroImage = styled.section`
     max-width: ${({ theme }) => theme.screens.md};
   }
 
-  .full {
+  &.full {
     > div {
       max-width: 100%;
     }
   }
 
-  .wide {
+  &.wide {
     > div {
       max-width: ${({ theme }) => theme.screens.xl};
     }
   }
 
-  .slim {
+  &.slim {
     > div {
       max-width: ${({ theme }) => theme.screens.md};
     }
   }
 
-  > div {
+  div {
     padding: 0;
     color: #ffffff;
     position: relative;
+    margin: 0 auto;
 
-    .wrapper {
+    .contentWrapper {
       background: none;
       position: absolute;
       max-width: ${({ theme }) => theme.screens.md};
@@ -73,53 +78,54 @@ const WrapperHeroImage = styled.section`
 
       align-items: center;
     }
-    .wrapper.centre {
+    .contentWrapper.centre {
       align-items: center;
     }
 
-    .wrapper.bottom {
+    .contentWrapper.bottom {
       align-items: flex-end;
     }
 
-    .wrapper.top {
+    .contentWrapper.top {
       align-items: flex-start;
     }
 
-    .wrapper.bottom {
-      align-items: flex-end;
-    }
-
-    .wrapper {
-      content * {
+    .contentWrapper {
+      height: 100%;
+      .content,
+      .content.centre {
+        /* flex-direction: row; */
         margin: 0 auto;
         text-align: center;
         justify-content: center;
+        .cta {
+          justify-self: center;
+        }
       }
-      .content.left * {
+
+      .content.left {
         margin: 0 auto 0 0;
         text-align: left;
         justify-self: flex-start;
+        .cta {
+          justify-self: flex-start;
+        }
       }
 
-      .content.centre * {
-        margin: 0 auto;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .content.right * {
+      .content.right {
         margin: 0 0 0 auto;
         text-align: right;
         justify-content: flex-end;
+        .cta {
+          justify-self: flex-end;
+        }
       }
 
       .content {
         /* width: 100%; */
         width: fit-content;
-        margin: 0 auto;
         display: grid;
-        padding: 0;
-        padding: ${({ theme }) => theme.padding.default};
+        padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default};
         color: #ffffff;
         background-color: ${({ theme }) => theme.colors.header.default};
         border-radius: ${({ theme }) => theme.borderRadius.default};
@@ -169,54 +175,16 @@ const WrapperHeroImage = styled.section`
   }
 `
 
-const FullWidthImage = ({ slice }) => {
+const HeroImg = ({ slice }) => {
+  // Get the image
+  const image = getImage(slice.primary.image.gatsbyImageData)
+  const bgImage = convertToBgImage(image)
+
   // Container width
   var sectionWidth = getContentWidth(slice.primary.width)
 
-  // Hero image height
+  // Get image height
   var sectionHeight = getHeroImgHeight(slice.primary.height, slice.primary.v_height)
-
-  // if (slice.primary.v_height === true) {
-  //   sectionHeight = parseFloat(100 - (60 / 100) * 10) + 'vh'
-  // }
-
-  // console.log('sectionHeight = ' + sectionHeight)
-
-  // Overlay colors
-  var overlayFrom = getColor(slice.primary.overlay_from)
-  var overlayTo = getColor(slice.primary.overlay_to)
-
-  if (overlayFrom === null || overlayFrom === 'transparent') {
-    overlayFrom = '#000000'
-  }
-  if (overlayTo === null || overlayTo === 'transparent') {
-    overlayTo = '#000000'
-  }
-
-  // Overlay opacity values
-  var overlayFromOpacity = getOpacity(slice.primary.overlay_from_opacity)
-  var overlayToOpacity = getOpacity(slice.primary.overlay_to_opacity)
-
-  // Overlay colors to RGBA
-  overlayFrom = getHexToRGB(overlayFrom, overlayFromOpacity)
-  overlayTo = getHexToRGB(overlayTo, overlayToOpacity)
-
-  // Banner overlay (gradient) direction
-  var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
-
-  // Background color
-  var bgroundColor = getColor(slice.primary.background_color)
-  if (bgroundColor === null || bgroundColor === 'transparent') {
-    bgroundColor = '#000000'
-  }
-
-  // Background opacity
-  var bgroundOpacity = getOpacity(slice.primary.background_opacity)
-
-  // Background colors to RGBA
-  bgroundColor = getHexToRGB(bgroundColor, bgroundOpacity)
-
-  // console.log('bgroundColor = ' + bgroundColor)
 
   // Banner bGround postion
   var alignBGround = getPostionAlign(slice.primary.align_image)
@@ -232,6 +200,89 @@ const FullWidthImage = ({ slice }) => {
   if (vMarginBottom === null) {
     vMarginBottom = defaultMargin + 'px'
   }
+
+  //
+  // Set up image props -  ovelay of image, height and margins
+  useEffect(() => {
+    // Overlay colors - from & to
+    var overlayFrom = getColor(slice.primary.overlay_from)
+    var overlayTo = getColor(slice.primary.overlay_to)
+
+    // The styled color of header bground
+    var headerWrapper = document.querySelector('.headerNavWrapper')
+    var headerBgColor = window
+      .getComputedStyle(headerWrapper, null)
+      .getPropertyValue('background-color')
+
+    // Convert background color to #hex
+    headerBgColor = getRgb2Hex(headerBgColor)
+
+    // If spcecified color - set to the styled color else set the header bground color
+    if (overlayFrom === null || overlayFrom === 'transparent') {
+      overlayFrom = headerBgColor
+    }
+    if (overlayTo === null || overlayTo === 'transparent') {
+      overlayTo = headerBgColor
+    }
+
+    // Overlay opacity values
+    var overlayFromOpacity = getOpacity(slice.primary.overlay_from_opacity)
+    var overlayToOpacity = getOpacity(slice.primary.overlay_to_opacity)
+
+    // Overlay colors to RGBA
+    overlayFrom = getHexToRGB(overlayFrom, overlayFromOpacity)
+    overlayTo = getHexToRGB(overlayTo, overlayToOpacity)
+
+    // Banner overlay (gradient) direction
+    var overlayDirection = getGradientDirection(slice.primary.overlay_direction)
+
+    // Set inline styles attrs
+    var heroImageInner = document.querySelector('.heroImage')
+    heroImageInner.setAttribute(
+      `style`,
+      `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
+       height: ${sectionHeight};
+       with: '100%'; 
+       background-position: center ${alignBGround};
+       margin-top: ${vMarginTop};
+       margin-bottom: ${vMarginBottom}
+      `
+    )
+  }, [slice, sectionHeight, alignBGround, vMarginTop, vMarginBottom])
+
+  //
+  // Set background color+opacity of content
+  useEffect(() => {
+    // The specified color
+    var bgroundColor = getColor(slice.primary.content_background_color)
+
+    // The styled color of content bground
+    var contentWrapper = document.querySelector('.content')
+    var contentBgColor = window
+      .getComputedStyle(contentWrapper, null)
+      .getPropertyValue('background-color')
+
+    // Convert background color to #hex
+    contentBgColor = getRgb2Hex(contentBgColor)
+
+    // If spcecified color - set to the styled color else set the content bground color
+    if (bgroundColor === null || bgroundColor === 'transparent') {
+      bgroundColor = contentBgColor
+    }
+
+    // Get the opacity
+    var bgroundOpacity = getOpacity(slice.primary.content_background_opacity)
+    // console.log(bgroundOpacity)
+
+    // Convert background color to RGBA -  include opacity
+    bgroundColor = getHexToRGB(bgroundColor, bgroundOpacity)
+
+    // console.log(contentBgColor)
+    // console.log(bgroundColor)
+
+    // Set inline styles attrs
+    contentWrapper.setAttribute('style', `background-color:rgb(${bgroundColor})`)
+  }, [slice])
 
   // Validate title
   const title = validateString(slice.primary.title.richText)
@@ -255,58 +306,27 @@ const FullWidthImage = ({ slice }) => {
 
   // console.log(secondaryButtonLink.raw.link_type)
 
-  const image = getImage(slice.primary.image.gatsbyImageData)
-  const bgImage = convertToBgImage(image)
-
-  // Add some inline styles
-  const imageMargin = {
-    marginTop: `${vMarginTop}px`,
-    marginBottom: `${vMarginBottom}px`,
-  }
-
-  const imageHeight = {
-    height: sectionHeight,
-    // height: '450px',
-  }
-
-  const bgroundStyle = {
-    height: sectionHeight,
-    // height: '450px',
-    with: '100%',
-    backgroundPosition: `center ${alignBGround}`,
-    backgroundImage: `linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}))`,
-  }
-
-  const contentBgroundColor = {
-    backgroundColor: `rgb(${bgroundColor})`,
-  }
-
   return (
-    <WrapperHeroImage className={'section-layout heroImage ' + sectionWidth} style={imageMargin}>
-      <div>
+    <WrapperHeroImage className={`section-layout ${sectionWidth}`}>
+      <div className="heroImageWrapper">
         {slice.primary.image.gatsbyImageData && (
           <BackgroundImage
-            // Tag="section"
             Tag="div"
+            className="heroImage"
             // Spread bgImage into BackgroundImage:
             {...bgImage}
             preserveStackingContext
-            style={bgroundStyle}
           />
         )}
 
         <div
-          className={'wrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
-          style={imageHeight}
+          className={'contentWrapper ' + `${slice.primary.vertical_align_content}`.toLowerCase()}
         >
-          <div
-            className={'content ' + `${slice.primary.align_content}`.toLowerCase()}
-            style={contentBgroundColor}
-          >
-            {(title || description) !== null && (
+          <div className={'content ' + `${slice.primary.align_content}`.toLowerCase()}>
+            {(title || description) && (
               <span>
-                {title !== null && <RichText render={title} />}
-                {description !== null && (
+                {title && title[0].text.length > 0 && <RichText render={title} />}
+                {description && description[0].text.length > 0 && (
                   <RichText render={description} linkResolver={linkResolver} />
                 )}
               </span>
@@ -344,4 +364,4 @@ const FullWidthImage = ({ slice }) => {
   )
 }
 
-export default FullWidthImage
+export default HeroImg

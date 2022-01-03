@@ -991,7 +991,7 @@
               "title": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                   "label": "Title",
                   "placeholder": "Title"
                 }
@@ -1116,6 +1116,19 @@
                   "placeholder": "Vertical align (Default is center)"
                 }
               },
+              "content_background_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Content background colour"
+                }
+              },
+              "content_background_opacity": {
+                "type": "Number",
+                "config": {
+                  "label": "Content background opacity",
+                  "placeholder": "0"
+                }
+              },
               "width": {
                 "type": "Select",
                 "config": {
@@ -1191,7 +1204,7 @@
               "overlay_from_opacity": {
                 "type": "Number",
                 "config": {
-                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%)",
+                  "label": "Transparent overlay opacity (from)",
                   "placeholder": "33"
                 }
               },
@@ -1204,8 +1217,8 @@
               "overlay_to_opacity": {
                 "type": "Number",
                 "config": {
-                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%",
-                  "placeholder": "33"
+                  "label": "Transparent overlay opacity (to)",
+                  "placeholder": "0"
                 }
               },
               "overlay_direction": {
@@ -1227,19 +1240,6 @@
                   "options": ["Center", "Top", "Bottom"],
                   "label": "Align image",
                   "placeholder": "Select one"
-                }
-              },
-              "background_color": {
-                "type": "Color",
-                "config": {
-                  "label": "Background colour"
-                }
-              },
-              "background_opacity": {
-                "type": "Number",
-                "config": {
-                  "label": "Background opacity",
-                  "placeholder": "33"
                 }
               },
               "image": {
