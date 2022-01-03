@@ -151,7 +151,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .dark,
-  header, 
+  header,
+  .secondaryNav, 
   footer {
     *:focus,
     *:focus-visible {
