@@ -162,7 +162,7 @@ export const query = graphql`
                             fit: "clip"
                             w: 576
                             h: 1.0
-                            fm: "avif, webp"
+                            fm: "jpg, avif, webp"
                             nr: 20
                             nrs: 50
                             dpr: 3

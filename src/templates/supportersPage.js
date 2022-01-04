@@ -200,7 +200,7 @@ export const query = graphql`
                   fit: "facearea"
                   faces: 2
                   facepad: 5
-                  fm: "avif, webp"
+                  fm: "jpg, avif, webp"
                   nr: 0
                   nrs: 50
                   dpr: 2
