@@ -178,7 +178,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://www.mylifemyvoice.org.nz',
-        sitemap: 'https://www.mylifemyvoice.org.nz/sitemap/sitemap/sitemap-0.xml',
+        sitemap: 'https://www.mylifemyvoice.org.nz/sitemap/sitemap-index.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }],
