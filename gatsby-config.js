@@ -11,7 +11,7 @@ module.exports = {
     siteUrl: `https://www.mylifemyvoice.org.nz`, // No trailing slash allowed!
     defaultImage: 'src/images/svg/brand-mlmv.inline.svg', // Path to your image you placed in the 'static' folder
     author: 'Peter Koenders',
-    year: '2021',
+    year: '2022',
   },
 
   flags: {
@@ -178,7 +178,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://www.mylifemyvoice.org.nz',
-        sitemap: 'https://www.mylifemyvoice.org.nz/sitemap/sitemap-index.xml',
+        sitemap: 'https://www.mylifemyvoice.org.nz/sitemap/sitemap/sitemap-0.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }],
