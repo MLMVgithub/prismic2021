@@ -142,11 +142,7 @@ const HeroImage = styled.section.attrs({
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
           padding: ${({ theme }) => theme.padding['1/2']}};
         }
-        h1 {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          hyphens: auto;
-        }
+        
 
         span * {
           margin: 0;
@@ -154,6 +150,12 @@ const HeroImage = styled.section.attrs({
         span {
           display: grid;
           grid-gap: ${({ theme }) => theme.padding['1/2']};
+          
+          h1 {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+          }
 
           p {
             color: inherit;
