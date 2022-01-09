@@ -364,6 +364,7 @@ const ItemContent = styled.article`
         grid-gap: ${({ theme }) => theme.margin['1/4']};
         width: fit-content;
         text-decoration: none;
+        overflow-wrap: anywhere;
         i {
           color: ${({ theme }) => theme.colors.secondary.default};
         }
