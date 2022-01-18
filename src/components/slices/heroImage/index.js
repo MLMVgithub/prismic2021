@@ -293,6 +293,8 @@ const HeroImg = ({ slice }) => {
     // Convert background color to #hex
     contentBgColor = getRgb2Hex(contentBgColor)
 
+    // contentBgColor = getRgb2Hex(contentBgColor)
+
     // If spcecified color - set to the styled color else set the content bground color
     if (bgroundColor === null || bgroundColor === 'transparent') {
       bgroundColor = contentBgColor

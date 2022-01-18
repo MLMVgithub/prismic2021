@@ -26,13 +26,13 @@ const HomeTemplate = ({ data, location }) => {
 
 // export default HomeTemplate
 
-// export default withPrismicPreview(HomeTemplate, [
-//   {
-//     repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
-//   },
-// ])
+export default withPrismicPreview(HomeTemplate, [
+  {
+    repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+  },
+])
 
-export default withPrismicPreview(HomeTemplate)
+// export default withPrismicPreview(HomeTemplate)
 
 export const query = graphql`
   query Homepage($locale: String) {
