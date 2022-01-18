@@ -555,13 +555,26 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         } else {
           this.controlledNodes.push(button)
         }
+
+        button.addEventListener('mouseover', this.handleButtonClick.bind(this))
         button.addEventListener('click', this.handleButtonClick.bind(this))
+
+        // 'click, mouseover'.split(', ').forEach(function (e) {
+        //   button.addEventListener(e, () => {
+        //     this.handleButtonClick.bind(this)
+        //   })
+        // })
+
         button.addEventListener('keydown', this.handleButtonKeyDown.bind(this))
       }
 
       // console.log(this.triggerNodes)
       // console.log(this.controlledNodes)
       this.rootNode.addEventListener('focusout', this.handleBlur.bind(this))
+
+      if (typeof window !== 'undefined') {
+        window.addEventListener('click', this.handleBlur.bind(this))
+      }
     }
 
     DisclosureNav.prototype.toggleMenu = function (domNode, show) {
@@ -635,6 +648,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
 
     /* Event Handlers */
     DisclosureNav.prototype.handleBlur = function (event) {
+      // console.log('close menu')
       var menuContainsFocus = this.rootNode.contains(event.relatedTarget)
       if (!menuContainsFocus && this.openIndex !== null) {
         this.toggleExpand(this.openIndex, false)
@@ -666,6 +680,9 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     }
 
     DisclosureNav.prototype.handleButtonClick = function (event) {
+      // Prevent window .click
+      event.stopPropagation()
+
       var button = event.target
       var buttonIndex = this.triggerNodes.indexOf(button)
       var buttonExpanded = button.getAttribute('aria-expanded') === 'true'
