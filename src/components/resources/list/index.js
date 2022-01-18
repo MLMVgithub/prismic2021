@@ -30,10 +30,11 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
   const pageTitle = pageIntro.title.text
 
   // Set up some states
-  // And set the intial sort by title
+  // And set the intial sort by 'title'
   var [sourceList, setSourceList] = useState(
     _.sortBy(dataList.items, 'item.document.data.title.text')
   )
+
   let [allPosts, setAllPosts] = useState(dataList.items)
   let [queryValue, setQueryValue] = useState('')
   let [queryLength, setQueryLength] = useState(0)
@@ -273,7 +274,7 @@ const ResourcesList = ({ currentLang, pageIntro, dataList }) => {
                 items={[
                   {
                     title: `${i18n[currentLang].sortByName}`,
-                    nodePath: 'item.document.data.first_name.text',
+                    nodePath: 'item.document.data.title.text',
                   },
                   {
                     title: `${i18n[currentLang].sortByLocation}`,

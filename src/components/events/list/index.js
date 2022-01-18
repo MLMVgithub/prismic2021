@@ -31,10 +31,11 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
   const pageTitle = pageIntro.title.text
 
   // Set up some states
-  // And set the intial sort by date in reverse to show latest at top of list
+  // And set the intial sort by 'Name' in reverse to show latest at top of list
   var [sourceList, setSourceList] = useState(
-    _.sortBy(dataList.items, 'item.document.data.start_date_time').reverse()
+    _.sortBy(dataList.items, 'item.document.data.first_name.text')
   )
+
   let [allPosts, setAllPosts] = useState(dataList.items)
   let [queryValue, setQueryValue] = useState('')
   let [queryLength, setQueryLength] = useState(0)
