@@ -263,9 +263,11 @@ const HeroImg = ({ slice }) => {
     function setHeroImageStyles() {
       contentHeight = contentHeight + 32 * 2 // Allow for top and bottom margins
       var heroImageInner = document.querySelector('.heroImage')
-      heroImageInner.setAttribute(
-        `style`,
-        `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
+
+      if (heroImageInner) {
+        heroImageInner.setAttribute(
+          `style`,
+          `background-image: linear-gradient(${overlayDirection}, rgba(${overlayFrom}), rgba(${overlayTo}));
         min-height: ${sectionHeight};
         height: ${contentHeight}px;
         width: 100%; 
@@ -273,9 +275,11 @@ const HeroImg = ({ slice }) => {
         margin-top: ${vMarginTop};
         margin-bottom: ${vMarginBottom}
         `
-      )
+        )
+      }
     }
     // Done
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slice, sectionHeight, alignBGround, vMarginTop, vMarginBottom])
 
   //

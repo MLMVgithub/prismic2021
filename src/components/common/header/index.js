@@ -512,6 +512,8 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
   }
 
   useEffect(() => {
+    var mobile = false
+
     var pathName = ''
     if (typeof window !== 'undefined') {
       pathName = window.location.pathname
@@ -537,10 +539,12 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     DisclosureNav.prototype.init = function () {
       // var buttons = this.rootNode.querySelectorAll('button[aria-expanded][aria-controls], a.l1')
       var buttons = this.rootNode.querySelectorAll('.l1')
+
       for (var i = 0; i < buttons.length; i++) {
         var button = buttons[i]
         this.triggerNodes.push(button)
         var menu = button.parentNode.querySelector('ul')
+
         if (menu) {
           // save ref to button and controlled menu
           // this.triggerNodes.push(button)
@@ -556,22 +560,15 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           this.controlledNodes.push(button)
         }
 
-        button.addEventListener('mouseover', this.handleButtonClick.bind(this))
         button.addEventListener('click', this.handleButtonClick.bind(this))
-
-        // 'click, mouseover'.split(', ').forEach(function (e) {
-        //   button.addEventListener(e, () => {
-        //     this.handleButtonClick.bind(this)
-        //   })
-        // })
-
+        button.addEventListener('mouseenter', this.handleButtonClick.bind(this))
         button.addEventListener('keydown', this.handleButtonKeyDown.bind(this))
       }
 
       // console.log(this.triggerNodes)
       // console.log(this.controlledNodes)
-      this.rootNode.addEventListener('focusout', this.handleBlur.bind(this))
 
+      this.rootNode.addEventListener('focusout', this.handleBlur.bind(this))
       if (typeof window !== 'undefined') {
         window.addEventListener('click', this.handleBlur.bind(this))
       }
@@ -593,22 +590,20 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
         }
       }
 
-      // handle menu at called index
+      // handle menu at called index  // dont style brand menu button #0 in array
       if (this.triggerNodes[index]) {
         // console.log(index)
         this.openIndex = expanded ? index : null
         this.triggerNodes[index].setAttribute('aria-expanded', expanded)
 
-        // dont style brand menu button #1 in array
-        if (index !== 0) {
-          // only if the item has a sub menu - toggle
-          if (this.triggerNodes[index].classList.contains('secondaryNavBtn')) {
-            this.toggleMenu(this.controlledNodes[index], expanded)
-          }
+        // only if the item has a sub menu - toggle
+        if (this.triggerNodes[index].classList.contains('secondaryNavBtn')) {
+          this.toggleMenu(this.controlledNodes[index], expanded)
 
           // Toggle style of menu button
           this.triggerNodes[index].classList.toggle('isActive')
         }
+        checkSecondayNavBoundry()
       }
     }
 
@@ -649,6 +644,11 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     /* Event Handlers */
     DisclosureNav.prototype.handleBlur = function (event) {
       // console.log('close menu')
+
+      if (mobile === true) {
+        return
+      }
+
       var menuContainsFocus = this.rootNode.contains(event.relatedTarget)
       if (!menuContainsFocus && this.openIndex !== null) {
         this.toggleExpand(this.openIndex, false)
@@ -682,6 +682,16 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     DisclosureNav.prototype.handleButtonClick = function (event) {
       // Prevent window .click
       event.stopPropagation()
+      // console.log(mobile)
+      // if (mobile === true && event.type === 'mouseenter') {
+      //   return
+      // }
+
+      if (event.type === 'mouseenter') {
+        if (event.target.classList.contains('isActive') || mobile === true) {
+          return
+        }
+      }
 
       var button = event.target
       var buttonIndex = this.triggerNodes.indexOf(button)
@@ -717,7 +727,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     }
 
     /* Initialize Disclosure Menus */
-
     var menus = document.querySelectorAll('.disclosure-nav')
     var disclosureMenus = []
 
@@ -725,6 +734,8 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       disclosureMenus[i] = new DisclosureNav(menus[i])
       disclosureMenus[i].init()
     }
+
+    // initPrimaryNav()
 
     // fake link behavior
     var links = document.querySelectorAll('[href="#mlmv-page-content"]')
@@ -748,7 +759,6 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     const secondaryNav = document.querySelector('.secondaryNav')
 
     const headerNav = document.querySelector('.headerNav')
-    // const disclosureNav = document.querySelector('.disclosure-nav')
     const headerNavExpaned = document.querySelector('.secondaryNavList')
     const toggleHamburger = document.querySelector('.hamburger')
     const closeHamburger = document.querySelector('.closeMenu')
@@ -761,23 +771,37 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       })
     })
 
-    // fire route hange
+    // fire route change
     if (myLocationRef.current.location !== currentPath) {
       // console.log('routeChange')
       myLocationRef.current.location = currentPath
       eventList()
     }
 
+    function checkSecondayNavBoundry() {
+      const disclosureNavBtn = document.querySelector('.l1.isActive')
+
+      if (disclosureNavBtn) {
+        var SecondaryNav = disclosureNavBtn.nextElementSibling.getBoundingClientRect()
+        // console.log(SecondaryNav)
+
+        if (SecondaryNav.right > (window.innerWidth || document.documentElement.clientWidth)) {
+          // Right side is out of viewport
+          disclosureNavBtn.nextElementSibling.style.right = 0
+        }
+      }
+    }
+
     function eventList() {
       var viewportWidth = window.innerWidth
+      mobile = false
+
       // console.log(viewportWidth)
-
       if (viewportWidth > 768) {
-        closeHamburgerNav()
-
         // Move the brand span and change to a li
         let brand = document.querySelector('span.brand')
         const disclosureNav = document.querySelector('.disclosure-nav')
+
         if (brand) {
           // console.log('desktop')
           disclosureNav.insertBefore(brand, disclosureNav.firstChild)
@@ -786,15 +810,16 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           newEl.innerHTML = brand.innerHTML
           brand.parentNode.replaceChild(newEl, brand)
         }
+        closeHamburgerNav()
+        checkSecondayNavBoundry()
       }
 
       if (viewportWidth <= 768) {
         // Move the brand li and change to a span
+        mobile = true
         let brand = document.querySelector('li.brand')
         const moveToDMobile = document.querySelector('.headerNav')
-
         if (brand) {
-          // console.log('mobile')
           moveToDMobile.insertBefore(brand, moveToDMobile.firstChild)
           let newEl = document.createElement('span')
           newEl.classList.add('brand')
@@ -802,6 +827,10 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
           brand.parentNode.replaceChild(newEl, brand)
         }
       }
+
+      // if (viewportWidth === disclosureNav.innerWidth) {
+      //   console.log('nav-width')
+      // }
     }
 
     //
@@ -823,7 +852,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
     })
 
     function openHamburgerNav() {
-      headerNav.classList.add('open', 'fillBground')
+      headerNav.classList.add('open')
       toggleHamburger.classList.add('is-active')
       toggleHamburger.setAttribute('aria-label', 'Close mobile navigation')
       toggleHamburger.setAttribute('aria-expanded', 'true')
@@ -835,14 +864,12 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
       var secondaryNavBtn = document.querySelectorAll('.secondaryNavBtn')
       var secondaryNavList = document.querySelectorAll('.secondaryNavList')
       for (var i = 0; i < secondaryNavBtn.length; ++i) {
-        secondaryNavBtn[i].classList.remove('isActive')
         secondaryNavBtn[i].setAttribute('aria-expanded', 'false')
         secondaryNavList[i].setAttribute('style', 'display: none;')
-
-        // handleCloseSecondaryNavAria(secondaryNavBtn[i])
+        secondaryNavBtn[i].classList.remove('isActive')
       }
 
-      headerNav.classList.remove('open', 'fillBground')
+      headerNav.classList.remove('open')
       toggleHamburger.classList.remove('is-active')
       toggleHamburger.setAttribute('aria-label', 'Open mobile navigation')
       toggleHamburger.setAttribute('aria-expanded', 'false')
@@ -1000,8 +1027,8 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
             )
           })}
 
-          <li className="closeMenu hide">
-            <button className="l1" type="button">
+          <li className="l1 closeMenu hide">
+            <button className="" type="button">
               {i18n[currentLang].close}
               <IconMaterial icon={'clear'} />
             </button>
