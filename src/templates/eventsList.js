@@ -5,6 +5,7 @@ import SeoZone from '/src/components/slices/seoZone'
 import SliceZone from '/src/components/slices/sliceZone'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import EventsList from '/src/components/events/list/'
+import { linkResolver } from '../utils/linkResolver'
 
 const EventsPageList = ({ data }) => {
   if (!data) return null
@@ -30,6 +31,7 @@ const EventsPageList = ({ data }) => {
 export default withPrismicPreview(EventsPageList, [
   {
     repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
+    linkResolver,
   },
 ])
 

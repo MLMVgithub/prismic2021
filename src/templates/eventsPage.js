@@ -6,6 +6,7 @@ import SeoZone from '/src/components/slices/seoZone'
 import SecondaryNav from '../components/common/secondaryNav'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { validateString } from '/src/utils/helpers'
+import { linkResolver } from '../utils/linkResolver'
 
 const EventsPage = ({ data, pageContext }) => {
   if (!data) return null
@@ -52,6 +53,7 @@ const EventsPage = ({ data, pageContext }) => {
 export default withPrismicPreview(EventsPage, [
   {
     repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
+    linkResolver,
   },
 ])
 
