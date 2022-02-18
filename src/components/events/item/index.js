@@ -129,7 +129,7 @@ const Body = styled.article`
       flex-wrap: wrap;
       grid-row-gap: ${({ theme }) => theme.padding['1/4']};
       grid-column-gap: ${({ theme }) => theme.padding['1/2']};
-      text-indent: ${({ theme }) => theme.padding['1/4']};
+      /* text-indent: ${({ theme }) => theme.padding['1/4']}; */
       address {
         text-indent: 0;
         font-weight: 500;

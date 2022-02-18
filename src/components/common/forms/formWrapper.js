@@ -140,7 +140,7 @@ const FormWraper = styled.div`
     label,
     p,
     legend {
-      text-indent: ${({ theme }) => theme.padding['1/4']};
+      /* text-indent: ${({ theme }) => theme.padding['1/4']}; */
     }
 
     label,
@@ -185,6 +185,7 @@ const FormWraper = styled.div`
         /* color: ${({ theme }) => theme.colors.alert.tomato}; */
         display: inline-flex;
         /* text-transform: uppercase; */
+        text-indent: ${({ theme }) => theme.padding['1/4']};
       }
 
       .error {
@@ -193,7 +194,7 @@ const FormWraper = styled.div`
     }
 
     div.richText {
-      margin-left: ${({ theme }) => theme.margin['1/4']};
+      /* margin-left: ${({ theme }) => theme.margin['1/4']}; */
       p {
         text-indent: 0;
       }
