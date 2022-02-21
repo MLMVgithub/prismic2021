@@ -134,7 +134,13 @@ const ContactNew = ({ formData, slice }) => {
       //   ...formDataEntries,
       // }),
 
-      body: formDataEntries,
+      // body: formDataEntries,
+
+      // data: stringify(formDataEntries),
+
+      data: encode({
+        ...formDataEntries,
+      }),
     })
       .then((res) => {
         if (res) {
