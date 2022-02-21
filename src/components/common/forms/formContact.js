@@ -130,15 +130,13 @@ const ContactNew = ({ formData, slice }) => {
     fetch(`/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      // body: encode({
-      //   ...formDataEntries,
-      // }),
-
-      body: formDataEntries,
+      body: encode(formDataEntries),
 
       // body: formDataEntries,
 
-      data: formDataEntries,
+      // body: formDataEntries,
+
+      // data: formDataEntries,
 
       // data: encode({
       //   ...formDataEntries,
