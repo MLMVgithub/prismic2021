@@ -125,22 +125,26 @@ const ContactNew = ({ formData, slice }) => {
     const data = new FormData(e.target)
     const formDataEntries = Object.fromEntries(data.entries())
 
-    // console.log(formDataEntries)
+    console.log(formDataEntries)
 
     fetch(`/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      // body: encode({
-      //   ...formDataEntries,
-      // }),
+      body: encode({
+        ...formDataEntries,
+      }),
+
+      body: encode({
+        ...formDataEntries,
+      }),
 
       // body: formDataEntries,
 
-      // data: stringify(formDataEntries),
+      data: formDataEntries,
 
-      data: encode({
-        ...formDataEntries,
-      }),
+      // data: encode({
+      //   ...formDataEntries,
+      // }),
     })
       .then((res) => {
         if (res) {
