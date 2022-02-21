@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'
@@ -8,6 +8,8 @@ const TextAreaInput = ({ id, label, input, type, meta, describedby, required }) 
   const { dirty, error, touched, invalid } = meta
   const hasError = invalid && !!touched
   const hasValue = !!dirty && !invalid
+
+  const [inputString, setInputString] = useState()
 
   return (
     <label
@@ -24,9 +26,13 @@ const TextAreaInput = ({ id, label, input, type, meta, describedby, required }) 
           type={type}
           rows="5"
           aria-invalid={hasError && 'true'}
-          placeholder={'Enter your ' + label}
+          // placeholder={'Enter your ' + label}
           aria-describedby={describedby && `Described by ${describedby}`}
           {...input}
+          // Sometimes react will not allow user to input text so we do this...
+          // https://thewebdev.info/2021/05/10/how-to-fix-the-issue-where-we-cant-type-in-a-react-input-text-field/
+          value={inputString}
+          onChange={(e) => setInputString(e.target.value)}
         />
         {hasValue && <IconMaterial icon={'check_circle'} />}
       </span>
