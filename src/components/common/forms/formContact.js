@@ -89,7 +89,7 @@ const ContactNew = ({ formData, slice }) => {
   const [errorMessage, setErrorMsg] = useState(false)
   const [successMessage, setSuccessMsg] = useState(false)
 
-  // Form come from from a slice like Homepage or General page?
+  // Form comes from from a slice like Homepage or General page?
   var allFormData = []
   if (formData === undefined) {
     allFormData = slice.primary
@@ -101,8 +101,10 @@ const ContactNew = ({ formData, slice }) => {
 
   // Validate form name
   const formName = validateString(allFormData.select_form.document.data.form_name.text)
+
   // Validate form description
   const formDecription = validateString(allFormData.select_form.document.data.from_content.richText)
+
   // Form data
   const formDataFields = allFormData.select_form.document.data.body
 
@@ -123,14 +125,14 @@ const ContactNew = ({ formData, slice }) => {
     }
 
     const data = new FormData(e.target)
-    const formDataEntries = Object.fromEntries(data.entries())
+    const formDataEntries = Object.fromEntries(data)
 
     console.log(formDataEntries)
 
     fetch(`/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(formDataEntries),
+      // body: encode(formDataEntries),
 
       // body: formDataEntries,
 
@@ -138,9 +140,9 @@ const ContactNew = ({ formData, slice }) => {
 
       // data: formDataEntries,
 
-      // data: encode({
-      //   ...formDataEntries,
-      // }),
+      body: encode({
+        ...formDataEntries,
+      }),
     })
       .then((res) => {
         if (res) {
