@@ -124,15 +124,18 @@ const ContactNew = ({ formData, slice }) => {
       }
     }
 
-    // const data = new FormData(formDataFields)
+    // // const data = new FormData(formDataFields)
     // const data = new FormData(e.target)
 
-    let myForm = document.getElementById('form')
-    const data = new FormData(myForm)
+    // // let myForm = document.getElementById('form')
+    // // const data = new FormData(myForm)
 
-    const formDataEntries = Object.fromEntries(data)
+    // const formDataEntries = Object.fromEntries(data)
 
-    console.log(formDataEntries)
+    // console.log(formDataEntries)
+
+    const data = new FormData(e.target)
+    const formDataEntries = Object.fromEntries(data.entries())
 
     fetch(`/`, {
       method: 'POST',
