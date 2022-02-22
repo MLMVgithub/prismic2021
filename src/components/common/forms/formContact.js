@@ -135,16 +135,12 @@ const ContactNew = ({ formData, slice }) => {
     // console.log(formDataEntries)
 
     const data = new FormData(e.target)
-    const formDataEntries = Object.fromEntries(data.entries())
+    const formDataEntries = Object.fromEntries(data)
+    // console.log(formDataEntries)
 
     fetch(`/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      // body: encode(formDataEntries),
-
-      // body: formDataEntries,
-
-      // data: formDataEntries,
 
       body: encode({
         ...formDataEntries,
@@ -309,12 +305,12 @@ const ContactNew = ({ formData, slice }) => {
                         }
                       >
                         <legend
-                          // id={formDataFields[index].id}
+                          id={formDataFields[index].id}
                           aria-describedby={
                             formDataFields[index].primary.described_by &&
                             `Described by ${formDataFields[index].primary.described_by}`
                           }
-                          //aria-invalid="false"
+                          aria-invalid="false"
                         >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (
@@ -340,6 +336,7 @@ const ContactNew = ({ formData, slice }) => {
                     {formDataFields[index].slice_type === 'radio_button' && (
                       <fieldset
                         key={formDataFields[index].id}
+                        id={formDataFields[index].id}
                         className={
                           'radioBtns ' +
                           `${formDataFields[index].primary.align}`.toLowerCase() +
@@ -352,7 +349,7 @@ const ContactNew = ({ formData, slice }) => {
                             formDataFields[index].primary.described &&
                             `Described by ${formDataFields[index].primary.described}`
                           }
-                          //aria-invalid="false"
+                          aria-invalid="false"
                         >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (
