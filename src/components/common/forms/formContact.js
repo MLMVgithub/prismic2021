@@ -125,8 +125,8 @@ const ContactNew = ({ formData, slice }) => {
     }
 
     // const data = new FormData(formDataFields)
-    const data = new FormData(e.target)
-    const legendData = [...document.querySelectorAll('.legendData')]
+    const data = new FormData(e.target, e.legend)
+    // const legendData = FormData(e.legend)
     const formDataEntries = Object.fromEntries(data.entries())
     // const formDataEntries = Object.fromEntries(data)
 
@@ -144,7 +144,6 @@ const ContactNew = ({ formData, slice }) => {
       // data: formDataEntries,
 
       body: encode({
-        legendData,
         ...formDataEntries,
       }),
     })
@@ -307,7 +306,7 @@ const ContactNew = ({ formData, slice }) => {
                         }
                       >
                         <legend
-                          className="legendData"
+                          id={formDataFields[index].id}
                           aria-describedby={
                             formDataFields[index].primary.described_by &&
                             `Described by ${formDataFields[index].primary.described_by}`
@@ -345,7 +344,7 @@ const ContactNew = ({ formData, slice }) => {
                         }
                       >
                         <legend
-                          className="legendData"
+                          id={formDataFields[index].id}
                           aria-describedby={
                             formDataFields[index].primary.described &&
                             `Described by ${formDataFields[index].primary.described}`
