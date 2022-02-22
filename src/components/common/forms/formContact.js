@@ -350,7 +350,6 @@ const ContactNew = ({ formData, slice }) => {
                             `Described by ${formDataFields[index].primary.described}`
                           }
                           aria-invalid="false"
-                          name={formDataFields[index].primary.title.text}
                         >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (
