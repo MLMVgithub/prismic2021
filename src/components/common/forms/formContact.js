@@ -336,7 +336,7 @@ const ContactNew = ({ formData, slice }) => {
                     {formDataFields[index].slice_type === 'radio_button' && (
                       <fieldset
                         key={formDataFields[index].id}
-                        id={formDataFields[index].id}
+                        // id={formDataFields[index].id}
                         className={
                           'radioBtns ' +
                           `${formDataFields[index].primary.align}`.toLowerCase() +
@@ -344,7 +344,7 @@ const ContactNew = ({ formData, slice }) => {
                         }
                       >
                         <legend
-                          // id={formDataFields[index].id}
+                          id={formDataFields[index].id}
                           aria-describedby={
                             formDataFields[index].primary.described &&
                             `Described by ${formDataFields[index].primary.described}`
