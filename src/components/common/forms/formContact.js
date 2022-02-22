@@ -126,9 +126,9 @@ const ContactNew = ({ formData, slice }) => {
 
     // const data = new FormData(formDataFields)
     const data = new FormData(e.target)
-    const legendData = new FormData(...document.querySelectorAll('.legendData'))
-    //const formDataEntries = Object.fromEntries(data.entries())
-    const formDataEntries = Object.fromEntries(data)
+    const legendData = [...document.querySelectorAll('.legendData')]
+    const formDataEntries = Object.fromEntries(data.entries())
+    // const formDataEntries = Object.fromEntries(data)
 
     console.log(formDataEntries)
 
