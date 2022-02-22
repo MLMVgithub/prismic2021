@@ -126,9 +126,7 @@ const ContactNew = ({ formData, slice }) => {
 
     // const data = new FormData(formDataFields)
     const data = new FormData(e.target, e.legend)
-    // const legendData = FormData(e.legend)
-    const formDataEntries = Object.fromEntries(data.entries())
-    // const formDataEntries = Object.fromEntries(data)
+    const formDataEntries = Object.fromEntries(data)
 
     console.log(formDataEntries)
 
