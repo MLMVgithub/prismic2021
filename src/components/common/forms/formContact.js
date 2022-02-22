@@ -125,7 +125,7 @@ const ContactNew = ({ formData, slice }) => {
     }
 
     // const data = new FormData(formDataFields)
-    // const data = new FormData(e.target, e.legend.text)
+    // const data = new FormData(e.target)
 
     let myForm = document.getElementById('form')
     const data = new FormData(myForm)
@@ -144,7 +144,7 @@ const ContactNew = ({ formData, slice }) => {
       // data: formDataEntries,
 
       body: encode({
-        formDataEntries,
+        ...formDataEntries,
       }),
     })
       .then((res) => {
@@ -306,12 +306,12 @@ const ContactNew = ({ formData, slice }) => {
                         }
                       >
                         <legend
-                          id={formDataFields[index].id}
+                          // id={formDataFields[index].id}
                           aria-describedby={
                             formDataFields[index].primary.described_by &&
                             `Described by ${formDataFields[index].primary.described_by}`
                           }
-                          aria-invalid="false"
+                          //aria-invalid="false"
                         >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (
@@ -344,12 +344,12 @@ const ContactNew = ({ formData, slice }) => {
                         }
                       >
                         <legend
-                          id={formDataFields[index].id}
+                          // id={formDataFields[index].id}
                           aria-describedby={
                             formDataFields[index].primary.described &&
                             `Described by ${formDataFields[index].primary.described}`
                           }
-                          aria-invalid="false"
+                          //aria-invalid="false"
                         >
                           {formDataFields[index].primary.title.text}
                           {formDataFields[index].primary.required === true && (

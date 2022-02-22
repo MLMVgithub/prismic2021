@@ -5,10 +5,17 @@ const RadioBtn = ({ id, label, input, meta, onClick }) => {
   const { dirty, invalid } = meta
   const hasValue = !!dirty && !invalid
 
+  // return (
+  //   <label key={id} htmlFor={id} className={`${hasValue ? 'touched' : ''}`}>
+  //     {label}
+  //     <input type="radio" id={id} name={name} value={label} onClick={onClick} />
+  //   </label>
+  // )
+
   return (
-    <label key={id} htmlFor={id} className={`${hasValue ? 'touched' : ''}`}>
+    <label key={id} className={`${hasValue ? 'touched' : ''}`}>
       {label}
-      <input type="radio" id={id} name={name} value={label} onClick={onClick} />
+      <input type="radio" name={name} value={label} onClick={onClick} />
     </label>
   )
 }
