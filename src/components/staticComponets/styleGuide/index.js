@@ -6,6 +6,11 @@ import styled from 'styled-components'
 
 const StyleGuide = styled.section`
 
+h3 {
+      align-self: flex-start;
+      margin-bottom: ${({ theme }) => theme.margin['1/4']};
+}
+
   margin: ${({ theme }) => theme.margin.default} 0;
 
   padding: 0 ${({ theme }) => theme.padding['1/2']};
@@ -126,47 +131,73 @@ const StyleGuide = styled.section`
       }
     }
   }
+  
+
+  .widths {
+    margin: 0;
+    max-width: 100% !important;
+      div {
+      /* display: flex;
+      flex-direction: row;
+      align-items: center;
+      grid-gap: ${({ theme }) => theme.padding['1/4']}; */
+       div {
+        height: ${({ theme }) => theme.padding['1/2']};
+        margin: ${({ theme }) => theme.padding['1/4']} 0;
+        background-color: ${({ theme }) => theme.colors.card.default}
+      }
+    }
+  }
+
+}
 `
 
 const Styleguide = () => {
   return (
     <StyleGuide className="section-layout slim">
-      <div className="intro">
-        <h1>Style guide</h1>
-        <p>
-          This style guide is a reference for key design elements of the website. This includes its
-          colour scheme, typography, spacing, icons, imagery, and the visual language. It is
-          reccommended to include new and updated styles on this page.
-        </p>
-        <div className="section">
+      <>
+        <div className="section intro">
+          <h1>Style guide</h1>
           <p>
-            <strong>Typography</strong>
-            <br />
+            This style guide is a reference for key design elements of the website. This includes
+            its colour scheme, typography, spacing, icons, imagery, and the visual language. It is
+            reccommended to include new and updated styles on this page.
+          </p>
+        </div>
+
+        <div className="section">
+          <h2>Typography</h2>
+          <p>
             Fonts are selected and preloaded from Google Font library along with icons from Material
             Icons. For consistency, avoid applying a bold style to heading fonts.
+          </p>
+
+          <p>
+            Font sizing is set to Major third - 1.250 as computed at{' '}
+            <a href="https://type-scale.com/">https://type-scale.com/</a>
           </p>
           <p>
             To select icons, go to{' '}
             <a href="https://fonts.google.com/icons">Material Icons Libray</a> and select rounded
             style, copy and pass in the icon CSS name as a paramater. Eg; 'Contact Page will be
-            'contact_page'.{' '}
+            'contact_page'.
           </p>
           <div className="typographyStyles">
             <h1>Heading 1 - slab 'Rokkitt, serif'</h1>
             <h2>Heading 2 - slab 'Rokkitt, serif'</h2>
-            <h3>Heading 3 - sans 'Roboto, sans-serif'</h3>
-            <h4>Heading 4 - sans 'Roboto, sans-serif'</h4>
-            <h5>Heading 5 - sans 'Roboto, sans-serif'</h5>
-            <p>Paragraph - sans 'Roboto, sans-serif'</p>
+            <h3>Heading 3 - sans 'Open Sans, sans-serif'</h3>
+            <h4>Heading 4 - sans 'Open Sans, sans-serif'</h4>
+            <h5>Heading 5 - sans 'Open Sans, sans-serif'</h5>
+            <p>Paragraph - sans 'Open Sans, sans-serif'</p>
             <p className="serif">Serif - '"Bodoni Moda", serif'</p>
             <p className="mono">Mono - 'Menlo', 'Monaco'</p>
           </div>
         </div>
 
         <div className="section cta">
+          <h2>Call to action (CTA)</h2>
           <p>
-            <strong>Call to action (CTA)</strong>
-            <br />A button can accept the following parameters:
+            A button can accept the following parameters:
             <ul>
               <li>buttonLabel - The label for the button</li>
               <li>
@@ -354,10 +385,10 @@ const Styleguide = () => {
         </div>
 
         <div className="section">
+          <h2>Colours</h2>
           <p>
-            <strong>Colours</strong>
-            <br /> Website colours are predefined and restricted to keep consistincy and ensure
-            colours are matched as close as an be as complementarities.
+            Website colours are predefined and restricted to keep consistincy and match their
+            complementarities.
           </p>
           <ul>
             <li>Page - Text colour</li>
@@ -370,15 +401,13 @@ const Styleguide = () => {
             <li>Footer</li>
             <li>Alerts</li>
           </ul>
-          <p>
+          {/* <p>
             All colors have a tint value from 900 - 100 with the expetion of Alert colours. Primary,
             Seconday and Tertiary colours have an additional shade value from 1100 - 1300
-          </p>
+          </p> */}
           <div className="colors">
-            <p>
-              <strong>Page</strong>
-            </p>
-            <span className="background-page-default default dark">Page default</span>
+            <h3>Page</h3>
+            <span className="background-page-default dark">Page default (Text colour default)</span>
             <span className="background-page-900 dark">Page 900</span>
             <span className="background-page-800 dark">Page 800</span>
             <span className="background-page-700 dark">Page 700</span>
@@ -388,12 +417,11 @@ const Styleguide = () => {
             <span className="background-page-300">Page 300</span>
             <span className="background-page-200">Page 200</span>
             <span className="background-page-100">Page 100</span>
+            <span className="background-page-bground-default">Page background default</span>
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Primary</strong>
-            </p>
+            <h3>Primary</h3>
             <span className="background-primary-1300 dark">Primary 1300</span>
             <span className="background-primary-1200 dark">Primary 1200</span>
             <span className="background-primary-1100 dark">Primary 1100</span>
@@ -410,9 +438,7 @@ const Styleguide = () => {
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Secondary</strong>
-            </p>
+            <h3>Secondary</h3>
             <span className="background-secondary-1300 dark">Secondary 1300</span>
             <span className="background-secondary-1200 dark">Secondary 1200</span>
             <span className="background-secondary-1100 dark">Secondary 1100</span>
@@ -429,9 +455,7 @@ const Styleguide = () => {
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Tertiary</strong>
-            </p>
+            <h3>Tertiary</h3>
             <span className="background-tertiary-1300">Tertiary 1300</span>
             <span className="background-tertiary-1200">Tertiary 1200</span>
             <span className="background-tertiary-1100">Tertiary 1100</span>
@@ -448,9 +472,7 @@ const Styleguide = () => {
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Grey</strong>
-            </p>
+            <h3>Grey</h3>
             <span className="background-grey-default default dark">Grey default</span>
             <span className="background-grey-900 dark">Grey 900</span>
             <span className="background-grey-800 dark">Grey 800</span>
@@ -464,9 +486,7 @@ const Styleguide = () => {
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Card</strong>
-            </p>
+            <h3>Card</h3>
             <span className="background-card-default default dark">Card default</span>
             <span className="background-card-900 dark">Card 900</span>
             <span className="background-card-800 dark">Card 800</span>
@@ -480,86 +500,83 @@ const Styleguide = () => {
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Header</strong>
-            </p>
-            <span className="background-header-bground-default default dark">Header default</span>
-            <span className="background-header-bground-900 dark">Header 900</span>
-            <span className="background-header-bground-800 dark">Header 800</span>
-            <span className="background-header-bground-700 dark">Header 700</span>
-            <span className="background-header-bground-600 dark">Header 600</span>
-            <span className="background-header-bground-500 dark">Header 500</span>
-            <span className="background-header-bground-400">Header 400</span>
-            <span className="background-header-bground-300">Header 300</span>
-            <span className="background-header-bground-200">Header 200</span>
-            <span className="background-header-bground-100">Header 100</span>
+            <h3>Header</h3>
+            <span className="background-header-1300 dark">Header 1300</span>
+            <span className="background-header-1200 dark">Header 1200</span>
+            <span className="background-header-1100 dark">Header 1100</span>
+            <span className="background-header-default default dark">Header default</span>
+            <span className="background-header-900 dark">Header 900</span>
+            <span className="background-header-800 dark">Header 800</span>
+            <span className="background-header-700 dark">Header 700</span>
+            <span className="background-header-600 dark">Header 600</span>
+            <span className="background-header-500 dark">Header 500</span>
+            <span className="background-header-400">Header 400</span>
+            <span className="background-header-300">Header 300</span>
+            <span className="background-header-200">Header 200</span>
+            <span className="background-header-100">Header 100</span>
           </div>
 
           <div className="colors">
-            <p>
-              <strong>Footer</strong>
-            </p>
-            <span className="background-footer-bground-default default dark">Footer default</span>
-            <span className="background-footer-bground-900 dark">Footer 900</span>
-            <span className="background-footer-bground-800 dark">Footer 800</span>
-            <span className="background-footer-bground-700 dark">Footer 700</span>
-            <span className="background-footer-bground-600 dark">Footer 600</span>
-            <span className="background-footer-bground-500 dark">Footer 500</span>
-            <span className="background-footer-bground-400">Footer 400</span>
-            <span className="background-footer-bground-300">Footer 300</span>
-            <span className="background-footer-bground-200">Footer 200</span>
-            <span className="background-footer-bground-100">Footer 100</span>
+            <h3>Footer</h3>
+            <span className="background-footer-1300 dark">Footer 1300</span>
+            <span className="background-footer-1200 dark">Footer 1200</span>
+            <span className="background-footer-1100 dark">Footer 1100</span>
+            <span className="background-footer-default default dark">Footer default</span>
+            <span className="background-footer-900 dark">Footer 900</span>
+            <span className="background-footer-800 dark">Footer 800</span>
+            <span className="background-footer-700 dark">Footer 700</span>
+            <span className="background-footer-600 dark">Footer 600</span>
+            <span className="background-footer-500 dark">Footer 500</span>
+            <span className="background-footer-400">Footer 400</span>
+            <span className="background-footer-300">Footer 300</span>
+            <span className="background-footer-200">Footer 200</span>
+            <span className="background-footer-100">Footer 100</span>
           </div>
-        </div>
-        <div className="colors">
-          <p>
-            <strong>Alerts</strong>
-          </p>
-          <span className="background-alert-tomato default dark">Tomato</span>
-        </div>
 
-        <div className="colors">
-          <span className="background-alert-l1-default default dark">Alert Level 1 default</span>
-          <span className="background-alert-l1-1100 dark">Alert Level 1 1100</span>
-          <span className="background-alert-l1-1200 dark">Alert Level 1 1200</span>
-          <span className="background-alert-l1-1300 dark">Alert Level 1 1300</span>
-        </div>
+          <div className="colors">
+            <h3>Alerts</h3>
+            <span className="background-alert-tomato default dark">Tomato</span>
+          </div>
 
-        <div className="colors">
-          <span className="background-alert-l2-default default dark">Alert Level 2 default</span>
-          <span className="background-alert-l2-1100 dark">Alert Level 2 1100</span>
-          <span className="background-alert-l2-1200 dark">Alert Level 2 1200</span>
-          <span className="background-alert-l2-1300 dark">Alert Level 2 1300</span>
-        </div>
+          <div className="colors">
+            <span className="background-alert-l1-default default dark">Alert Level 1 default</span>
+            <span className="background-alert-l1-1100 dark">Alert Level 1 1100</span>
+            <span className="background-alert-l1-1200 dark">Alert Level 1 1200</span>
+            <span className="background-alert-l1-1300 dark">Alert Level 1 1300</span>
+          </div>
 
-        <div className="colors">
-          <span className="background-alert-l3-default default">Alert Level 3 default</span>
-          <span className="background-alert-l3-1100">Alert Level 3 1100</span>
-          <span className="background-alert-l3-1200">Alert Level 3 1200</span>
-          <span className="background-alert-l3-1300">Alert Level 3 1300</span>
-        </div>
+          <div className="colors">
+            <span className="background-alert-l2-default default dark">Alert Level 2 default</span>
+            <span className="background-alert-l2-1100 dark">Alert Level 2 1100</span>
+            <span className="background-alert-l2-1200 dark">Alert Level 2 1200</span>
+            <span className="background-alert-l2-1300 dark">Alert Level 2 1300</span>
+          </div>
 
-        <div className="colors">
-          <span className="background-alert-l4-default default dark">Alert Level 4 default</span>
-          <span className="background-alert-l4-1100 dark">Alert Level 4 1100</span>
-          <span className="background-alert-l4-1200 dark">Alert Level 4 1200</span>
-          <span className="background-alert-l4-1300 dark">Alert Level 4 1300</span>
-        </div>
+          <div className="colors">
+            <span className="background-alert-l3-default default">Alert Level 3 default</span>
+            <span className="background-alert-l3-1100">Alert Level 3 1100</span>
+            <span className="background-alert-l3-1200">Alert Level 3 1200</span>
+            <span className="background-alert-l3-1300">Alert Level 3 1300</span>
+          </div>
 
-        <div className="colors">
-          <span className="background-alert-l5-default default dark">Alert Level 5 default</span>
-          <span className="background-alert-l5-1100 dark">Alert Level 5 1100</span>
-          <span className="background-alert-l5-1200 dark">Alert Level 5 1200</span>
-          <span className="background-alert-l5-1300 dark">Alert Level 5 1300</span>
+          <div className="colors">
+            <span className="background-alert-l4-default default dark">Alert Level 4 default</span>
+            <span className="background-alert-l4-1100 dark">Alert Level 4 1100</span>
+            <span className="background-alert-l4-1200 dark">Alert Level 4 1200</span>
+            <span className="background-alert-l4-1300 dark">Alert Level 4 1300</span>
+          </div>
+
+          <div className="colors">
+            <span className="background-alert-l5-default default dark">Alert Level 5 default</span>
+            <span className="background-alert-l5-1100 dark">Alert Level 5 1100</span>
+            <span className="background-alert-l5-1200 dark">Alert Level 5 1200</span>
+            <span className="background-alert-l5-1300 dark">Alert Level 5 1300</span>
+          </div>
         </div>
 
         <div className="section padding">
-          <p>
-            <strong>Padding and margins</strong>
-            <br />
-            The default padding and margin is 32px with variants to reduce or expand.
-          </p>
-
+          <h2>Padding and margins</h2>
+          <p>The default padding and margin is 32px with variants to reduce or expand.</p>
           <div>
             <span className="padding sixteenth"></span>
             1/16 - 2px
@@ -597,7 +614,41 @@ const Styleguide = () => {
             4XL - 64px
           </div>
         </div>
-      </div>
+
+        <div className="section widths">
+          <h2>Content widths</h2>
+          {/* <p>The default padding and margin is 32px with variants to reduce or expand.</p> */}
+          <div className="section-layout skinny">
+            Skinny - Max width = 576px
+            <div> </div>
+          </div>
+          <div className="section-layout slim">
+            Slim - Max width = 768px
+            <div></div>
+          </div>
+          <div className="section-layout default">
+            Default - Max width = 992px
+            <div></div>
+          </div>
+          <div className="section-layout large">
+            Large - Max width = 1200px
+            <div></div>
+          </div>
+          <div className="section-layout wide">
+            Wide - Max width = 1366px
+            <div></div>
+          </div>
+          <div className="section-layout extraWide">
+            Extra Wide - Max width = 1680px
+            <div></div>
+          </div>
+
+          <div className="section-layout full">
+            Full width - Max width = 100%
+            <div></div>
+          </div>
+        </div>
+      </>
     </StyleGuide>
   )
 }

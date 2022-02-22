@@ -455,8 +455,9 @@ export const GlobalStyles = createGlobalStyle`
 
   // Page
   .background-page-default {
-    background-color: ${({ theme }) => theme.colors.page.bground.default}; 
+    background-color: ${({ theme }) => theme.colors.page.default}; 
   }
+
 
   .background-page-100 {
     background-color: ${({ theme }) => theme.colors.page[100]}; 
@@ -485,6 +486,10 @@ export const GlobalStyles = createGlobalStyle`
   .background-page-900 {
     background-color: ${({ theme }) => theme.colors.page[900]}; 
   }
+  .background-page-bground-default {
+    background-color: ${({ theme }) => theme.colors.page.bground.default}; 
+  }
+
   //
   // Primary
   .background-primary-default {
