@@ -124,9 +124,9 @@ const ContactNew = ({ formData, slice }) => {
       }
     }
 
-    const data = new FormData(formDataFields)
-    // const data = new FormData(e.target)
-    // const legendData = new FormData(...document.querySelectorAll('.legendData'))
+    // const data = new FormData(formDataFields)
+    const data = new FormData(e.target)
+    const legendData = new FormData(...document.querySelectorAll('.legendData'))
     const formDataEntries = Object.fromEntries(data.entries())
 
     console.log(formDataEntries)
@@ -143,6 +143,7 @@ const ContactNew = ({ formData, slice }) => {
       // data: formDataEntries,
 
       body: encode({
+        legendData,
         ...formDataEntries,
       }),
     })
