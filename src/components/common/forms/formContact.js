@@ -125,7 +125,11 @@ const ContactNew = ({ formData, slice }) => {
     }
 
     // const data = new FormData(formDataFields)
-    const data = new FormData(e.target, e.legend)
+    // const data = new FormData(e.target, e.legend.text)
+
+    let myForm = document.getElementById('form')
+    const data = new FormData(myForm)
+
     const formDataEntries = Object.fromEntries(data)
 
     console.log(formDataEntries)
