@@ -12,9 +12,9 @@ const RadioBtn = ({ id, label, input, meta, onClick }) => {
   //   </label>
   // )
 
-  // Removed 'for' in the label and id in  the input as reccomended here...
+  // Removed 'for' in the label and 'id' in the input as reccomended here...
   // answers.netlify.com/t/checkboxes-and-radio-buttons-in-forms/1486
-  // Reason, so Netlify will post the 'legend' text as a label
+  // Reason, so Netlify will post the 'legend' text as a label in the submission email
 
   return (
     <label key={id} className={`${hasValue ? 'touched' : ''}`}>
