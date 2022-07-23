@@ -53,6 +53,7 @@ const Header = styled.header`
         min-width: 75px;
         width: 75px;
         height: 75px;
+        z-index: 0;
         border-radius: 999rem;
         overflow: hidden;
         /* border: 2px solid ${({ theme }) => theme.colors.secondary[400]}; */
