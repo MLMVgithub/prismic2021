@@ -302,7 +302,8 @@ const ItemContent = styled.article`
       height: 128px;
 
       aspect-ratio: 1;
-      border-radius: 100%;
+      border-radius: 999rem;
+      z-index: 0;
       /* border: 2px solid ${({ theme }) => theme.colors.secondary[400]}; */
       border: 1px solid ${({ theme }) => theme.colors.card[400]};
       margin: ${({ theme }) => theme.margin.default};
