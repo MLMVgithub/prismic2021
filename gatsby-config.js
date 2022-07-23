@@ -22,9 +22,7 @@ module.exports = {
 
   plugins: [
     `babel-plugin-styled-components`,
-
     `gatsby-plugin-styled-components`,
-
     'gatsby-plugin-sass',
 
     {
