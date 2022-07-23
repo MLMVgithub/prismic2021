@@ -21,9 +21,9 @@ module.exports = {
   },
 
   plugins: [
-    `babel-plugin-styled-components`,
-    `gatsby-plugin-styled-components`,
-    'gatsby-plugin-sass',
+    // `babel-plugin-styled-components`,
+    // `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sass`,
 
     {
       resolve: `gatsby-plugin-webfonts`,
@@ -173,7 +173,6 @@ module.exports = {
     //   },
     // },
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
