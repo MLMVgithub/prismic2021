@@ -16,7 +16,7 @@
     "content": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
         "allowTargetBlank": true,
         "label": "Content"
       }
@@ -25,7 +25,8 @@
       "type": "Link",
       "config": {
         "allowTargetBlank": true,
-        "label": "Web address"
+        "label": "Web address",
+        "select": null
       }
     },
     "phone": {
@@ -54,6 +55,14 @@
             "description": "General SEO fields, Title, Description and Image.",
             "icon": "art_track",
             "non-repeat": {
+              "no_index": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_true": "true",
+                  "default_value": false,
+                  "label": "No index"
+                }
+              },
               "title": {
                 "type": "StructuredText",
                 "config": {

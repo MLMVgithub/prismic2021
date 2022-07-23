@@ -433,6 +433,8 @@ const HeaderWrapper = styled.header`
                 background-color: ${({ theme }) => theme.colors.primary.default};
                 /* border: 1px solid ${({ theme }) => theme.colors.primary[1300]}; */
                 box-shadow: ${({ theme }) => theme.boxShadow.default};
+                /* color: ${({ theme }) => theme.colors.header.default}; */
+                color: #000000;
                 i {
                   display: none;
                 }

@@ -609,13 +609,6 @@
                   "placeholder": "Optional description"
                 }
               },
-              "button_label": {
-                "type": "Text",
-                "config": {
-                  "label": "Button label",
-                  "placeholder": "Button label"
-                }
-              },
               "button_link": {
                 "type": "Link",
                 "config": {
@@ -623,6 +616,13 @@
                   "placeholder": "Button link",
                   "select": null,
                   "allowTargetBlank": true
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button label",
+                  "placeholder": "Button label"
                 }
               },
               "button_style": {
@@ -816,7 +816,7 @@
                 "type": "Link",
                 "config": {
                   "select": "document",
-                  "customtypes": ["shared_content"],
+                  "customtypes": ["shared_content", "forms"],
                   "label": "Add media",
                   "placeholder": "Add a shared media item"
                 }
@@ -988,12 +988,34 @@
             "description": "Create a hero image with formating options",
             "icon": "filter_hdr",
             "non-repeat": {
+              "leading_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Leading image"
+                }
+              },
+              "leading_image_height": {
+                "type": "Number",
+                "config": {
+                  "label": "Leading image height",
+                  "placeholder": "64"
+                }
+              },
               "title": {
                 "type": "StructuredText",
                 "config": {
                   "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                   "label": "Title",
                   "placeholder": "Title"
+                }
+              },
+              "display_title": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": true,
+                  "label": "Display title"
                 }
               },
               "description": {
@@ -1204,7 +1226,7 @@
               "overlay_from_opacity": {
                 "type": "Number",
                 "config": {
-                  "label": "Transparent overlay opacity (from)",
+                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%)",
                   "placeholder": "33"
                 }
               },
@@ -1217,8 +1239,8 @@
               "overlay_to_opacity": {
                 "type": "Number",
                 "config": {
-                  "label": "Transparent overlay opacity (to)",
-                  "placeholder": "0"
+                  "label": "Transparent overlay - Opacity (0 - 100 - Default is 33%",
+                  "placeholder": "33"
                 }
               },
               "overlay_direction": {
@@ -1407,6 +1429,14 @@
             "description": "General SEO fields, Title, Description and Image.",
             "icon": "art_track",
             "non-repeat": {
+              "no_index": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_true": "true",
+                  "default_value": false,
+                  "label": "No index"
+                }
+              },
               "title": {
                 "type": "StructuredText",
                 "config": {

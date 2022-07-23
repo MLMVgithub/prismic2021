@@ -39,7 +39,8 @@ const PeerSupportersItem = ({ listStyle, thisItem, index, listLength }) => {
   const item = thisItem.item.document
   const content = thisItem.item.document.data
   const firstName = content.first_name.text
-  const fullName = content.first_name.text + ' ' + content.last_name.text
+  const fullName = content.first_name.text
+  //  const fullName = content.first_name.text + ' ' + content.last_name.text
   const intro = content.intro.text
   const location = content.location
   var tagData = thisItem.item.document.tags

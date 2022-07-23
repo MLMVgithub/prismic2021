@@ -142,10 +142,30 @@ export const query = graphql`
           ... on PrismicGeneralPageDataBodyHeroImage {
             slice_type
             primary {
+              leading_image {
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  placeholder: BLURRED
+                  imgixParams: {
+                    q: 75
+                    fill: "blur"
+                    fit: "crop"
+                    fm: "jpg, avif, webp, svg"
+                    nr: 20
+                    nrs: 50
+                    dpr: 3
+                    auto: "compress,format"
+                  }
+                )
+                alt
+              }
+              leading_image_height
+
               title {
                 text
                 richText
               }
+              display_title
               description {
                 richText
               }
@@ -696,6 +716,7 @@ export const query = graphql`
         body1 {
           ... on PrismicGeneralPageDataBody1GeneralSeoCard {
             primary {
+              no_index
               description {
                 text
               }

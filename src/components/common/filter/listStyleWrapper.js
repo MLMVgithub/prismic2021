@@ -2,14 +2,17 @@ import styled from 'styled-components'
 
 const ListStyleWrapper = styled.div`
   position: relative;
+  z-index: 100000;
 
   display: flex;
+  min-width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: ${({ theme }) => theme.padding['1/2']};
 
   > div {
-    padding: ${({ theme }) => theme.padding['1/2']} 0;
+    padding: 0;
     grid-gap: ${({ theme }) => theme.padding['1/4']};
     z-index: 100;
     display: flex;

@@ -17,17 +17,15 @@ const SupportersPage = ({ data, pageContext }) => {
   var nextTitle = null
   // console.log(next)
   if (next) {
-    nextTitle =
-      validateString(next.data.first_name.text) + ' ' + validateString(next.data.last_name.text)
+    nextTitle = validateString(next.data.first_name.text)
+    //  + ' ' + validateString(next.data.last_name.text)
   }
 
   // Validate and create Previous title
   var previousTitle = null
   if (previous) {
-    previousTitle =
-      validateString(previous.data.first_name.text) +
-      ' ' +
-      validateString(previous.data.last_name.text)
+    previousTitle = validateString(previous.data.first_name.text)
+    // ' ' + validateString(previous.data.last_name.text)
   }
   // console.log(pageContext)
 
@@ -342,6 +340,8 @@ export const query = graphql`
             body {
               ... on PrismicPeerSupportersDataBodyGeneralSeoCard {
                 primary {
+                  no_index
+
                   description {
                     text
                   }

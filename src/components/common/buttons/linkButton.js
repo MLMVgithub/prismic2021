@@ -32,7 +32,7 @@ const BtnWrapper = styled.span`
     padding: 16px ${({ theme }) => theme.padding.default};
     padding: 12px 24px;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-decoration: none !important;
     font-weight: 600;
     font-family: inherit;
@@ -64,6 +64,8 @@ const BtnWrapper = styled.span`
     box-shadow: ${({ theme }) => theme.boxShadow.lg};
   }
   .btn.primary {
+    /* color: ${({ theme }) => theme.colors.grey.default}; */
+    color: #000000;
     background-color: ${({ theme }) => theme.colors.primary.default};
     border: 1px solid ${({ theme }) => theme.colors.primary[1200]};
     i {

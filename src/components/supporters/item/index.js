@@ -168,8 +168,9 @@ const supportersItem = ({ currentLang, itemData }) => {
   const tagData = itemData.tags.sort()
   const supportersItem = itemData.data
   const firstName = validateString(supportersItem.first_name.text)
-  const lastName = validateString(supportersItem.last_name.text)
-  const fullName = firstName + ' ' + lastName
+  // const lastName = validateString(supportersItem.last_name.text)
+  const fullName = firstName
+  //  const fullName = firstName + ' ' + lastName
   const introText = validateString(supportersItem.intro.text)
   const mainContent = validateString(supportersItem.content.richText)
   const gender = validateString(supportersItem.gender)
@@ -177,7 +178,7 @@ const supportersItem = ({ currentLang, itemData }) => {
 
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
-    <Section contentSize={'lg'}>
+    <Section contentSize={'lg withSecondaryNav'}>
       <div>
         <Header>
           <div className="intro">

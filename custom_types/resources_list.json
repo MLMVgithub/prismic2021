@@ -89,6 +89,14 @@
             "description": "General SEO fields, Title, Description and Image.",
             "icon": "art_track",
             "non-repeat": {
+              "no_index": {
+                "type": "Boolean",
+                "config": {
+                  "placeholder_true": "true",
+                  "default_value": false,
+                  "label": "No index"
+                }
+              },
               "title": {
                 "type": "StructuredText",
                 "config": {

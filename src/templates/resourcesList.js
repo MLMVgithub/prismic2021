@@ -167,6 +167,7 @@ export const query = graphql`
         body1 {
           ... on PrismicResourcesListDataBody1GeneralSeoCard {
             primary {
+              no_index
               title {
                 text
               }

@@ -310,6 +310,7 @@ export const query = graphql`
             body {
               ... on PrismicEventsDataBodyGeneralSeoCard {
                 primary {
+                  no_index
                   description {
                     text
                   }

@@ -225,10 +225,10 @@ export const GlobalStyles = createGlobalStyle`
 
   h6,
   .styledh6 {
-     font-size: ${({ theme }) => theme.fontSize.lg};
+     /* font-size: ${({ theme }) => theme.fontSize.lg}; */
     font-family: ${({ theme }) => theme.font.sans};
     /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
-    font-weight: ${({ theme }) => theme.fontWeight.semibold};
+    /* font-weight: ${({ theme }) => theme.fontWeight.semibold}; */
   }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
@@ -264,7 +264,7 @@ export const GlobalStyles = createGlobalStyle`
 
     h6,
     .styledh6 {
-       font-size: ${({ theme }) => theme.fontSize.lg};
+       /* font-size: ${({ theme }) => theme.fontSize.lg}; */
       /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
     }
 
@@ -456,9 +456,7 @@ export const GlobalStyles = createGlobalStyle`
   // Page
   .background-page-default {
     background-color: ${({ theme }) => theme.colors.page.default}; 
-  }
-
-
+  }a
   .background-page-100 {
     background-color: ${({ theme }) => theme.colors.page[100]}; 
   }
@@ -486,10 +484,7 @@ export const GlobalStyles = createGlobalStyle`
   .background-page-900 {
     background-color: ${({ theme }) => theme.colors.page[900]}; 
   }
-  .background-page-bground-default {
-    background-color: ${({ theme }) => theme.colors.page.bground.default}; 
-  }
-
+ 
   //
   // Primary
   .background-primary-default {

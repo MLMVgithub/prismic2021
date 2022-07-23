@@ -318,8 +318,8 @@ const FormWraper = styled.div`
     input[type='radio'] {
       margin-top: -1px;
       appearance: none;
-      --active: ${({ theme }) => theme.colors.primary.default};
-      --active-inner: #fff;
+      --active: ${({ theme }) => theme.colors.primary['700']};
+      --active-inner: #000000;
       --border: ${({ theme }) => theme.colors.grey[200]};
       --background: ${({ theme }) => theme.colors.card[100]};
       --disabled: ${({ theme }) => theme.colors.grey[100]};

@@ -207,7 +207,7 @@ const EventItem = ({ currentLang, itemData }) => {
 
   return (
     // Set content width - xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'full'
-    <Section contentSize={'lg'}>
+    <Section contentSize={'lg withSecondaryNav'}>
       <div>
         <Header>
           <div className="intro">

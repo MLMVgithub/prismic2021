@@ -21,6 +21,7 @@
 // Return list style
 // Return opacity value
 // Return rgb2hex
+// Return rgbOnly2Hex
 // Return contrast
 // Return overlay (gradient) direction
 // Return bGround postion direction
@@ -513,6 +514,7 @@ export function getOpacity(value) {
 //     .join('')}`
 //
 
+// rgba
 export const getRgb2Hex = (rgba) =>
   `#${rgba
     .match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/)
@@ -525,6 +527,14 @@ export const getRgb2Hex = (rgba) =>
     )
     .join('')}`
 //
+
+// rgb
+export const getRgbOnly2Hex = (rgb) =>
+  `#${rgb
+    .match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
+    .slice(1)
+    .map((n) => parseInt(n, 10).toString(16).padStart(2, '0'))
+    .join('')}`
 
 // Return hexToRGB value
 export function getHexToRGB(color, opacity) {
