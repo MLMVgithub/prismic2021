@@ -1,28 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="718px" height="718px" viewBox="0 0 718 718" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Group 20</title>
-    <defs>
-        <filter x="-3.3%" y="-2.9%" width="106.6%" height="105.8%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-20">
-            <circle id="Oval" cx="359" cy="359" r="359"></circle>
-            <g id="Group-5-Copy-7" transform="translate(122.000000, 151.000000)">
-                <g id="Group-18" filter="url(#filter-1)" transform="translate(56.000000, 0.000000)">
-                    <polygon id="Fill-1" fill="#E07C51" points="0 0 109.257267 317 147 207.490585 75.4874529 0"></polygon>
-                    <polygon id="Fill-4" fill="#CEE007" points="285.690909 0 143 417 218.309091 417 361 0"></polygon>
-                </g>
-                <polygon id="Fill-2" fill="#51B5E0" points="400 248.215196 400 417 475 417 475 29"></polygon>
-                <polygon id="Fill-3" fill="#51B5E0" points="0 417 75 417 75 254.842582 0 35"></polygon>
-            </g>
-        </g>
-    </g>
+<svg width="171" height="149" viewBox="0 0 171 149" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M84.9999 112.32C64.9999 119.79 42.2799 105.95 35.2399 86.4999C28.0399 69.2099 34.0599 45.8499 50.1699 36.3599C53.5631 33.8557 57.5979 32.3671 61.8045 32.0671C66.011 31.7672 70.2162 32.6683 73.9305 34.6657C77.6447 36.663 80.7151 39.6744 82.7842 43.3492C84.8533 47.0239 85.8361 51.2108 85.6179 55.4223C85.3997 59.6339 83.9896 63.6969 81.5518 67.1381C79.1141 70.5794 75.7489 73.2573 71.8482 74.8602C67.9474 76.4631 63.6717 76.9249 59.5186 76.1919C55.3656 75.4589 51.5063 73.5613 48.3899 70.7199C48.9456 74.0427 49.8196 77.3044 50.9999 80.4599C56.5799 95.5699 69.7899 106.46 84.9999 112.32Z" fill="#40B2FC"/>
+<path d="M121.12 112.28C117.736 114.811 113.701 116.326 109.488 116.65C105.275 116.973 101.056 116.091 97.3252 114.107C93.5943 112.122 90.505 109.117 88.4182 105.443C86.3313 101.768 85.333 97.5757 85.5399 93.355C85.7467 89.1342 87.1502 85.0594 89.5863 81.6065C92.0225 78.1536 95.3908 75.4651 99.2979 73.855C103.205 72.2448 107.49 71.7796 111.651 72.5135C115.813 73.2475 119.68 75.1503 122.8 77.9999C122.234 74.6826 121.36 71.4252 120.19 68.2698C114.62 53.1598 101.41 42.2698 86.1901 36.3999C106.19 28.9399 128.89 42.7699 135.95 62.2199C143.12 79.4699 137.15 102.77 121.11 112.31" fill="#40B2FC"/>
 </svg>
