@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 
-import { defaultTheme } from './default'
+import { defaultTheme } from './default/index'
 
 export const theme = defaultTheme
 // export const typography = defaultTypography
