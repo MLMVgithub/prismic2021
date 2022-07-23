@@ -167,6 +167,9 @@ const HeroImage = styled.section.attrs({
                max-width: 100% !important;
                /* max-width:auto !important */
             }
+            img {
+               object-fit: contain;
+            }
           }
           
 
@@ -396,7 +399,6 @@ const HeroImg = ({ slice }) => {
                     image={leadImage}
                     alt={leadImage_alt ? leadImage_alt : 'Placeholder image'}
                     style={{
-                      objectFit: 'contain',
                       height: leadImageHeight,
                     }}
                   />
