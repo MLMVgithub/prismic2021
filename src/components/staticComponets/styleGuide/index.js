@@ -103,13 +103,15 @@ const Styleguide = () => {
             { id: 'spacing', name: 'Spacing' },
           ]}
         />
-        <ScrollSpy offsetTop={300} offsetBottom={300}>
-          <Intro spyID={'intro'} />
-          <Typography spyID={'typography'} />
-          <Cta spyID={'ctas'} />
-          <Color spyID={'color'} />
-          <Spacing spyID={'spacing'} />
-        </ScrollSpy>
+        {typeof window !== 'undefined' && (
+          <ScrollSpy offsetTop={300} offsetBottom={300}>
+            <Intro spyID={'intro'} />
+            <Typography spyID={'typography'} />
+            <Cta spyID={'ctas'} />
+            <Color spyID={'color'} />
+            <Spacing spyID={'spacing'} />
+          </ScrollSpy>
+        )}
       </StyleGuide>
     </ContentWrapper>
   )
