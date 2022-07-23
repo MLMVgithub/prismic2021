@@ -396,6 +396,7 @@ const HeroImg = ({ slice }) => {
                     image={leadImage}
                     alt={leadImage_alt ? leadImage_alt : 'Placeholder image'}
                     style={{
+                      objectFit: 'contain',
                       height: leadImageHeight,
                     }}
                   />
