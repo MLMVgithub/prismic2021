@@ -45,10 +45,9 @@ export const defaultTheme = {
       1100: '#12171b',
       1200: '#101418',
       1300: '#0e1215',
+
       bground: {
-        // default: '#ffffff',
         default: '#fcfcfc',
-        // default: '#f7fafc',
       },
     },
 
@@ -86,7 +85,7 @@ export const defaultTheme = {
     //   1300: '#20566d',
     // },
 
-    // @Secondary - orange - old
+    // @Secondary - orange
     secondary: {
       default: '#C35322',
       100: '#F9EDE8',
