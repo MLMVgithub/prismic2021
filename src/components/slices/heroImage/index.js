@@ -162,13 +162,14 @@ const HeroImage = styled.section.attrs({
             display: flex;
             max-width: fit-content;
            /* min-width:auto !important; */
+           object-fit: contain !important;
             margin: ${({ theme }) => theme.padding['1/2']} auto 0 auto;
             > div {
                max-width: 100% !important;
                /* max-width:auto !important */
             }
             img {
-               object-fit: contain;
+               object-fit: contain !important;
             }
           }
           
