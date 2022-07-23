@@ -45,7 +45,6 @@ export const defaultTheme = {
       1100: '#12171b',
       1200: '#101418',
       1300: '#0e1215',
-
       bground: {
         default: '#fcfcfc',
       },
