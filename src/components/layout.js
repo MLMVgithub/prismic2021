@@ -53,9 +53,14 @@ const LayoutWrapper = styled.div`
 `
 const Layout = ({ children, currentLang, primaryNav, footerNav }) => {
   var pathName = ''
-  if (typeof window !== 'undefined') {
+
+  if (window !== 'undefined') {
     pathName = window.location.pathname
   }
+
+  // if (typeof window !== 'undefined') {
+  //   pathName = window.location.pathname
+  // }
 
   // Get the current prefix path ( used for a home btton)
   var currentPrefix = getCurrentPrefix(currentLang)
