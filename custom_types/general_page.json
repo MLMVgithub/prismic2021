@@ -196,6 +196,13 @@
                   "placeholder": "Please choose (Default is left"
                 }
               },
+              "stack_buttons": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Stack buttons"
+                }
+              },
               "default_padding": {
                 "type": "Select",
                 "config": {
@@ -695,6 +702,13 @@
                 "config": {
                   "label": "Secondary button icon",
                   "placeholder": "Optional - Choose from Google Material Icons"
+                }
+              },
+              "stack_buttons": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Stack buttons"
                 }
               },
               "secondary_button_icon_align": {

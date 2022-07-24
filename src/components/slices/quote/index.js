@@ -36,14 +36,23 @@ const QuoteWrapper = styled.section`
       padding: 0;
       margin: 0;
       display: flex;
+      width: auto;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       grid-gap: ${({ theme }) => theme.padding.default};
+
+      @media (max-width: ${({ theme }) => theme.screens.sm}) {
+        flex-direction: column;
+      }
       > div {
         display: inherit;
-        flex-direction: inherit;
-        width: auto;
+        flex-direction: column;
+        width: 48%;
+        @media (max-width: ${({ theme }) => theme.screens.sm}) {
+          width: 100%;
+        }
+
         grid-gap: ${({ theme }) => theme.padding.default};
       }
     }
@@ -58,21 +67,21 @@ const QuoteWrapper = styled.section`
 `
 
 const BlockQuote = styled.blockquote`
-
-  width: fit-content;
+  /* width: fit-content; */
+  width: auto;
   display: flex;
   position: relative;
   flex-direction: column;
   grid-gap: ${({ theme }) => theme.padding['1/4']};
   align-items: flex-start;
-  margin: 0 ;
+  margin: 0;
   border-left: 4px solid ${({ theme }) => theme.colors.tertiary.default};
   padding: ${({ theme }) => theme.padding['1/2']} ${({ theme }) => theme.padding.default};
 
   p {
     font-family: ${({ theme }) => theme.font.serif};
     font-style: italic;
-    font-size:  100%;
+    font-size: 100%;
   }
 
   span,
@@ -87,21 +96,19 @@ const BlockQuote = styled.blockquote`
     text-decoration: none;
   }
   span {
-      font-weight: 500;
+    font-weight: 500;
   }
 
- > i {
+  > i {
     align-self: center;
     position: absolute;
     color: ${({ theme }) => theme.colors.page.default};
     background-color: ${({ theme }) => theme.colors.tertiary.default};
     font-size: 28px;
-    left:-16px;
+    left: -16px;
     transform: scaleX(-1);
     border-radius: 999rem;
   }
-
-}
 `
 
 const Quotes = ({ slice }) => {
@@ -148,6 +155,7 @@ const Quotes = ({ slice }) => {
 
   // Content
   const title = slice.primary.title
+  const titleAlign = slice.primary.align
 
   return (
     <QuoteWrapper
@@ -161,7 +169,7 @@ const Quotes = ({ slice }) => {
       <div>
         {title.text && (
           <span className="title">
-            <p>{title.text}</p>
+            <p style={{ textAlign: titleAlign !== null && titleAlign }}>{title.text}</p>
           </span>
         )}
 

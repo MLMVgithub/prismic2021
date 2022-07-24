@@ -77,16 +77,28 @@ const TextBlock = styled.section`
   .cta.left {
     margin-left: 0;
     margin-right: auto;
+    span {
+      margin-left: 0;
+      margin-right: auto;
+    }
   }
 
   .cta.center {
     margin-left: auto;
     margin-right: auto;
+    span {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .cta.right {
     margin-left: auto;
     margin-right: 0;
+    span {
+      margin-left: auto;
+      margin-right: 0;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
@@ -178,6 +190,9 @@ const Text = ({ slice }) => {
   // Validate button align
   const buttonAlign = getPostionAlign(slice.primary.button_alignment)
 
+  // Stack buttons
+  const stackButtons = slice.primary.stack_buttons
+
   return (
     <TextBlock
       id={sectionID}
@@ -217,7 +232,10 @@ const Text = ({ slice }) => {
         )}
 
         {(primaryButtonLabel || secondaryButtonLabel) && (
-          <span className={`cta ${buttonAlign}`}>
+          <span
+            className={`cta ${buttonAlign}`}
+            style={{ flexDirection: stackButtons === true && 'column' }}
+          >
             {/* Primary Button */}
             {primaryButtonLabel && (
               <Button

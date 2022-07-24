@@ -149,10 +149,10 @@ const Highlight = styled.section`
     }
 
     .content.txt-right {
-      text-align: right;
+      text-align: left;
 
       span.cta {
-        margin-left: auto;
+        margin-right: auto;
       }
     }
 

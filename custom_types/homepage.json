@@ -196,6 +196,13 @@
                   "placeholder": "Please choose (Default is left"
                 }
               },
+              "stack_buttons": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Stack buttons"
+                }
+              },
               "default_padding": {
                 "type": "Select",
                 "config": {
@@ -703,6 +710,13 @@
                   "options": ["Left", "Right"],
                   "default_value": "Left",
                   "label": "Secondary button icon align"
+                }
+              },
+              "stack_buttons": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Stack buttons"
                 }
               },
               "font_size": {

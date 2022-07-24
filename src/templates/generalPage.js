@@ -267,6 +267,7 @@ export const query = graphql`
               secondary_button_icon
               secondary_button_icon_align
               button_alignment
+              stack_buttons
             }
           }
 
@@ -281,6 +282,7 @@ export const query = graphql`
                 richText
               }
               width
+              align
               default_padding
               v_padding_top
               v_padding_bottom
@@ -383,6 +385,7 @@ export const query = graphql`
               secondary_button_style
               secondary_button_icon
               secondary_button_icon_align
+              stack_buttons
               font_size
               align_content
               width
