@@ -32,6 +32,7 @@ const HeroImage = styled.section.attrs({
   padding-top: 0px;
   padding-bottom: 0px;
   z-index: 100;
+  height: min-content;
   
 
   > div {
