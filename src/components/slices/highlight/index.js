@@ -36,7 +36,7 @@ import {
 import styled from 'styled-components'
 // import { Form } from 'react-final-form'
 
-const Highlight = styled.section`
+const Highlight = styled.div`
   display: flex;
   z-index: 10000;
 
@@ -468,7 +468,7 @@ const ImageHighlight = ({ slice }) => {
     >
       <div>
         {(content || primaryButtonLabel || secondaryButtonLabel) && (
-          <article
+          <div
             className={'content txt-' + alignContent}
             style={{
               fontSize: fontSize,
@@ -502,7 +502,7 @@ const ImageHighlight = ({ slice }) => {
                 )}
               </span>
             )}
-          </article>
+          </div>
         )}
 
         <div

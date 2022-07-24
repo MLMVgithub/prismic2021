@@ -28,11 +28,11 @@ const LayoutWrapper = styled.div`
       min-width: 320px;
       position: relative;
 
-      section.section-layout:first-child {
+      .section-layout:first-child {
         margin-top: 60px;
       }
 
-      section.section-layout.heroBanner:first-child {
+      .section-layout.heroBanner:first-child {
         .heroImage {
           margin-top: 0px !important;
         }

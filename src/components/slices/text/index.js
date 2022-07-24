@@ -26,7 +26,7 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const TextBlock = styled.section`
+const TextBlock = styled.div`
   padding: 0 ${({ theme }) => theme.padding['1/2']};
 
   > div {
@@ -204,7 +204,7 @@ const Text = ({ slice }) => {
     >
       <div>
         {content.text && (
-          <article
+          <div
             // className={columnCount}
             className={`${screenReaderOnly === true ? '.sr-only ' : ''}${columnCount}`}
             style={{
@@ -228,7 +228,7 @@ const Text = ({ slice }) => {
                 {content.text}
               </p>
             )}
-          </article>
+          </div>
         )}
 
         {(primaryButtonLabel || secondaryButtonLabel) && (

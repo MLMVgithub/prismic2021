@@ -22,7 +22,7 @@ import IconMaterial from '/src/components/common/icons/material'
 
 import styled from 'styled-components'
 
-const List = styled.section`
+const List = styled.div`
   padding: 0 ${({ theme }) => theme.padding['1/2']};
   ul {
     list-style: none;
