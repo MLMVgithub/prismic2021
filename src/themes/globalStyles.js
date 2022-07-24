@@ -205,6 +205,7 @@ export const GlobalStyles = createGlobalStyle`
   .styledh3 {
     font-size: ${({ theme }) => theme.fontSize['2xl']};
     font-family: ${({ theme }) => theme.font.sans};
+    line-height: 1.6;
     /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
   }
 
@@ -212,6 +213,7 @@ export const GlobalStyles = createGlobalStyle`
   .styledh4 {
     font-size: ${({ theme }) => theme.fontSize.xl};
     font-family: ${({ theme }) => theme.font.sans};
+     line-height: 1.6;
     /* line-height: ${({ theme }) => theme.lineHeight.snug}; */
   }
   
