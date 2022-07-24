@@ -34,30 +34,34 @@ const FooterWrapper = styled.footer`
       border-top: 1px solid ${({ theme }) => theme.colors.footer[900]};
       border-bottom: 1px solid ${({ theme }) => theme.colors.footer[900]};
       /* background-color: ${({ theme }) => theme.colors.footer[1200]}; */
-      display: flex;
-      flex-wrap: wrap;
-      grid-gap: ${({ theme }) => theme.margin['5xl']};
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      list-style: none;
 
       @media print {
         display: none;
       }
-
-      > li {
-        width: auto;
+      ul {
+        width: fit-content;
+        margin: 0 auto;
         display: flex;
-        flex-direction: column;
-        /* color: ${({ theme }) => theme.colors.footer[200]}; */
-        text-align: left;
-        font-weight: 500;
-        /* text-indent: ${({ theme }) => theme.padding['1/4']}; */
-        grid-gap: ${({ theme }) => theme.padding['1/2']};
+        flex-wrap: wrap;
+        grid-gap: ${({ theme }) => theme.margin['5xl']};
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        list-style: none;
 
-        @media (max-width: ${({ theme }) => theme.screens.xs}) {
-          width: 100%;
+        li {
+          width: auto;
+          display: flex;
+          flex-direction: column;
+          /* color: ${({ theme }) => theme.colors.footer[200]}; */
+          text-align: left;
+          font-weight: 500;
+          /* text-indent: ${({ theme }) => theme.padding['1/4']}; */
+          grid-gap: ${({ theme }) => theme.padding['1/2']};
+
+          @media (max-width: ${({ theme }) => theme.screens.xs}) {
+            /* width: 100%; */
+          }
         }
       }
 
@@ -140,38 +144,40 @@ const Footer = ({ currentLang, currentPrefix, footerNav }) => {
       <nav aria-label="Footer navigation">
         <ScrollToTop />
         {footerNav.length > 0 ? (
-          <ul className="footerNavWrapper">
-            {footerNav.map((footer) => {
-              return (
-                <li key={footer.id}>
-                  {footer.primary.label.text}
-                  <ul className="footerNav">
-                    {footer.items.map((navItem, index) => {
-                      return (
-                        <li key={`footer-${index}`}>
-                          {navItem.nav_link.uid !== null ? (
-                            <Link to={linkResolver(navItem.nav_link)}>
-                              {navItem.link_label.text}
-                            </Link>
-                          ) : (
-                            <a
-                              href={
-                                navItem.nav_link.raw.url !== undefined
-                                  ? navItem.nav_link.raw.url
-                                  : ''
-                              }
-                            >
-                              {navItem.link_label.text}
-                            </a>
-                          )}
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </li>
-              )
-            })}
-          </ul>
+          <div className="footerNavWrapper">
+            <ul className="">
+              {footerNav.map((footer) => {
+                return (
+                  <li key={footer.id}>
+                    {footer.primary.label.text}
+                    <ul className="footerNav">
+                      {footer.items.map((navItem, index) => {
+                        return (
+                          <li key={`footer-${index}`}>
+                            {navItem.nav_link.uid !== null ? (
+                              <Link to={linkResolver(navItem.nav_link)}>
+                                {navItem.link_label.text}
+                              </Link>
+                            ) : (
+                              <a
+                                href={
+                                  navItem.nav_link.raw.url !== undefined
+                                    ? navItem.nav_link.raw.url
+                                    : ''
+                                }
+                              >
+                                {navItem.link_label.text}
+                              </a>
+                            )}
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         ) : (
           ''
         )}
