@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 
 //Helpers
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { getImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
 import linkResolver from '../../../utils/linkResolver'
@@ -211,7 +210,7 @@ const HeroImage = styled.section.attrs({
 
 const HeroImg = ({ slice }) => {
   // Get leading image
-  const leadImage = getImage(slice.primary.leading_image.gatsbyImageData)
+  const leadImage = slice.primary.leading_image.gatsbyImageData
   const leadImage_alt = slice.primary.leading_image.alt
   var leadImageHeight = slice.primary.leading_image_height
 
@@ -222,7 +221,7 @@ const HeroImg = ({ slice }) => {
   }
 
   // Get the image
-  const image = getImage(slice.primary.image.gatsbyImageData)
+  const image = slice.primary.image.gatsbyImageData
   const bgImage = convertToBgImage(image)
 
   // Container width
