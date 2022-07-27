@@ -26,6 +26,15 @@ module.exports = {
     `gatsby-plugin-sass`,
 
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        typekit: {
+          id: 'cqf4nhp',
+        },
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {

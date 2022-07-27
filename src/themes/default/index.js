@@ -313,6 +313,7 @@ export const defaultTheme = {
   },
 
   font: {
+    h1h2: 'proxima-nova',
     // sans: 'Roboto, sans-serif',
     sans: '"Open Sans", sans-serif',
     serif: 'Merriweather, serif',

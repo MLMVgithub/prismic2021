@@ -188,17 +188,17 @@ export const GlobalStyles = createGlobalStyle`
   h1,
   .styledh1 {
     font-size: ${({ theme }) => theme.fontSize['5xl']};
-    font-family: ${({ theme }) => theme.font.slab};
+    font-family: ${({ theme }) => theme.font.h1h2};
     /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
   h2,
   .styledh2 {
     font-size: ${({ theme }) => theme.fontSize['4xl']};
-    font-family: ${({ theme }) => theme.font.slab};
+    font-family: ${({ theme }) => theme.font.h1h2};
     /* line-height: ${({ theme }) => theme.lineHeight.tight}; */
-    font-weight: ${({ theme }) => theme.fontWeight.normal};
+    font-weight: ${({ theme }) => theme.fontWeight.semibold};
   }
 
   h3,
