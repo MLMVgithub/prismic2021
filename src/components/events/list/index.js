@@ -297,7 +297,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
                 )}
 
                 {pageIntro.show_grid_layout === true && (
-                  <div>
+                  <>
                     <BtnListStyle
                       ariaPressed={`${layoutStyle}` === 'list' ? 'true' : 'false'}
                       itemID="list"
@@ -313,7 +313,7 @@ const EventsList = ({ currentLang, pageIntro, dataList }) => {
                       buttonIcon={'grid_view'}
                       updateLayoutStlye={updateLayoutStlye}
                     />
-                  </div>
+                  </>
                 )}
               </div>
             )}
