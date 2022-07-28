@@ -28,6 +28,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
+        // To include macrons ensure 'All characters' are selected in the Typekit project props
         typekit: {
           id: 'cqf4nhp',
         },
