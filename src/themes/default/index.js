@@ -317,7 +317,7 @@ export const defaultTheme = {
     // sans: 'Roboto, sans-serif',
     sans: '"Open Sans", sans-serif',
     serif: 'Merriweather, serif',
-    slab: 'Rokkitt',
+    // slab: 'Rokkitt',
     mono: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
 
