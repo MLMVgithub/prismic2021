@@ -1,7 +1,7 @@
 import React from 'react'
 // Helpers
 import { RichText } from 'prismic-reactjs'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { validateString, getContentWidth, getPostionAlign, getStyle } from '/src/utils/helpers'
 
 // Buttons

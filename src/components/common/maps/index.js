@@ -1,6 +1,6 @@
 import * as React from 'react'
 import GoogleMapReact from 'google-map-react'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { RichText } from 'prismic-reactjs'
 
 // Icons

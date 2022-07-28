@@ -4,7 +4,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { RichText } from 'prismic-reactjs'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { getImgFormat } from '/src/utils/helpers'
 import { validateString } from '/src/utils/helpers'
 

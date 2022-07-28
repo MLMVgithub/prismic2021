@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
 import i18n from '../../../../config/i18n'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'

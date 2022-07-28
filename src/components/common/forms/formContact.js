@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 // Helpers
 import { Form, Field } from 'react-final-form'
 import { isRequired, isValidEmail } from './validators'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { RichText } from 'prismic-reactjs'
 import {
   getContentWidth,

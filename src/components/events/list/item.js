@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import moment from 'moment'
 import i18n from '/config/i18n'
 import { RichText } from 'prismic-reactjs'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { validateString } from '/src/utils/helpers'
 import { resizeAllGridItems } from '/src/utils/helpers'
 

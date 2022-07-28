@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { gsap, Power3 } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import { RichText } from 'prismic-reactjs'
 
 // Laout

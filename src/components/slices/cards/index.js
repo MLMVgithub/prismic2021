@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 //Helpers
 import { RichText } from 'prismic-reactjs'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import CardItem from './item.js'
 import Masonry from 'react-masonry-css'
 import { useKeenSlider } from 'keen-slider/react'

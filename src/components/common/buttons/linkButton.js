@@ -2,7 +2,7 @@ import React from 'react'
 
 // Helpers
 import { Link } from 'gatsby'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 
 // Icons
 import IconMaterial from '/src/components/common/icons/material'

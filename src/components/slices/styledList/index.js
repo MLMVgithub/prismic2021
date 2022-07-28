@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 // Helpers
 import { RichText } from 'prismic-reactjs'
-import linkResolver from '../../../utils/linkResolver'
+import linkResolver from '/src/utils/linkResolver'
 import {
   getContentWidth,
   getFontSize,
