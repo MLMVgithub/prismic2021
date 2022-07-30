@@ -889,6 +889,7 @@ const Sort = ({
     function updateSortOrder(focusedItem) {
       sortItemClick(focusedItem)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -915,8 +916,8 @@ const Sort = ({
 
         <ul
           id="list_box"
+          tabIndex="-1"
           role="listbox"
-          tabindex="0"
           aria-labelledby="list_elem"
           className="sortBox hidden"
         >
@@ -924,7 +925,6 @@ const Sort = ({
             <li
               id={'list-item'[i]}
               role="option"
-              tabindex="0"
               aria-selected="false"
               data-nodepath={items[i].nodePath}
               key={'list-item'[i]}
