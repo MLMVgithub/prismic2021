@@ -189,7 +189,7 @@ const FormWraper = styled.div`
       }
 
       .error {
-        color: ${({ theme }) => theme.colors.alert.tomato};
+        color: ${({ theme }) => theme.colors.alert.tomato.default};
       }
     }
 
