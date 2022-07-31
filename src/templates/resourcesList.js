@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '/src/components/layout'
 import SeoZone from '/src/components/slices/seoZone'
 import SliceZone from '/src/components/slices/sliceZone'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import ResourcesList from '/src/components/resources/list/'
-import { linkResolver } from '../utils/linkResolver'
+import { linkResolver } from '/src/utils/linkResolver'
 
 const ResourcesPageList = ({ data }) => {
   if (!data) return null

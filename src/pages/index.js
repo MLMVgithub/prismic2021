@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '/src/components/layout'
 import SeoZone from '/src/components/slices/seoZone'
 import SliceZone from '/src/components/slices/sliceZone'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
-import { linkResolver } from '../utils/linkResolver'
+import { linkResolver } from '/src/utils/linkResolver'
 
 const HomeTemplate = ({ data, location }) => {
   //Validate data for Gastby Build Gatsby Build breaks here for Delete / createPages  - see  https://github.com/birkir/gatsby-source-prismic-graphql/issues/174

@@ -7,20 +7,20 @@ import {
   withPrismicUnpublishedPreview,
   componentResolverFromMap,
 } from 'gatsby-plugin-prismic-previews'
-import { linkResolver } from '../utils/linkResolver'
+import { linkResolver } from '/src/utils/linkResolver'
 
 // Preview templates
 import HomeTemplate from './index'
-import GeneralPageTemplate from '../templates/generalPage'
+import GeneralPageTemplate from '/src/templates/generalPage'
 
-import SupportersList from '../templates/supportersList'
-import SupportersPage from '../templates/supportersPage'
+import SupportersList from '/src/templates/supportersList'
+import SupportersPage from '/src/templates/supportersPage'
 
-import EventsList from '../templates/eventsList'
-import EventsPage from '../templates/eventsPage'
+import EventsList from './src/templates/eventsList'
+import EventsPage from '/src/templates/eventsPage'
 
-import ResourcesList from '../templates/resourcesList'
-import ResourcesPage from '../templates/resourcesPage'
+import ResourcesList from '/src/templates/resourcesList'
+import ResourcesPage from '/src/templates/resourcesPage'
 
 // Components
 import Layout from '/src/components/layout'

@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import EventItem from '../components/events/item'
+import Layout from '/src/components/layout'
+import EventItem from '/src/components/events/item'
 import SeoZone from '/src/components/slices/seoZone'
 import SecondaryNav from '../components/common/secondaryNav'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { validateString } from '/src/utils/helpers'
-import { linkResolver } from '../utils/linkResolver'
+import { linkResolver } from '/src/utils/linkResolver'
 
 const EventsPage = ({ data, pageContext }) => {
   if (!data) return null

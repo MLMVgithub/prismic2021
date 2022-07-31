@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import ResourceItem from '../components/resources/item'
+import Layout from '/src/components/layout'
+import ResourceItem from '/src/components/resources/item'
 import SeoZone from '/src/components/slices/seoZone'
-import SecondaryNav from '../components/common/secondaryNav'
+import SecondaryNav from '/src/components/common/secondaryNav'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { validateString } from '/src/utils/helpers'
-import { linkResolver } from '../utils/linkResolver'
+import { linkResolver } from '/src/utils/linkResolver'
 
 const ResourcesPage = ({ data, pageContext }) => {
   if (!data) return null
