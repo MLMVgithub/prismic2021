@@ -16,11 +16,11 @@ import GeneralPageTemplate from '/src/templates/generalPage'
 import SupportersList from '/src/templates/supportersList'
 import SupportersPage from '/src/templates/supportersPage'
 
-import EventsList from './src/templates/eventsList'
+import EventsList from '/src/templates/eventsList'
 import EventsPage from '/src/templates/eventsPage'
 
 import ResourcesList from '/src/templates/resourcesList'
-import ResourcesPage from '/src/templates/resourcesPage'
+import ResourcesPage from '../templates/resourcesPage'
 
 // Components
 import Layout from '/src/components/layout'
@@ -29,12 +29,22 @@ import Button from '/src/components/common/buttons/linkButton'
 
 import styled from 'styled-components'
 
-const BgroundImageWrapper = styled.div`
-  div:after {
-    bottom: 0px;
-    top: ${({ theme }) => theme.header.height};
-    height: auto;
-  }
+// const BgroundImageWrapper = styled.div`
+//   div:after {
+//     bottom: 0px;
+//     top: ${({ theme }) => theme.header.height};
+//     height: auto;
+//   }
+// `
+
+const FillPageColor = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  background-color: ${({ theme }) => theme.colors.header.default};
 `
 
 const NotFound = styled.section`
@@ -52,6 +62,7 @@ const NotFound = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: ${({ theme }) => theme.padding.default} 0;
     grid-gap: ${({ theme }) => theme.padding['1/2']};
     h1,
     p {
@@ -70,21 +81,21 @@ const NotFoundPage = ({ data }) => {
   const currentLang = data.prismicMainNavigation.lang
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
-      <BgroundImageWrapper>
+      <FillPageColor>
         <Bground404 />
-      </BgroundImageWrapper>
-      <NotFound className="section-layout">
-        <span>
-          <h1>Oh purr-leaze!</h1>
-          <p>It appears that Zoe has hidden this page.</p>
-          <Button
-            buttonLabel={'Take me home'}
-            buttonType={'Static'}
-            buttonLink={'/'}
-            buttonStyle={'white'}
-          />
-        </span>
-      </NotFound>
+        <NotFound>
+          <span>
+            <h1>Oh purr-leaze!</h1>
+            <p>It appears that Zoe has hidden this page.</p>
+            <Button
+              buttonLabel={'Take me home'}
+              buttonType={'Static'}
+              buttonLink={'/'}
+              buttonStyle={'white'}
+            />
+          </span>
+        </NotFound>
+      </FillPageColor>
     </Layout>
   )
 }

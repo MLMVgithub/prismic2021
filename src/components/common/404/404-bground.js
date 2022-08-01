@@ -2,7 +2,21 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import { convertToBgImage } from 'gbimage-bridge'
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImageWrapper from 'gatsby-background-image'
+
+import styled from 'styled-components'
+
+const BackgroundImage = styled.div`
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  z-index: -1;
+`
 
 const BackgroundSection = () => {
   const { placeholderImage } = useStaticQuery(
@@ -11,11 +25,11 @@ const BackgroundSection = () => {
         placeholderImage: file(relativePath: { eq: "images/zoe2.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              quality: 33
+              quality: 50
               layout: FULL_WIDTH
               transformOptions: {
                 fit: COVER
-                cropFocus: CENTER
+                cropFocus: ATTENTION
                 #grayscale: true
                 duotone: { highlight: "#ebd956", shadow: "#031223", opacity: 33 }
               }
@@ -32,29 +46,24 @@ const BackgroundSection = () => {
   const bgImage = convertToBgImage(image)
 
   return (
-    <BackgroundImage
-      // Tag="section"
+    <BackgroundImageWrapper
+      Tag="section"
       // Spread bgImage into BackgroundImage:
       {...bgImage}
       preserveStackingContext
       style={{
-        // position: 'absolute',
-        // marginTop: 60,
-        position: 'intial',
+        position: 'absolute',
         overflow: 'hidden',
-        display: 'flex',
-        // flexGrow: 1,
-        // top: 60,
-        // bottom: 0,
-        // height: '100vh',
-        // left: 0,
-        // right: 0,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
       }}
     >
-      <GatsbyImage image={image} />
-    </BackgroundImage>
+      <BackgroundImage>
+        <GatsbyImage image={image} />
+      </BackgroundImage>
+    </BackgroundImageWrapper>
   )
 }
 
