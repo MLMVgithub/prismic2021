@@ -34,9 +34,9 @@ const HeroImage = styled.section.attrs({
   z-index: 100;
   height: min-content;
 
-  /* display: flex;
+  display: flex;
   flex-grow: 1;
-  flex-direction: column; */
+  flex-direction: column;
 
   > div {
     max-width: ${({ theme }) => theme.screens.md};
