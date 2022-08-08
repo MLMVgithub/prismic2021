@@ -43,10 +43,10 @@ const Header = styled.header`
       display: flex;
       align-items: center;
       h1 {
-        font-size: ${({ theme }) => theme.fontSize['4xl']};
+        /* font-size: ${({ theme }) => theme.fontSize['4xl']}; */
         line-height: initial;
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
-          font-size: ${({ theme }) => theme.fontSize['3xl']};
+          /* font-size: ${({ theme }) => theme.fontSize['3xl']}; */
         }
       }
     }

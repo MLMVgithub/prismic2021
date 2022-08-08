@@ -62,10 +62,10 @@ const Header = styled.header`
       }
 
       h1 {
-        font-size: ${({ theme }) => theme.fontSize['4xl']};
+        /* font-size: ${({ theme }) => theme.fontSize['4xl']}; */
         line-height: initial;
         @media (max-width: ${({ theme }) => theme.screens.sm}) {
-          font-size: ${({ theme }) => theme.fontSize['3xl']};
+          /* font-size: ${({ theme }) => theme.fontSize['3xl']}; */
         }
       }
     }
@@ -160,7 +160,7 @@ const Body = styled.article`
         /* align-items: center; */
         align-items: center;
         line-height: initial;
-        grid-gap: ${({ theme }) => theme.margin['1/8']};
+        grid-gap: ${({ theme }) => theme.margin['1/4']};
         i {
           font-size: 32px;
           color: ${({ theme }) => theme.colors.tertiary.default};
