@@ -79,8 +79,8 @@ const BlockQuote = styled.blockquote`
 
   p {
     font-family: ${({ theme }) => theme.font.serif};
-    font-style: italic;
-    font-size: 100%;
+    /* font-style: italic; */
+    font-size: 115%;
   }
 
   span,
