@@ -34,15 +34,18 @@ const List = styled.div`
     li {
       display: flex;
       flex-direction: row;
-      grid-gap: ${({ theme }) => theme.padding.default};
-      align-items: center;
+      /* grid-gap: ${({ theme }) => theme.padding.default}; */
+      grid-gap: 24px;
+      /* align-items: center; */
+      align-items: flex-start;
       font-size: ${({ theme }) => theme.fontSize.lg};
       p {
         margin-bottom: 0;
       }
       span {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
+        align-items: flex-start;
         justify-content: center;
         font-weight: 700;
         aspect-ratio: 1/1;
@@ -131,6 +134,7 @@ const List = styled.div`
   ul.disc {
     li {
       span {
+        margin-top: 9px;
         height: ${({ theme }) => theme.padding['1/2']};
         width: ${({ theme }) => theme.padding['1/2']};
         i {
@@ -142,6 +146,7 @@ const List = styled.div`
   ul.square {
     li {
       span {
+        margin-top: 9px;
         border-radius: ${({ theme }) => theme.borderRadius.sm};
         height: ${({ theme }) => theme.padding['1/2']};
         width: ${({ theme }) => theme.padding['1/2']};
