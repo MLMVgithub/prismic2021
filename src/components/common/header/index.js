@@ -328,7 +328,7 @@ const HeaderWrapper = styled.header`
           a,
           button {
             font-size: 95%;
-            text-align: center;
+            text-align: left;
             line-height: initial;
             height: ${({ theme }) => theme.header.height};
           }
