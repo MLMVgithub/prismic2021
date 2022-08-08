@@ -118,7 +118,8 @@ export const GlobalStyles = createGlobalStyle`
   a:link,
   a:hover,
   a:visited {
-    color: ${({ theme }) => theme.colors.primary[1100]};
+    color: ${({ theme }) => theme.colors.link};
+   
     /* text-decoration: none; */
     text-decoration: underline;
     overflow-wrap: break-word;

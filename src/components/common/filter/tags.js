@@ -20,16 +20,18 @@ const Tags = styled.div.attrs({
       letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
       padding: ${({ theme }) => theme.padding['1/8']} ${({ theme }) => theme.padding['1/4']};
       white-space: nowrap;
+      color: ${({ theme }) => theme.colors.page.default};
       background-color: ${({ theme }) => theme.colors.card[300]};
       border: 1px solid transparent;
-      color: ${({ theme }) => theme.colors.page.default};
+
       white-space: nowrap;
       text-transform: uppercase;
       border-radius: ${({ theme }) => theme.borderRadius.default};
     }
     li.isActive {
-      color: ${({ theme }) => theme.colors.page.default};
-      background-color: ${({ theme }) => theme.colors.tertiary[700]};
+      /* color: ${({ theme }) => theme.colors.page.default}; */
+      color: #000000;
+      background-color: ${({ theme }) => theme.colors.tertiary[500]};
       border: 1px solid transparent;
     }
   }

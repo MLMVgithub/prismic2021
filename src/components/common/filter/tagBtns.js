@@ -121,8 +121,13 @@ const ListTagBtnsWrapper = styled.div`
   }
 
   .tagButton[aria-checked='true'] {
-    color: ${({ theme }) => theme.colors.page.default};
-    background-color: ${({ theme }) => theme.colors.tertiary[600]};
+    /* color: ${({ theme }) => theme.colors.page.default};
+    background-color: ${({ theme }) => theme.colors.tertiary[600]}; */
+
+    /* color: #99f443; */
+    color: #000000;
+    background-color: ${({ theme }) => theme.colors.tertiary[500]};
+
     border: 1px solid transparent;
     box-shadow: none;
   }

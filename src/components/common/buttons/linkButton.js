@@ -74,6 +74,7 @@ const BtnWrapper = styled.span`
     }
   }
   .btn.secondary {
+    color: #000000;
     background-color: ${({ theme }) => theme.colors.secondary.default};
     border: 1px solid ${({ theme }) => theme.colors.secondary[1200]};
     i {
@@ -81,8 +82,9 @@ const BtnWrapper = styled.span`
     }
   }
   .btn.tertiary {
-    color: ${({ theme }) => theme.colors.grey.default};
-    background-color: ${({ theme }) => theme.colors.tertiary.default};
+    /* color: ${({ theme }) => theme.colors.grey.default}; */
+    color: #000000;
+    background-color: ${({ theme }) => theme.colors.tertiary[800]};
     border: 1px solid ${({ theme }) => theme.colors.tertiary[1100]};
     i {
       color: inherit;

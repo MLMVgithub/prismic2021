@@ -28,7 +28,7 @@ const Header = styled.header`
     grid-gap: ${({ theme }) => theme.padding['1/2']};
   }
   margin: ${({ theme }) => theme.padding['4xl']} auto ${({ theme }) => theme.padding.default} auto;
-  border-bottom: 4px solid ${({ theme }) => theme.colors.secondary[300]};
+  border-bottom: 4px solid ${({ theme }) => theme.colors.tertiary[300]};
 
   .intro {
     width: 60%;
@@ -94,7 +94,8 @@ const Header = styled.header`
           grid-gap: ${({ theme }) => theme.margin['1/4']};
 
           i {
-            color: ${({ theme }) => theme.colors.secondary.default};
+            /* font-size: 32px; */
+            color: ${({ theme }) => theme.colors.tertiary.default};
           }
         }
       }
@@ -153,11 +154,12 @@ const Body = styled.article`
         font-weight: 500;
         display: inline-flex;
         /* align-items: center; */
-        align-items: flex-start;
+        align-items: center;
         line-height: initial;
-        grid-gap: ${({ theme }) => theme.margin['1/4']};
+        grid-gap: ${({ theme }) => theme.margin['1/8']};
         i {
-          color: ${({ theme }) => theme.colors.secondary.default};
+          /* font-size: 32px; */
+          color: ${({ theme }) => theme.colors.tertiary.default};
         }
       }
     }

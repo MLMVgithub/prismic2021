@@ -112,7 +112,7 @@ const ItemContent = styled.article`
 
       i {
         margin-top: ${({ theme }) => theme.margin['1/16']};
-        color: ${({ theme }) => theme.colors.secondary.default};
+        color: ${({ theme }) => theme.colors.tertiary.default};
       }
       .srike {
         text-decoration: line-through;
@@ -128,14 +128,14 @@ const ItemContent = styled.article`
     }
 
     a {
-      color: ${({ theme }) => theme.colors.primary[1100]};
+      color: ${({ theme }) => theme.colors.link};
       border-bottom: 1px solid transparent;
     }
 
     a:hover {
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.primary.default};
-      border-bottom: 1px solid ${({ theme }) => theme.colors.primary.default};
+      /* : ${({ theme }) => theme.colors.primary.link}; */
+      border-bottom: 1px solid ${({ theme }) => theme.colors.link};
     }
   }
 
@@ -367,7 +367,7 @@ const ItemContent = styled.article`
         text-decoration: none;
         overflow-wrap: anywhere;
         i {
-          color: ${({ theme }) => theme.colors.secondary.default};
+          color: ${({ theme }) => theme.colors.tertiary.default};
         }
         .srike {
           text-decoration: line-through;
@@ -383,14 +383,14 @@ const ItemContent = styled.article`
       }
 
       a {
-        color: ${({ theme }) => theme.colors.primary[1100]};
+        color: ${({ theme }) => theme.colors.link};
         border-bottom: 1px solid transparent;
       }
 
       a:hover {
         text-decoration: none;
-        color: ${({ theme }) => theme.colors.primary.default};
-        border-bottom: 1px solid ${({ theme }) => theme.colors.primary.default};
+        /* color: ${({ theme }) => theme.colors.primary.link}; */
+        border-bottom: 1px solid ${({ theme }) => theme.colors.link};
       }
     }
   }
