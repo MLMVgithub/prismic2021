@@ -68,8 +68,8 @@ const List = styled.div`
     li {
       span {
         color: ${({ theme }) => theme.colors.grey.default};
-        background-color: ${({ theme }) => theme.colors.primary[300]};
-        border: 1px solid ${({ theme }) => theme.colors.primary[400]};
+        background-color: ${({ theme }) => theme.colors.primary[1100]};
+        border: 1px solid ${({ theme }) => theme.colors.primary.default};
         i {
           color: ${({ theme }) => theme.colors.primary.default};
         }
@@ -81,8 +81,8 @@ const List = styled.div`
     li {
       span {
         color: ${({ theme }) => theme.colors.grey.default};
-        border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
-        background-color: ${({ theme }) => theme.colors.secondary[300]};
+        border: 1px solid ${({ theme }) => theme.colors.secondary[1100]};
+        background-color: ${({ theme }) => theme.colors.secondary.default};
         i {
           color: ${({ theme }) => theme.colors.secondary.default};
         }
@@ -92,9 +92,9 @@ const List = styled.div`
   ul.tertiary {
     li {
       span {
-        color: #fff;
-        border: 1px solid ${({ theme }) => theme.colors.tertiary[400]};
-        background-color: ${({ theme }) => theme.colors.tertiary[500]};
+        /* color: #fff; */
+        border: 1px solid ${({ theme }) => theme.colors.tertiary[1100]};
+        background-color: ${({ theme }) => theme.colors.tertiary.default};
         i {
           color: ${({ theme }) => theme.colors.tertiary.default};
         }
