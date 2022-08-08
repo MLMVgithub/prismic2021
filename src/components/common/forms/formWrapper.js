@@ -89,7 +89,7 @@ const FormWraper = styled.div`
     padding: ${({ theme }) => theme.padding['1/2']};
     padding-right: ${({ theme }) => theme.padding['1xl']};
     background-color: #ffffff;
-    border: 1px solid ${({ theme }) => theme.colors.grey[200]};
+    border: 1px solid ${({ theme }) => theme.colors.grey[300]};
     border-radius: ${({ theme }) => theme.borderRadius.sm};
     appearance: none;
     background-image: none;
@@ -320,8 +320,9 @@ const FormWraper = styled.div`
       appearance: none;
       --active: ${({ theme }) => theme.colors.primary['700']};
       --active-inner: #000000;
-      --border: ${({ theme }) => theme.colors.grey[200]};
-      --background: ${({ theme }) => theme.colors.card[100]};
+      --border: ${({ theme }) => theme.colors.grey[300]};
+      /* --background: ${({ theme }) => theme.colors.card[100]}; */
+      --background: #ffffff;
       --disabled: ${({ theme }) => theme.colors.grey[100]};
       --disabled-inner: ${({ theme }) => theme.colors.grey[100]};
 

@@ -99,13 +99,17 @@ const Body = styled.article`
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
   }
-  grid-gap: ${({ theme }) => theme.padding.default};
+  grid-gap: ${({ theme }) => theme.padding['1/2']};
   & .content {
     width: 60%;
     padding-right: ${({ theme }) => theme.padding.default};
+    border-right: 1px solid ${({ theme }) => theme.colors.tertiary[300]};
     @media (max-width: ${({ theme }) => theme.screens.md}) {
-      padding-right: 0;
+      padding-right: ${({ theme }) => theme.padding['1/2']};
       width: 100%;
+    }
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      border-right: none;
     }
     /* font-size: 110%; */
   }
@@ -140,7 +144,7 @@ const Body = styled.article`
         line-height: initial;
         grid-gap: ${({ theme }) => theme.margin['1/4']};
         i {
-          /* font-size: 32px; */
+          font-size: 32px;
           color: ${({ theme }) => theme.colors.tertiary.default};
         }
       }

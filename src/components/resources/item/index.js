@@ -25,7 +25,7 @@ const Header = styled.div`
     grid-gap: ${({ theme }) => theme.padding['1/2']};
   }
   margin: ${({ theme }) => theme.padding['4xl']} auto ${({ theme }) => theme.padding.default} auto;
-  border-bottom: 4px solid ${({ theme }) => theme.colors.page[300]};
+  border-bottom: 4px solid ${({ theme }) => theme.colors.tertiary[300]};
 
   .intro {
     width: 60%;
@@ -81,13 +81,17 @@ const Body = styled.div`
   @media (max-width: ${({ theme }) => theme.screens.sm}) {
     flex-direction: column;
   }
-  grid-gap: ${({ theme }) => theme.padding.default};
+  grid-gap: ${({ theme }) => theme.padding['1/2']};
   & .content {
     width: 66%;
     padding-right: ${({ theme }) => theme.padding.default};
+    border-right: 1px solid ${({ theme }) => theme.colors.tertiary[300]};
     @media (max-width: ${({ theme }) => theme.screens.md}) {
-      padding-right: 0;
+      padding-right: ${({ theme }) => theme.padding['1/2']};
       width: 100%;
+    }
+    @media (max-width: ${({ theme }) => theme.screens.sm}) {
+      border-right: none;
     }
     font-size: 110%;
   }
