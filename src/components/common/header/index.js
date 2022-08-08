@@ -182,7 +182,7 @@ const HeaderWrapper = styled.header`
           align-items: center;
           /* cursor: pointer; */
           z-index: 10000;
-          font- i {
+          i {
             pointer-events: none;
             color: ${({ theme }) => theme.colors.primary[400]};
             margin-left: ${({ theme }) => theme.padding['1/4']};

@@ -155,6 +155,7 @@ export const GlobalStyles = createGlobalStyle`
   header,
   .secondaryNav, 
   footer {
+    
     *:focus,
     *:focus-visible {
       outline: 2px solid ${({ theme }) => theme.colors.focusVisibleOnDark} !important; 
@@ -369,6 +370,7 @@ export const GlobalStyles = createGlobalStyle`
 
 
   button {
+    font-family: inherit;
     font-size: ${({ theme }) => theme.fontSize.base};
     color: ${({ theme }) => theme.colors.page.default};
     background-color: transparent;  
