@@ -227,7 +227,8 @@ const FormWraper = styled.div`
       align-items: flex-start;
       flex-direction: row;
       flex-wrap: wrap;
-      grid-row-gap: ${({ theme }) => theme.padding['1/2']};
+      /* grid-row-gap: ${({ theme }) => theme.padding['1/2']}; */
+      grid-row-gap: 24px;
       grid-column-gap: ${({ theme }) => theme.padding.default};
       legend {
         margin-bottom: ${({ theme }) => theme.margin['1/8']};
