@@ -19,12 +19,23 @@ const HTMLHeader = ({ currentLang }) => (
             name="google-site-verification"
             content="OeOzruvqni3pGyA2GZn_UZLmsY8AP8itjoCLA3ncwsY"
           />
-          {/* Google fonts (multi axes - font loader self hosting does not handle multi axes) */}
-          <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+          {/* Add Google fonts - Pre connect warm-up */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          {/* Material Symbols Sharp (multi axes - font loader self hosting does not handle multi axes) */}
           <link
-            rel="stylesheet"
-            as="font"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+            rel="stylesheet"
+          />
+          {/* Open Sans */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+          />
+          {/* Merriweather */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap"
+            rel="stylesheet"
           />
 
           <link rel="stylesheet" as="font" href="https://use.typekit.net/cqf4nhp.css" />
