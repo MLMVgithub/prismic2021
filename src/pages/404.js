@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import HTMLHeader from '/src/components/common/htmlheader/'
 
 // Helpers
 // import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
@@ -81,6 +82,7 @@ const NotFoundPage = ({ data }) => {
   const currentLang = data.prismicMainNavigation.lang
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
+      <HTMLHeader currentLang={currentLang} />
       <FillPageColor>
         <Bground404 />
         <NotFound>

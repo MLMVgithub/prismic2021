@@ -164,9 +164,11 @@ const HeroImage = styled.section.attrs({
           > div {
             max-width: 100% !important;
             /* max-width:auto !important */
+            display: contents !important;
           }
           img {
             object-fit: contain !important;
+            width: auto;
           }
         }
 

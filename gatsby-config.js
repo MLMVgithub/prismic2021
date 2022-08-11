@@ -29,9 +29,10 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         // To include macrons ensure 'All characters' are selected in the Typekit project props
-        typekit: {
-          id: 'cqf4nhp',
-        },
+        // typekit: {
+        // mlmv-proxima-nova
+        //   id: 'cqf4nhp',
+        // },
       },
     },
 
@@ -40,37 +41,23 @@ module.exports = {
       options: {
         fonts: {
           google2: [
+            // href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+            // font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+
             // {
-            //   family: `Material+Icons`,
-            //   text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
+            //   family: 'Material+Symbols+Sharp',
+            //   axes: 'opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+            //   // axes: 'opsz@20..48,wght@100..700,FILL@0..1,GRAD@-50..200',
+            //   // axes: 'opsz@20..48',
+            //   // axes: 'wght@100..700',
+            //   // axes: 'FILL@0..1',
+            //   // axes: 'GRAD@-50..200',
+
+            //   // text: 'abcdefghijklmnopqrstuvwxyz_0123456789',
             //   // fontDisplay: 'swap',
             //   strategy: 'base64',
             //   // strategy: 'cdn',
             // },
-
-            // {
-            //   family: `Material+Icons+Outlined`,
-            //   text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
-            //   // fontDisplay: 'swap',
-            //   strategy: 'base64',
-            //   // strategy: 'cdn',
-            // },
-
-            // {
-            //   family: `Material+Icons+Round`,
-            //   text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
-            //   // fontDisplay: 'swap',
-            //   strategy: 'base64',
-            //   // strategy: 'cdn',
-            // },
-
-            {
-              family: `Material+Icons+Sharp`,
-              text: `abcdefghijklmnopqrstuvwxyz_0123456789`,
-              // fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
 
             // {
             //   family: 'Roboto',
@@ -90,14 +77,6 @@ module.exports = {
             },
 
             {
-              family: 'Rokkitt',
-              axes: 'wght@400;500',
-              // fontDisplay: 'swap',
-              strategy: 'base64',
-              // strategy: 'cdn',
-            },
-
-            {
               family: 'Merriweather',
               axes: 'wght@400',
               // fontDisplay: 'swap',
@@ -106,7 +85,7 @@ module.exports = {
             },
           ],
         },
-        useMinify: true,
+        // useMinify: true,
         // usePreload: true,
         // usePreconnect: true,
       },

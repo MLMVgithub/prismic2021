@@ -41,6 +41,8 @@ export const GlobalStyles = createGlobalStyle`
      letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
   }  
 
+
+
   @media print {  
     * { 
       overflow: visible;

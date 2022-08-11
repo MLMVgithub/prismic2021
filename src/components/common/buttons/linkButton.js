@@ -51,6 +51,8 @@ const BtnWrapper = styled.span`
     i {
       line-height: 0;
       color: inherit;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+      transition: font-variation-settings 0.08s ease;
     }
 
     @media print {
@@ -63,6 +65,10 @@ const BtnWrapper = styled.span`
   }
   .btn:hover {
     box-shadow: ${({ theme }) => theme.boxShadow.lg};
+
+    i {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 48;
+    }
   }
   .btn.primary {
     /* color: ${({ theme }) => theme.colors.grey.default}; */

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '/src/components/layout'
+import HTMLHeader from '/src/components/common/htmlheader/'
 import SupportersItem from '/src/components/supporters/item/'
 import SeoZone from '/src/components/slices/seoZone'
 import SecondaryNav from '/src/components/common/secondaryNav'
@@ -37,7 +38,8 @@ const SupportersPage = ({ data, pageContext }) => {
 
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
-      <SeoZone currentLang={currentLang} seoZone={document.data.body} />
+      <HTMLHeader currentLang={currentLang} />
+      <SeoZone seoZone={document.data.body} />
       <SecondaryNav
         currentLang={currentLang}
         next={next}

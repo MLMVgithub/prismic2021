@@ -1,10 +1,9 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import SEOGeneral from './seo/general.js'
 import SEOOpenGraph from './seo/openGraph.js'
 import SEOTwitter from './seo/twitter.js'
 
-const SeoZone = ({ currentLang, seoZone }) => {
+const SeoZone = ({ seoZone }) => {
   const sliceComponents = {
     general_seo_card: SEOGeneral,
     open_graph: SEOOpenGraph,
@@ -20,14 +19,7 @@ const SeoZone = ({ currentLang, seoZone }) => {
       return null
     })
 
-    return (
-      <>
-        <Helmet>
-          <html lang={currentLang} />
-        </Helmet>
-        {sliceZoneContent}
-      </>
-    )
+    return <>{sliceZoneContent}</>
   }
 }
 
