@@ -18,6 +18,7 @@ const LayoutWrapper = styled.div`
     flex-grow: 1;
     overflow-x: hidden;
     display: flex;
+    /* margin-top: 60px; */
 
     main {
       display: flex;
@@ -39,7 +40,7 @@ const LayoutWrapper = styled.div`
       }
     }
 
-    main:before {
+    /* main:before {
       content: '';
       position: absolute;
       top: 0px;
@@ -47,8 +48,7 @@ const LayoutWrapper = styled.div`
       left: 0px;
       height: 60px;
       z-index: -1;
-      /* background-color: ${({ theme }) => theme.colors.header.default}; */
-    }
+    } */
   }
 `
 const Layout = ({ children, currentLang, primaryNav, footerNav }) => {
