@@ -6,7 +6,6 @@ import i18n from '/config/i18n'
 import { RichText } from 'prismic-reactjs'
 import linkResolver from '../../../utils/linkResolver'
 import { validateString } from '/src/utils/helpers'
-import { H1, P } from '/src/themes/typography'
 import moment from 'moment'
 
 // Layout
@@ -140,7 +139,7 @@ const EventItem = ({ currentLang, itemData }) => {
       <div>
         <Header>
           <div className="intro">
-            <span>{title && <H1>{title}</H1>}</span>
+            <span>{title && <h1>{title}</h1>}</span>
 
             {eventType === 'Event' && (
               <span className="ifEvent">
@@ -154,26 +153,26 @@ const EventItem = ({ currentLang, itemData }) => {
                   </time>
                 )}
                 {time && (
-                  <P>
+                  <p>
                     <i className="material-icons-round" aria-hidden="true">
                       schedule
                     </i>
                     <span className="sr-only">Time</span>
                     {time}
-                  </P>
+                  </p>
                 )}
                 {location && (
-                  <P>
+                  <p>
                     <i className="material-icons-round" aria-hidden="true">
                       place
                     </i>
                     <span className="sr-only">Location</span>
                     {location}
-                  </P>
+                  </p>
                 )}
               </span>
             )}
-            {eventType === 'News item' && date && <P className="newsDate">{date}</P>}
+            {eventType === 'News item' && date && <p className="newsDate">{date}</p>}
           </div>
         </Header>
 
@@ -184,9 +183,9 @@ const EventItem = ({ currentLang, itemData }) => {
 
           {eventType === 'Event' && (
             <div className="contact">
-              <P className="title">
+              <p className="title">
                 <strong>{i18n[currentLang].attendingEvent}</strong>
-              </P>
+              </p>
               <EventForm formData={itemData.data} />
             </div>
           )}
