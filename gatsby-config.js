@@ -85,7 +85,7 @@ module.exports = {
       options: {
         id: 'GTM-PPCSMJV',
         includeInDevelopment: false,
-        enableWebVitalsTracking: true,
+        // enableWebVitalsTracking: true,
       },
     },
 
