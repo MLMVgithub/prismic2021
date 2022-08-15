@@ -39,7 +39,7 @@ const ResourcesPage = ({ data, pageContext }) => {
   return (
     <Layout currentLang={currentLang} primaryNav={primaryNav} footerNav={footerNav}>
       <HTMLHeader currentLang={currentLang} />
-      <SeoZone currentLang={currentLang} seoZone={document.data.body} />
+      <SeoZone seoZone={document.data.body} />
       <SecondaryNav
         currentLang={currentLang}
         next={next}
