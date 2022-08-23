@@ -400,7 +400,10 @@ const HeroImg = ({ slice }) => {
                 )}
 
                 {title && title[0].text.length > 0 && (
-                  <span className={slice.primary.display_title === true && 'sr-only'}>
+                  <span
+                    className={slice.primary.display_title === false ? 'sr-only' : undefined}
+                    style={{ color: titleColor !== null && titleColor }}
+                  >
                     <RichText render={title} />
                   </span>
                 )}

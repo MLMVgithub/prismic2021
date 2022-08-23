@@ -116,14 +116,15 @@ module.exports = {
       options: {
         host: 'https://www.mylifemyvoice.org.nz',
         sitemap: 'https://www.mylifemyvoice.org.nz/sitemap/sitemap-index.xml',
-        env: {
-          development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-          },
-          production: {
-            policy: [{ userAgent: '*', allow: '/' }],
-          },
-        },
+        policy: [{ userAgent: '*', allow: '/' }],
+        // env: {
+        //   development: {
+        //     policy: [{ userAgent: '*', disallow: ['/'] }],
+        //   },
+        //   production: {
+        //     policy: [{ userAgent: '*', allow: '/' }],
+        //   },
+        // },
       },
     },
 
