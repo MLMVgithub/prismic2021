@@ -163,6 +163,7 @@ export const query = graphql`
                 text
                 richText
               }
+              title_color
               display_title
               description {
                 richText

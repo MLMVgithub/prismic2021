@@ -32,8 +32,9 @@ const HeroImage = styled.section.attrs({
   padding-top: 0px;
   padding-bottom: 0px;
   z-index: 100;
-  height: auto;
+
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
 
   > div {
@@ -149,6 +150,9 @@ const HeroImage = styled.section.attrs({
         margin: 0;
       }
 
+      span.hide {
+        display: none;
+      }
       span {
         display: grid;
         grid-gap: ${({ theme }) => theme.padding['1/2']};
@@ -162,11 +166,9 @@ const HeroImage = styled.section.attrs({
           > div {
             max-width: 100% !important;
             /* max-width:auto !important */
-            display: contents !important;
           }
           img {
             object-fit: contain !important;
-            width: auto;
           }
         }
 
@@ -349,6 +351,7 @@ const HeroImg = ({ slice }) => {
 
   // Validate title
   const title = validateString(slice.primary.title.richText)
+  const titleColor = validateString(slice.primary.title_color)
 
   // Validate description
   const description = validateString(slice.primary.description.richText)

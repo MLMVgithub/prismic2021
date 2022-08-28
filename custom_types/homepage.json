@@ -1025,6 +1025,12 @@
                   "placeholder": "Title"
                 }
               },
+              "title_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Title colour"
+                }
+              },
               "display_title": {
                 "type": "Boolean",
                 "config": {

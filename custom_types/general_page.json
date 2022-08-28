@@ -11,7 +11,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {},
+        "labels": null,
         "choices": {
           "text": {
             "type": "Slice",
@@ -1138,6 +1138,7 @@
             "fieldset": "Hero Image",
             "description": "Create a hero image with formating options",
             "icon": "filter_hdr",
+            "display": "list",
             "non-repeat": {
               "leading_image": {
                 "type": "Image",
@@ -1160,6 +1161,12 @@
                   "single": "heading1,heading2,heading3,heading4,heading5,heading6",
                   "label": "Title",
                   "placeholder": "Title"
+                }
+              },
+              "title_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Title colour"
                 }
               },
               "display_title": {
