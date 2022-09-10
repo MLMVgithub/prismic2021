@@ -942,7 +942,7 @@ const Header = ({ currentLang, currentPrefix, currentPath, primaryNav }) => {
             //console.log(navItem.link)
             return (
               <li key={`main-nav-${index}`}>
-                {navItem.primary.link.uid ? (
+                {navItem.primary.link.uid || navItem.primary.link.raw.url ? (
                   navItem.primary.link.uid !== null ? (
                     <Link
                       to={linkResolver(navItem.primary.link)}
